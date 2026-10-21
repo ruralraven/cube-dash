@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.1 — Menu order by difficulty
+- The world list now runs strictly Easy → Normal → Hard → Harder → Insane → Demon. Storm Peaks and Glitch Zone moved up into the Harder group, Rainbow Sky now opens the Insane group, and the Shadow King stays last as the finale. Only the display order changed: saves are untouched.
+
 ## v7.0 — Wild West + Spooky Swamp (35 worlds)
 - **Wild West** (Hard) has mesas, saloons, windmills, cacti, tumbleweeds and blowing dust, set to *Tumbleweed Twang* (122 BPM swung tribal breaks).
 - **Spooky Swamp** (Harder) has gnarled trees dripping moss, rolling fog, cattails and fireflies that pulse with the beat, set to *Bayou Boogie* (140 BPM organ trap).
