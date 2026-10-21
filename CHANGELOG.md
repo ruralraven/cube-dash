@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v6.5 — Now-playing line
+- The menu shows the name and BPM of the song preview that's playing (the selected world's song), pulsing gently with the beat. It's hidden while the game is muted.
+
 ## v6.4 — Gamepad support
 - You can now play with a controller: **A** to jump or hold, **Start** to play or confirm, **D-pad** left/right to pick a world, **B** to go back. Controllers use the same input path as the keyboard, so everything works the same way.
 
