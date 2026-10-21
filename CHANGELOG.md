@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v6.4 — Gamepad support
+- You can now play with a controller: **A** to jump or hold, **Start** to play or confirm, **D-pad** left/right to pick a world, **B** to go back. Controllers use the same input path as the keyboard, so everything works the same way.
+
 ## v6.3 — Moon Base + Haunted Carnival (29 worlds)
 - **Moon Base** (Hard) has a starfield, Earth hanging in the sky, glass domes with blinking antennas, floating astronauts, craters and flags, set to *Lunar Lounge* (126 BPM space house).
 - **Haunted Carnival** (Harder, secret world: collect 35 coins to unlock) has a spinning Ferris wheel, striped circus tents, string lights that chase to the beat, floating ghosts and confetti, set to *Carnival of Fright* (144 BPM spooky-organ trap).

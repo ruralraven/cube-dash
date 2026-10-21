@@ -28,3 +28,8 @@ function jukeScreen(){const sg=jukeSong>=0?jukeSong:LV.LEVELS[sel].song,li=LV.LE
 function jukeClick(mx,my){if(mx>W/2-90&&mx<W/2+90&&my>H-62){scene='stats';jukeSong=-1;menuSong=-1;return}const o=jukeOrder();o.forEach((s,k)=>{const x=24+(k%5)*184,y=92+Math.floor(k/5)*72;if(mx>x&&mx<x+176&&my>y&&my<y+64){jukeSong=s;menuSong=-3;if(Music.ready&&!QS.get('nomusic'))Music.start(s,4)}})}
 
 function buzz(ms){try{if(!save.opt.novib&&navigator.vibrate&&!replay)navigator.vibrate(ms)}catch(e){}}
+// ---- Gamepad support: A = jump, Start = play/pause, D-pad = choose world, B = back ----
+(()=>{const map={0:' ',1:'Escape',9:'Enter',14:'ArrowLeft',15:'ArrowRight',12:'ArrowUp'};let prev={};
+ function k(type,key){dispatchEvent(new KeyboardEvent(type,{key,bubbles:true}))}
+ function poll(){const gs=navigator.getGamepads?navigator.getGamepads():[];const g=[...gs].find(Boolean);if(g){for(const b in map){const on=!!(g.buttons[b]&&g.buttons[b].pressed);if(on&&!prev[b])k('keydown',map[b]);if(!on&&prev[b])k('keyup',map[b]);prev[b]=on}}requestAnimationFrame(poll)}
+ addEventListener('gamepadconnected',()=>{if(typeof toast!='undefined')try{toast('🎮 Controller connected')}catch(e){}});requestAnimationFrame(poll)})();
