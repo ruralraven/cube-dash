@@ -1,11 +1,14 @@
 // Cube Dash level editor: place blocks/spikes/orbs/pads/portals on the beat grid, test-play, bot-check, share by link.
-const ED={cx:0,tool:0,msg:'',msgT:0,fail:null,data:null,drag:null};
+const ED={slot:+(localStorage.cdEdSlot||0),undo:[],cx:0,tool:0,msg:'',msgT:0,fail:null,data:null,drag:null};
 const EDTOOLS=[['b','Block'],['s','Spike'],['sd','Ceil spike'],['o','Orb'],['og','Blue orb'],['p','Pad'],['pg','Blue pad'],
  ['P:cube','Cube'],['P:ship','Ship'],['P:ball','Ball'],['P:ufo','UFO'],['P:wave','Wave'],['P:robot','Robot'],['P:spider','Spider'],['P:gup','Grav ↑'],['P:gdown','Grav ↓'],['P:v0','Slow'],['P:v2','Fast'],['X','Erase']];
 const EROW=GY-9*T;
-function edLoad(){if(ED.data)return;try{const q=QS.get('lvdata');ED.data=q?JSON.parse(decodeURIComponent(escape(atob(q.replace(/-/g,'+').replace(/_/g,'/'))))):JSON.parse(localStorage.cdEdit||'null')}catch(e){}
+function edLoad(){if(ED.data)return;try{const q=QS.get('lvdata');ED.data=q?JSON.parse(decodeURIComponent(escape(atob(q.replace(/-/g,'+').replace(/_/g,'/'))))):JSON.parse(localStorage['cdEdit'+(ED.slot||'')]||'null')}catch(e){}
  if(!ED.data||!ED.data.o)ED.data={th:0,song:0,spd:1,o:[['s',16,0],['s',22,0],['b',28,0],['b',29,1],['s',30,0],['P:ship',36,0],['b',44,6],['b',44,7],['b',44,8],['b',52,0],['b',52,1],['b',52,2],['P:cube',60,0],['o',66,2],['s',66,0],['s',67,0]]}}
-function edSave(){try{localStorage.cdEdit=JSON.stringify(ED.data)}catch(e){}}
+function edSave(){try{localStorage['cdEdit'+(ED.slot||'')]=JSON.stringify(ED.data)}catch(e){}}
+function edPush(){ED.undo.push(JSON.stringify(ED.data.o));if(ED.undo.length>60)ED.undo.shift()}
+function edUndo(){if(ED.undo.length){ED.data.o=JSON.parse(ED.undo.pop());edSave();ED.msg='Undo';ED.msgT=40}}
+function edSlot(){edSave();ED.slot=(ED.slot+1)%3;localStorage.cdEdSlot=ED.slot;ED.data=null;ED.undo=[];if(QS.get('lvdata'))history.replaceState(null,'',location.pathname);edLoad();ED.msg='Level slot '+(ED.slot+1)+' of 3';ED.msgT=90}
 function edBuild(){const d=ED.data,obs=[];let end=40;
  for(const[t,c,r]of d.o){const x=c*T,y=GY-T-r*T;end=Math.max(end,c+12);
   if(t[0]=='P')obs.push({t:'portal',k:t.slice(2),x,y:GY-4*T});else if(t=='b')obs.push({t:'b',x,y,w:T,h:T});else if(t=='p'||t=='pg')obs.push({t,x,y});else obs.push({t,x,y})}
@@ -19,12 +22,12 @@ function edCheck(){const lv=edBuild(),r=BOT.solve(lv,4000,3);if(r.ok){ED.fail=nu
 function edShare(){edSave();const s=btoa(unescape(encodeURIComponent(JSON.stringify(ED.data)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');const url=location.origin+location.pathname+'?lvdata='+s;
  try{navigator.clipboard.writeText(url);ED.msg='Link copied! Send it to a friend.'}catch(e){ED.msg='Copy failed'}ED.url=url;ED.msgT=240}
 function edCell(mx,my){const c=Math.floor((mx+ED.cx)/T),r=Math.floor((GY-my)/T);return[c,r]}
-function edPlace(mx,my){const[c,r]=edCell(mx,my);if(r<0||r>8||c<4)return;const tl=EDTOOLS[ED.tool][0],o=ED.data.o;
+function edPlace(mx,my){const[c,r]=edCell(mx,my);if(r<0||r>8||c<4)return;edPush();const tl=EDTOOLS[ED.tool][0],o=ED.data.o;
  const at=o.findIndex(q=>q[1]==c&&(q[0][0]=='P'?tl[0]=='P'||tl=='X':q[2]==r&&q[0][0]!='P'));
  if(tl=='X'){const k=o.findIndex(q=>q[1]==c&&(q[2]==r||q[0][0]=='P'));if(k>=0)o.splice(k,1)}
  else if(at>=0&&o[at][0]==tl)o.splice(at,1);else{if(at>=0)o.splice(at,1);o.push([tl,c,tl[0]=='P'?0:r])}ED.fail=null;edSave()}
 const EBTN=[['THEME',()=>{ED.data.th=(ED.data.th+1)%TH.length;if(ED.data.th==11)ED.data.th++;ED.data.th%=TH.length}],['SONG',()=>{ED.data.song=(ED.data.song+1)%Music.SONGS.length}],['SPEED',()=>{ED.data.spd=(ED.data.spd+1)%4}],
- ['▶ TEST',edTest],['🤖 CHECK',edCheck],['🔗 SHARE',edShare],['CLEAR',()=>{if(ED.clr&&t-ED.clr<2){ED.data.o=[];edSave();ED.msg='Cleared';ED.msgT=90}else{ED.clr=t;ED.msg='Tap CLEAR again to erase everything';ED.msgT=120}}],['EXIT',()=>{edSave();scene='menu'}]];
+ ['▶ TEST',edTest],['🤖 CHECK',edCheck],['🔗 SHARE',edShare],['↶ UNDO',edUndo],['SLOT',edSlot],['CLEAR',()=>{if(ED.clr&&t-ED.clr<2){edPush();ED.data.o=[];edSave();ED.msg='Cleared';ED.msgT=90}else{ED.clr=t;ED.msg='Tap CLEAR again to erase everything';ED.msgT=120}}],['EXIT',()=>{edSave();scene='menu'}]];
 function edDown(mx,my){if(my>H-48){const w=(W-70)/EBTN.length,i=Math.floor(mx/w);if(i<EBTN.length)EBTN[i][1]();edSave();return}
  if(my>H-100){const i=Math.floor((mx-6)/50);if(i>=0&&i<EDTOOLS.length)ED.tool=i;return}
  if(my<30){ED.drag={bar:1};edScrollBar(mx);return}ED.drag={x:mx,y:my,cx:ED.cx,moved:false}}
@@ -32,7 +35,7 @@ function edMove(mx,my){if(!ED.drag)return;if(ED.drag.bar){edScrollBar(mx);return
 function edUp(mx,my){const d=ED.drag;ED.drag=null;if(d&&!d.bar&&!d.moved)edPlace(d.x,d.y)}
 function edLen(){return Math.max(60,...ED.data.o.map(q=>q[1]+20))*T}
 function edScrollBar(mx){ED.cx=Math.max(0,(mx-20)/(W-40)*edLen()-W/2)}
-function edKey(k){if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu'}
+function edKey(k){if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu';else if(k=='z'||k=='Z')edUndo()}
 function edIcon(tl,x,y,th){X.save();X.translate(x,y);X.scale(.85,.85);if(tl=='b')drawBlock({x:-20,y:-20,w:T,h:T},th);else if(tl=='s')drawSpike({t:'s',x:-20,y:-20},th);else if(tl=='sd')drawSpike({t:'sd',x:-20,y:-20},th);
  else if(tl=='o'||tl=='og')drawOrb({t:tl,x:-20,y:-20},0);else if(tl=='p'||tl=='pg')drawPad({t:tl,x:-20,y:-26});else if(tl=='X'){X.strokeStyle='#ff4d4d';X.lineWidth=6;X.beginPath();X.moveTo(-12,-12);X.lineTo(12,12);X.moveTo(12,-12);X.lineTo(-12,12);X.stroke()}
  else{const k=tl.slice(2);X.beginPath();X.ellipse(0,0,9,20,0,0,7);X.lineWidth=6;X.strokeStyle=MODECOL[k]||'#fff';X.stroke()}X.restore()}
@@ -53,6 +56,6 @@ function edDraw(){edLoad();const d=ED.data,th=TH[d.th],bp=beat();drawWorld(th,ED
  X.fillStyle='rgba(20,10,40,.75)';X.fillRect(0,H-100,W,100);EDTOOLS.forEach(([tl,nm],i)=>{const x=6+i*50;rr(x,H-96,46,46,10);P(i==ED.tool?'rgba(255,255,255,.45)':'rgba(0,0,0,.35)',i==ED.tool?4:2);edIcon(tl,x+23,H-73,th)});
  txt(EDTOOLS[ED.tool][1],W-12,H-108,16,'right');
  const w=(W-70)/EBTN.length;EBTN.forEach(([nm],i)=>{rr(i*w+4,H-46,w-8,40,10);P(nm=='▶ TEST'?'#7dff7a':nm=='EXIT'?'#ff7a7a':'rgba(255,255,255,.18)',2.5);txt(nm,i*w+w/2,H-19,15)});
- txt('LEVEL EDITOR',20,52,22,'left');txt(th.name+'  •  ♪ '+Music.SONGS[d.song].name+'  •  speed '+(d.spd+1),20,76,15,'left');txt('tap to place / tap again to remove  •  drag to scroll',W-20,52,14,'right');
+ txt('LEVEL EDITOR  •  slot '+(ED.slot+1),20,52,22,'left');txt(th.name+'  •  ♪ '+Music.SONGS[d.song].name+'  •  speed '+(d.spd+1),20,76,15,'left');txt('tap to place / tap again to remove  •  drag to scroll',W-20,52,14,'right');
  if(ED.msgT>0){ED.msgT--;X.globalAlpha=Math.min(1,ED.msgT/30);rr(W/2-260,96,520,44,12);P('rgba(0,0,0,.6)',2);txt(ED.msg,W/2,125,18);X.globalAlpha=1}}
 if(QS.get('scene')=='edit'||QS.get('lvdata'))edOpen();

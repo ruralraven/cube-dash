@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v4.5 — Editor slots & undo, phone auto-pause
+- Editor: **↶ UNDO** (also the Z key, keeps 60 steps) and **3 save slots** (the SLOT button) so you can work on several levels.
+- Phones: turning the phone upright mid-level now pauses the game automatically.
+- Tested phone layout with an emulated iPhone (844×390 touch): menu tap starts a level, and touch-hold and release register correctly.
+
 ## v4.4 — Menu music
 - The menu (and the Icons/Settings screens) now plays a preview of the selected world's song, starting at its drop and at a slightly lower volume. Moving to another card switches tracks, so the menu doubles as a jukebox. The editor stays quiet while you build.
 
