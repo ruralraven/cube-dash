@@ -1,5 +1,20 @@
 # Cube Dash Changelog
 
+## v7.3 — Practice mode + full icon customization
+**Practice mode**
+- Every level card now has a green **PRACTICE ▶** button that starts the level in practice mode. Once you have practice progress, it reads **PRACTICE 45%**. Practice progress is saved separately and never changes your real best.
+- The pause menu has a **PRACTICE: ON/OFF** toggle that restarts the level in the chosen mode. The menu's **PRACTICE: ON/OFF** button still works too.
+- Green diamond checkpoints are placed automatically at each section start.
+- During practice, two on-screen buttons appear: **◆ PLACE (Z)** drops a checkpoint where you are, and **✖ REMOVE (X)** deletes the last one. The Z and X keys do the same.
+- Practice plays the calm song Lunar Lounge, which keeps going through respawns.
+
+**Icons**
+- The ICONS screen has a tab for each of the 8 modes: CUBE, SHIP, BALL, UFO, WAVE, ROBOT, SPIDER and SWING. Each tab has 6 designs (48 in total).
+- 4 designs per mode are free. The fifth needs 18 coins, and the sixth needs 5 trophies.
+- You get a primary and a secondary color row (10 colors free), a GLOW toggle, and TRAIL, DEATH and FACE pickers.
+- Death effects: Shatter, Confetti, Pixels, Ring and Ghost.
+- A live animated preview shows your choices, and they are saved in your browser.
+
 ## v7.2 — Jump pad fix + editor upgrade
 **Jump pads (bug fix)**
 - **The bug:** in 14 levels (27 pads), a yellow pad's launch arc landed right in the spike row that followed it. The pad pattern always placed 4 spikes after a pad, but at speeds 1–2 the pad's arc only travels about 170–220 px, so a player who let the pad do the work came down on the 3rd or 4th spike. The bot never noticed because it jumped over those spikes itself instead of trusting the pad. Affected levels: Under the Sea, Candy Land, Ice Kingdom, Mushroom Forest, Cherry Blossom, Dino Valley, Bamboo Dojo, Sunny Beach, Moon Base, Gold Mine, Honey Hive and Wild West. The editor's sample levels had the same layout.
