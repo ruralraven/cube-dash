@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v5.1 — Editor sample levels
+- New **SAMPLE** button in the editor loads one of 3 ready-made example levels (Easy Hop, Mode Mixer, Challenge Run) into your slot to play, study or remix. ↶ UNDO brings your own level back. The samples were made from the generator, converted to the editor grid, and checked as beatable by the bot.
+- The editor palette now fits all 21 tools on screen.
+- Performance check under 6× CPU throttling: LITE mode switches on automatically after about 4 s of slow frames, and the fixed-timestep physics stays correct while the frame rate is low.
+
 ## v5.0 — 21 worlds: Sunny Farm & Dino Valley
 - **Sunny Farm** (Easy, slowest speed, 116 BPM swung "Barnyard Boogie"): a red barn, hay bales, wandering cows, sunflowers, fences, rolling hills and a beaming sun. It's the 2nd world in the menu, a gentle on-ramp with one easy dash pit.
 - **Dino Valley** (Normal, 128 BPM "Dino Stomp"): smoking volcanoes, long-neck dinosaurs, flying pterodactyls, cycads, dino eggs and fossil bones. Robot, swing, ship melody, dash, spider.
