@@ -46,3 +46,9 @@
 - Every song now has its own signature instrument layer: water-drop blips (Sea), chiptune arps (Candy), marimba (Jungle), FM glass bells (Ice), distorted saw stabs (Lava), vibrato organ + bells (Haunted), metallic distorted stabs (Factory), shimmering space arps (Space), supersaw chords (Neon).
 - Melodies alternate between two phrases on each loop so songs repeat less.
 - Fixed a DC-offset bug in the distortion curve (verified with offline audio rendering: levels stay steady, no clipping).
+
+## v2.6 – More detail (2026-10-21)
+- New foreground layer in every world (shells & starfish, gumdrops, mushrooms & ferns, snow drifts & ice crystals, bubbling lava pools, jack-o'-lanterns & candles, pipes & beat-blinking warning lights, craters & glowing crystals, neon street lamps) scrolling faster than the action for depth; many elements pulse to the beat.
+- Ceilings in ball/spider/gravity corridors get scalloped edges and textures.
+- Squash & stretch when landing; death now breaks the icon into tumbling shards with a flash.
+- Menu cards show a live-rendered thumbnail of each world.
