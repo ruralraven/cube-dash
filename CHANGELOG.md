@@ -1,5 +1,16 @@
 # Cube Dash Changelog
 
+## v4.2 — Level Editor ✏
+- New **level editor** (the ✏ button on the menu, or `?scene=edit`):
+  - 19 tools: block, spike, ceiling spike, yellow/blue orbs, yellow/blue pads, all 7 mode portals, gravity up/down, slow/fast speed portals, and an eraser.
+  - Tap to place and tap again to remove. Drag or use the scroll bar (or arrow keys) to move along. Beat markers in the top row help you place things on the rhythm.
+  - THEME / SONG / SPEED pick any world look, any of the 18 songs, and any of the 4 speeds.
+  - **▶ TEST** plays your level; dying or pressing home returns you to the editor.
+  - **🤖 CHECK** runs the verifier bot on your level. It either says "✓ The bot beat your level!" or marks where it got stuck with a red line and scrolls you there.
+  - **🔗 SHARE** copies a link (`?lvdata=…`). Opening it loads that level straight into the editor.
+  - Your level saves automatically on this device.
+- Tested in a headless browser: open, place, bot check (pass and fail cases), test-play to a win, return to the editor, share link and reopen.
+
 ## v4.1 — Daily Run & Random Run (bot-verified in your browser)
 - **★ DAILY RUN**: a new level every day, the same for everyone. It's stitched together from the hand-tuned pattern library (cube rhythm rows, ship melodies, ball call-and-response, UFO gates, spider, robot, plus wave/tunnels at higher tiers), with a random world theme and song. The difficulty tier rotates each day.
 - **🎲 RANDOM**: a fresh generated level on every press. The E/N/H button sets the difficulty.
