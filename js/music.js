@@ -128,7 +128,7 @@ return{SONGS,BPM,
  // test helper: render a song offline and return stats per 4-bar block
  async analyze(i,secs=40){const sr=22050,oc=new OfflineAudioContext(2,sr*secs,sr);const saved=[ac,muted];muted=false;init(oc);song=SONGS[i];step=0;nextT=.05;while(nextT<secs-.5){sched(song,step,nextT+(step%2&&song.swing?song.swing*60/song.bpm/4:0));step++;nextT+=60/song.bpm/4}
   const buf=await oc.startRendering();ac=saved[0];muted=saved[1];const d=buf.getChannelData(0),blk=Math.floor(sr*60/song.bpm*16),res=[];for(let b=0;b*blk<d.length;b++){let pk=0,ss=0;for(let k=b*blk;k<Math.min(d.length,(b+1)*blk);k++){const v=Math.abs(d[k]);if(v>pk)pk=v;ss+=v*v}res.push([+pk.toFixed(2),+Math.sqrt(ss/blk).toFixed(3)])}return res},
- start(i){if(!init())return;if(ac.state=='suspended')ac.resume();this.stop();song=SONGS[i%SONGS.length];step=0;t0=nextT=ac.currentTime+.06;dly.delayTime.value=60/song.bpm*.75;timer=setInterval(tick,25);tick()},
+ start(i,bar=0){if(!init())return;if(ac.state=='suspended')ac.resume();this.stop();song=SONGS[i%SONGS.length];step=bar*16;this.vol(bar?.55:1);t0=nextT=ac.currentTime+.06;dly.delayTime.value=60/song.bpm*.75;timer=setInterval(tick,25);tick()},
  stop(){if(timer){clearInterval(timer);timer=null}},
  pause(){if(ac&&ac.state=='running')ac.suspend()},
  resume(){if(ac&&ac.state=='suspended')ac.resume()},
@@ -137,6 +137,8 @@ return{SONGS,BPM,
  get name(){return song?song.name:''},
  unlock(){if(init()&&ac.state=='suspended')ac.resume()},
  get muted(){return muted},
+ get ready(){return!!ac&&ac.state=='running'},
+ vol(v){if(ac&&!muted)master.gain.setTargetAtTime(.55*v,ac.currentTime,.05)},
  toggle(){muted=!muted;try{localStorage.cdMute=muted?'1':'0'}catch(e){}if(ac)master.gain.setTargetAtTime(muted?0:.55,ac.currentTime,.02)},
  sfx(kind){if(!ac||muted)return;const t=ac.currentTime;if(kind=='die'){noise(t,.4,'lowpass',900,1,.5);synth(t,40,.3,{wave:'square',vol:.15,cut:500})}else if(kind=='coin'){synth(t,84,.08,{wave:'square',vol:.08,cut:6000});synth(t+.08,91,.2,{wave:'square',vol:.08,cut:6000})}else if(kind=='portal'){synth(t,72,.15,{wave:'triangle',vol:.1,cut:5000});synth(t+.05,79,.2,{wave:'triangle',vol:.08,cut:5000})}}
 };})();

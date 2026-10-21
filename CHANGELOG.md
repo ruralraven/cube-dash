@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v4.4 — Menu music
+- The menu (and the Icons/Settings screens) now plays a preview of the selected world's song, starting at its drop and at a slightly lower volume. Moving to another card switches tracks, so the menu doubles as a jukebox. The editor stays quiet while you build.
+
 ## v4.3 — Settings, stats & trophies
 - A new ⚙ button on the menu opens **Settings & Trophies**:
   - Settings: Music, Sound effects (separate from music), **Calm mode** (turns off flashes, screen shake and drop bursts, for players sensitive to them), LITE graphics, Practice mode.
