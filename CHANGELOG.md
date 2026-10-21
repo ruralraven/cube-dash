@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v5.2 — Key-change finales and editor fix
+- The editor tool bar no longer runs under the mute button, so tapping the eraser can't mute the music.
+- 14 songs now rise 1–2 semitones in key on their second full loop, with extra square-wave stabs during that loop's drops. This gives long play sessions a lift in the final stretch. Tempo and beat timing are unchanged, so level sync is unaffected.
+
 ## v5.1 — Editor sample levels
 - New **SAMPLE** button in the editor loads one of 3 ready-made example levels (Easy Hop, Mode Mixer, Challenge Run) into your slot to play, study or remix. ↶ UNDO brings your own level back. The samples were made from the generator, converted to the editor grid, and checked as beatable by the bot.
 - The editor palette now fits all 21 tools on screen.

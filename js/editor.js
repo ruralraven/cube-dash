@@ -31,14 +31,14 @@ function edPlace(mx,my){const[c,r]=edCell(mx,my);if(r<0||r>8||c<4)return;edPush(
 const EBTN=[['THEME',()=>{ED.data.th=(ED.data.th+1)%TH.length;if(ED.data.th==11||ED.data.th==18)ED.data.th++;ED.data.th%=TH.length}],['SONG',()=>{ED.data.song=(ED.data.song+1)%Music.SONGS.length}],['SPEED',()=>{ED.data.spd=(ED.data.spd+1)%4}],
  ['▶ TEST',edTest],['🤖 CHECK',edCheck],['🔗 SHARE',edShare],['↶ UNDO',edUndo],['SAMPLE',edSample],['SLOT',edSlot],['CLEAR',()=>{if(ED.clr&&t-ED.clr<2){edPush();ED.data.o=[];edSave();ED.msg='Cleared';ED.msgT=90}else{ED.clr=t;ED.msg='Tap CLEAR again to erase everything';ED.msgT=120}}],['EXIT',()=>{edSave();scene='menu'}]];
 function edDown(mx,my){if(my>H-48){const w=(W-70)/EBTN.length,i=Math.floor(mx/w);if(i<EBTN.length)EBTN[i][1]();edSave();return}
- if(my>H-100){const i=Math.floor((mx-4)/45);if(i>=0&&i<EDTOOLS.length)ED.tool=i;return}
+ if(my>H-100){const i=Math.floor((mx-4)/42);if(i>=0&&i<EDTOOLS.length)ED.tool=i;return}
  if(my<30){ED.drag={bar:1};edScrollBar(mx);return}ED.drag={x:mx,y:my,cx:ED.cx,moved:false}}
 function edMove(mx,my){if(!ED.drag)return;if(ED.drag.bar){edScrollBar(mx);return}const dx=mx-ED.drag.x;if(Math.abs(dx)>12)ED.drag.moved=true;if(ED.drag.moved)ED.cx=Math.max(0,ED.drag.cx-dx)}
 function edUp(mx,my){const d=ED.drag;ED.drag=null;if(d&&!d.bar&&!d.moved)edPlace(d.x,d.y)}
 function edLen(){return Math.max(60,...ED.data.o.map(q=>q[1]+20))*T}
 function edScrollBar(mx){ED.cx=Math.max(0,(mx-20)/(W-40)*edLen()-W/2)}
 function edKey(k){if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu';else if(k=='z'||k=='Z')edUndo()}
-function edIcon(tl,x,y,th){X.save();X.translate(x,y);X.scale(.78,.78);if(tl=='b')drawBlock({x:-20,y:-20,w:T,h:T},th);else if(tl=='s')drawSpike({t:'s',x:-20,y:-20},th);else if(tl=='sd')drawSpike({t:'sd',x:-20,y:-20},th);
+function edIcon(tl,x,y,th){X.save();X.translate(x,y);X.scale(.72,.72);if(tl=='b')drawBlock({x:-20,y:-20,w:T,h:T},th);else if(tl=='s')drawSpike({t:'s',x:-20,y:-20},th);else if(tl=='sd')drawSpike({t:'sd',x:-20,y:-20},th);
  else if(tl=='o'||tl=='og')drawOrb({t:tl,x:-20,y:-20},0);else if(tl=='od')drawDash({t:tl,x:-20,y:-20},0);else if(tl=='p'||tl=='pg')drawPad({t:tl,x:-20,y:-26});else if(tl=='X'){X.strokeStyle='#ff4d4d';X.lineWidth=6;X.beginPath();X.moveTo(-12,-12);X.lineTo(12,12);X.moveTo(12,-12);X.lineTo(-12,12);X.stroke()}
  else{const k=tl.slice(2);X.beginPath();X.ellipse(0,0,9,20,0,0,7);X.lineWidth=6;X.strokeStyle=MODECOL[k]||'#fff';X.stroke()}X.restore()}
 function edDraw(){edLoad();const d=ED.data,th=TH[d.th],bp=beat();drawWorld(th,ED.cx,bp);const lv=edBuild();level=lv;
@@ -55,7 +55,7 @@ function edDraw(){edLoad();const d=ED.data,th=TH[d.th],bp=beat();drawWorld(th,ED
  // scroll bar
  X.fillStyle='rgba(0,0,0,.4)';rr(20,8,W-40,16,8);X.fill();const L=edLen();rr(20+(W-40)*ED.cx/L,8,Math.max(30,(W-40)*W/L),16,8);X.fillStyle='#fff';X.fill();
  // palette
- X.fillStyle='rgba(20,10,40,.75)';X.fillRect(0,H-100,W,100);EDTOOLS.forEach(([tl,nm],i)=>{const x=4+i*45;rr(x,H-95,42,42,10);P(i==ED.tool?'rgba(255,255,255,.45)':'rgba(0,0,0,.35)',i==ED.tool?4:2);edIcon(tl,x+21,H-74,th)});
+ X.fillStyle='rgba(20,10,40,.75)';X.fillRect(0,H-100,W,100);EDTOOLS.forEach(([tl,nm],i)=>{const x=4+i*42;rr(x,H-95,39,42,10);P(i==ED.tool?'rgba(255,255,255,.45)':'rgba(0,0,0,.35)',i==ED.tool?4:2);edIcon(tl,x+19.5,H-74,th)});
  txt(EDTOOLS[ED.tool][1],W-12,H-108,16,'right');
  const w=(W-70)/EBTN.length;EBTN.forEach(([nm],i)=>{rr(i*w+4,H-46,w-8,40,10);P(nm=='▶ TEST'?'#7dff7a':nm=='EXIT'?'#ff7a7a':'rgba(255,255,255,.18)',2.5);txt(nm,i*w+w/2,H-19,15)});
  txt('LEVEL EDITOR  •  slot '+(ED.slot+1),20,52,22,'left');txt(th.name+'  •  ♪ '+Music.SONGS[d.song].name+'  •  speed '+(d.spd+1),20,76,15,'left');txt('tap to place / tap again to remove  •  drag to scroll',W-20,52,14,'right');

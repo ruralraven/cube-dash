@@ -49,26 +49,26 @@ const DR={
 const SONGS=[];
 function S(o){SONGS.push(o)}
 // name,bpm,root,scale,prog(degrees per bar),drums,bass style,lead wave,seed,extras
-S({name:'Bubble Pop',sig:'drops',sig2:'chop',bpm:120,root:57,sc:'major',prog:[0,5,3,4],dr:'bounce',bass:'pluck',lead:'square',seed:3,arp:'triangle',cut:2400});
-S({name:'Sugar Rush',sig:'chip',bpm:128,root:60,sc:'major',prog:[0,4,5,3],dr:'house',dr2:'garage',bass:'offbeat',lead:'square',seed:7,arp:'square',cut:3000});
-S({name:'Stardust Overdrive',sig:'space',bpm:140,root:50,sc:'minor',prog:[0,5,2,6],dr:'halftime',dr2:'breaks',bass:'wobble',lead:'sawtooth',seed:11,arp:'sawtooth',cut:1800});
+S({name:'Bubble Pop',lift:2,sig:'drops',sig2:'chop',bpm:120,root:57,sc:'major',prog:[0,5,3,4],dr:'bounce',bass:'pluck',lead:'square',seed:3,arp:'triangle',cut:2400});
+S({name:'Sugar Rush',lift:1,sig:'chip',bpm:128,root:60,sc:'major',prog:[0,4,5,3],dr:'house',dr2:'garage',bass:'offbeat',lead:'square',seed:7,arp:'square',cut:3000});
+S({name:'Stardust Overdrive',lift:2,sig:'space',bpm:140,root:50,sc:'minor',prog:[0,5,2,6],dr:'halftime',dr2:'breaks',bass:'wobble',lead:'sawtooth',seed:11,arp:'sawtooth',cut:1800});
 S({name:'Vine Swing',sig:'marimba',swing:.16,dr2:'moomba',bpm:124,root:55,sc:'dorian',prog:[0,3,0,4],dr:'tribal',bass:'pluck',lead:'triangle',seed:19,arp:'square',cut:2200});
-S({name:'Frostbite',sig:'bells',sig2:'gate',bpm:132,root:62,sc:'minor',prog:[0,5,3,6],dr:'trance',bass:'offbeat',lead:'triangle',seed:23,arp:'triangle',cut:4000,bell:1});
+S({name:'Frostbite',lift:1,sig:'bells',sig2:'gate',bpm:132,root:62,sc:'minor',prog:[0,5,3,6],dr:'trance',bass:'offbeat',lead:'triangle',seed:23,arp:'triangle',cut:4000,bell:1});
 S({name:'Magma Core',sig:'distort',dr2:'breaks',dist:12,bpm:150,root:52,sc:'phryg',prog:[0,1,0,6],dr:'hard',bass:'rolling',lead:'sawtooth',seed:29,arp:'sawtooth',cut:1500});
 S({name:'Spooky Spire',sig:'organ',sig2:'chop',bpm:138,root:57,sc:'harm',prog:[0,5,3,4],dr:'trap',bass:'wobble',lead:'square',seed:31,arp:'square',cut:1600});
 S({name:'Gear Grinder',sig:'metal',dist:8,bpm:145,root:48,sc:'minor',prog:[0,0,5,6],dr:'industrial',bass:'rolling',lead:'square',seed:37,arp:'sawtooth',cut:1400});
-S({name:'Neon Nights',sig:'supersaw',sig2:'gate',bpm:160,root:53,sc:'minor',prog:[0,5,3,4],dr:'dnb',bass:'rolling',lead:'sawtooth',seed:41,arp:'square',cut:2600});
-S({name:'Rainbow Rocket',sig:'chip',sig2:'chop',bpm:170,root:58,sc:'major',prog:[0,4,5,3],dr:'dnb',bass:'rolling',lead:'square',seed:53,arp:'square',cut:3200});
+S({name:'Neon Nights',lift:2,sig:'supersaw',sig2:'gate',bpm:160,root:53,sc:'minor',prog:[0,5,3,4],dr:'dnb',bass:'rolling',lead:'sawtooth',seed:41,arp:'square',cut:2600});
+S({name:'Rainbow Rocket',lift:1,sig:'chip',sig2:'chop',bpm:170,root:58,sc:'major',prog:[0,4,5,3],dr:'dnb',bass:'rolling',lead:'square',seed:53,arp:'square',cut:3200});
 S({name:'Sandstorm Shuffle',sig:'marimba',sig2:'chop',swing:.2,bpm:126,root:54,sc:'harm',prog:[0,5,0,4],dr:'tribal',bass:'pluck',lead:'triangle',seed:61,arp:'square',cut:2400});
-S({name:'Shadow King',sig:'supersaw',sig2:'gate',dist:6,dr2:'breaks',bpm:174,root:50,sc:'harm',prog:[0,5,3,4],dr:'hard',bass:'wobble',lead:'sawtooth',seed:71,arp:'sawtooth',cut:2000});
-S({name:'Spore Bounce',sig:'drops',sig2:'chop',swing:.12,bpm:118,root:58,sc:'major',prog:[0,3,4,3],dr:'bounce',dr2:'moomba',bass:'pluck',lead:'triangle',seed:83,arp:'triangle',cut:2600,bell:1});
-S({name:'Cannon Shanty',sig:'marimba',sig2:'gate',bpm:136,root:55,sc:'dorian',prog:[0,6,5,4],dr:'house',dr2:'breaks',bass:'offbeat',lead:'square',seed:89,arp:'square',cut:2400});
-S({name:'Prism Pulse',sig:'bells',sig2:'gate',bpm:150,root:61,sc:'minor',prog:[0,5,6,4],dr:'trance',dr2:'dnb',bass:'rolling',lead:'sawtooth',seed:97,arp:'triangle',cut:3000,bell:1});
-S({name:'Toy Parade',sig:'chip',sig2:'chop',bpm:112,root:60,sc:'major',prog:[0,4,3,4],dr:'bounce',dr2:'house',bass:'pluck',lead:'square',seed:101,arp:'triangle',cut:3000});
-S({name:'Sakura Drift',sig:'bells',sig2:'chop',swing:.1,bpm:122,root:57,sc:'dorian',prog:[0,3,6,4],dr:'garage',dr2:'house',bass:'offbeat',lead:'triangle',seed:107,arp:'triangle',cut:2800,bell:1});
+S({name:'Shadow King',lift:1,sig:'supersaw',sig2:'gate',dist:6,dr2:'breaks',bpm:174,root:50,sc:'harm',prog:[0,5,3,4],dr:'hard',bass:'wobble',lead:'sawtooth',seed:71,arp:'sawtooth',cut:2000});
+S({name:'Spore Bounce',lift:1,sig:'drops',sig2:'chop',swing:.12,bpm:118,root:58,sc:'major',prog:[0,3,4,3],dr:'bounce',dr2:'moomba',bass:'pluck',lead:'triangle',seed:83,arp:'triangle',cut:2600,bell:1});
+S({name:'Cannon Shanty',lift:2,sig:'marimba',sig2:'gate',bpm:136,root:55,sc:'dorian',prog:[0,6,5,4],dr:'house',dr2:'breaks',bass:'offbeat',lead:'square',seed:89,arp:'square',cut:2400});
+S({name:'Prism Pulse',lift:2,sig:'bells',sig2:'gate',bpm:150,root:61,sc:'minor',prog:[0,5,6,4],dr:'trance',dr2:'dnb',bass:'rolling',lead:'sawtooth',seed:97,arp:'triangle',cut:3000,bell:1});
+S({name:'Toy Parade',lift:2,sig:'chip',sig2:'chop',bpm:112,root:60,sc:'major',prog:[0,4,3,4],dr:'bounce',dr2:'house',bass:'pluck',lead:'square',seed:101,arp:'triangle',cut:3000});
+S({name:'Sakura Drift',lift:2,sig:'bells',sig2:'chop',swing:.1,bpm:122,root:57,sc:'dorian',prog:[0,3,6,4],dr:'garage',dr2:'house',bass:'offbeat',lead:'triangle',seed:107,arp:'triangle',cut:2800,bell:1});
 S({name:'Tick Tock Tower',sig:'metal',sig2:'gate',dist:6,bpm:142,root:52,sc:'harm',prog:[0,5,3,4],dr:'industrial',dr2:'breaks',bass:'rolling',lead:'square',seed:109,arp:'square',cut:1800});
-S({name:'Abyssal Bass',sig:'space',sig2:'gate',dist:4,bpm:156,root:49,sc:'harm',prog:[0,5,1,4],dr:'dnb',dr2:'halftime',bass:'wobble',lead:'sawtooth',seed:113,arp:'triangle',cut:2200});
-S({name:'Barnyard Boogie',sig:'marimba',sig2:'chop',swing:.14,bpm:116,root:62,sc:'major',prog:[0,3,4,0],dr:'bounce',dr2:'house',bass:'pluck',lead:'triangle',seed:127,arp:'square',cut:2600});
+S({name:'Abyssal Bass',lift:1,sig:'space',sig2:'gate',dist:4,bpm:156,root:49,sc:'harm',prog:[0,5,1,4],dr:'dnb',dr2:'halftime',bass:'wobble',lead:'sawtooth',seed:113,arp:'triangle',cut:2200});
+S({name:'Barnyard Boogie',lift:2,sig:'marimba',sig2:'chop',swing:.14,bpm:116,root:62,sc:'major',prog:[0,3,4,0],dr:'bounce',dr2:'house',bass:'pluck',lead:'triangle',seed:127,arp:'square',cut:2600});
 S({name:'Dino Stomp',sig:'distort',sig2:'chop',dist:6,bpm:128,root:50,sc:'dorian',prog:[0,6,3,4],dr:'tribal',dr2:'breaks',bass:'wobble',lead:'square',seed:131,arp:'sawtooth',cut:2000});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
@@ -77,7 +77,7 @@ function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
  for(let ph=0;ph<2;ph++)for(let b=0;b<4;b++){const rh=rhythms[Math.floor(r()*4)];let deg=sd.prog[b]+[0,2,4][Math.floor(r()*3)];for(let s=0;s<16;s++){if(rh[s]=='x'){deg+=Math.floor(r()*5)-2;if(s==0)deg=sd.prog[b]+[0,2,4,7][Math.floor(r()*4)];mel.push(deg)}else mel.push(null)}}
  sd.mel=mel;return sd}
 SONGS.forEach(build);
-function note(sd,deg,oct=0){const sc=SCALES[sd.sc],o=Math.floor(deg/7);return sd.root+oct*12+o*12+sc[((deg%7)+7)%7]}
+let LIFT=0;function note(sd,deg,oct=0){const sc=SCALES[sd.sc],o=Math.floor(deg/7);return sd.root+LIFT+oct*12+o*12+sc[((deg%7)+7)%7]}
 // arrangement: 8 bars per section: 0 intro,1 build,2 drop,3 break,4 drop2 ... loops 1..4
 function section(bar){if(bar<4)return 0;const s=Math.floor((bar-4)/8)%4;return[1,2,3,2][s]}
 function drop(t,f){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*2.6,t+.09);env(g,t,.002,.18,.12);o.connect(g);g.connect(duck);const s=ac.createGain();s.gain.value=.4;g.connect(s);s.connect(dly);o.start(t);o.stop(t+.2)}
@@ -102,7 +102,7 @@ function sig(sd,st,t,sec,bar,s16,deg,spb){sig2(sd,st,t,sec,bar,s16,deg,spb);if(s
  if(S=='space'&&s16%2==0&&sec!=3)synth(t,note(sd,deg+[0,4,7,9,11,9,7,4][(s16/2)%8],2),spb*.9,{wave:'sine',vol:.04,cut:6000,send:.6});
  if(S=='supersaw'&&s16==0&&(sec==2||sec==3)){[0,2,4,7].forEach(i=>synth(t,note(sd,deg+i,1),spb*15,{wave:'sawtooth',vol:.03,voices:5,detune:22,cut:sec==2?3500:1500,a:.02,send:.25}))}
 }
-function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),dr=DR[sd.dr],deg=sd.prog[bar%4],spb=60/sd.bpm/4;
+function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),dr=DR[sd.dr],deg=sd.prog[bar%4],spb=60/sd.bpm/4;LIFT=bar>=4&&Math.floor((bar-4)/32)%2==1?(sd.lift||0):0;
  const d2=sd.dr2&&Math.floor((bar-4)/16)%2==1?DR[sd.dr2]:dr,on=(k)=>d2[k]&&d2[k][s16]=='x';
  if(sec!=3&&bar%8==7&&s16>=12&&bar>4)tom(t,[180,150,120,95][s16-12],.35);
  // drums
@@ -118,6 +118,7 @@ function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),d
  if(sec>=1){const bn=note(sd,deg,-2);let p=false,dur=spb*.9,o={wave:'sawtooth',vol:.32,cut:sd.cut*.25,res:6,envAmt:4};
   if(sd.bass=='offbeat')p=s16%4==2;else if(sd.bass=='pluck')p='x..x..x...x..x..'[s16]=='x';else if(sd.bass=='rolling'){p=s16%4!=0;o.wave='square';o.vol=.22}else if(sd.bass=='wobble'){p=s16%8==0;dur=spb*7.5;o.wobble=[2,4,8,6][bar%4]*sd.bpm/120;o.cut=sd.cut*.5;o.res=8;o.vol=.3}
   if(sec==3)p=s16==0,dur=spb*15,o.vol=.15;if(p)synth(t,bn+(sd.bass=='rolling'&&s16%8==6?12:0),dur,o)}
+ if(LIFT&&sec==2&&'..x...x...x..x..'[s16]=='x')[0,4].forEach(i=>synth(t,note(sd,deg+i,1),spb*.6,{wave:'square',vol:.03,cut:3500,send:.3})); // final-loop stabs
  // chords pad
  if(s16==0){const ch=[0,2,4].map(i=>note(sd,deg+i,0));ch.forEach(m=>synth(t,m,spb*15,{wave:'sawtooth',vol:sec==3?.06:.035,cut:sec==0?600:1400,a:.3,detune:12,send:.2}))}
  // arp
