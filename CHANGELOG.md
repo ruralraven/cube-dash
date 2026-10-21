@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v5.6 — New sounds: reese bass + future-bass chords
+- New **reese bass**: detuned saws with a slowly moving filter. Neon Nights, Abyssal Bass and Thunderhead now use it.
+- New **future-bass** lead: off-beat 4-note chord stabs that open up in the drops, plus bell arpeggios in the breakdowns. Prism Pulse and Sakura Drift now use it.
+- All songs were checked offline: loudness peaks stay below clipping.
+
 ## v5.5 — Four Seasons trophy, Storm Peaks pines
 - New trophy, **Four Seasons**: beat Cherry Blossom, Sunny Farm, Autumn Woods and Ice Kingdom. That makes 14 trophies.
 - Storm Peaks now has snow-tipped pine trees in the scenery.
