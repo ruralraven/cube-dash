@@ -1,5 +1,24 @@
 # Cube Dash Changelog
 
+## v7.2 — Jump pad fix + editor upgrade
+**Jump pads (bug fix)**
+- **The bug:** in 14 levels (27 pads), a yellow pad's launch arc landed right in the spike row that followed it. The pad pattern always placed 4 spikes after a pad, but at speeds 1–2 the pad's arc only travels about 170–220 px, so a player who let the pad do the work came down on the 3rd or 4th spike. The bot never noticed because it jumped over those spikes itself instead of trusting the pad. Affected levels: Under the Sea, Candy Land, Ice Kingdom, Mushroom Forest, Cherry Blossom, Dino Valley, Bamboo Dojo, Sunny Beach, Moon Base, Gold Mine, Honey Hive and Wild West. The editor's sample levels had the same layout.
+- **The fix:** the spike count after each pad is now worked out from the pad's real arc at that level's speed, and the next pad is placed after a safe landing.
+- **Triggering:** pad triggering is now checked across the frame (swept), so it can't be missed at high speed. A pad launch can also no longer be overridden by a jump input in the same frame (holding jump onto a pad used to give a weaker launch).
+- **New test, tools/padtest.js:** for every pad in all 35 levels, it simulates a hands-off launch and a launch with jump held mid-air, and both must land safely. All levels, all game-generated levels and all 3 editor samples now pass with 0 failures.
+
+**Level editor (open it with the pink ✏ button next to ★ DAILY RUN on the menu)**
+- **LEVELS** opens My Levels: as many named levels as you want, with + NEW LEVEL, ✎ Name (rename) and 🗑 (delete, with a confirm). Older saved slots carry over automatically.
+- **📋 PASTE CODE** imports a friend's level. **SHARE** copies a link and shows a code you can copy and paste.
+- Every tool now has a text label under its icon.
+- **PAINT** mode: drag across the grid to draw or erase many tiles at once.
+- **ZOOM** cycles 100% → 70% → 50% so more of the level fits on a phone screen.
+- **↶ / ↷** undo and redo (Z / Y on a keyboard).
+- **▶ HERE** test-plays from the green dashed line on screen, with the right mode, speed, size and gravity at that spot.
+- **✔ CHECK** asks the bot whether the level is beatable, and if not, marks where it got stuck.
+- A **pad-arc preview** draws each pad's real launch path as a dashed line: green if it lands safely, red ✖ if it hits something.
+- THEME and SONG are still saved per level.
+
 ## v7.1 — Menu order by difficulty
 - The world list now runs strictly Easy → Normal → Hard → Harder → Insane → Demon. Storm Peaks and Glitch Zone moved up into the Harder group, Rainbow Sky now opens the Insane group, and the Shadow King stays last as the finale. Only the display order changed: saves are untouched.
 

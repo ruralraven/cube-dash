@@ -50,7 +50,7 @@ function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p
    hb=hitBox(p);continue}
   if(t=='saw'){const qx=Math.max(hb[0],Math.min(o.cx,hb[2])),qy=Math.max(hb[1],Math.min(o.cy,hb[3]));if((qx-o.cx)**2+(qy-o.cy)**2<(o.r*.82)**2){p.dead=true;return}continue}
   if(t=='s'||t=='sd'||t=='ss'){if(ov(hb,obBox(o))){p.dead=true;return}continue}
-  if(t=='p'||t=='pg'){if(p.x+s>o.x+4&&p.x<o.x+T-4&&((o.up!==false&&p.y+s>=o.y+T-14&&p.y<o.y+T)||(o.up===false&&p.y<=o.y+14&&p.y+s>o.y))&&p.lastPad!==i){p.lastPad=i;if(t=='pg'){p.g=-p.g;p.vy=p.g*-9}else p.vy=-(m=='ship'?8:m=='ball'||m=='spider'?14:19.5)*p.g;p.onG=false;ev&&ev.push(['pad',o])}continue}
+  if(t=='p'||t=='pg'){if(p.x+s>o.x+4&&Math.min(ox,p.x)<o.x+T-4&&((o.up!==false&&p.y+s>=o.y+T-14&&p.y<o.y+T)||(o.up===false&&p.y<=o.y+14&&p.y+s>o.y))&&p.lastPad!==i){p.lastPad=i;if(t=='pg'){p.g=-p.g;p.vy=p.g*-9}else p.vy=-(m=='ship'?8:m=='ball'||m=='spider'?14:19.5)*p.g;p.onG=false;p.padF=p.f;ev&&ev.push(['pad',o])}continue}
   if(t=='od'){const cx=o.x+T/2,cy=o.y+T/2,px=p.x+s/2,py=p.y+s/2;if(Math.abs(cx-px)<34&&Math.abs(cy-py)<34&&p.buf>0&&p.orb!==i){p.orb=i;p.buf=0;p.dash=o.n||45;p.vy=0;p.y=cy-s/2;p.onG=false;ev&&ev.push(['orb',o])}continue}
   if(t=='o'||t=='og'){const cx=o.x+T/2,cy=o.y+T/2,px=p.x+s/2,py=p.y+s/2;if(Math.abs(cx-px)<34&&Math.abs(cy-py)<34&&p.buf>0&&p.orb!==i){p.orb=i;p.buf=0;if(t=='og'){p.g=-p.g;p.vy=p.g*7}else{const jv=m=='ship'?8:m=='ufo'?11:m=='robot'?13:m=='ball'?12:mini?K.cube.MJV:K.cube.JV;p.vy=-jv*p.g;if(m=='robot')p.jt=99}p.onG=false;ev&&ev.push(['orb',o])}continue}
   if(t=='portal'){const tx=o.x+T/2;if(ox+s/2<tx&&p.x+s/2>=tx){const k=o.k;
@@ -60,6 +60,7 @@ function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p
   if(t=='coin'){if(ev&&Math.abs(o.x+T/2-(p.x+s/2))<30&&Math.abs(o.y+T/2-(p.y+s/2))<30)ev.push(['coin',o]);continue}
  }
  // --- grounded actions ---
+ if(p.onG&&p.padF===p.f)p.onG=false;
  if(p.onG){if(m=='cube'){if(held){p.vy=-(mini?K.cube.MJV:K.cube.JV)*p.g;p.onG=false}}
   else if(m=='robot'){if(held&&(pressed||p.buf>0||true)){p.vy=-K.robot.JV*p.g;p.jt=0;p.onG=false;p.buf=0}}
   else if(m=='ball'){if(p.buf>0){p.buf=0;p.g=-p.g;p.vy=p.g*2;p.onG=false}}
