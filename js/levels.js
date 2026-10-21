@@ -112,6 +112,14 @@ const LEVELS=[
   ['cube','seq',{s:'s...s...d.......B.......1...2...'}],['robot','towers',{n:4,hmax:3}],['cube','saws',{n:3}],
   ['swing','gates',{n:6,gap:6,sh:1,dx:8}],['cube','pads',{n:2}],['cube','orbs',{n:4}],['ship','gseq',{gap:5,s:'4.4.5.5.6.6.5.5.4.4.3.3.'}],
   ['cube','dash',{n:2}],['spider','flip',{n:4,gap:2,h:5}],['cube','plat',{n:5}],['cube','seq',{s:'d...s...2.....1.......d.......'}]]},
+ {name:'Autumn Woods',th:21,song:21,spd:1,diff:1,seed:251,script:[
+  ['cube','seq',{s:'s.......s...s...1.......2.......'}],['cube','stairs',{n:3}],['cube','orbs',{n:3}],['ufo','gates',{n:5,gap:6,sh:1,dx:8}],
+  ['cube','seq',{s:'b...b...s.......p.......s...s...'}],['ball','bseq',{h:5,s:'f.......c...f...'}],['cube','dash',{n:1}],
+  ['swing','gates',{n:5,gap:6,sh:1,dx:8}],['cube','plat',{n:4}],['ship','pillars',{n:6,gap:6,sh:1,dx:8}],['cube','seq',{s:'1...2...3.......s.......d.......'}]]},
+ {name:'Storm Peaks',th:22,song:22,spd:2,diff:3,seed:257,script:[
+  ['cube','seq',{s:'d...d...t.......2.....1.......'}],['wave','zig',{len:40,gap:150,seg:3}],['cube','saws',{n:4,hang:1}],['ship','movers',{n:6,dx:7,beats:2,gapPad:60}],
+  ['cube','dash',{n:2,roof:0}],['spider','flip',{n:6,gap:2,h:5}],['swing','gseq',{gap:4,s:'6.5.4.3.2.3.4.5.6.5.4.3.'}],['robot','towers',{n:5,hmax:4}],
+  ['cube','grav',{n:4}],['ufo','gates',{n:7,gap:5,sh:2,dx:7}],['cube','pistons',{n:4,sp:1}],['cube','seq',{s:'t.......d...d...2.......'}]]},
  {name:'Shadow King',th:11,song:11,spd:3,diff:5,seed:173,secret:12,boss:1,script:[
   ['cube','seq',{s:'t.....d.....t.....B.......o...o...o...'}],['ship','sawfield',{n:10,dx:5,mid:1}],
   ['cube','pistons',{n:5,sp:1}],['ship','gseq',{s:'4.3.2.1.0.1.2.3.4.4.3.2.',gap:5}],['wave','zig',{len:44,gap:130,seg:3}],
@@ -204,8 +212,8 @@ function gen(seed,tier){const r=rng(seed),pick=a=>a[Math.floor(r()*a.length)];
  const MODE=[()=>['swing','gates',{n:6+tier,gap:6-tier,sh:1+tier%2,dx:7}],()=>['ship','pillars',{n:6+tier,gap:6-tier,sh:1+tier%2,dx:7}],()=>['ship','gseq',{gap:5-tier,s:mel(12,5-tier)}],()=>['ball','bseq',{h:5,s:bs(4)}],()=>['ufo','gates',{n:5+tier,gap:5,sh:1,dx:7}],()=>['spider','flip',{n:4+tier,gap:2,h:5}],()=>['robot','towers',{n:4,hmax:3}],()=>['ball','flip',{n:4+tier,gap:2,h:5}]];
  if(tier>1)MODE.push(()=>['wave','zig',{len:36,gap:160,seg:4}],()=>['ufo','movers',{n:5,dx:8,beats:2,gapPad:70}],()=>['ship','tunnel',{len:36,gap:200,amp:60}]);
  const script=[['cube','seq',{s:pick(SEQ)}]];for(let k=0;k<5;k++){script.push(pick(CUBE)());script.push(pick(MODE)())}script.push(['cube','seq',{s:pick(SEQ)}]);
- const th=pick([0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,19,20]);
+ const th=pick([0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,19,20,21,22]);
  return{name:'',th,song:pick([0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]),spd:tier>1?2:1,diff:[1,2,3][tier]||1,seed,script,gen:1}}
-function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170,126,174,118,136,150,112,122,142,156,116,128][s]}
+function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170,126,174,118,136,150,112,122,142,156,116,128,124,165][s]}
 return{LEVELS,DIFF,build,gen,CTOP,CROWS}})();
 if(typeof module!='undefined')module.exports=LV;

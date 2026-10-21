@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v5.4 — Autumn Woods + Storm Peaks (23 worlds)
+- **Autumn Woods** (Normal) has orange and red trees, pumpkins, toadstools and drifting leaves, set to the new song *Maple Groove* (124 BPM garage with a swing feel).
+- **Storm Peaks** (Harder) has snow-capped mountains, storm clouds, driving rain and lightning flashes that hit on the beat, set to *Thunderhead* (165 BPM drum & bass).
+- Both levels mix 6–7 game modes with hand-written rhythm openers and finishers, and the bot beats them at both the standard (D3) and the coarser, more human-like (D6) setting. All 23 levels were re-baked.
+- The menu now has 3 pages, and the bottom button shows which page you're on. Saves, coins and ghosts for the Shadow King carry over automatically.
+
 ## v5.3 — Ambient particles in every world
 - 14 more worlds get their own ambient particle layer: sea bubbles, candy sprinkles, rainbow twinkles, desert sand gusts, boss embers, mushroom spores, pirate rain, crystal glints, toy confetti, cherry petals, clockwork sparks, Kraken bubbles, farm butterflies and dino-valley embers. Many of them pulse with the beat. They are skipped in LITE mode on phones, and a frame costs about 2.5 ms to draw.
 
