@@ -1,5 +1,16 @@
 # Cube Dash Changelog
 
+## v3.5 — Ambient weather & life
+- New ambient layer that reacts to the beat:
+  - Jungle: falling leaves and fireflies
+  - Ice Kingdom: snowfall
+  - Lava Volcano: rising embers and a heat glow
+  - Haunted Castle: flapping red-eyed bats and drifting ground fog
+  - Robot Factory: welding sparks on the beat and steam puffs
+  - Outer Space: shooting stars
+  - Neon City: neon rain
+- This layer is skipped on phones while LITE mode is on.
+
 ## v3.4 — More song variety
 - 4 new drum kits: UK garage 2-step, breakbeat, moombah and trance. Several songs now switch to a second groove for alternate 16-bar stretches.
 - Swing/shuffle feel for Vine Swing and Sandstorm Shuffle.
