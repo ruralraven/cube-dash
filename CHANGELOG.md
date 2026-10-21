@@ -1,5 +1,14 @@
 # Cube Dash Changelog
 
+## v3.4 — More song variety
+- 4 new drum kits: UK garage 2-step, breakbeat, moombah and trance. Several songs now switch to a second groove for alternate 16-bar stretches.
+- Swing/shuffle feel for Vine Swing and Sandstorm Shuffle.
+- New signature layers:
+  - "vocal chop" formant synth (Bubble Pop, Rainbow Rocket, Sandstorm, Spooky Spire)
+  - trance-gated chord stabs (Frostbite, Neon Nights, Shadow King)
+- Every 8 bars ends with a tom fill, and every second drop adds a harmony line a third above the lead.
+- Checked offline: all 12 songs render with healthy levels (peak ≤0.81, no clipping). BPMs are unchanged, so the levels stay beat-synced.
+
 ## v3.3 — Swipeable menu & new rhythm sections
 - World menu: page dots and swipe left/right between pages. Cards now open on release, so a swipe doesn't start a level by accident.
 - Added 17 hand-written, beat-synced sections across worlds 1–10:
