@@ -1,5 +1,14 @@
 # Cube Dash Changelog
 
+## v4.7 — Second boss: Kraken's Lair
+- New Insane boss world **Kraken's Lair** (156 BPM "Abyssal Bass", unlocks at 20 coins). Placed just before Neon City in the world order.
+  - A giant purple kraken with glowing eyes and eight tentacles that sway on the beat, plus purple beams to the saws.
+  - Deep-sea scenery: god-rays, a sunken pirate ship, kelp, glowing bioluminescent plankton and rising bubbles.
+  - Moving ship sections, a sawfield, dash pits, a wave section, a fast ship melody, spider flips and its own "THE KRAKEN IS DEFEATED!" ending.
+- The boss system now supports multiple bosses (each with its own art, health-bar name and ending).
+- Daily/Random runs can now include dash-orb pits (120/120 generated runs bot-beatable at D4).
+- 19 worlds and 57 coins. Saves migrate automatically. All 19 levels win in the browser with 3/3 coins.
+
 ## v4.6 — Dash orbs
 - New **green dash orb** (it shows a "HOLD" label): tap it and keep holding to fly dead-straight over a spike pit, then release to drop. The pit is sized from each level's jump length, so a normal jump can't clear it. The bot confirmed this: with the orb removed, every speed fails.
 - Added 20 dash-orb pits across 10 worlds: Jungle, Haunted, Factory, Space, Neon, Rainbow, Mushroom, Pirate, Crystal and Clockwork. The harder worlds add ceiling spikes above the pit.

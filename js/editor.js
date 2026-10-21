@@ -26,7 +26,7 @@ function edPlace(mx,my){const[c,r]=edCell(mx,my);if(r<0||r>8||c<4)return;edPush(
  const at=o.findIndex(q=>q[1]==c&&(q[0][0]=='P'?tl[0]=='P'||tl=='X':q[2]==r&&q[0][0]!='P'));
  if(tl=='X'){const k=o.findIndex(q=>q[1]==c&&(q[2]==r||q[0][0]=='P'));if(k>=0)o.splice(k,1)}
  else if(at>=0&&o[at][0]==tl)o.splice(at,1);else{if(at>=0)o.splice(at,1);o.push([tl,c,tl[0]=='P'?0:r])}ED.fail=null;edSave()}
-const EBTN=[['THEME',()=>{ED.data.th=(ED.data.th+1)%TH.length;if(ED.data.th==11)ED.data.th++;ED.data.th%=TH.length}],['SONG',()=>{ED.data.song=(ED.data.song+1)%Music.SONGS.length}],['SPEED',()=>{ED.data.spd=(ED.data.spd+1)%4}],
+const EBTN=[['THEME',()=>{ED.data.th=(ED.data.th+1)%TH.length;if(ED.data.th==11||ED.data.th==18)ED.data.th++;ED.data.th%=TH.length}],['SONG',()=>{ED.data.song=(ED.data.song+1)%Music.SONGS.length}],['SPEED',()=>{ED.data.spd=(ED.data.spd+1)%4}],
  ['▶ TEST',edTest],['🤖 CHECK',edCheck],['🔗 SHARE',edShare],['↶ UNDO',edUndo],['SLOT',edSlot],['CLEAR',()=>{if(ED.clr&&t-ED.clr<2){edPush();ED.data.o=[];edSave();ED.msg='Cleared';ED.msgT=90}else{ED.clr=t;ED.msg='Tap CLEAR again to erase everything';ED.msgT=120}}],['EXIT',()=>{edSave();scene='menu'}]];
 function edDown(mx,my){if(my>H-48){const w=(W-70)/EBTN.length,i=Math.floor(mx/w);if(i<EBTN.length)EBTN[i][1]();edSave();return}
  if(my>H-100){const i=Math.floor((mx-6)/50);if(i>=0&&i<EDTOOLS.length)ED.tool=i;return}
