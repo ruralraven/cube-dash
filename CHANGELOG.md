@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v6.8 — Honey Hive + Cosmic Rift (33 worlds)
+- **Honey Hive** (Normal) has a honeycomb sky, hanging beehives, buzzing bees, flowers and pollen sparkles, set to *Honey Bounce* (120 BPM bouncy house).
+- **Cosmic Rift** (Demon, secret world: collect 55 coins to unlock) has a black hole with spinning accretion rings, tumbling asteroids and streaking light, plus mini-wave and saw-field sections, set to *Event Horizon* (176 BPM drum & bass with a reese bass).
+- Both levels pass the bot. Honey Hive also passes at D6. Background spires and honey mounds are drawn faint and low so they don't look like hazards. Saves migrate automatically (v33), and all 33 levels were re-baked.
+
 ## v6.7 — Secret Seeker trophy
 - New trophy, **Secret Seeker**: beat 3 secret (coin-locked) worlds. That makes 15 trophies, and the trophy grid was compacted so all of them fit.
 
