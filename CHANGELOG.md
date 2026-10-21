@@ -41,3 +41,8 @@
 - Spinning saw blades: half-buried ground saws, hanging saws, and saw fields in ship corridors (Jungle, Lava, Haunted, Factory, Neon).
 - Blue gravity orbs: tap in mid-air to flip onto the ceiling over spike floors and back again (Candy, Ice, Haunted, Space, Neon).
 - Factory saws are red/yellow so they stand out from the background gears.
+
+## v2.5 – Richer music (2026-10-21)
+- Every song now has its own signature instrument layer: water-drop blips (Sea), chiptune arps (Candy), marimba (Jungle), FM glass bells (Ice), distorted saw stabs (Lava), vibrato organ + bells (Haunted), metallic distorted stabs (Factory), shimmering space arps (Space), supersaw chords (Neon).
+- Melodies alternate between two phrases on each loop so songs repeat less.
+- Fixed a DC-offset bug in the distortion curve (verified with offline audio rendering: levels stay steady, no clipping).

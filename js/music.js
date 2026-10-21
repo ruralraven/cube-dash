@@ -2,6 +2,7 @@
 const Music=(()=>{
 let ac=null,master,comp,dly,dlyG,noiseBuf,timer=null,song=null,step=0,nextT=0,t0=0,muted=false,duck=null;
 try{muted=localStorage.cdMute==='1'}catch(e){}
+const _dc={};function distCurve(k){if(_dc[k])return _dc[k];const n=1025,c=new Float32Array(n);for(let i=0;i<n;i++){const x=i/(n-1)*2-1;c[i]=(1+k)*x/(1+k*Math.abs(x))}return _dc[k]=c}
 const mtof=m=>440*Math.pow(2,(m-69)/12);
 const SCALES={major:[0,2,4,5,7,9,11],minor:[0,2,3,5,7,8,10],phryg:[0,1,3,5,7,8,10],dorian:[0,2,3,5,7,9,10],harm:[0,2,3,5,7,8,11]};
 function init(ctx){if(ac&&!ctx)return true;const A=window.AudioContext||window.webkitAudioContext;if(!A&&!ctx)return false;ac=ctx||new A();
@@ -23,9 +24,12 @@ function synth(t,midi,dur,o){// o:{wave,vol,cut,res,env,detune,dest,a,glide,wobb
  const g=ac.createGain(),f=ac.createBiquadFilter();f.type='lowpass';f.Q.value=o.res||1;const cut=o.cut||2000;
  f.frequency.setValueAtTime(cut*(o.envAmt||3),t);f.frequency.exponentialRampToValueAtTime(cut,t+Math.min(dur,.25));
  if(o.wobble){const l=ac.createOscillator(),lg=ac.createGain();l.frequency.value=o.wobble;lg.gain.value=cut*.9;l.connect(lg);lg.connect(f.frequency);l.start(t);l.stop(t+dur+.1)}
- const n=o.detune?2:1;for(let k=0;k<n;k++){const os=ac.createOscillator();os.type=o.wave||'sawtooth';os.frequency.value=mtof(midi);if(o.detune)os.detune.value=k?o.detune:-o.detune;os.connect(f);os.start(t);os.stop(t+dur+.3)}
+ const n=o.voices||(o.detune?2:1);let vib=null;if(o.vib){vib=ac.createOscillator();vib.frequency.value=5.5;const vg=ac.createGain();vg.gain.value=o.vib;vib.connect(vg);vib.start(t);vib.stop(t+dur+.3);vib=vg}
+ for(let k=0;k<n;k++){const os=ac.createOscillator();os.type=o.wave||'sawtooth';os.frequency.value=mtof(midi)*(o.harm?o.harm[k]:1);if(o.detune&&!o.harm)os.detune.value=n==1?0:(k/(n-1)*2-1)*o.detune;if(vib)vib.connect(os.detune);
+  if(o.harm){const hg=ac.createGain();hg.gain.value=1/(k+1);os.connect(hg);hg.connect(f)}else os.connect(f);os.start(t);os.stop(t+dur+.3)}
+ if(o.dist){const ws=ac.createWaveShaper();ws.curve=distCurve(o.dist);f.disconnect();f.connect(ws);ws.connect(g)}
  const a=o.a||.005;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(o.vol,t+a);g.gain.setValueAtTime(o.vol,t+Math.max(a,dur*.7));g.gain.exponentialRampToValueAtTime(.0001,t+dur+.12);
- f.connect(g);g.connect(o.dest||duck);if(o.send){const s=ac.createGain();s.gain.value=o.send;g.connect(s);s.connect(dly)}}
+ if(!o.dist)f.connect(g);g.connect(o.dest||duck);if(o.send){const s=ac.createGain();s.gain.value=o.send;g.connect(s);s.connect(dly)}}
 // ---- song definitions ----
 // drums: 16-step strings per instrument; k kick s snare c clap h hat o openhat t tom m metal
 const DR={
@@ -41,15 +45,15 @@ const DR={
 const SONGS=[];
 function S(o){SONGS.push(o)}
 // name,bpm,root,scale,prog(degrees per bar),drums,bass style,lead wave,seed,extras
-S({name:'Bubble Pop',bpm:120,root:57,sc:'major',prog:[0,5,3,4],dr:'bounce',bass:'pluck',lead:'square',seed:3,arp:'triangle',cut:2400});
-S({name:'Sugar Rush',bpm:128,root:60,sc:'major',prog:[0,4,5,3],dr:'house',bass:'offbeat',lead:'square',seed:7,arp:'square',cut:3000});
-S({name:'Stardust Overdrive',bpm:140,root:50,sc:'minor',prog:[0,5,2,6],dr:'halftime',bass:'wobble',lead:'sawtooth',seed:11,arp:'sawtooth',cut:1800});
-S({name:'Vine Swing',bpm:124,root:55,sc:'dorian',prog:[0,3,0,4],dr:'tribal',bass:'pluck',lead:'triangle',seed:19,arp:'square',cut:2200});
-S({name:'Frostbite',bpm:132,root:62,sc:'minor',prog:[0,5,3,6],dr:'house',bass:'offbeat',lead:'triangle',seed:23,arp:'triangle',cut:4000,bell:1});
-S({name:'Magma Core',bpm:150,root:52,sc:'phryg',prog:[0,1,0,6],dr:'hard',bass:'rolling',lead:'sawtooth',seed:29,arp:'sawtooth',cut:1500});
-S({name:'Spooky Spire',bpm:138,root:57,sc:'harm',prog:[0,5,3,4],dr:'trap',bass:'wobble',lead:'square',seed:31,arp:'square',cut:1600});
-S({name:'Gear Grinder',bpm:145,root:48,sc:'minor',prog:[0,0,5,6],dr:'industrial',bass:'rolling',lead:'square',seed:37,arp:'sawtooth',cut:1400});
-S({name:'Neon Nights',bpm:160,root:53,sc:'minor',prog:[0,5,3,4],dr:'dnb',bass:'rolling',lead:'sawtooth',seed:41,arp:'square',cut:2600});
+S({name:'Bubble Pop',sig:'drops',bpm:120,root:57,sc:'major',prog:[0,5,3,4],dr:'bounce',bass:'pluck',lead:'square',seed:3,arp:'triangle',cut:2400});
+S({name:'Sugar Rush',sig:'chip',bpm:128,root:60,sc:'major',prog:[0,4,5,3],dr:'house',bass:'offbeat',lead:'square',seed:7,arp:'square',cut:3000});
+S({name:'Stardust Overdrive',sig:'space',bpm:140,root:50,sc:'minor',prog:[0,5,2,6],dr:'halftime',bass:'wobble',lead:'sawtooth',seed:11,arp:'sawtooth',cut:1800});
+S({name:'Vine Swing',sig:'marimba',bpm:124,root:55,sc:'dorian',prog:[0,3,0,4],dr:'tribal',bass:'pluck',lead:'triangle',seed:19,arp:'square',cut:2200});
+S({name:'Frostbite',sig:'bells',bpm:132,root:62,sc:'minor',prog:[0,5,3,6],dr:'house',bass:'offbeat',lead:'triangle',seed:23,arp:'triangle',cut:4000,bell:1});
+S({name:'Magma Core',sig:'distort',dist:12,bpm:150,root:52,sc:'phryg',prog:[0,1,0,6],dr:'hard',bass:'rolling',lead:'sawtooth',seed:29,arp:'sawtooth',cut:1500});
+S({name:'Spooky Spire',sig:'organ',bpm:138,root:57,sc:'harm',prog:[0,5,3,4],dr:'trap',bass:'wobble',lead:'square',seed:31,arp:'square',cut:1600});
+S({name:'Gear Grinder',sig:'metal',dist:8,bpm:145,root:48,sc:'minor',prog:[0,0,5,6],dr:'industrial',bass:'rolling',lead:'square',seed:37,arp:'sawtooth',cut:1400});
+S({name:'Neon Nights',sig:'supersaw',bpm:160,root:53,sc:'minor',prog:[0,5,3,4],dr:'dnb',bass:'rolling',lead:'sawtooth',seed:41,arp:'square',cut:2600});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
@@ -60,6 +64,21 @@ SONGS.forEach(build);
 function note(sd,deg,oct=0){const sc=SCALES[sd.sc],o=Math.floor(deg/7);return sd.root+oct*12+o*12+sc[((deg%7)+7)%7]}
 // arrangement: 8 bars per section: 0 intro,1 build,2 drop,3 break,4 drop2 ... loops 1..4
 function section(bar){if(bar<4)return 0;const s=Math.floor((bar-4)/8)%4;return[1,2,3,2][s]}
+function drop(t,f){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*2.6,t+.09);env(g,t,.002,.18,.12);o.connect(g);g.connect(duck);const s=ac.createGain();s.gain.value=.4;g.connect(s);s.connect(dly);o.start(t);o.stop(t+.2)}
+function bell(t,midi,v){const c=ac.createOscillator(),m=ac.createOscillator(),mg=ac.createGain(),g=ac.createGain();c.type='sine';m.type='sine';c.frequency.value=mtof(midi);m.frequency.value=mtof(midi)*3.5;mg.gain.setValueAtTime(mtof(midi)*2,t);mg.gain.exponentialRampToValueAtTime(1,t+1);m.connect(mg);mg.connect(c.frequency);env(g,t,.002,v,1.2);c.connect(g);g.connect(duck);const s=ac.createGain();s.gain.value=.5;g.connect(s);s.connect(dly);c.start(t);m.start(t);c.stop(t+1.4);m.stop(t+1.4)}
+function marimba(t,midi,v){const o=ac.createOscillator(),o2=ac.createOscillator(),g=ac.createGain();o.type='sine';o2.type='sine';o.frequency.value=mtof(midi);o2.frequency.value=mtof(midi)*4;const g2=ac.createGain();g2.gain.value=.25;env(g,t,.002,v,.35);o.connect(g);o2.connect(g2);g2.connect(g);g.connect(duck);o.start(t);o2.start(t);o.stop(t+.5);o2.stop(t+.5)}
+function sig(sd,st,t,sec,bar,s16,deg,spb){if(sec==0&&bar<2)return;const S=sd.sig,r=((st*7919)%13)/13;
+ if(S=='drops'&&s16%4==3&&r<.6)drop(t,500+r*700);
+ if(S=='chip'&&sec>=1&&sec!=3){const a=[0,4,7,12][s16%4];synth(t,note(sd,deg,2)+a%12+(a>=12?12:0),spb*.5,{wave:'square',vol:.035,cut:8000})}
+ if(S=='marimba'&&'x.xx.x.xx.x.x.xx'[s16]=='x')marimba(t,note(sd,deg+[0,2,4,7,4][s16%5],1),.12);
+ if(S=='bells'&&s16%4==0&&sec!=0)bell(t,note(sd,deg+[4,2,0,7][(s16/4)%4],2),.09);
+ if(S=='organ'&&s16==0){[0,2,4].forEach(i=>synth(t,note(sd,deg+i,0),spb*15,{wave:'sine',vol:.05,harm:[1,2,3,4],cut:3000,a:.05,vib:8}))}
+ if(S=='organ'&&sec==3&&s16%8==0)bell(t,note(sd,deg,1),.06);
+ if(S=='metal'&&sec>=1&&(s16==3||s16==11))synth(t,note(sd,deg,1),spb*.8,{wave:'square',vol:.08,cut:1200,res:12,dist:20});
+ if(S=='distort'&&sec==2&&s16%2==0)synth(t,note(sd,deg+[0,0,7,5][(s16/2)%4],0),spb*.9,{wave:'sawtooth',vol:.07,cut:1800,res:4,dist:30});
+ if(S=='space'&&s16%2==0&&sec!=3)synth(t,note(sd,deg+[0,4,7,9,11,9,7,4][(s16/2)%8],2),spb*.9,{wave:'sine',vol:.04,cut:6000,send:.6});
+ if(S=='supersaw'&&s16==0&&(sec==2||sec==3)){[0,2,4,7].forEach(i=>synth(t,note(sd,deg+i,1),spb*15,{wave:'sawtooth',vol:.03,voices:5,detune:22,cut:sec==2?3500:1500,a:.02,send:.25}))}
+}
 function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),dr=DR[sd.dr],deg=sd.prog[bar%4],spb=60/sd.bpm/4;
  const on=(k)=>dr[k]&&dr[k][s16]=='x';
  // drums
@@ -70,6 +89,7 @@ function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),d
  if(sec==1&&bar%8==6&&s16==0){const n=ac.createBufferSource();n.buffer=noiseBuf;n.loop=true;const f=ac.createBiquadFilter();f.type='bandpass';f.Q.value=2;f.frequency.setValueAtTime(400,t);f.frequency.exponentialRampToValueAtTime(9000,t+spb*32);const g=ac.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.22,t+spb*31);g.gain.linearRampToValueAtTime(0,t+spb*32.5);n.connect(f);f.connect(g);g.connect(comp);n.start(t);n.stop(t+spb*33)} // riser
  if(sec==2&&s16%2==1)hat(t,.07);
  if(sec==2&&bar%8==0&&s16==0)noise(t,1.2,'highpass',3000,.5,.25); // crash
+ sig(sd,st,t,sec,bar,s16,deg,spb);
  // bass
  if(sec>=1){const bn=note(sd,deg,-2);let p=false,dur=spb*.9,o={wave:'sawtooth',vol:.32,cut:sd.cut*.25,res:6,envAmt:4};
   if(sd.bass=='offbeat')p=s16%4==2;else if(sd.bass=='pluck')p='x..x..x...x..x..'[s16]=='x';else if(sd.bass=='rolling'){p=s16%4!=0;o.wave='square';o.vol=.22}else if(sd.bass=='wobble'){p=s16%8==0;dur=spb*7.5;o.wobble=[2,4,8,6][bar%4]*sd.bpm/120;o.cut=sd.cut*.5;o.res=8;o.vol=.3}
@@ -79,7 +99,7 @@ function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),d
  // arp
  if(sec>=1&&sec!=3||sec==0&&bar>=2){if(s16%2==0){const a=[0,2,4,7,4,2,7,4][(s16/2)%8];synth(t,note(sd,deg+a,1),spb*1.5,{wave:sd.arp,vol:.06,cut:sd.cut,res:3,send:.35})}}
  // lead (drops + break)
- if(sec==2||sec==3){const m=sd.mel[(bar%8)*16+s16];if(m!=null){synth(t,note(sd,m,1),spb*1.8,{wave:sd.lead,vol:sec==3?.07:.13,cut:sd.cut*1.2,res:2,detune:sd.lead=='sawtooth'?9:0,send:.3});if(sec==2)synth(t,note(sd,m,0),spb*1.8,{wave:'square',vol:.05,cut:sd.cut*.8});if(sd.bell)synth(t,note(sd,m,2),spb*2,{wave:'sine',vol:.06,cut:6000,send:.4})}}
+ if(sec==2||sec==3){const m=sd.mel[((bar+(Math.floor((bar-4)/16)%2)*4)%8)*16+s16];if(m!=null){synth(t,note(sd,m,1),spb*1.8,{wave:sd.lead,vol:(sec==3?.07:.13)*(sd.dist?.6:1),cut:sd.cut*1.2,res:2,detune:sd.lead=='sawtooth'?9:0,voices:sd.sig=='supersaw'?3:0,send:.3,dist:sd.dist,vib:sd.sig=='organ'?15:0});if(sec==2)synth(t,note(sd,m,0),spb*1.8,{wave:'square',vol:.05,cut:sd.cut*.8});if(sd.bell)synth(t,note(sd,m,2),spb*2,{wave:'sine',vol:.06,cut:6000,send:.4})}}
 }
 function tick(){while(nextT<ac.currentTime+.15){sched(song,step,nextT);step++;nextT+=60/song.bpm/4}}
 return{SONGS,BPM,
