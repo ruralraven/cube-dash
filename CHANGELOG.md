@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v4.0 — Difficulty-ordered world map
+- The menu now lists worlds from easiest to hardest across both pages: Toy Box → Under the Sea → Candy Land → Jungle Jump → Cherry Blossom → Mushroom Forest → Ice Kingdom → Desert Temple → Pirate Cove → Lava Volcano → Haunted Castle → Clockwork Tower → Robot Factory → Outer Space → Crystal Caves → Neon City → Rainbow Sky → Shadow King.
+- The NEXT button after a win, arrow-key navigation, number keys and swiping all follow this order. Saves aren't affected (they're stored per world, not per position).
+
 ## v3.9 — 18 worlds
 - **Toy Box** (Easy, slowest speed, 112 BPM "Toy Parade"): toy shelves, ABC blocks, teddy bears, bouncing balls and pinwheels. A second gentle level for beginners. It passes even the coarsest bot (D6).
 - **Cherry Blossom** (Normal, 122 BPM "Sakura Drift"): torii gates, pagodas, snowy mountains, a red sun, sakura trees and drifting petals. Uses every mode (cube, robot, ship melody, spider, ball, UFO).
