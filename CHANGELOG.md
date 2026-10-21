@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v3.8 — More unlockables (up to 45 coins)
+- 4 new cube colours (teal, blaze, silver, gold, unlocking at 30–42 coins).
+- 4 new faces: Pirate (eye-patch + bandana), Sleepy (zzz), Alien (one big eye + antennae), Crown (45 coins, every coin).
+- 2 new trails: Bubbles (float upward) and Hearts.
+- The ICONS screen was re-laid out for 18 colours / 12 faces / 6 trails, with a live preview cube at the top right.
+
 ## v3.7 — Level flow
 - Drop moments: when the music hits its drop, the screen flashes, shakes and bursts with speed lines in the world's colour. This was checked in a real music run (the drop fired at about 23.5 s in Under the Sea).
 - The progress bar shows a coloured tick for each mode portal, so you can see the level's structure (cube → ship → ball …) ahead of time.
