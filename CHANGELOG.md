@@ -1,5 +1,12 @@
 # Cube Dash Changelog
 
+## v5.8 — Bamboo Dojo + Cyber Arcade (25 worlds)
+- **Bamboo Dojo** (Hard) has swaying bamboo, dojo roofs, glowing paper lanterns and floating leaves, set to *Bamboo Breeze* (118 BPM tribal and garage marimba).
+- **Cyber Arcade** (Insane, secret world: collect 26 coins to unlock) has a synthwave grid, blinking arcade cabinets, pixel invaders and rising pixel sparks, set to *Pixel Overload* (172 BPM chiptune drum & bass).
+- Both levels pass the bot at D3 and D6.
+- Grey decorative rocks in Bamboo Dojo and Storm Peaks were replaced with low, rounded shapes so they can't be mistaken for blocks you can land on.
+- Saves migrate automatically (v25), including older saves that skipped v5.4. All 25 levels were re-baked.
+
 ## v5.7 — Fairness pass + nicer win screen
 - Ran a fairness sweep on every level with coarser, more human-like bot timing (D4 and D6). Every Easy–Harder level now passes D6. Haunted Castle and Rainbow Sky had UFO gate sections that were too tight, so those got one more beat of room. Only the two Demon levels (Neon City and Shadow King) still need very precise timing, on purpose.
 - The win screen now shows a bouncing **★ FIRST TRY! ★** badge when you clear a level on attempt 1. The NEXT button says which world comes next, and a hint appears when you're within 6 coins of unlocking a secret world.

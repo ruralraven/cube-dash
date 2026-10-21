@@ -72,6 +72,8 @@ S({name:'Barnyard Boogie',lift:2,sig:'marimba',sig2:'chop',swing:.14,bpm:116,roo
 S({name:'Dino Stomp',sig:'distort',sig2:'chop',dist:6,bpm:128,root:50,sc:'dorian',prog:[0,6,3,4],dr:'tribal',dr2:'breaks',bass:'wobble',lead:'square',seed:131,arp:'sawtooth',cut:2000});
 S({name:'Maple Groove',lift:2,sig:'marimba',sig2:'chop',swing:.12,bpm:124,root:56,sc:'dorian',prog:[0,5,3,4],dr:'garage',dr2:'house',bass:'offbeat',lead:'triangle',seed:137,arp:'triangle',cut:2600,bell:1});
 S({name:'Thunderhead',lift:1,sig:'supersaw',sig2:'gate',dist:4,bpm:165,root:51,sc:'minor',prog:[0,6,5,4],dr:'dnb',dr2:'breaks',bass:'reese',lead:'sawtooth',seed:139,arp:'sawtooth',cut:2400});
+S({name:'Bamboo Breeze',lift:2,sig:'marimba',sig2:'chop',swing:.08,bpm:118,root:57,sc:'dorian',prog:[0,3,4,3],dr:'tribal',dr2:'garage',bass:'pluck',lead:'triangle',seed:149,arp:'triangle',cut:2600,bell:1});
+S({name:'Pixel Overload',lift:1,sig:'chip',sig2:'gate',bpm:172,root:55,sc:'minor',prog:[0,5,6,4],dr:'dnb',dr2:'hard',bass:'rolling',lead:'square',seed:151,arp:'square',cut:3400});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
