@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v4.9 — Ghost of your best run
+- **Ghost cube**: every world remembers your best attempt as frame-perfect inputs (the engine is deterministic). A see-through ghost replays that run next to you, so you can race yourself. It's saved in its own small storage slot and can be turned off in Settings ("Ghost of best run"). Practice, Daily/Random and editor levels don't record ghosts.
+- New trophy: **Kraken Tamer** (13 trophies in total). The Settings screen was re-laid out to fit them.
+- Browser run: 19/19 wins with 3/3 coins. Tested that a ghost is recorded and replays.
+
 ## v4.8 — 8th game mode: Swing
 - New **Swing copter** mode (orange portal, hint "TAP = FLIP GRAVITY"): each tap flips gravity mid-air, so you swing between the floor and ceiling. It has its own propeller-cube sprite and tilts with your speed. Leaving swing mode resets gravity to normal.
 - Added swing sections to 6 worlds: Cherry Blossom, Desert Temple, Pirate Cove, Clockwork Tower, Rainbow Sky and Neon City. These include gate runs and melody walls.
