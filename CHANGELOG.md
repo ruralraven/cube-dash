@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v3.7 — Level flow
+- Drop moments: when the music hits its drop, the screen flashes, shakes and bursts with speed lines in the world's colour. This was checked in a real music run (the drop fired at about 23.5 s in Under the Sea).
+- The progress bar shows a coloured tick for each mode portal, so you can see the level's structure (cube → ship → ball …) ahead of time.
+
 ## v3.6 — 15 worlds
 - **Mushroom Forest** (Normal, 118 BPM "Spore Bounce"): giant glowing toadstools, floating spores, snails and red-cap blocks. Pad- and orb-heavy, with UFO and ball sections.
 - **Pirate Cove** (Hard, 136 BPM "Cannon Shanty"): sunset sea with rolling waves, palm islands, pirate ships, seagulls, a wooden dock, crates and barrels. Ship-heavy, with sawfields.
