@@ -1,5 +1,12 @@
 # Cube Dash Changelog
 
+## v4.3 — Settings, stats & trophies
+- A new ⚙ button on the menu opens **Settings & Trophies**:
+  - Settings: Music, Sound effects (separate from music), **Calm mode** (turns off flashes, screen shake and drop bursts, for players sensitive to them), LITE graphics, Practice mode.
+  - Stats: attempts, jumps, deaths, wins, coins, play time.
+  - **12 trophies**: First Steps, World Hopper, Globetrotter, Coin Collector, Treasure Hunter, Every Last Coin, Demon Slayer, Kingslayer, Never Give Up, Bouncy, Daily Runner, Architect (make a level of 10+ objects that the bot can beat).
+- A toast slides in when you unlock a trophy. Bot demo replays never count toward stats or trophies.
+
 ## v4.2 — Level Editor ✏
 - New **level editor** (the ✏ button on the menu, or `?scene=edit`):
   - 19 tools: block, spike, ceiling spike, yellow/blue orbs, yellow/blue pads, all 7 mode portals, gravity up/down, slow/fast speed portals, and an eraser.

@@ -15,7 +15,7 @@ function edBuild(){const d=ED.data,obs=[];let end=40;
  return{obs,bounds,end:end*T,spd:E.SPEEDS[d.spd],startX:0,startMode:'cube',info:{},idx:-1,segs:[],wv:[]}}
 function edOpen(){edLoad();scene='edit';Music.stop();held=false}
 function edTest(){edSave();LV.LEVELS[NL+1]={name:'My Level',th:ED.data.th,song:ED.data.song,spd:ED.data.spd,diff:1,custom:1};att=0;start(NL+1)}
-function edCheck(){const lv=edBuild(),r=BOT.solve(lv,4000,3);if(r.ok){ED.fail=null;ED.msg='✓ The bot beat your level!'}else{ED.fail=r.best;ED.msg=r.timeout?'Bot ran out of time — try simplifying':'✗ Bot got stuck at '+Math.round(100*r.best/lv.end)+'% (red line)';ED.cx=Math.max(0,r.best-W/2)}ED.msgT=240}
+function edCheck(){const lv=edBuild(),r=BOT.solve(lv,4000,3);if(r.ok){ED.fail=null;ED.msg='✓ The bot beat your level!';if(ED.data.o.length>=10){save.st.edits++;achCheck()}}else{ED.fail=r.best;ED.msg=r.timeout?'Bot ran out of time — try simplifying':'✗ Bot got stuck at '+Math.round(100*r.best/lv.end)+'% (red line)';ED.cx=Math.max(0,r.best-W/2)}ED.msgT=240}
 function edShare(){edSave();const s=btoa(unescape(encodeURIComponent(JSON.stringify(ED.data)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');const url=location.origin+location.pathname+'?lvdata='+s;
  try{navigator.clipboard.writeText(url);ED.msg='Link copied! Send it to a friend.'}catch(e){ED.msg='Copy failed'}ED.url=url;ED.msgT=240}
 function edCell(mx,my){const c=Math.floor((mx+ED.cx)/T),r=Math.floor((GY-my)/T);return[c,r]}

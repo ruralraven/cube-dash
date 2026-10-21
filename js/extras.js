@@ -1,0 +1,20 @@
+// Cube Dash extras: settings, stats, achievements (+ toasts).
+save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
+{const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
+const beatenAll=()=>save.best.slice(0,NL).filter(b=>b>=100).length;
+const ACH=[['first','First Steps','Beat any world',()=>beatenAll()>=1],['five','World Hopper','Beat 5 worlds',()=>beatenAll()>=5],['all','Globetrotter','Beat every world',()=>beatenAll()>=NL],
+ ['c10','Coin Collector','Collect 10 coins',()=>totalCoins()>=10],['c30','Treasure Hunter','Collect 30 coins',()=>totalCoins()>=30],['call','Every Last Coin','Collect all coins',()=>totalCoins()>=NL*3],
+ ['demon','Demon Slayer','Beat a Demon world',()=>LV.LEVELS.slice(0,NL).some((L,i)=>L.diff==5&&save.best[i]>=100)],['king','Kingslayer','Defeat the Shadow King',()=>LV.LEVELS.slice(0,NL).some((L,i)=>L.boss&&save.best[i]>=100)],
+ ['a100','Never Give Up','100 attempts',()=>save.st.att>=100],['j1k','Bouncy','1,000 jumps',()=>save.st.jumps>=1000],['daily','Daily Runner','Beat a Daily or Random Run',()=>save.st.daily>=1],['build','Architect','Make a level the bot can beat',()=>save.st.edits>=1]];
+let toasts=[];
+function achCheck(){for(const[id,nm,ds,f]of ACH)if(!save.ach[id]&&f()){save.ach[id]=Date.now();toasts.push({nm,t:0});persist();Music.sfx('portal')}}
+function drawToasts(){if(!toasts.length)return;const q=toasts[0];q.t+=1/60;const a=Math.min(1,q.t*4,(3.2-q.t)*3);X.globalAlpha=Math.max(0,a);rr(W/2-200,82,400,58,16);P('rgba(20,10,40,.85)',3);star5(W/2-165,111,16,'#ffcf33',2.5);txt('Achievement unlocked!',W/2+20,104,15,'center','#ffcf33');txt(q.nm,W/2+20,128,21);X.globalAlpha=1;if(q.t>3.2)toasts.shift()}
+const OPTS=[['Music',()=>!Music.muted,()=>Music.toggle()],['Sound effects',()=>!save.opt.nosfx,()=>{save.opt.nosfx=!save.opt.nosfx}],['Calm mode (no flash/shake)',()=>save.opt.calm,()=>{save.opt.calm=!save.opt.calm}],['LITE graphics',()=>LITE,()=>setLite(!LITE)],['Practice mode',()=>save.practice,()=>{save.practice=!save.practice}]];
+function fmtT(s){s=Math.floor(s);return s>=3600?Math.floor(s/3600)+'h '+Math.floor(s%3600/60)+'m':Math.floor(s/60)+'m '+s%60+'s'}
+function statsScreen(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba(20,10,40,.6)';X.fillRect(0,0,W,H);txt('SETTINGS & TROPHIES',W/2,56,40);
+ txt('Settings',40,104,20,'left');OPTS.forEach(([nm,g],i)=>{const y=118+i*50;rr(40,y,360,40,12);P('rgba(0,0,0,.35)',2.5);txt(nm,56,y+27,16,'left');const on=g();rr(330,y+8,56,24,12);P(on?'#7dff7a':'#555',2.5);circ(on?374:342,y+20,9);P('#fff',2)});
+ const s=save.st;txt('Stats',40,394,20,'left');[['Attempts',s.att],['Jumps',s.jumps],['Deaths',s.deaths],['Wins',s.wins],['Coins',totalCoins()+'/'+NL*3],['Play time',fmtT(s.time)]].forEach(([k,v],i)=>{const x=40+(i%3)*124,y=404+Math.floor(i/3)*38;rr(x,y,116,32,8);P('rgba(0,0,0,.3)',2);txt(k,x+8,y+21,12,'left','#ccc');txt(''+v,x+110,y+21,14,'right')});
+ const got=Object.keys(save.ach).length;txt('Trophies '+got+'/'+ACH.length,440,104,20,'left');ACH.forEach(([id,nm,ds],i)=>{const x=440+(i%2)*250,y=118+Math.floor(i/2)*58,on=!!save.ach[id];rr(x,y,240,50,12);P(on?'rgba(255,207,51,.25)':'rgba(0,0,0,.35)',2.5);X.globalAlpha=on?1:.35;star5(x+25,y+25,14,on?'#ffcf33':'#888',2);X.globalAlpha=1;txt(nm,x+48,y+22,15,'left',on?'#fff':'#aaa');txt(ds,x+48,y+40,11,'left','#bbb')});
+ rr(W/2-90,H-62,180,46,14);P('#7dff7a',3);txt('BACK',W/2,H-31,20)}
+function statsClick(mx,my){if(mx>W/2-90&&mx<W/2+90&&my>H-62){scene='menu';return}OPTS.forEach(([nm,g,f],i)=>{const y=118+i*50;if(mx>40&&mx<400&&my>y&&my<y+40){f();persist()}})}
+achCheck();
