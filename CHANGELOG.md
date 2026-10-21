@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v5.7 — Fairness pass + nicer win screen
+- Ran a fairness sweep on every level with coarser, more human-like bot timing (D4 and D6). Every Easy–Harder level now passes D6. Haunted Castle and Rainbow Sky had UFO gate sections that were too tight, so those got one more beat of room. Only the two Demon levels (Neon City and Shadow King) still need very precise timing, on purpose.
+- The win screen now shows a bouncing **★ FIRST TRY! ★** badge when you clear a level on attempt 1. The NEXT button says which world comes next, and a hint appears when you're within 6 coins of unlocking a secret world.
+- All 23 levels were re-baked and re-verified.
+
 ## v5.6 — New sounds: reese bass + future-bass chords
 - New **reese bass**: detuned saws with a slowly moving filter. Neon Nights, Abyssal Bass and Thunderhead now use it.
 - New **future-bass** lead: off-beat 4-note chord stabs that open up in the drops, plus bell arpeggios in the breakdowns. Prism Pulse and Sakura Drift now use it.

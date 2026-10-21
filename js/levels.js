@@ -38,7 +38,7 @@ const LEVELS=[
   ['ufo','gates',{n:8,gap:4,sh:2,dx:6,sp:1}],['cube','orbs',{n:5}],['cube','seq',{s:'t...d...t...d...s.s.....'}]]},
  {name:'Haunted Castle',th:5,song:6,spd:2,diff:3,seed:67,script:[
   ['cube','seq',{s:'d...s...d...s...t.......'}],['spider','flip',{n:6,gap:2,h:5}],['ball','bseq',{h:5,s:'f...c...f.c.....F...C...'}],['cube','seq',{s:'2...3...2...1...d.......'}],['cube','dash',{n:2,roof:0}],
-  ['cube','grav',{n:6}],['ufo','gates',{n:8,gap:4,sh:2,dx:6,sp:1}],['ufo','movers',{n:6,dx:7,beats:2,gapPad:60}],
+  ['cube','grav',{n:6}],['ufo','gates',{n:8,gap:5,sh:2,dx:7,sp:1}],['ufo','movers',{n:6,dx:7,beats:2,gapPad:60}],
   ['cube','stairs',{n:5}],['cube','saws',{n:4,hang:1}],['cube','gorbs',{n:4}],['mini','on'],['ship','pillars',{n:8,gap:4,sh:2,dx:6,sp:1}],['mini','off'],
   ['robot','towers',{n:5,hmax:4}],['wave','zig',{len:40,gap:140,seg:3}],['cube','orbs',{n:5}],['cube','seq',{s:'t...t...d.d.....'}]]},
  {name:'Robot Factory',th:6,song:7,spd:2,diff:4,seed:79,script:[
@@ -59,7 +59,7 @@ const LEVELS=[
   ['ball','flip',{n:8,gap:1,h:5}],['ufo','gates',{n:9,gap:4,sh:2,dx:6,sp:1}],['cube','grav',{n:6}],['cube','gorbs',{n:4}],
   ['robot','towers',{n:6,hmax:4}],['cube','orbs',{n:6}],['cube','seq',{s:'t.....t.....d...d.......'}]]},
  {name:'Rainbow Sky',th:9,song:9,spd:2,diff:4,seed:131,secret:9,script:[
-  ['cube','seq',{s:'s...d...t...B.......o...o...s.s.....'}],['ufo','gates',{n:6,gap:4,sh:2,dx:6,sp:1}],['cube','seq',{s:'1...2...3...2...d.......'}],['cube','dash',{n:2,roof:1}],['ball','bseq',{h:5,s:'f...c...F...C...f...c...'}],['swing','gates',{n:8,gap:5,sh:2,dx:6}],['ball','flip',{n:6,gap:1,h:5}],
+  ['cube','seq',{s:'s...d...t...B.......o...o...s.s.....'}],['ufo','gates',{n:6,gap:5,sh:2,dx:6,sp:1}],['cube','seq',{s:'1...2...3...2...d.......'}],['cube','dash',{n:2,roof:1}],['ball','bseq',{h:5,s:'f...c...F...C...f...c...'}],['swing','gates',{n:8,gap:5,sh:2,dx:6}],['ball','flip',{n:6,gap:1,h:5}],
   ['cube','gorbs',{n:4}],['ship','movers',{n:8,dx:6,beats:2,gapPad:40}],['robot','towers',{n:5,hmax:4}],
   ['wave','zig',{len:44,gap:140,seg:3}],['spider','flip',{n:8,gap:1,h:5}],['cube','pistons',{n:5,sp:1}],
   ['mini','on'],['ship','pillars',{n:8,gap:4,sh:2,dx:6,sp:1}],['mini','off'],['cube','saws',{n:4,hang:1}],['cube','orbs',{n:5}],['cube','seq',{s:'t...t...d.d.....t.......'}]]},
