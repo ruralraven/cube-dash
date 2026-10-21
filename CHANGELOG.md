@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v6.1 — Sunny Beach + Glitch Zone (27 worlds)
+- **Sunny Beach** (Easy) has palm trees, sea waves, beach umbrellas, sailboats, crabs and seagulls, set to *Tropical Splash* (114 BPM moombah marimba).
+- **Glitch Zone** (Harder) has falling code characters, glitching server towers and scanline flashes on the beat, set to *Glitch Core* (150 BPM industrial with a reese bass).
+- Both levels pass the bot at D3 and D6. Saves migrate automatically (v27), and all 27 levels were re-baked.
+
 ## v6.0 — Jukebox
 - New **♪ JUKEBOX** button on the Settings & Trophies screen. It shows all 25 songs in menu order with BPM and world name; tap one to play it from the first drop. The playing song shows a beat-synced equalizer.
 
