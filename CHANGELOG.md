@@ -62,3 +62,7 @@
 - Coins are now placed off the easy path (above or below it by up to 2.5 tiles) so you have to go out of your way to grab them. The bot proves each level can be finished while collecting all 3 coins, and the demo replay grabs them all.
 - Browser check (?verify=1): the baked replay wins all 9 levels with 3/3 coins inside the real game.
 - Watching the demo replay no longer counts toward your own best % or coins.
+
+## v2.9 – Pause (2026-10-21)
+- Pause button (bottom-left, next to Home), P key or Esc: pauses the game and the music; MENU / RESTART / tap to resume. Auto-pauses when you switch tabs or apps.
+- ICONS screen layout cleaned up (no more overlapping labels).
