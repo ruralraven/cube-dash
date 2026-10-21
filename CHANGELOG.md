@@ -24,3 +24,9 @@
 - Wave corridors are now drawn as smooth diagonal walls with glowing edges; wave leaves a solid GD-style trail line.
 - Speed/size portals no longer overlap the next mode portal.
 - Music: bigger drops (louder lead + octave layer, off-beat hats), noise riser before each drop. Offline audio analysis confirms every song is audible with no clipping.
+
+## v2.2 – Hand-written rhythm sections (2026-10-21)
+- New rhythm-line pattern: cube sections are written note-by-note on the song's half-beat grid (spikes, double/triple spikes, blocks, pads, orbs) – every level now has hand-written intro and finale lines.
+- Mode hints above portals on Easy–Harder levels (HOLD TO FLY, TAP TO FLIP, TAP = TELEPORT…).
+- Jungle thorns recolored for readability.
+- Bot check: all 9 levels beaten with 3- and 4-frame input resolution; Easy–Hard levels also with 6-frame (very forgiving) inputs.
