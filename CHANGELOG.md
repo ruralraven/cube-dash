@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v6.7 — Secret Seeker trophy
+- New trophy, **Secret Seeker**: beat 3 secret (coin-locked) worlds. That makes 15 trophies, and the trophy grid was compacted so all of them fit.
+
 ## v6.6 — Gold Mine + Frozen Fortress (31 worlds)
 - **Gold Mine** (Hard) has a cave ceiling with glittering gold, timber supports with hanging lamps, rails and gold-loaded minecarts, set to *Pickaxe Polka* (130 BPM bouncy breaks).
 - **Frozen Fortress** (Insane, secret world: collect 45 coins to unlock) has aurora ribbons, ice-castle towers with flags, snowmen and a blizzard, plus a mini-size UFO section, set to *Glacier Siege* (158 BPM drum & bass with a reese bass).
