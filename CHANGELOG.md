@@ -30,3 +30,9 @@
 - Mode hints above portals on Easy–Harder levels (HOLD TO FLY, TAP TO FLIP, TAP = TELEPORT…).
 - Jungle thorns recolored for readability.
 - Bot check: all 9 levels beaten with 3- and 4-frame input resolution; Easy–Hard levels also with 6-frame (very forgiving) inputs.
+
+## v2.3 – Flow (2026-10-21)
+- Level intro banner with world name, difficulty and song title.
+- Level Complete screen with MENU and NEXT ▶ buttons.
+- Background beat pulse now follows the real audio clock, so it stays locked to the music even if the frame rate dips.
+- Glowing hazard colors per world (lava glow, ghostly glow, neon glow) for better readability.
