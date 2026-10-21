@@ -201,6 +201,7 @@ function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs
   if(m=='speed'){c.f0+=(c.x-c.xs)/c.spd;c.xs=c.x;c.spd=SPEEDS[p];c.bpx=c.spd*3600/Music_BPM(L.song);add(c,{t:'portal',k:'v'+p,x:snap(c.x),y:GY-4*T});c.x+=3*T;continue}
   if(m=='mini'){add(c,{t:'portal',k:p=='on'?'mini':'big',x:snap(c.x),y:GY-4*T});c.mini=p=='on';c.x+=3*T;continue}
   const modeChange=m!=c.mode;let bx0=c.x;
+  if(modeChange&&L.dsync!==0&&!L.gen&&c.mode=='cube'&&!c.mini){const fb=3600/c.bpm,pf=fAt(c,c.x+T),b0=pf/fb;for(const db of[48,112,176]){const need=db-b0;if(need>.05&&need<=8){const nx=c.x+need*fb*c.spd;for(let b=1;b<=need-2.5;b+=2)spike(c,snap(c.x+b*fb*c.spd));c.x=nx;bx0=c.x;break}}}
   if(modeChange){add(c,{t:'portal',k:m,x:snap(c.x+T),y:GY-4*T});c.x+=(m=='cube'||m=='robot'?5:4)*T;c.mode=m}
   c.x0seg=c.x;c.btop=undefined;PAT[m][p](c,q||{});(c.segs=c.segs||[]).push({m,p,x0:bx0,x1:c.x});
   let top=BOUNDED[m];if(top===null)top=c.btop;if(m in BOUNDED){// extend/merge bound

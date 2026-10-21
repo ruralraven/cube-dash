@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v5.9 — Drop-synced portals
+- The level builder now lines game-mode portals up with the music drops. When a cube section ends up to 8 beats before a drop, the gap is filled with on-beat spikes so the mode change hits right on the drop. 9 levels now switch modes exactly on the first or second drop: Jungle, Lava, Desert, Mushroom, Toy Box, Kraken, Storm Peaks, Bamboo Dojo and Cyber Arcade.
+- The menu also switches LITE mode on automatically when the device is struggling (before, it only did this during play). Bamboo Dojo lanterns use a cheap glow instead of a shadow blur.
+- All 25 levels were re-baked and verified. They pass at D3, and every non-Insane/Demon level also passes D6.
+
 ## v5.8 — Bamboo Dojo + Cyber Arcade (25 worlds)
 - **Bamboo Dojo** (Hard) has swaying bamboo, dojo roofs, glowing paper lanterns and floating leaves, set to *Bamboo Breeze* (118 BPM tribal and garage marimba).
 - **Cyber Arcade** (Insane, secret world: collect 26 coins to unlock) has a synthwave grid, blinking arcade cabinets, pixel invaders and rising pixel sparks, set to *Pixel Overload* (172 BPM chiptune drum & bass).
