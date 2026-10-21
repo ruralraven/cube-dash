@@ -83,6 +83,21 @@ const LEVELS=[
   ['mini','on'],['ball','bseq',{h:5,s:'f...c...f...c...F...C...'}],['mini','off'],
   ['speed',3],['ship','gseq',{gap:3,s:'6.5.4.3.2.3.4.5.6.5.4.3.'}],['speed',2],['cube','saws',{n:4,hang:1}],
   ['robot','towers',{n:5,hmax:4}],['cube','orbs',{n:5}],['cube','seq',{s:'t.......d...d...'}]]},
+ {name:'Toy Box',th:15,song:15,spd:0,diff:0,seed:223,script:[
+  ['cube','seq',{s:'s.......s.......b.......B.......'}],['cube','stairs',{n:3}],['cube','seq',{s:'1...2...1.......s.......'}],
+  ['ufo','gates',{n:5,gap:6,sh:1,dx:8}],['cube','seq',{s:'s.......p.......s.......'}],['cube','orbs',{n:3}],
+  ['ball','bseq',{h:5,s:'f.......c.......f.......'}],['cube','plat',{n:4}],
+  ['ship','pillars',{n:5,gap:6,sh:1,dx:8}],['cube','seq',{s:'s.......d.......s...s...'}]]},
+ {name:'Cherry Blossom',th:16,song:16,spd:1,diff:1,seed:227,script:[
+  ['cube','seq',{s:'s...s...d.......1...2...1.......'}],['cube','orbs',{n:4}],['robot','towers',{n:4,hmax:3}],
+  ['ship','gseq',{gap:5,s:'4.4.5.5.6.6.5.5.4.4.3.3.'}],['cube','plat',{n:5}],['spider','flip',{n:4,gap:2,h:5}],
+  ['cube','grav',{n:3}],['ball','bseq',{h:5,s:'f...c...f...c...F.......'}],['cube','pads',{n:2}],
+  ['ufo','gates',{n:6,gap:5,sh:2,dx:7}],['cube','seq',{s:'d...s...1...2...d.......'}]]},
+ {name:'Clockwork Tower',th:17,song:17,spd:2,diff:3,seed:229,script:[
+  ['cube','seq',{s:'d...d...t.......2.....1.......'}],['cube','pistons',{n:5,sp:1}],['cube','saws',{n:4,hang:1}],
+  ['ship','movers',{n:6,dx:7,beats:2,gapPad:60}],['robot','towers',{n:5,hmax:4}],['ball','bseq',{h:5,s:'f...c...F...C...f.c.....'}],
+  ['wave','zig',{len:40,gap:150,seg:3}],['cube','gorbs',{n:2}],['ship','gseq',{gap:4,s:'6.5.4.3.2.3.4.5.6.5.4.3.'}],
+  ['cube','orbs',{n:4}],['cube','pistons',{n:4}],['cube','seq',{s:'t.......d...d...'}]]},
  {name:'Shadow King',th:11,song:11,spd:3,diff:5,seed:173,secret:12,boss:1,script:[
   ['cube','seq',{s:'t.....d.....t.....B.......o...o...o...'}],['ship','sawfield',{n:10,dx:5,mid:1}],
   ['cube','pistons',{n:5,sp:1}],['ship','gseq',{s:'4.3.2.1.0.1.2.3.4.4.3.2.',gap:5}],['wave','zig',{len:44,gap:130,seg:3}],
@@ -163,6 +178,6 @@ function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs
  c.obs.sort((a,b)=>a.x-b.x);const lv={obs:c.obs,bounds:c.bounds,end:c.x+6*T,spd:SPEEDS[L.spd],startX:0,startMode:'cube',info:L,idx:i,segs:c.segs,wv:c.wv};
  let ci=0;if(typeof BAKED!='undefined'&&BAKED[i])for(const[x,y]of BAKED[i].coins)lv.obs.splice(E_.idxFrom(lv,x),0,{t:'coin',x,y,id:ci++});
  return lv}
-function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170,126,174,118,136,150][s]}
+function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170,126,174,118,136,150,112,122,142][s]}
 return{LEVELS,DIFF,build,CTOP,CROWS}})();
 if(typeof module!='undefined')module.exports=LV;

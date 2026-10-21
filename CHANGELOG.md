@@ -1,5 +1,12 @@
 # Cube Dash Changelog
 
+## v3.9 — 18 worlds
+- **Toy Box** (Easy, slowest speed, 112 BPM "Toy Parade"): toy shelves, ABC blocks, teddy bears, bouncing balls and pinwheels. A second gentle level for beginners. It passes even the coarsest bot (D6).
+- **Cherry Blossom** (Normal, 122 BPM "Sakura Drift"): torii gates, pagodas, snowy mountains, a red sun, sakura trees and drifting petals. Uses every mode (cube, robot, ship melody, spider, ball, UFO).
+- **Clockwork Tower** (Harder, 142 BPM "Tick Tock Tower"): turning cogs, swinging pendulums, a clock tower whose hands spin faster on the beat, and riveted brass blocks. Pistons, moving ship, wave and gravity orbs.
+- Shadow King is still the finale (world 18). Saves migrate automatically.
+- Bot: all 18 levels win in the browser with 3/3 coins.
+
 ## v3.8 — More unlockables (up to 45 coins)
 - 4 new cube colours (teal, blaze, silver, gold, unlocking at 30–42 coins).
 - 4 new faces: Pirate (eye-patch + bandana), Sleepy (zzz), Alien (one big eye + antennae), Crown (45 coins, every coin).

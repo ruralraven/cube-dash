@@ -64,6 +64,9 @@ S({name:'Shadow King',sig:'supersaw',sig2:'gate',dist:6,dr2:'breaks',bpm:174,roo
 S({name:'Spore Bounce',sig:'drops',sig2:'chop',swing:.12,bpm:118,root:58,sc:'major',prog:[0,3,4,3],dr:'bounce',dr2:'moomba',bass:'pluck',lead:'triangle',seed:83,arp:'triangle',cut:2600,bell:1});
 S({name:'Cannon Shanty',sig:'marimba',sig2:'gate',bpm:136,root:55,sc:'dorian',prog:[0,6,5,4],dr:'house',dr2:'breaks',bass:'offbeat',lead:'square',seed:89,arp:'square',cut:2400});
 S({name:'Prism Pulse',sig:'bells',sig2:'gate',bpm:150,root:61,sc:'minor',prog:[0,5,6,4],dr:'trance',dr2:'dnb',bass:'rolling',lead:'sawtooth',seed:97,arp:'triangle',cut:3000,bell:1});
+S({name:'Toy Parade',sig:'chip',sig2:'chop',bpm:112,root:60,sc:'major',prog:[0,4,3,4],dr:'bounce',dr2:'house',bass:'pluck',lead:'square',seed:101,arp:'triangle',cut:3000});
+S({name:'Sakura Drift',sig:'bells',sig2:'chop',swing:.1,bpm:122,root:57,sc:'dorian',prog:[0,3,6,4],dr:'garage',dr2:'house',bass:'offbeat',lead:'triangle',seed:107,arp:'triangle',cut:2800,bell:1});
+S({name:'Tick Tock Tower',sig:'metal',sig2:'gate',dist:6,bpm:142,root:52,sc:'harm',prog:[0,5,3,4],dr:'industrial',dr2:'breaks',bass:'rolling',lead:'square',seed:109,arp:'square',cut:1800});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)

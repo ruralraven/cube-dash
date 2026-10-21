@@ -4,7 +4,7 @@ const COLORS=[['#ffd23d',0],['#ff9ad5',0],['#7dff7a',0],['#4dc3ff',3],['#ff6b4d'
 const FACES=[['Happy',0],['Cool',3],['Wink',6],['Angry',9],['Robot',12],['Cat',15],['Star',18],['Demon',24],['Pirate',30],['Sleepy',33],['Alien',39],['Crown',45]];
 const TRAILS=[['Theme',0],['Rainbow',6],['Fire',12],['Stars',18],['Bubbles',24],['Hearts',30]];
 const NL=LV.LEVELS.length,SECRET=9;let save={best:Array(NL).fill(0),coins:{},col:-1,face:0,trail:0,practice:false};
-try{Object.assign(save,JSON.parse(localStorage.cdSave2||'{}'))}catch(e){}if(!save.v15){if(save.best.length==12){save.best.splice(11,0,0,0,0);if(save.coins[11]){save.coins[14]=save.coins[11];delete save.coins[11]}}save.v15=1}while(save.best.length<NL)save.best.push(0);
+try{Object.assign(save,JSON.parse(localStorage.cdSave2||'{}'))}catch(e){}if(!save.v15){if(save.best.length==12){save.best.splice(11,0,0,0,0);if(save.coins[11]){save.coins[14]=save.coins[11];delete save.coins[11]}}save.v15=1}if(!save.v18){if(save.best.length==15){save.best.splice(14,0,0,0,0);if(save.coins[14]){save.coins[17]=save.coins[14];delete save.coins[14]}}save.v18=1}while(save.best.length<NL)save.best.push(0);
 const unlocked=i=>!LV.LEVELS[i].secret||totalCoins()>=LV.LEVELS[i].secret;
 function persist(){try{localStorage.cdSave2=JSON.stringify(save)}catch(e){}}
 const totalCoins=()=>Object.values(save.coins).reduce((a,c)=>a+c.filter(Boolean).length,0);
@@ -19,7 +19,7 @@ function die(){scene='dead';deadT=0;shake=14;const pr=prog();if(!save.practice&&
  for(let i=0;i<4;i++)parts.push({x:pl.x+pl.sz/2,y:pl.y+pl.sz/2,vx:(i%2?1:-1)*(3+Math.random()*4),vy:-6-Math.random()*6,l:1.3,s:18,c:iconCol(),g:.6,shard:1,rot:Math.random()*6});flash=.5;
  for(let i=0;i<40;i++)parts.push({x:pl.x+pl.sz/2,y:pl.y+pl.sz/2,vx:(Math.random()-.5)*16,vy:(Math.random()-.7)*16,l:1,s:4+Math.random()*6,c:[iconCol(),'#fff',TH[LV.LEVELS[lvl].th].pulse,'#ff5c8a'][i%4],g:.5})}
 function prog(){return Math.max(0,Math.min(100,Math.floor(pl.x/level.end*100)))}
-function iconCol(){return save.col<0?['#ffd23d','#ff9ad5','#7dff7a','#ff9f43','#ff6b4d','#b9ffcf','#ffe14d','#7dff7a','#4df0ff','#ff7ad9','#ffcf33','#ffe14d','#ffb347','#7df9ff','#ff2e6a'][lvl]:COLORS[save.col][0]}
+function iconCol(){return save.col<0?['#ffd23d','#ff9ad5','#7dff7a','#ff9f43','#ff6b4d','#b9ffcf','#ffe14d','#7dff7a','#4df0ff','#ff7ad9','#ffcf33','#ffe14d','#ffb347','#7df9ff','#ffd23d','#ffb7d0','#ffd890','#ff2e6a'][lvl]:COLORS[save.col][0]}
 function win(){if(LV.LEVELS[lvl].boss)for(let i=0;i<120;i++)parts.push({x:cam+W-130,y:180,vx:(Math.random()-.5)*26,vy:(Math.random()-.6)*22,l:1.6,s:8,c:['#ff2e6a','#ffcf33','#2a1640','#fff'][i%4],g:.3});scene='win';deadT=0;if(!save.practice&&!replay){save.best[lvl]=100;persist()}Music.sfx('coin');for(let i=0;i<80;i++)parts.push({x:cam+W/2,y:H/2,vx:(Math.random()-.5)*20,vy:(Math.random()-.8)*18,l:1.4,s:6,c:['#ffd23d','#ff4dd2','#4df0ff','#7dff7a'][i%4],g:.35})}
 // ---- input ----
 function press(mx,my){Music.unlock();if(scene=='win'){if(deadT>30){if(lvl<NL-1&&unlocked(lvl+1)&&(mx==null||mx>W/2)){sel=lvl+1;localStorage.cdSel=sel;att=0;start(sel)}else toMenu()}return}if(scene=='play'||scene=='dead')held=true}
