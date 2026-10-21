@@ -57,3 +57,8 @@
 - Beat-synced crushers (pistons) that pump up and down with the music – timed so they rise just as you arrive (Lava, Factory, Neon).
 - Moving saw blades that sweep up and down ship/UFO corridors on a 1–2 beat cycle (Haunted, Space, Neon).
 - Engine supports time-based obstacles deterministically, so the bot verifier and practice checkpoints stay exact.
+
+## v2.8 – Real coin challenges (2026-10-21)
+- Coins are now placed off the easy path (above or below it by up to 2.5 tiles) so you have to go out of your way to grab them. The bot proves each level can be finished while collecting all 3 coins, and the demo replay grabs them all.
+- Browser check (?verify=1): the baked replay wins all 9 levels with 3/3 coins inside the real game.
+- Watching the demo replay no longer counts toward your own best % or coins.
