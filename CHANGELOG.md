@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v6.6 — Gold Mine + Frozen Fortress (31 worlds)
+- **Gold Mine** (Hard) has a cave ceiling with glittering gold, timber supports with hanging lamps, rails and gold-loaded minecarts, set to *Pickaxe Polka* (130 BPM bouncy breaks).
+- **Frozen Fortress** (Insane, secret world: collect 45 coins to unlock) has aurora ribbons, ice-castle towers with flags, snowmen and a blizzard, plus a mini-size UFO section, set to *Glacier Siege* (158 BPM drum & bass with a reese bass).
+- Both levels pass the bot at D3 and D6. Saves migrate automatically (v31), and all 31 levels were re-baked.
+
 ## v6.5 — Now-playing line
 - The menu shows the name and BPM of the song preview that's playing (the selected world's song), pulsing gently with the beat. It's hidden while the game is muted.
 
