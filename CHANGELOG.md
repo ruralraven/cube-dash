@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v3.1 — 12 worlds & the Shadow King
+- Menu now pages through worlds (3×3 grid + MORE WORLDS button).
+- New level 11 **Desert Temple** (Hard, 126 BPM "Sandstorm Shuffle"): pyramids, dunes, cacti, walking camels, sandstorm, hieroglyph blocks; new ship gravity-sequence and ball-sequence rhythm sections.
+- New finale **Shadow King** (Demon boss, 174 BPM, unlocks at 12 coins): giant crowned boss cube that pulses to the beat, laser tethers to saws, lightning, boss health bar that drains as you progress, explosion + "SHADOW KING DEFEATED!" on win.
+- Bot-verified: all 12 levels win in-browser with 3/3 coins.
+
 ## v1.1 – Ship mode (2026-10-21)
 - Ship portals (pink) and cube portals (blue), with GD-style hold-to-fly physics, capped speed, tilt.
 - Themed ships: submarine (Sea), candy rocket (Candy Land), UFO (Space).

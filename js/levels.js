@@ -63,6 +63,16 @@ const LEVELS=[
   ['cube','gorbs',{n:4}],['ship','movers',{n:8,dx:6,beats:2,gapPad:40}],['robot','towers',{n:5,hmax:4}],
   ['wave','zig',{len:44,gap:140,seg:3}],['spider','flip',{n:8,gap:1,h:5}],['cube','pistons',{n:5,sp:1}],
   ['mini','on'],['ship','pillars',{n:8,gap:4,sh:2,dx:6,sp:1}],['mini','off'],['cube','saws',{n:4,hang:1}],['cube','orbs',{n:5}],['cube','seq',{s:'t...t...d.d.....t.......'}]]},
+ {name:'Desert Temple',th:10,song:10,spd:2,diff:2,seed:149,script:[
+  ['cube','seq',{s:'s...s...d.......b...B...b.......s...d...'}],['ship','gseq',{s:'3.3.2.1.1.2.3.4.4.3.',gap:5}],
+  ['cube','saws',{n:3}],['ball','bseq',{s:'f.....c.....f.....c...f...c...',h:5}],['cube','orbs',{n:4}],
+  ['robot','towers',{n:4,hmax:3}],['ufo','gates',{n:6,gap:5,sh:1,dx:7}],['cube','gorbs',{n:2}],['cube','seq',{s:'d...d...t.......s.s.....'}]]},
+ {name:'Shadow King',th:11,song:11,spd:3,diff:5,seed:173,secret:12,boss:1,script:[
+  ['cube','seq',{s:'t.....d.....t.....B.......o...o...o...'}],['ship','sawfield',{n:10,dx:5,mid:1}],
+  ['cube','pistons',{n:5,sp:1}],['ship','gseq',{s:'4.3.2.1.0.1.2.3.4.4.3.2.',gap:5}],['wave','zig',{len:44,gap:130,seg:3}],
+  ['ball','bseq',{s:'F.....C.....F...C...F...C...',h:5}],['spider','flip',{n:8,gap:1,h:5}],['ufo','movers',{n:8,dx:6,beats:1,gapPad:50}],
+  ['cube','gorbs',{n:4}],['mini','on'],['wave','zig',{len:40,gap:120,seg:2}],['mini','off'],['robot','towers',{n:5,hmax:4}],
+  ['cube','saws',{n:5,hang:1}],['cube','seq',{s:'t.....t.....d...d...t.......'}]]},
 ];
 const CROWS=9,CTOP=GY-CROWS*T;
 // ---- helpers ----
@@ -108,12 +118,14 @@ const PAT={
     if(g>0)block(c,x,CTOP,T,g*T);if(g+q.gap<CROWS)block(c,x,CTOP+(g+q.gap)*T,T,(CROWS-g-q.gap)*T);
     if(q.sp){if(g>0)spikeD(c,x,CTOP+g*T);if(g+q.gap<CROWS)spike(c,x,CTOP+(g+q.gap-1)*T)}x+=q.dx*T}c.x=x},
   movers(c,q){const fpb=3600/c.bpm;let x=c.x+3*T;const mid=(CTOP+GY)/2;for(let i=0;i<q.n;i++){const r=26;add(c,{t:'saw',x:x,cx:x+r,cy:mid,r,mv:{a:(GY-CTOP)/2-r-q.gapPad,w:2*Math.PI/(fpb*q.beats),ph:i*1.3}});x+=q.dx*T}c.x=x+2*T},
+  gseq(c,q){let x=c.x+2*T;for(const ch of q.s){if(ch>='0'&&ch<='9'){const g=Math.min(+ch,CROWS-q.gap),X0=snap(x);if(g>0)block(c,X0,CTOP,T,g*T);if(g+q.gap<CROWS)block(c,X0,CTOP+(g+q.gap)*T,T,(CROWS-g-q.gap)*T)}x+=B(c)/2}c.x=x+T},
   sawfield(c,q){let x=c.x+3*T;const mid=(CTOP+GY)/2;for(let i=0;i<q.n;i++){const r=24+(i%3)*8,cy=i%2?CTOP+r+10+c.r()*60:GY-r-10-c.r()*60;saw(c,x+r,cy,r);if(q.mid&&i%3==2)saw(c,x+r+q.dx*T/2,mid+(c.r()-.5)*60,22);x+=q.dx*T}c.x=x+2*T},
   tunnel(c,q){let x=c.x+2*T;const mid=(CTOP+GY)/2;for(let i=0;i<q.len;i++){const cy=mid+Math.sin(i/q.len*Math.PI*4+c.r()*.3)*q.amp,a=cy-q.gap/2,b=cy+q.gap/2;
     const cyn=mid+Math.sin((i+1)/q.len*Math.PI*4)*q.amp;const top=Math.min(a,cyn-q.gap/2),bot=Math.max(b,cyn+q.gap/2);
     if(top>CTOP+4)block(c,x,CTOP,T,snap(top-CTOP));if(bot<GY-4)block(c,x,snap(bot),T,GY-snap(bot));x+=T}c.x=x+T}},
  ufo:{movers(c,q){PAT.ship.movers(c,q)},gates(c,q){PAT.ship.pillars(c,q);for(let sx=c.x0seg+3*T;sx<c.x-T;sx+=T)if(!c.obs.some(o=>o.t=='b'&&o.x<=sx&&o.x+o.w>sx&&o.y+o.h>=GY))spike(c,sx)}},
- ball:{flip(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c),side=0;for(let i=0;i<q.n;i++){const k=2+(i%2);for(let j=0;j<k;j++){if(side==0)spike(c,snap(x)+j*T);else spikeD(c,snap(x)+j*T,top)}side^=1;x+=B(c)*q.gap*(q.gap<2?1.5:1)}c.x=x+B(c)}},
+ ball:{bseq(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c);for(const ch of q.s){const k=ch=='F'||ch=='C'?3:2;if(ch.toLowerCase()=='f')for(let j=0;j<k;j++)spike(c,snap(x)+j*T);else if(ch.toLowerCase()=='c')for(let j=0;j<k;j++)spikeD(c,snap(x)+j*T,top);x+=B(c)/2}c.x=x+B(c)},flip(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c),side=0;for(let i=0;i<q.n;i++){const k=2+(i%2);for(let j=0;j<k;j++){if(side==0)spike(c,snap(x)+j*T);else spikeD(c,snap(x)+j*T,top)}side^=1;x+=B(c)*q.gap*(q.gap<2?1.5:1)}c.x=x+B(c)}},
+ ball2:0,
  spider:{flip(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c),side=0;for(let i=0;i<q.n;i++){const k=3;for(let j=0;j<k;j++){if(side==0)spike(c,snap(x)+j*T);else spikeD(c,snap(x)+j*T,top)}if(i%3==2)block(c,snap(x)+k*T,side?top:GY-T,T,T);side^=1;x+=B(c)*q.gap*(q.gap<2?1.2:1)}c.x=x+B(c)}},
  wave:{zig(c,q){let x=c.x+2*T;const span=GY-CTOP,half=q.gap/2;let cy=GY-span/2,dir=-1,run=0;const pts=[];const n=q.len;
    for(let i=0;i<=n;i++){pts.push(cy);if(run<=0){run=q.seg+Math.floor(c.r()*q.seg);dir=-dir}cy+=dir*T;if(cy-half<CTOP+10){cy=CTOP+10+half;run=0}if(cy+half>GY-10){cy=GY-10-half;run=0}run--}
@@ -135,6 +147,6 @@ function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs
  c.obs.sort((a,b)=>a.x-b.x);const lv={obs:c.obs,bounds:c.bounds,end:c.x+6*T,spd:SPEEDS[L.spd],startX:0,startMode:'cube',info:L,idx:i,segs:c.segs,wv:c.wv};
  let ci=0;if(typeof BAKED!='undefined'&&BAKED[i])for(const[x,y]of BAKED[i].coins)lv.obs.splice(E_.idxFrom(lv,x),0,{t:'coin',x,y,id:ci++});
  return lv}
-function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170][s]}
+function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170,126,174][s]}
 return{LEVELS,DIFF,build,CTOP,CROWS}})();
 if(typeof module!='undefined')module.exports=LV;
