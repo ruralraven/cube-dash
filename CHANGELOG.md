@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v6.3 — Moon Base + Haunted Carnival (29 worlds)
+- **Moon Base** (Hard) has a starfield, Earth hanging in the sky, glass domes with blinking antennas, floating astronauts, craters and flags, set to *Lunar Lounge* (126 BPM space house).
+- **Haunted Carnival** (Harder, secret world: collect 35 coins to unlock) has a spinning Ferris wheel, striped circus tents, string lights that chase to the beat, floating ghosts and confetti, set to *Carnival of Fright* (144 BPM spooky-organ trap).
+- Both levels pass the bot at D3 and D6. The menu now has 4 pages. Saves migrate automatically (v29), and all 29 levels were re-baked.
+
 ## v6.2 — Vibration + settings tidy
 - Phones with vibration support now buzz briefly when you crash and give a short pattern when you win. You can switch this off in Settings ("Vibration (phones)"). Replays never vibrate.
 - The settings rows were tightened so all 7 fit above Stats, and the Jukebox button no longer sits under the mute button.

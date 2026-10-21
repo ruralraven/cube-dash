@@ -76,6 +76,8 @@ S({name:'Bamboo Breeze',lift:2,sig:'marimba',sig2:'chop',swing:.08,bpm:118,root:
 S({name:'Pixel Overload',lift:1,sig:'chip',sig2:'gate',bpm:172,root:55,sc:'minor',prog:[0,5,6,4],dr:'dnb',dr2:'hard',bass:'rolling',lead:'square',seed:151,arp:'square',cut:3400});
 S({name:'Tropical Splash',lift:2,sig:'marimba',sig2:'chop',swing:.1,bpm:114,root:60,sc:'major',prog:[0,4,5,3],dr:'moomba',dr2:'house',bass:'offbeat',lead:'triangle',seed:157,arp:'triangle',cut:2800,bell:1});
 S({name:'Glitch Core',lift:1,sig:'metal',sig2:'chop',dist:8,bpm:150,root:49,sc:'phryg',prog:[0,1,5,6],dr:'industrial',dr2:'dnb',bass:'reese',lead:'square',seed:163,arp:'sawtooth',cut:1900});
+S({name:'Lunar Lounge',lift:2,sig:'space',sig2:'gate',bpm:126,root:54,sc:'dorian',prog:[0,5,3,4],dr:'house',dr2:'garage',bass:'offbeat',lead:'triangle',seed:167,arp:'triangle',cut:3000,bell:1});
+S({name:'Carnival of Fright',lift:1,sig:'organ',sig2:'chop',swing:.12,bpm:144,root:52,sc:'harm',prog:[0,5,4,0],dr:'trap',dr2:'breaks',bass:'wobble',lead:'square',seed:173,arp:'square',cut:1800});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
