@@ -65,7 +65,7 @@ function B(c){return c.bpx} // pixels per beat
 function add(c,o){c.obs.push(o);return o}
 function spike(c,x,y=GY-T){add(c,{t:'s',x,y})}
 function spikeD(c,x,y){add(c,{t:'sd',x,y})}
-function block(c,x,y,w=T,h=T){add(c,{t:'b',x,y,w,h})}
+function block(c,x,y,w=T,h=T){return add(c,{t:"b",x,y,w,h})}
 function snap(x){return Math.round(x/10)*10}
 // round a distance up to a whole number of half beats (keeps obstacles on the rhythm)
 function hb(c,d,min=0){const u=B(c)/2;return Math.max(min,Math.ceil(d/u))*u}
@@ -94,13 +94,13 @@ const PAT={
  spider:{flip(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c),side=0;for(let i=0;i<q.n;i++){const k=3;for(let j=0;j<k;j++){if(side==0)spike(c,snap(x)+j*T);else spikeD(c,snap(x)+j*T,top)}if(i%3==2)block(c,snap(x)+k*T,side?top:GY-T,T,T);side^=1;x+=B(c)*q.gap*(q.gap<2?1.2:1)}c.x=x+B(c)}},
  wave:{zig(c,q){let x=c.x+2*T;const span=GY-CTOP,half=q.gap/2;let cy=GY-span/2,dir=-1,run=0;const pts=[];const n=q.len;
    for(let i=0;i<=n;i++){pts.push(cy);if(run<=0){run=q.seg+Math.floor(c.r()*q.seg);dir=-dir}cy+=dir*T;if(cy-half<CTOP+10){cy=CTOP+10+half;run=0}if(cy+half>GY-10){cy=GY-10-half;run=0}run--}
-   for(let i=0;i<n;i++){const a=Math.min(pts[i],pts[i+1])-half,b=Math.max(pts[i],pts[i+1])+half;if(a>CTOP+2)block(c,x+i*T,CTOP,T,Math.floor(a-CTOP));if(b<GY-2)block(c,x+i*T,Math.ceil(b),T,GY-Math.ceil(b))}c.x=x+n*T+T}}
+   for(let i=0;i<n;i++){const a=Math.min(pts[i],pts[i+1])-half,b=Math.max(pts[i],pts[i+1])+half;if(a>CTOP+2)block(c,x+i*T,CTOP,T,Math.floor(a-CTOP)).wv=1;if(b<GY-2)block(c,x+i*T,Math.ceil(b),T,GY-Math.ceil(b)).wv=1}c.wv.push({x0:x,pts,half});c.x=x+n*T+T}}
 };
 const BOUNDED={ship:CTOP,ufo:CTOP,wave:CTOP,ball:null,spider:null};
-function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs:[],bounds:[],x:12*T,r,mode:'cube',spd,bpx:spd*3600/Music_BPM(L.song),mini:false};
+function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs:[],bounds:[],x:12*T,r,mode:'cube',spd,wv:[],bpx:spd*3600/Music_BPM(L.song),mini:false};
  for(const seg of L.script){const[m,p,q]=seg;
-  if(m=='speed'){c.spd=SPEEDS[p];c.bpx=c.spd*3600/Music_BPM(L.song);add(c,{t:'portal',k:'v'+p,x:snap(c.x),y:GY-4*T});c.x+=2*T;continue}
-  if(m=='mini'){add(c,{t:'portal',k:p=='on'?'mini':'big',x:snap(c.x),y:GY-4*T});c.mini=p=='on';c.x+=2*T;continue}
+  if(m=='speed'){c.spd=SPEEDS[p];c.bpx=c.spd*3600/Music_BPM(L.song);add(c,{t:'portal',k:'v'+p,x:snap(c.x),y:GY-4*T});c.x+=3*T;continue}
+  if(m=='mini'){add(c,{t:'portal',k:p=='on'?'mini':'big',x:snap(c.x),y:GY-4*T});c.mini=p=='on';c.x+=3*T;continue}
   const modeChange=m!=c.mode;let bx0=c.x;
   if(modeChange){add(c,{t:'portal',k:m,x:snap(c.x+T),y:GY-4*T});c.x+=(m=='cube'||m=='robot'?5:4)*T;c.mode=m}
   c.x0seg=c.x;c.btop=undefined;PAT[m][p](c,q||{});(c.segs=c.segs||[]).push({m,p,x0:bx0,x1:c.x});
@@ -109,7 +109,7 @@ function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs
  }
  if(c.mode!='cube'){add(c,{t:'portal',k:'cube',x:snap(c.x+T),y:GY-4*T});c.x+=6*T}
  if(c.mini){add(c,{t:'portal',k:'big',x:snap(c.x),y:GY-4*T});c.x+=2*T}
- c.obs.sort((a,b)=>a.x-b.x);const lv={obs:c.obs,bounds:c.bounds,end:c.x+6*T,spd:SPEEDS[L.spd],startX:0,startMode:'cube',info:L,idx:i,segs:c.segs};
+ c.obs.sort((a,b)=>a.x-b.x);const lv={obs:c.obs,bounds:c.bounds,end:c.x+6*T,spd:SPEEDS[L.spd],startX:0,startMode:'cube',info:L,idx:i,segs:c.segs,wv:c.wv};
  let ci=0;if(typeof BAKED!='undefined'&&BAKED[i])for(const[x,y]of BAKED[i].coins)lv.obs.splice(E_.idxFrom(lv,x),0,{t:'coin',x,y,id:ci++});
  return lv}
 function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160][s]}

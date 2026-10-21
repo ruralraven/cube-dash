@@ -19,3 +19,8 @@
 - 3 coins per level (27 total); coins unlock cube colors, faces and trails in the new ICONS screen.
 - Practice mode with automatic checkpoints at every section.
 - Verifier bot (tools/bot.js) proves every level is beatable; tools/bake.js bakes coins onto a proven path and stores a demo replay (?lvl=N&auto=1).
+
+## v2.1 – Polish (2026-10-21)
+- Wave corridors are now drawn as smooth diagonal walls with glowing edges; wave leaves a solid GD-style trail line.
+- Speed/size portals no longer overlap the next mode portal.
+- Music: bigger drops (louder lead + octave layer, off-beat hats), noise riser before each drop. Offline audio analysis confirms every song is audible with no clipping.

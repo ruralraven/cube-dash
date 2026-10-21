@@ -4,7 +4,7 @@ let ac=null,master,comp,dly,dlyG,noiseBuf,timer=null,song=null,step=0,nextT=0,t0
 try{muted=localStorage.cdMute==='1'}catch(e){}
 const mtof=m=>440*Math.pow(2,(m-69)/12);
 const SCALES={major:[0,2,4,5,7,9,11],minor:[0,2,3,5,7,8,10],phryg:[0,1,3,5,7,8,10],dorian:[0,2,3,5,7,9,10],harm:[0,2,3,5,7,8,11]};
-function init(){if(ac)return true;const A=window.AudioContext||window.webkitAudioContext;if(!A)return false;ac=new A();
+function init(ctx){if(ac&&!ctx)return true;const A=window.AudioContext||window.webkitAudioContext;if(!A&&!ctx)return false;ac=ctx||new A();
  comp=ac.createDynamicsCompressor();comp.threshold.value=-14;comp.ratio.value=4;master=ac.createGain();master.gain.value=muted?0:.55;comp.connect(master);master.connect(ac.destination);
  duck=ac.createGain();duck.connect(comp);
  dly=ac.createDelay(1);dlyG=ac.createGain();dlyG.gain.value=.32;dly.connect(dlyG);dlyG.connect(dly);const dOut=ac.createGain();dOut.gain.value=.35;dly.connect(dOut);dOut.connect(duck);
@@ -67,6 +67,8 @@ function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),d
  if(sec>=1&&sec!=3){if(on('s'))snare(t);if(on('c'))clap(t)}
  if(on('h'))hat(t,sec==0?.08:.16);if(sec==2&&on('o'))hat(t,.12,true);if(on('t'))tom(t,[100,130,160][s16%3],.4);if(on('m')&&sec>=1)metal(t);
  if(sec==1&&bar%8==7&&s16>=8)snare(t,.25+.04*(s16-8)); // build roll
+ if(sec==1&&bar%8==6&&s16==0){const n=ac.createBufferSource();n.buffer=noiseBuf;n.loop=true;const f=ac.createBiquadFilter();f.type='bandpass';f.Q.value=2;f.frequency.setValueAtTime(400,t);f.frequency.exponentialRampToValueAtTime(9000,t+spb*32);const g=ac.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.22,t+spb*31);g.gain.linearRampToValueAtTime(0,t+spb*32.5);n.connect(f);f.connect(g);g.connect(comp);n.start(t);n.stop(t+spb*33)} // riser
+ if(sec==2&&s16%2==1)hat(t,.07);
  if(sec==2&&bar%8==0&&s16==0)noise(t,1.2,'highpass',3000,.5,.25); // crash
  // bass
  if(sec>=1){const bn=note(sd,deg,-2);let p=false,dur=spb*.9,o={wave:'sawtooth',vol:.32,cut:sd.cut*.25,res:6,envAmt:4};
@@ -77,10 +79,13 @@ function sched(sd,st,t){const s16=st%16,bar=Math.floor(st/16),sec=section(bar),d
  // arp
  if(sec>=1&&sec!=3||sec==0&&bar>=2){if(s16%2==0){const a=[0,2,4,7,4,2,7,4][(s16/2)%8];synth(t,note(sd,deg+a,1),spb*1.5,{wave:sd.arp,vol:.06,cut:sd.cut,res:3,send:.35})}}
  // lead (drops + break)
- if(sec==2||sec==3){const m=sd.mel[(bar%8)*16+s16];if(m!=null){synth(t,note(sd,m,1),spb*1.8,{wave:sd.lead,vol:sec==3?.07:.1,cut:sd.cut*1.2,res:2,detune:sd.lead=='sawtooth'?9:0,send:.3});if(sd.bell)synth(t,note(sd,m,2),spb*2,{wave:'sine',vol:.06,cut:6000,send:.4})}}
+ if(sec==2||sec==3){const m=sd.mel[(bar%8)*16+s16];if(m!=null){synth(t,note(sd,m,1),spb*1.8,{wave:sd.lead,vol:sec==3?.07:.13,cut:sd.cut*1.2,res:2,detune:sd.lead=='sawtooth'?9:0,send:.3});if(sec==2)synth(t,note(sd,m,0),spb*1.8,{wave:'square',vol:.05,cut:sd.cut*.8});if(sd.bell)synth(t,note(sd,m,2),spb*2,{wave:'sine',vol:.06,cut:6000,send:.4})}}
 }
 function tick(){while(nextT<ac.currentTime+.15){sched(song,step,nextT);step++;nextT+=60/song.bpm/4}}
 return{SONGS,BPM,
+ // test helper: render a song offline and return stats per 4-bar block
+ async analyze(i,secs=40){const sr=22050,oc=new OfflineAudioContext(2,sr*secs,sr);const saved=[ac,muted];muted=false;init(oc);song=SONGS[i];step=0;nextT=.05;while(nextT<secs-.5){sched(song,step,nextT);step++;nextT+=60/song.bpm/4}
+  const buf=await oc.startRendering();ac=saved[0];muted=saved[1];const d=buf.getChannelData(0),blk=Math.floor(sr*60/song.bpm*16),res=[];for(let b=0;b*blk<d.length;b++){let pk=0,ss=0;for(let k=b*blk;k<Math.min(d.length,(b+1)*blk);k++){const v=Math.abs(d[k]);if(v>pk)pk=v;ss+=v*v}res.push([+pk.toFixed(2),+Math.sqrt(ss/blk).toFixed(3)])}return res},
  start(i){if(!init())return;if(ac.state=='suspended')ac.resume();this.stop();song=SONGS[i%SONGS.length];step=0;t0=nextT=ac.currentTime+.06;dly.delayTime.value=60/song.bpm*.75;timer=setInterval(tick,25);tick()},
  stop(){if(timer){clearInterval(timer);timer=null}},
  unlock(){if(init()&&ac.state=='suspended')ac.resume()},
