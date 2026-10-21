@@ -4,7 +4,7 @@ const D=+process.env.BOTD||3;
 function solve(lv,limitMs=60000,coins=[]){const t0=Date.now();const seen=new Set();let best=0,bestPath=null;
  const p0=E.newPlayer(lv);const stack=[{p:p0,path:[],i:0}];
  // iterative DFS: each node tries [last choice, other]
- function key(p,h){return`${Math.round(p.x/D)}|${Math.round(p.y/2)}|${Math.round(p.vy*2)}|${p.g}|${p.mode}|${p.mini}|${p.spd}|${p.jt>50?9:p.jt}|${p.onG?1:0}|${p.buf>0?1:0}|${h?1:0}|${p.cm||0}`}
+ function key(p,h){return`${Math.round(p.x/D)}|${Math.round(p.y/2)}|${Math.round(p.vy*2)}|${p.g}|${p.mode}|${p.mini}|${p.spd}|${p.jt>50?9:p.jt}|${p.onG?1:0}|${p.buf>0?1:0}|${h?1:0}|${p.dash||0}|${p.cm||0}`}
  const sim=(p,h)=>{const q=E.clone(p);for(let k=0;k<D;k++){E.step(q,lv,h);if(q.dead||q.won)break;const cx=q.x+q.sz/2,cy=q.y+q.sz/2;for(let c=0;c<coins.length;c++){const[x,y]=coins[c];if(Math.abs(x+20-cx)<30&&Math.abs(y+20-cy)<30)q.cm=(q.cm||0)|(1<<c);else if(cx>x+70&&!((q.cm||0)&(1<<c))){q.dead=true;return q}}}return q};
  const rec=[];// path as array of 0/1 per decision
  const node=[p0];const choice=[];

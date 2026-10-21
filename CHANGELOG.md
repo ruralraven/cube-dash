@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v4.6 — Dash orbs
+- New **green dash orb** (it shows a "HOLD" label): tap it and keep holding to fly dead-straight over a spike pit, then release to drop. The pit is sized from each level's jump length, so a normal jump can't clear it. The bot confirmed this: with the orb removed, every speed fails.
+- Added 20 dash-orb pits across 10 worlds: Jungle, Haunted, Factory, Space, Neon, Rainbow, Mushroom, Pirate, Crystal and Clockwork. The harder worlds add ceiling spikes above the pit.
+- Dash orbs are also in the level editor's palette.
+- The engine and both bots track dash state. All 18 levels are re-verified (fine and coarse timing on the easier ones), coins were re-placed, and the browser run wins all 18 with 3/3 coins.
+
 ## v4.5 — Editor slots & undo, phone auto-pause
 - Editor: **↶ UNDO** (also the Z key, keeps 60 steps) and **3 save slots** (the SLOT button) so you can work on several levels.
 - Phones: turning the phone upright mid-level now pauses the game automatically.

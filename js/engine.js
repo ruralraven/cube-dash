@@ -18,7 +18,8 @@ function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p
  const s=p.sz,ox=p.x,oy=p.y,g=p.g,m=p.mode,mini=p.mini;p.x+=p.spd;
  const b=boundAt(lv,p.x+s/2);const top=b?b.top:-1e9;
  // --- mode physics ---
- if(m=='cube'){p.vy+=K.cube.G*g;if(p.vy*g>K.cube.MAXF)p.vy=K.cube.MAXF*g}
+ if(p.dash>0&&held){p.vy=0;p.dash--}
+ else if((p.dash=0)||m=='cube'){p.vy+=K.cube.G*g;if(p.vy*g>K.cube.MAXF)p.vy=K.cube.MAXF*g}
  else if(m=='ship'){p.vy+=(held?-K.ship.UP:K.ship.G)*g*(mini?1.15:1);const mx=K.ship.MAX;p.vy=Math.max(-mx,Math.min(mx,p.vy))}
  else if(m=='ball'){p.vy+=K.ball.G*g;p.vy=Math.max(-K.ball.MAX,Math.min(K.ball.MAX,p.vy))}
  else if(m=='ufo'){if(p.buf>0&&p.buf==7){p.vy=-(mini?K.ufo.MFLAP:K.ufo.FLAP)*g;p.buf=0}else{p.vy+=K.ufo.G*g;if(p.vy*g>K.ufo.MAX)p.vy=K.ufo.MAX*g}}
@@ -49,6 +50,7 @@ function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p
   if(t=='saw'){const qx=Math.max(hb[0],Math.min(o.cx,hb[2])),qy=Math.max(hb[1],Math.min(o.cy,hb[3]));if((qx-o.cx)**2+(qy-o.cy)**2<(o.r*.82)**2){p.dead=true;return}continue}
   if(t=='s'||t=='sd'||t=='ss'){if(ov(hb,obBox(o))){p.dead=true;return}continue}
   if(t=='p'||t=='pg'){if(p.x+s>o.x+4&&p.x<o.x+T-4&&((o.up!==false&&p.y+s>=o.y+T-14&&p.y<o.y+T)||(o.up===false&&p.y<=o.y+14&&p.y+s>o.y))&&p.lastPad!==i){p.lastPad=i;if(t=='pg'){p.g=-p.g;p.vy=p.g*-9}else p.vy=-(m=='ship'?8:m=='ball'||m=='spider'?14:19.5)*p.g;p.onG=false;ev&&ev.push(['pad',o])}continue}
+  if(t=='od'){const cx=o.x+T/2,cy=o.y+T/2,px=p.x+s/2,py=p.y+s/2;if(Math.abs(cx-px)<34&&Math.abs(cy-py)<34&&p.buf>0&&p.orb!==i){p.orb=i;p.buf=0;p.dash=o.n||45;p.vy=0;p.y=cy-s/2;p.onG=false;ev&&ev.push(['orb',o])}continue}
   if(t=='o'||t=='og'){const cx=o.x+T/2,cy=o.y+T/2,px=p.x+s/2,py=p.y+s/2;if(Math.abs(cx-px)<34&&Math.abs(cy-py)<34&&p.buf>0&&p.orb!==i){p.orb=i;p.buf=0;if(t=='og'){p.g=-p.g;p.vy=p.g*7}else{const jv=m=='ship'?8:m=='ufo'?11:m=='robot'?13:m=='ball'?12:mini?K.cube.MJV:K.cube.JV;p.vy=-jv*p.g;if(m=='robot')p.jt=99}p.onG=false;ev&&ev.push(['orb',o])}continue}
   if(t=='portal'){const tx=o.x+T/2;if(ox+s/2<tx&&p.x+s/2>=tx){const k=o.k;
     if(k=='gup'){p.g=-1;p.vy*=.5}else if(k=='gdown'){p.g=1;p.vy*=.5}else if(k=='mini')setSize(p,true);else if(k=='big')setSize(p,false);

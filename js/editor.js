@@ -1,6 +1,6 @@
 // Cube Dash level editor: place blocks/spikes/orbs/pads/portals on the beat grid, test-play, bot-check, share by link.
 const ED={slot:+(localStorage.cdEdSlot||0),undo:[],cx:0,tool:0,msg:'',msgT:0,fail:null,data:null,drag:null};
-const EDTOOLS=[['b','Block'],['s','Spike'],['sd','Ceil spike'],['o','Orb'],['og','Blue orb'],['p','Pad'],['pg','Blue pad'],
+const EDTOOLS=[['b','Block'],['s','Spike'],['sd','Ceil spike'],['o','Orb'],['og','Blue orb'],['od','Dash orb'],['p','Pad'],['pg','Blue pad'],
  ['P:cube','Cube'],['P:ship','Ship'],['P:ball','Ball'],['P:ufo','UFO'],['P:wave','Wave'],['P:robot','Robot'],['P:spider','Spider'],['P:gup','Grav ↑'],['P:gdown','Grav ↓'],['P:v0','Slow'],['P:v2','Fast'],['X','Erase']];
 const EROW=GY-9*T;
 function edLoad(){if(ED.data)return;try{const q=QS.get('lvdata');ED.data=q?JSON.parse(decodeURIComponent(escape(atob(q.replace(/-/g,'+').replace(/_/g,'/'))))):JSON.parse(localStorage['cdEdit'+(ED.slot||'')]||'null')}catch(e){}
@@ -37,7 +37,7 @@ function edLen(){return Math.max(60,...ED.data.o.map(q=>q[1]+20))*T}
 function edScrollBar(mx){ED.cx=Math.max(0,(mx-20)/(W-40)*edLen()-W/2)}
 function edKey(k){if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu';else if(k=='z'||k=='Z')edUndo()}
 function edIcon(tl,x,y,th){X.save();X.translate(x,y);X.scale(.85,.85);if(tl=='b')drawBlock({x:-20,y:-20,w:T,h:T},th);else if(tl=='s')drawSpike({t:'s',x:-20,y:-20},th);else if(tl=='sd')drawSpike({t:'sd',x:-20,y:-20},th);
- else if(tl=='o'||tl=='og')drawOrb({t:tl,x:-20,y:-20},0);else if(tl=='p'||tl=='pg')drawPad({t:tl,x:-20,y:-26});else if(tl=='X'){X.strokeStyle='#ff4d4d';X.lineWidth=6;X.beginPath();X.moveTo(-12,-12);X.lineTo(12,12);X.moveTo(12,-12);X.lineTo(-12,12);X.stroke()}
+ else if(tl=='o'||tl=='og')drawOrb({t:tl,x:-20,y:-20},0);else if(tl=='od')drawDash({t:tl,x:-20,y:-20},0);else if(tl=='p'||tl=='pg')drawPad({t:tl,x:-20,y:-26});else if(tl=='X'){X.strokeStyle='#ff4d4d';X.lineWidth=6;X.beginPath();X.moveTo(-12,-12);X.lineTo(12,12);X.moveTo(12,-12);X.lineTo(-12,12);X.stroke()}
  else{const k=tl.slice(2);X.beginPath();X.ellipse(0,0,9,20,0,0,7);X.lineWidth=6;X.strokeStyle=MODECOL[k]||'#fff';X.stroke()}X.restore()}
 function edDraw(){edLoad();const d=ED.data,th=TH[d.th],bp=beat();drawWorld(th,ED.cx,bp);const lv=edBuild();level=lv;
  X.save();X.translate(-ED.cx,0);
@@ -45,7 +45,7 @@ function edDraw(){edLoad();const d=ED.data,th=TH[d.th],bp=beat();drawWorld(th,ED
  X.strokeStyle='rgba(255,255,255,.35)';X.lineWidth=1.5;const c0=Math.floor(ED.cx/T);for(let c=c0;c<c0+W/T+2;c++){X.beginPath();X.moveTo(c*T,EROW);X.lineTo(c*T,GY);X.stroke()}for(let r=0;r<=9;r++){X.beginPath();X.moveTo(ED.cx,GY-r*T);X.lineTo(ED.cx+W,GY-r*T);X.stroke()}
  // beat lines
  const bpx=E.SPEEDS[d.spd]*3600/Music.BPM(d.song);X.strokeStyle='rgba(255,230,120,.35)';X.lineWidth=2;for(let b=Math.floor(ED.cx/bpx);b*bpx<ED.cx+W;b++){X.beginPath();X.moveTo(b*bpx,EROW-10);X.lineTo(b*bpx,EROW+6);X.stroke()}
- drawCeils(th);for(const o of lv.obs){if(o.x<ED.cx-80||o.x>ED.cx+W+40)continue;if(o.t=='b')drawBlock(o,th);else if(o.t=='s'||o.t=='sd')drawSpike(o,th);else if(o.t=='p'||o.t=='pg')drawPad(o);else if(o.t=='o'||o.t=='og')drawOrb(o,bp);else if(o.t=='portal')drawPortal(o)}
+ drawCeils(th);for(const o of lv.obs){if(o.x<ED.cx-80||o.x>ED.cx+W+40)continue;if(o.t=='b')drawBlock(o,th);else if(o.t=='s'||o.t=='sd')drawSpike(o,th);else if(o.t=='p'||o.t=='pg')drawPad(o);else if(o.t=='o'||o.t=='og')drawOrb(o,bp);else if(o.t=='od')drawDash(o,bp);else if(o.t=='portal')drawPortal(o)}
  X.fillStyle='rgba(255,255,255,.9)';X.fillRect(lv.end-6*T,EROW,6,GY-EROW);txt('END',lv.end-6*T+3,EROW-6,14);
  X.save();X.translate(T*1.5+20,GY-20);cubeIcon(1);X.restore();
  if(ED.fail!=null){X.strokeStyle='#ff3b3b';X.lineWidth=4;X.setLineDash([10,8]);X.beginPath();X.moveTo(ED.fail,0);X.lineTo(ED.fail,GY);X.stroke();X.setLineDash([])}
