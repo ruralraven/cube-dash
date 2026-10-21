@@ -36,3 +36,8 @@
 - Level Complete screen with MENU and NEXT ▶ buttons.
 - Background beat pulse now follows the real audio clock, so it stays locked to the music even if the frame rate dips.
 - Glowing hazard colors per world (lava glow, ghostly glow, neon glow) for better readability.
+
+## v2.4 – New hazards & objects (2026-10-21)
+- Spinning saw blades: half-buried ground saws, hanging saws, and saw fields in ship corridors (Jungle, Lava, Haunted, Factory, Neon).
+- Blue gravity orbs: tap in mid-air to flip onto the ceiling over spike floors and back again (Candy, Ice, Haunted, Space, Neon).
+- Factory saws are red/yellow so they stand out from the background gears.

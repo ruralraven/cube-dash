@@ -39,7 +39,7 @@ C.addEventListener('pointerdown',e=>{Music.unlock();const[mx,my]=cv(e);
  if(mx<70&&my>H-70&&scene!='win'){toMenu();return}press(mx,my)});
 addEventListener('pointerup',release);addEventListener('pointercancel',release);addEventListener('blur',release);
 // ---- update ----
-function step(){t+=1/60;if(flash>0)flash-=.05;if(shake>0)shake*=.85;
+function step(){t+=1/60;if(banner>0&&scene=='play')banner--;if(flash>0)flash-=.05;if(shake>0)shake*=.85;
  if(scene=='play'){ft++;let h=held;if(replay){h=!!replay[Math.floor(rp/BAKED_D)];rp++}
   const ev=[];const wasG=pl.onG,om=pl.mode;E.step(pl,level,h,ev);
   for(const[k,o]of ev){if(k=='coin'){if(!got[o.id]){got[o.id]=1;Music.sfx('coin');for(let i=0;i<20;i++)parts.push({x:o.x+20,y:o.y+20,vx:(Math.random()-.5)*8,vy:(Math.random()-.5)*8,l:1,s:4,c:'#ffe14d',g:0});if(!save.practice){const c=save.coins[lvl]||[0,0,0];c[o.id]=1;save.coins[lvl]=c;persist()}}}
@@ -80,6 +80,7 @@ function drawPortal(o){const k=o.k,c=MODECOL[k]||'#fff',cx=o.x+T/2,cy=o.y+2*T,sm
  X.fillStyle=c;X.globalAlpha=.22;X.beginPath();X.ellipse(cx,cy,18,84,0,0,7);X.fill();X.globalAlpha=.8;for(let i=0;i<5;i++){const yy=cy-70+((t*110+i*30)%140);X.fillStyle='#fff';circ(cx+Math.sin(t*5+i)*7,yy,2.5);X.fill()}X.globalAlpha=1;
  rr(cx-22,o.y-56,44,36,10);P(c,3.5);icon(k,cx,o.y-38,1);const hint=HINTS[k];if(hint&&LV.LEVELS[lvl].diff<=3){const a=Math.max(0,Math.min(1,(o.x-cam)/300));X.globalAlpha=a;txt(hint,cx,o.y-70,18,'center',c);X.globalAlpha=1}}
 const HINTS={ship:'HOLD TO FLY',ball:'TAP TO FLIP',ufo:'TAP TO FLAP',wave:'HOLD = UP',robot:'HOLD = BIG JUMP',spider:'TAP = TELEPORT',gup:'UPSIDE DOWN!',mini:'MINI!',cube:'JUMP!'};
+function drawSaw(o,th){X.save();X.translate(o.cx,o.cy);X.rotate(t*8*(o.cx%2?1:-1));const r=o.r,n=Math.max(8,Math.round(r/3.5));X.beginPath();for(let k=0;k<n;k++){const a=k/n*Math.PI*2;X.lineTo(Math.cos(a)*r,Math.sin(a)*r);X.lineTo(Math.cos(a+Math.PI/n)*r*.78,Math.sin(a+Math.PI/n)*r*.78)}X.closePath();X.save();X.shadowColor=th.glow||'#fff';X.shadowBlur=10;P(th.saw||th.spike[0],3.5);X.restore();circ(0,0,r*.55);P(th.sawIn||th.spike[1],3);circ(0,0,r*.18);P(OL,2);X.strokeStyle='rgba(0,0,0,.3)';X.lineWidth=3;for(let k=0;k<3;k++){X.beginPath();X.arc(0,0,r*.38,k*2.1,k*2.1+1);X.stroke()}X.restore()}
 function drawCoin(o){if(got[o.id])return;const x=o.x+T/2,y=o.y+T/2+Math.sin(t*3+o.id)*4,sx=Math.abs(Math.cos(t*2.5+o.id));X.save();X.translate(x,y);X.scale(.3+.7*sx,1);X.save();X.shadowColor='#ffe14d';X.shadowBlur=20;circ(0,0,17);P('#ffcf33',4);X.restore();circ(0,0,11);X.lineWidth=2.5;X.strokeStyle='#e0a020';X.stroke();star5(0,0,7,'#fff6a0',1.5);X.restore()}
 function drawWaveWalls(th){const[c,d]=th.block;for(const w of level.wv){const n=w.pts.length-1,x1=w.x0+n*T;if(x1<cam-T||w.x0>cam+W+T)continue;const top=LV.CTOP;
  for(const side of[-1,1]){X.beginPath();X.moveTo(w.x0,side<0?top:GY);for(let i=0;i<=n;i++)X.lineTo(w.x0+i*T,w.pts[i]+side*w.half);X.lineTo(x1,side<0?top:GY);X.closePath();X.fillStyle=c;X.fill();X.save();X.clip();th.blockFx&&th.blockFx(w.x0,top,n*T,GY-top,d);X.restore();
@@ -110,7 +111,7 @@ function shipBody(th){if(th==0){X.beginPath();X.ellipse(0,8,30,15,0,0,7);P('#ffc
 function draw(){if(scene=='menu')return menu();if(scene=='garage')return garage();const L=LV.LEVELS[lvl],th=TH[L.th],bp=beat();X.save();if(shake>.5)X.translate((Math.random()-.5)*shake,(Math.random()-.5)*shake);drawWorld(th,cam,bp);X.save();X.translate(-cam,0);drawCeils(th);
  const i0=E.idxFrom(level,cam-120);for(let i=i0;i<level.obs.length;i++){const o=level.obs[i];if(o.x>cam+W+40)break;const tt=o.t;if(tt=='b'&&!o.wv)drawBlock(o,th);}
  drawWaveWalls(th);
- for(let i=i0;i<level.obs.length;i++){const o=level.obs[i];if(o.x>cam+W+40)break;const tt=o.t;if(tt=='s'||tt=='sd')drawSpike(o,th);else if(tt=='p'||tt=='pg')drawPad(o);else if(tt=='o'||tt=='og')drawOrb(o,bp);else if(tt=='portal')drawPortal(o);else if(tt=='coin')drawCoin(o)}
+ for(let i=i0;i<level.obs.length;i++){const o=level.obs[i];if(o.x>cam+W+40)break;const tt=o.t;if(tt=='s'||tt=='sd')drawSpike(o,th);else if(tt=='p'||tt=='pg')drawPad(o);else if(tt=='o'||tt=='og')drawOrb(o,bp);else if(tt=='portal')drawPortal(o);else if(tt=='coin')drawCoin(o);else if(tt=='saw')drawSaw(o,th)}
  if(save.practice)for(const x of ckpts){X.save();X.translate(x,GY-30);X.rotate(Math.PI/4);rr(-9,-9,18,18,3);P('#7dff7a',3);X.restore()}
  const fx=level.end-6*T;if(fx<cam+W){for(let k=0;k<12;k++){X.fillStyle=k%2?'#fff':OL;X.fillRect(fx,k*GY/12,24,GY/12)}}
  for(const p of parts){X.globalAlpha=Math.max(0,Math.min(1,p.l));X.fillStyle=p.c;if(p.w){circ(p.x,p.y,p.s*p.l);X.fill()}else if(p.star)star5(p.x,p.y,p.s,p.c,1);else{rr(p.x-p.s/2,p.y-p.s/2,p.s,p.s,2);X.fill()}}X.globalAlpha=1;
@@ -121,7 +122,7 @@ function hud(L){const pr=Math.min(1,pl.x/(level.end-6*T));rr(260,16,360,16,8);P(
  txt(Math.floor(pr*100)+'%',632,31,20,'left');txt('Attempt '+att,20,40,24,'left');txt(L.name,W-20,40,22,'right');
  for(let i=0;i<3;i++){X.globalAlpha=got[i]||(save.coins[lvl]||[])[i]?1:.3;X.save();X.translate(W-80+i*26,66);circ(0,0,9);P(got[i]?'#ffcf33':(save.coins[lvl]||[])[i]?'#c9a030':'#888',2.5);X.restore()}X.globalAlpha=1;
  if(save.practice)txt('PRACTICE',W/2,62,18);
- if(banner>0&&scene=='play'){banner--;const a=Math.min(1,banner/40);X.globalAlpha=a;txt(L.name,W/2,190,54);txt(LV.DIFF[L.diff]+'  •  ♪ '+Music.SONGS[L.song].name,W/2,232,22,'center',DCOL[L.diff]);X.globalAlpha=1}
+ if(banner>0&&scene=='play'){const a=Math.min(1,banner/40);X.globalAlpha=a;txt(L.name,W/2,190,54);txt(LV.DIFF[L.diff]+'  •  ♪ '+Music.SONGS[L.song].name,W/2,232,22,'center',DCOL[L.diff]);X.globalAlpha=1}
  homeBtn();
  if(scene=='dead'&&newBest){txt('NEW BEST! '+save.best[lvl]+'%',W/2,H/2-30,40)}
  if(scene=='win'){X.fillStyle='rgba(0,0,0,.45)';X.fillRect(0,0,W,H);txt(save.practice?'PRACTICE COMPLETE!':'LEVEL COMPLETE!',W/2,200,60);txt(att+(att==1?' attempt':' attempts')+'  •  coins '+got.filter(Boolean).length+'/3',W/2,262,28);if(deadT>30){rr(W/2-230,330,200,56,16);P('rgba(0,0,0,.4)',3);txt('MENU',W/2-130,367,24);if(lvl<8){rr(W/2+30,330,200,56,16);P('#7dff7a',3);txt('NEXT ▶',W/2+130,367,24)}}}}

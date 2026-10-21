@@ -43,6 +43,7 @@ function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p
    else if(m=='ship'&&g==1&&oy+s<=bb[1]+11){p.y=bb[1]-s;p.vy=0}
    else{p.dead=true;return}
    hb=hitBox(p);continue}
+  if(t=='saw'){const qx=Math.max(hb[0],Math.min(o.cx,hb[2])),qy=Math.max(hb[1],Math.min(o.cy,hb[3]));if((qx-o.cx)**2+(qy-o.cy)**2<(o.r*.82)**2){p.dead=true;return}continue}
   if(t=='s'||t=='sd'||t=='ss'){if(ov(hb,obBox(o))){p.dead=true;return}continue}
   if(t=='p'||t=='pg'){if(p.x+s>o.x+4&&p.x<o.x+T-4&&((o.up!==false&&p.y+s>=o.y+T-14&&p.y<o.y+T)||(o.up===false&&p.y<=o.y+14&&p.y+s>o.y))&&p.lastPad!==i){p.lastPad=i;if(t=='pg'){p.g=-p.g;p.vy=p.g*-9}else p.vy=-(m=='ship'?8:m=='ball'||m=='spider'?14:19.5)*p.g;p.onG=false;ev&&ev.push(['pad',o])}continue}
   if(t=='o'||t=='og'){const cx=o.x+T/2,cy=o.y+T/2,px=p.x+s/2,py=p.y+s/2;if(Math.abs(cx-px)<34&&Math.abs(cy-py)<34&&p.buf>0&&p.orb!==i){p.orb=i;p.buf=0;if(t=='og'){p.g=-p.g;p.vy=p.g*7}else{const jv=m=='ship'?8:m=='ufo'?11:m=='robot'?13:m=='ball'?12:mini?K.cube.MJV:K.cube.JV;p.vy=-jv*p.g;if(m=='robot')p.jt=99}p.onG=false;ev&&ev.push(['orb',o])}continue}
