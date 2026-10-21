@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v5.0 — 21 worlds: Sunny Farm & Dino Valley
+- **Sunny Farm** (Easy, slowest speed, 116 BPM swung "Barnyard Boogie"): a red barn, hay bales, wandering cows, sunflowers, fences, rolling hills and a beaming sun. It's the 2nd world in the menu, a gentle on-ramp with one easy dash pit.
+- **Dino Valley** (Normal, 128 BPM "Dino Stomp"): smoking volcanoes, long-neck dinosaurs, flying pterodactyls, cycads, dino eggs and fossil bones. Robot, swing, ship melody, dash, spider.
+- Both worlds also appear in Daily/Random runs. Saves migrate automatically (the bosses keep their scores).
+- Bot: both new levels pass even at the coarsest timing (D6). All 21 levels win in the browser with 3/3 coins (63 coins total).
+
 ## v4.9 — Ghost of your best run
 - **Ghost cube**: every world remembers your best attempt as frame-perfect inputs (the engine is deterministic). A see-through ghost replays that run next to you, so you can race yourself. It's saved in its own small storage slot and can be turned off in Settings ("Ghost of best run"). Practice, Daily/Random and editor levels don't record ghosts.
 - New trophy: **Kraken Tamer** (13 trophies in total). The Settings screen was re-laid out to fit them.

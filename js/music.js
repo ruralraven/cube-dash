@@ -68,6 +68,8 @@ S({name:'Toy Parade',sig:'chip',sig2:'chop',bpm:112,root:60,sc:'major',prog:[0,4
 S({name:'Sakura Drift',sig:'bells',sig2:'chop',swing:.1,bpm:122,root:57,sc:'dorian',prog:[0,3,6,4],dr:'garage',dr2:'house',bass:'offbeat',lead:'triangle',seed:107,arp:'triangle',cut:2800,bell:1});
 S({name:'Tick Tock Tower',sig:'metal',sig2:'gate',dist:6,bpm:142,root:52,sc:'harm',prog:[0,5,3,4],dr:'industrial',dr2:'breaks',bass:'rolling',lead:'square',seed:109,arp:'square',cut:1800});
 S({name:'Abyssal Bass',sig:'space',sig2:'gate',dist:4,bpm:156,root:49,sc:'harm',prog:[0,5,1,4],dr:'dnb',dr2:'halftime',bass:'wobble',lead:'sawtooth',seed:113,arp:'triangle',cut:2200});
+S({name:'Barnyard Boogie',sig:'marimba',sig2:'chop',swing:.14,bpm:116,root:62,sc:'major',prog:[0,3,4,0],dr:'bounce',dr2:'house',bass:'pluck',lead:'triangle',seed:127,arp:'square',cut:2600});
+S({name:'Dino Stomp',sig:'distort',sig2:'chop',dist:6,bpm:128,root:50,sc:'dorian',prog:[0,6,3,4],dr:'tribal',dr2:'breaks',bass:'wobble',lead:'square',seed:131,arp:'sawtooth',cut:2000});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
