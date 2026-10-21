@@ -1,5 +1,12 @@
 # Cube Dash Changelog
 
+## v3.6 — 15 worlds
+- **Mushroom Forest** (Normal, 118 BPM "Spore Bounce"): giant glowing toadstools, floating spores, snails and red-cap blocks. Pad- and orb-heavy, with UFO and ball sections.
+- **Pirate Cove** (Hard, 136 BPM "Cannon Shanty"): sunset sea with rolling waves, palm islands, pirate ships, seagulls, a wooden dock, crates and barrels. Ship-heavy, with sawfields.
+- **Crystal Caves** (Insane, 150 BPM "Prism Pulse"): glowing crystal clusters and stalactites. Spider, wave, pistons, mini ball and a fast ship melody.
+- Shadow King stays the finale (now world 15). Saves are migrated automatically so existing coins and best % stay with the right world.
+- Bot-verified: all 15 levels win in the browser with 3/3 coins. The new levels also pass the coarse-timing bot (Mushroom Forest at D6).
+
 ## v3.5 — Ambient weather & life
 - New ambient layer that reacts to the beat:
   - Jungle: falling leaves and fireflies

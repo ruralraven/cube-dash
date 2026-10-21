@@ -61,6 +61,9 @@ S({name:'Neon Nights',sig:'supersaw',sig2:'gate',bpm:160,root:53,sc:'minor',prog
 S({name:'Rainbow Rocket',sig:'chip',sig2:'chop',bpm:170,root:58,sc:'major',prog:[0,4,5,3],dr:'dnb',bass:'rolling',lead:'square',seed:53,arp:'square',cut:3200});
 S({name:'Sandstorm Shuffle',sig:'marimba',sig2:'chop',swing:.2,bpm:126,root:54,sc:'harm',prog:[0,5,0,4],dr:'tribal',bass:'pluck',lead:'triangle',seed:61,arp:'square',cut:2400});
 S({name:'Shadow King',sig:'supersaw',sig2:'gate',dist:6,dr2:'breaks',bpm:174,root:50,sc:'harm',prog:[0,5,3,4],dr:'hard',bass:'wobble',lead:'sawtooth',seed:71,arp:'sawtooth',cut:2000});
+S({name:'Spore Bounce',sig:'drops',sig2:'chop',swing:.12,bpm:118,root:58,sc:'major',prog:[0,3,4,3],dr:'bounce',dr2:'moomba',bass:'pluck',lead:'triangle',seed:83,arp:'triangle',cut:2600,bell:1});
+S({name:'Cannon Shanty',sig:'marimba',sig2:'gate',bpm:136,root:55,sc:'dorian',prog:[0,6,5,4],dr:'house',dr2:'breaks',bass:'offbeat',lead:'square',seed:89,arp:'square',cut:2400});
+S({name:'Prism Pulse',sig:'bells',sig2:'gate',bpm:150,root:61,sc:'minor',prog:[0,5,6,4],dr:'trance',dr2:'dnb',bass:'rolling',lead:'sawtooth',seed:97,arp:'triangle',cut:3000,bell:1});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
