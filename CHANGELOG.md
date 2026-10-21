@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v5.5 — Four Seasons trophy, Storm Peaks pines
+- New trophy, **Four Seasons**: beat Cherry Blossom, Sunny Farm, Autumn Woods and Ice Kingdom. That makes 14 trophies.
+- Storm Peaks now has snow-tipped pine trees in the scenery.
+
 ## v5.4 — Autumn Woods + Storm Peaks (23 worlds)
 - **Autumn Woods** (Normal) has orange and red trees, pumpkins, toadstools and drifting leaves, set to the new song *Maple Groove* (124 BPM garage with a swing feel).
 - **Storm Peaks** (Harder) has snow-capped mountains, storm clouds, driving rain and lightning flashes that hit on the beat, set to *Thunderhead* (165 BPM drum & bass).
