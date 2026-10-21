@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v3.2 — Phone polish & performance
+- Multi-touch: a hold now lasts until every finger is lifted, and a second finger taps orbs mid-hold.
+- On phones, tapping the menu goes fullscreen and locks to landscape. Holding the phone upright shows a "rotate your phone" screen.
+- Double-tap zoom, pinch zoom and long-press menus are blocked.
+- LITE mode drops glow/shadow blur and caps particles. It turns on by itself when frames run slow (avg >24 ms) and can be toggled with the FX/LITE button on the menu.
+
 ## v3.1 — 12 worlds & the Shadow King
 - Menu now pages through worlds (3×3 grid + MORE WORLDS button).
 - New level 11 **Desert Temple** (Hard, 126 BPM "Sandstorm Shuffle"): pyramids, dunes, cacti, walking camels, sandstorm, hieroglyph blocks; new ship gravity-sequence and ball-sequence rhythm sections.
