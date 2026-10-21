@@ -11,6 +11,7 @@ function idxFrom(lv,x){let lo=0,hi=lv.obs.length;while(lo<hi){const m=(lo+hi)>>1
 function hitBox(p){const s=p.sz;if(p.mode=='wave'){const c=s*.3;return[p.x+s/2-c,p.y+s/2-c,p.x+s/2+c,p.y+s/2+c]}const i=p.mini?3:5;return[p.x+i,p.y+i,p.x+s-i,p.y+s-i]}
 function ov(a,b){return a[0]<b[2]&&a[2]>b[0]&&a[1]<b[3]&&a[3]>b[1]}
 function obBox(o){if(o.t=='s')return[o.x+13,o.y+14,o.x+27,o.y+T];if(o.t=='sd')return[o.x+13,o.y,o.x+27,o.y+T-14];if(o.t=='ss')return[o.x+12,o.y+24,o.x+28,o.y+T];return[o.x,o.y,o.x+(o.w||T),o.y+(o.h||T)]}
+function mvY(o,f){return o.mv.a*Math.sin(f*o.mv.w+o.mv.ph)}
 function setSize(p,mini){if(p.mini==mini)return;const c=p.y+p.sz/2;p.mini=mini;p.sz=mini?24:T;p.y=c-p.sz/2}
 // step: mutates p, returns array of events (strings) or null
 function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p.prevHeld;p.prevHeld=held;p.held=held;if(pressed)p.buf=7;else if(p.buf>0)p.buf--;
@@ -33,6 +34,8 @@ function step(p,lv,held,ev){if(p.dead||p.won)return;p.f++;const pressed=held&&!p
  let hb=hitBox(p);const i0=idxFrom(lv,p.x-90);
  for(let i=i0;i<lv.obs.length;i++){const o=lv.obs[i];if(o.x>p.x+s+10)break;
   const t=o.t;
+  if(o.mv){const dy=mvY(o,p.f);if(t=='saw'){const cy=o.cy+dy,qx=Math.max(hb[0],Math.min(o.cx,hb[2])),qy=Math.max(hb[1],Math.min(cy,hb[3]));if((qx-o.cx)**2+(qy-cy)**2<(o.r*.82)**2){p.dead=true;return}continue}
+   if(t=='b'){if(ov(hb,[o.x+3,o.y+dy+3,o.x+(o.w||T)-3,o.y+dy+(o.h||T)-3])){p.dead=true;return}continue}}
   if(t=='b'){const bb=[o.x,o.y,o.x+(o.w||T),o.y+(o.h||T)];const pb=[p.x+1,p.y,p.x+s-1,p.y+s];if(!ov(pb,bb))continue;
    if(m=='wave'){if(ov(hb,bb)){p.dead=true;return}continue}
    const solid=m!='ship';// ship: slide on top/bottom faces too
@@ -63,5 +66,5 @@ function spiderTP(p,lv,top){const s=p.sz,g=p.g;let target=g==1?top:GY-s;// defau
  const i0=idxFrom(lv,p.x-90);for(let i=i0;i<lv.obs.length;i++){const o=lv.obs[i];if(o.x>p.x+s)break;if(o.t!='b')continue;const w=o.w||T,h=o.h||T;if(o.x+w<=p.x+2||o.x>=p.x+s-2)continue;
   if(g==1&&o.y+h<=p.y&&o.y+h>target)target=o.y+h;if(g==-1&&o.y>=p.y+s&&o.y-s<target)target=o.y-s}
  if(g==1&&target<-200)return;p.y=target;p.g=-g;p.vy=0;p.onG=true;p.tp=1}
-return{T,GY,W,H,SPEEDS,K,newPlayer,clone,step,boundAt,idxFrom,obBox,hitBox}})();
+return{mvY,T,GY,W,H,SPEEDS,K,newPlayer,clone,step,boundAt,idxFrom,obBox,hitBox}})();
 if(typeof module!='undefined')module.exports=E;

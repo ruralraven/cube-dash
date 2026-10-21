@@ -52,3 +52,8 @@
 - Ceilings in ball/spider/gravity corridors get scalloped edges and textures.
 - Squash & stretch when landing; death now breaks the icon into tumbling shards with a flash.
 - Menu cards show a live-rendered thumbnail of each world.
+
+## v2.7 – Moving obstacles (2026-10-21)
+- Beat-synced crushers (pistons) that pump up and down with the music – timed so they rise just as you arrive (Lava, Factory, Neon).
+- Moving saw blades that sweep up and down ship/UFO corridors on a 1–2 beat cycle (Haunted, Space, Neon).
+- Engine supports time-based obstacles deterministically, so the bot verifier and practice checkpoints stay exact.
