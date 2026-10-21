@@ -53,19 +53,19 @@ const LEVELS=[
   ['speed',3],['cube','seq',{s:'d.....d.....t.......'}],['ship','tunnel',{len:48,gap:160,amp:100}],['speed',2],
   ['robot','towers',{n:5,hmax:4}],['ball','flip',{n:8,gap:1,h:5}]]},
  {name:'Neon City',th:8,song:8,spd:3,diff:5,seed:97,script:[
-  ['cube','seq',{s:'d.....t.....d.....t.......'}],['wave','zig',{len:48,gap:130,seg:3}],['cube','seq',{s:'t.......2.....3.......d.......2.......t...'}],['cube','dash',{n:2,roof:1}],['ship','gseq',{gap:3,s:'6.5.4.3.2.3.4.5.6.5.4.3.2.3.'}],
+  ['cube','seq',{s:'d.....t.....d.....t.......'}],['wave','zig',{len:48,gap:130,seg:3}],['cube','seq',{s:'t.......2.....3.......d.......2.......t...'}],['cube','dash',{n:2,roof:1}],['ship','gseq',{gap:3,s:'6.5.4.3.2.3.4.5.6.5.4.3.2.3.'}],['swing','gseq',{gap:4,s:'6.5.4.3.2.3.4.5.6.5.4.3.'}],
   ['cube','plat',{n:6}],['cube','pistons',{n:6,sp:1}],['ship','sawfield',{n:10,dx:4,mid:1}],['ship','movers',{n:10,dx:5,beats:1,gapPad:40}],['ship','pillars',{n:10,gap:5,sh:2,dx:7,sp:1}],
   ['mini','on'],['wave','zig',{len:44,gap:120,seg:2}],['mini','off'],['spider','flip',{n:8,gap:1,h:5}],
   ['ball','flip',{n:8,gap:1,h:5}],['ufo','gates',{n:9,gap:4,sh:2,dx:6,sp:1}],['cube','grav',{n:6}],['cube','gorbs',{n:4}],
   ['robot','towers',{n:6,hmax:4}],['cube','orbs',{n:6}],['cube','seq',{s:'t.....t.....d...d.......'}]]},
  {name:'Rainbow Sky',th:9,song:9,spd:2,diff:4,seed:131,secret:9,script:[
-  ['cube','seq',{s:'s...d...t...B.......o...o...s.s.....'}],['ufo','gates',{n:6,gap:4,sh:2,dx:6,sp:1}],['cube','seq',{s:'1...2...3...2...d.......'}],['cube','dash',{n:2,roof:1}],['ball','bseq',{h:5,s:'f...c...F...C...f...c...'}],['ball','flip',{n:6,gap:1,h:5}],
+  ['cube','seq',{s:'s...d...t...B.......o...o...s.s.....'}],['ufo','gates',{n:6,gap:4,sh:2,dx:6,sp:1}],['cube','seq',{s:'1...2...3...2...d.......'}],['cube','dash',{n:2,roof:1}],['ball','bseq',{h:5,s:'f...c...F...C...f...c...'}],['swing','gates',{n:8,gap:5,sh:2,dx:6}],['ball','flip',{n:6,gap:1,h:5}],
   ['cube','gorbs',{n:4}],['ship','movers',{n:8,dx:6,beats:2,gapPad:40}],['robot','towers',{n:5,hmax:4}],
   ['wave','zig',{len:44,gap:140,seg:3}],['spider','flip',{n:8,gap:1,h:5}],['cube','pistons',{n:5,sp:1}],
   ['mini','on'],['ship','pillars',{n:8,gap:4,sh:2,dx:6,sp:1}],['mini','off'],['cube','saws',{n:4,hang:1}],['cube','orbs',{n:5}],['cube','seq',{s:'t...t...d.d.....t.......'}]]},
  {name:'Desert Temple',th:10,song:10,spd:2,diff:2,seed:149,script:[
   ['cube','seq',{s:'s...s...d.......b...B...b.......s...d...'}],['ship','gseq',{s:'3.3.2.1.1.2.3.4.4.3.',gap:5}],
-  ['cube','saws',{n:3}],['ball','bseq',{s:'f.....c.....f.....c...f...c...',h:5}],['cube','orbs',{n:4}],
+  ['cube','saws',{n:3}],['ball','bseq',{s:'f.....c.....f.....c...f...c...',h:5}],['cube','orbs',{n:4}],['swing','gates',{n:7,gap:6,sh:1,dx:7}],
   ['robot','towers',{n:4,hmax:3}],['ufo','gates',{n:6,gap:5,sh:1,dx:7}],['cube','gorbs',{n:2}],['cube','seq',{s:'d...d...t.......s.s.....'}]]},
  {name:'Mushroom Forest',th:12,song:12,spd:1,diff:1,seed:181,script:[
   ['cube','seq',{s:'s.......p.......s...s...1...2...'}],['cube','pads',{n:3}],['cube','orbs',{n:3}],['cube','dash',{n:2,roof:0}],
@@ -74,7 +74,7 @@ const LEVELS=[
   ['ship','gseq',{gap:5,s:'5.5.4.4.3.3.4.4.5.5.6.6.'}],['cube','pads',{n:2}],['cube','seq',{s:'s...s...d.......p.......'}]]},
  {name:'Pirate Cove',th:13,song:13,spd:2,diff:2,seed:191,script:[
   ['cube','seq',{s:'s...d...s...d...B.......t.......'}],['robot','towers',{n:4,hmax:3}],
-  ['ship','pillars',{n:7,gap:5,sh:2,dx:6}],['cube','saws',{n:4}],['cube','dash',{n:2,roof:0}],['ball','bseq',{h:5,s:'f...c...F...c...f.c.....'}],
+  ['ship','pillars',{n:7,gap:5,sh:2,dx:6}],['cube','saws',{n:4}],['cube','dash',{n:2,roof:0}],['ball','bseq',{h:5,s:'f...c...F...c...f.c.....'}],['swing','gseq',{gap:5,s:'5.4.3.4.5.6.5.4.3.4.'}],
   ['ship','sawfield',{n:8,dx:6}],['cube','seq',{s:'1.....2.....1.........d.......d...'}],['cube','orbs',{n:4}],
   ['ship','gseq',{gap:4,s:'6.5.4.3.4.5.6.5.4.3.2.3.'}],['cube','gorbs',{n:2}],['cube','seq',{s:'d...t.......s...s...'}]]},
  {name:'Crystal Caves',th:14,song:14,spd:2,diff:4,seed:211,script:[
@@ -90,12 +90,12 @@ const LEVELS=[
   ['ship','pillars',{n:5,gap:6,sh:1,dx:8}],['cube','seq',{s:'s.......d.......s...s...'}]]},
  {name:'Cherry Blossom',th:16,song:16,spd:1,diff:1,seed:227,script:[
   ['cube','seq',{s:'s...s...d.......1...2...1.......'}],['cube','orbs',{n:4}],['robot','towers',{n:4,hmax:3}],
-  ['ship','gseq',{gap:5,s:'4.4.5.5.6.6.5.5.4.4.3.3.'}],['cube','plat',{n:5}],['spider','flip',{n:4,gap:2,h:5}],
+  ['ship','gseq',{gap:5,s:'4.4.5.5.6.6.5.5.4.4.3.3.'}],['cube','plat',{n:5}],['spider','flip',{n:4,gap:2,h:5}],['swing','gates',{n:6,gap:6,sh:1,dx:8}],
   ['cube','grav',{n:3}],['ball','bseq',{h:5,s:'f...c...f...c...F.......'}],['cube','pads',{n:2}],
   ['ufo','gates',{n:6,gap:5,sh:2,dx:7}],['cube','seq',{s:'d...s...1...2...d.......'}]]},
  {name:'Clockwork Tower',th:17,song:17,spd:2,diff:3,seed:229,script:[
   ['cube','seq',{s:'d...d...t.......2.....1.......'}],['cube','pistons',{n:5,sp:1}],['cube','saws',{n:4,hang:1}],['cube','dash',{n:2,roof:0}],
-  ['ship','movers',{n:6,dx:7,beats:2,gapPad:60}],['robot','towers',{n:5,hmax:4}],['ball','bseq',{h:5,s:'f...c...F...C...f.c.....'}],
+  ['ship','movers',{n:6,dx:7,beats:2,gapPad:60}],['swing','gates',{n:8,gap:5,sh:2,dx:7}],['robot','towers',{n:5,hmax:4}],['ball','bseq',{h:5,s:'f...c...F...C...f.c.....'}],
   ['wave','zig',{len:40,gap:150,seg:3}],['cube','gorbs',{n:2}],['ship','gseq',{gap:4,s:'6.5.4.3.2.3.4.5.6.5.4.3.'}],
   ['cube','orbs',{n:4}],['cube','pistons',{n:4}],['cube','seq',{s:'t.......d...d...'}]]},
  {name:"Kraken's Lair",th:18,song:18,spd:2,diff:4,seed:233,secret:20,boss:2,script:[
@@ -165,12 +165,13 @@ const PAT={
  ufo:{movers(c,q){PAT.ship.movers(c,q)},gates(c,q){PAT.ship.pillars(c,q);for(let sx=c.x0seg+3*T;sx<c.x-T;sx+=T)if(!c.obs.some(o=>o.t=='b'&&o.x<=sx&&o.x+o.w>sx&&o.y+o.h>=GY))spike(c,sx)}},
  ball:{bseq(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c);for(const ch of q.s){const k=ch=='F'||ch=='C'?3:2;if(ch.toLowerCase()=='f')for(let j=0;j<k;j++)spike(c,snap(x)+j*T);else if(ch.toLowerCase()=='c')for(let j=0;j<k;j++)spikeD(c,snap(x)+j*T,top);x+=B(c)/2}c.x=x+B(c)},flip(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c),side=0;for(let i=0;i<q.n;i++){const k=2+(i%2);for(let j=0;j<k;j++){if(side==0)spike(c,snap(x)+j*T);else spikeD(c,snap(x)+j*T,top)}side^=1;x+=B(c)*q.gap*(q.gap<2?1.5:1)}c.x=x+B(c)}},
  ball2:0,
+ swing:{gates(c,q){PAT.ship.pillars(c,q)},gseq(c,q){PAT.ship.gseq(c,q)}},
  spider:{flip(c,q){const top=GY-q.h*T;c.btop=top;let x=c.x+B(c),side=0;for(let i=0;i<q.n;i++){const k=3;for(let j=0;j<k;j++){if(side==0)spike(c,snap(x)+j*T);else spikeD(c,snap(x)+j*T,top)}if(i%3==2)block(c,snap(x)+k*T,side?top:GY-T,T,T);side^=1;x+=B(c)*q.gap*(q.gap<2?1.2:1)}c.x=x+B(c)}},
  wave:{zig(c,q){let x=c.x+2*T;const span=GY-CTOP,half=q.gap/2;let cy=GY-span/2,dir=-1,run=0;const pts=[];const n=q.len;
    for(let i=0;i<=n;i++){pts.push(cy);if(run<=0){run=q.seg+Math.floor(c.r()*q.seg);dir=-dir}cy+=dir*T;if(cy-half<CTOP+10){cy=CTOP+10+half;run=0}if(cy+half>GY-10){cy=GY-10-half;run=0}run--}
    for(let i=0;i<n;i++){const a=Math.min(pts[i],pts[i+1])-half,b=Math.max(pts[i],pts[i+1])+half;if(a>CTOP+2)block(c,x+i*T,CTOP,T,Math.floor(a-CTOP)).wv=1;if(b<GY-2)block(c,x+i*T,Math.ceil(b),T,GY-Math.ceil(b)).wv=1}c.wv.push({x0:x,pts,half});c.x=x+n*T+T}}
 };
-const BOUNDED={ship:CTOP,ufo:CTOP,wave:CTOP,ball:null,spider:null};
+const BOUNDED={swing:CTOP,ship:CTOP,ufo:CTOP,wave:CTOP,ball:null,spider:null};
 function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs:[],bounds:[],x:12*T,r,mode:'cube',spd,wv:[],f0:0,xs:0,bpm:Music_BPM(L.song),bpx:spd*3600/Music_BPM(L.song),mini:false};
  for(const seg of L.script){const[m,p,q]=seg;
   if(m=='speed'){c.f0+=(c.x-c.xs)/c.spd;c.xs=c.x;c.spd=SPEEDS[p];c.bpx=c.spd*3600/Music_BPM(L.song);add(c,{t:'portal',k:'v'+p,x:snap(c.x),y:GY-4*T});c.x+=3*T;continue}
@@ -192,7 +193,7 @@ function gen(seed,tier){const r=rng(seed),pick=a=>a[Math.floor(r()*a.length)];
  const CUBE=[()=>['cube','seq',{s:pick(SEQ)}],()=>['cube','stairs',{n:3+Math.floor(r()*2)}],()=>['cube','plat',{n:4+Math.floor(r()*2)}],()=>['cube','orbs',{n:3+tier}],()=>['cube','pads',{n:2}],()=>['cube','grav',{n:3+tier}],()=>['cube','saws',{n:3+tier}],()=>['cube','gorbs',{n:2}],()=>['cube','dash',{n:1+tier%2,roof:tier>1?1:0}]];
  const mel=(n,g)=>{let v=4,s='';for(let i=0;i<n;i++){v=Math.max(2,Math.min(7-g+3,v+pick([-1,0,1])));s+=v+'.'}return s};
  const bs=n=>{let s='';for(let i=0;i<n;i++)s+=pick(['f...','c...','f...c...','F.......','C.......']);return s};
- const MODE=[()=>['ship','pillars',{n:6+tier,gap:6-tier,sh:1+tier%2,dx:7}],()=>['ship','gseq',{gap:5-tier,s:mel(12,5-tier)}],()=>['ball','bseq',{h:5,s:bs(4)}],()=>['ufo','gates',{n:5+tier,gap:5,sh:1,dx:7}],()=>['spider','flip',{n:4+tier,gap:2,h:5}],()=>['robot','towers',{n:4,hmax:3}],()=>['ball','flip',{n:4+tier,gap:2,h:5}]];
+ const MODE=[()=>['swing','gates',{n:6+tier,gap:6-tier,sh:1+tier%2,dx:7}],()=>['ship','pillars',{n:6+tier,gap:6-tier,sh:1+tier%2,dx:7}],()=>['ship','gseq',{gap:5-tier,s:mel(12,5-tier)}],()=>['ball','bseq',{h:5,s:bs(4)}],()=>['ufo','gates',{n:5+tier,gap:5,sh:1,dx:7}],()=>['spider','flip',{n:4+tier,gap:2,h:5}],()=>['robot','towers',{n:4,hmax:3}],()=>['ball','flip',{n:4+tier,gap:2,h:5}]];
  if(tier>1)MODE.push(()=>['wave','zig',{len:36,gap:160,seg:4}],()=>['ufo','movers',{n:5,dx:8,beats:2,gapPad:70}],()=>['ship','tunnel',{len:36,gap:200,amp:60}]);
  const script=[['cube','seq',{s:pick(SEQ)}]];for(let k=0;k<5;k++){script.push(pick(CUBE)());script.push(pick(MODE)())}script.push(['cube','seq',{s:pick(SEQ)}]);
  const th=pick([0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]);

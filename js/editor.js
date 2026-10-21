@@ -1,7 +1,7 @@
 // Cube Dash level editor: place blocks/spikes/orbs/pads/portals on the beat grid, test-play, bot-check, share by link.
 const ED={slot:+(localStorage.cdEdSlot||0),undo:[],cx:0,tool:0,msg:'',msgT:0,fail:null,data:null,drag:null};
 const EDTOOLS=[['b','Block'],['s','Spike'],['sd','Ceil spike'],['o','Orb'],['og','Blue orb'],['od','Dash orb'],['p','Pad'],['pg','Blue pad'],
- ['P:cube','Cube'],['P:ship','Ship'],['P:ball','Ball'],['P:ufo','UFO'],['P:wave','Wave'],['P:robot','Robot'],['P:spider','Spider'],['P:gup','Grav ↑'],['P:gdown','Grav ↓'],['P:v0','Slow'],['P:v2','Fast'],['X','Erase']];
+ ['P:cube','Cube'],['P:ship','Ship'],['P:ball','Ball'],['P:ufo','UFO'],['P:wave','Wave'],['P:robot','Robot'],['P:spider','Spider'],['P:swing','Swing'],['P:gup','Grav ↑'],['P:gdown','Grav ↓'],['P:v0','Slow'],['P:v2','Fast'],['X','Erase']];
 const EROW=GY-9*T;
 function edLoad(){if(ED.data)return;try{const q=QS.get('lvdata');ED.data=q?JSON.parse(decodeURIComponent(escape(atob(q.replace(/-/g,'+').replace(/_/g,'/'))))):JSON.parse(localStorage['cdEdit'+(ED.slot||'')]||'null')}catch(e){}
  if(!ED.data||!ED.data.o)ED.data={th:0,song:0,spd:1,o:[['s',16,0],['s',22,0],['b',28,0],['b',29,1],['s',30,0],['P:ship',36,0],['b',44,6],['b',44,7],['b',44,8],['b',52,0],['b',52,1],['b',52,2],['P:cube',60,0],['o',66,2],['s',66,0],['s',67,0]]}}
@@ -13,8 +13,8 @@ function edBuild(){const d=ED.data,obs=[];let end=40;
  for(const[t,c,r]of d.o){const x=c*T,y=GY-T-r*T;end=Math.max(end,c+12);
   if(t[0]=='P')obs.push({t:'portal',k:t.slice(2),x,y:GY-4*T});else if(t=='b')obs.push({t:'b',x,y,w:T,h:T});else if(t=='p'||t=='pg')obs.push({t,x,y});else obs.push({t,x,y})}
  obs.sort((a,b)=>a.x-b.x);const bounds=[];let mode='cube',x0=0;
- const close=x1=>{if(['ship','ufo','wave','ball','spider'].includes(mode))bounds.push({x0,x1,top:LV.CTOP})};
- for(const o of obs)if(o.t=='portal'&&['cube','ship','ball','ufo','wave','robot','spider'].includes(o.k)){close(o.x+T/2);mode=o.k;x0=o.x+T/2}close(end*T+1e4);
+ const close=x1=>{if(['ship','ufo','wave','ball','spider','swing'].includes(mode))bounds.push({x0,x1,top:LV.CTOP})};
+ for(const o of obs)if(o.t=='portal'&&['cube','ship','ball','ufo','wave','robot','spider','swing'].includes(o.k)){close(o.x+T/2);mode=o.k;x0=o.x+T/2}close(end*T+1e4);
  return{obs,bounds,end:end*T,spd:E.SPEEDS[d.spd],startX:0,startMode:'cube',info:{},idx:-1,segs:[],wv:[]}}
 function edOpen(){edLoad();scene='edit';Music.stop();held=false}
 function edTest(){edSave();LV.LEVELS[NL+1]={name:'My Level',th:ED.data.th,song:ED.data.song,spd:ED.data.spd,diff:1,custom:1};att=0;start(NL+1)}

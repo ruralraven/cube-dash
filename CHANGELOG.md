@@ -1,5 +1,11 @@
 # Cube Dash Changelog
 
+## v4.8 — 8th game mode: Swing
+- New **Swing copter** mode (orange portal, hint "TAP = FLIP GRAVITY"): each tap flips gravity mid-air, so you swing between the floor and ceiling. It has its own propeller-cube sprite and tilts with your speed. Leaving swing mode resets gravity to normal.
+- Added swing sections to 6 worlds: Cherry Blossom, Desert Temple, Pirate Cove, Clockwork Tower, Rainbow Sky and Neon City. These include gate runs and melody walls.
+- Swing is also in the editor palette and in Daily/Random runs. Generated runs: 120/120 beatable.
+- Bot: swing patterns pass at fine and coarse timing (D3/D4/D6) at every speed. All 19 levels are re-baked, and the browser run wins 19/19 with 3/3 coins.
+
 ## v4.7 — Second boss: Kraken's Lair
 - New Insane boss world **Kraken's Lair** (156 BPM "Abyssal Bass", unlocks at 20 coins). Placed just before Neon City in the world order.
   - A giant purple kraken with glowing eyes and eight tentacles that sway on the beat, plus purple beams to the saws.
