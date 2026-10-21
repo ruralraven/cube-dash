@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v7.0 — Wild West + Spooky Swamp (35 worlds)
+- **Wild West** (Hard) has mesas, saloons, windmills, cacti, tumbleweeds and blowing dust, set to *Tumbleweed Twang* (122 BPM swung tribal breaks).
+- **Spooky Swamp** (Harder) has gnarled trees dripping moss, rolling fog, cattails and fireflies that pulse with the beat, set to *Bayou Boogie* (140 BPM organ trap).
+- Both levels pass the bot at D3 and D6. Saves migrate automatically (v35), and all 35 levels were re-baked.
+
 ## v6.9 — World Tour trophy
 - New trophy, **World Tour**: beat 20 worlds. It's a midway goal now that there are 33 worlds, bringing the total to 16 trophies.
 

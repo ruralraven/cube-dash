@@ -82,6 +82,8 @@ S({name:'Pickaxe Polka',lift:2,sig:'metal',sig2:'chop',swing:.14,bpm:130,root:57
 S({name:'Glacier Siege',lift:1,sig:'bells',sig2:'gate',bpm:158,root:50,sc:'harm',prog:[0,5,6,4],dr:'hard',dr2:'dnb',bass:'reese',lead:'sawtooth',seed:181,arp:'triangle',cut:2600,bell:1});
 S({name:'Honey Bounce',lift:2,sig:'drops',sig2:'chop',swing:.1,bpm:120,root:58,sc:'major',prog:[0,3,4,5],dr:'bounce',dr2:'house',bass:'pluck',lead:'triangle',seed:191,arp:'triangle',cut:2800,bell:1});
 S({name:'Event Horizon',lift:1,sig:'space',sig2:'gate',dist:6,bpm:176,root:48,sc:'phryg',prog:[0,1,6,5],dr:'dnb',dr2:'hard',bass:'reese',lead:'sawtooth',seed:193,arp:'sawtooth',cut:2200});
+S({name:'Tumbleweed Twang',lift:2,sig:'marimba',sig2:'chop',swing:.18,bpm:122,root:52,sc:'dorian',prog:[0,6,3,4],dr:'tribal',dr2:'breaks',bass:'pluck',lead:'square',seed:197,arp:'triangle',cut:2400});
+S({name:'Bayou Boogie',lift:1,sig:'organ',sig2:'gate',swing:.1,bpm:140,root:50,sc:'harm',prog:[0,5,3,4],dr:'trap',dr2:'halftime',bass:'wobble',lead:'sawtooth',seed:199,arp:'square',cut:1800});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)
