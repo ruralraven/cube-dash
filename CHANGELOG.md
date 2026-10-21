@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v6.0 — Jukebox
+- New **♪ JUKEBOX** button on the Settings & Trophies screen. It shows all 25 songs in menu order with BPM and world name; tap one to play it from the first drop. The playing song shows a beat-synced equalizer.
+
 ## v5.9 — Drop-synced portals
 - The level builder now lines game-mode portals up with the music drops. When a cube section ends up to 8 beats before a drop, the gap is filled with on-beat spikes so the mode change hits right on the drop. 9 levels now switch modes exactly on the first or second drop: Jungle, Lava, Desert, Mushroom, Toy Box, Kraken, Storm Peaks, Bamboo Dojo and Cyber Arcade.
 - The menu also switches LITE mode on automatically when the device is struggling (before, it only did this during play). Bamboo Dojo lanterns use a cheap glow instead of a shadow blur.
