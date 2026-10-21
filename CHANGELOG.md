@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v6.2 — Vibration + settings tidy
+- Phones with vibration support now buzz briefly when you crash and give a short pattern when you win. You can switch this off in Settings ("Vibration (phones)"). Replays never vibrate.
+- The settings rows were tightened so all 7 fit above Stats, and the Jukebox button no longer sits under the mute button.
+
 ## v6.1 — Sunny Beach + Glitch Zone (27 worlds)
 - **Sunny Beach** (Easy) has palm trees, sea waves, beach umbrellas, sailboats, crabs and seagulls, set to *Tropical Splash* (114 BPM moombah marimba).
 - **Glitch Zone** (Harder) has falling code characters, glitching server towers and scanline flashes on the beat, set to *Glitch Core* (150 BPM industrial with a reese bass).
