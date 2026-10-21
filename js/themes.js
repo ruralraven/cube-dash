@@ -203,7 +203,23 @@ TH.push({name:'Shadow King',sky:['#3a0a2a','#1a0620','#050008'],ground:'#2a1838'
  spike:['#3a1a4a','#ff2e6a'],saw:'#ff2e6a',sawIn:'#2a1640',block:['#3a2450','#ff2e6a'],blockFx:(x,y,w,h,c)=>{X.save();X.shadowColor=c;X.shadowBlur=8;X.strokeStyle=c;X.lineWidth=2;X.strokeRect(x+6,y+6,w-12,h-12);X.restore()}});
 FG.push((x,i,t,bp)=>{const k=hash(i*3);if(k<.35){X.save();X.shadowColor='#ff2e6a';X.shadowBlur=10+bp*12;X.beginPath();X.moveTo(x-14,GY+100);X.lineTo(x,GY+60);X.lineTo(x+14,GY+100);P('#2a1640',3);X.restore()}});TH[11].fg=FG[11];
 // ---- ambient weather layer (screen space, drawn over the world) ----
+function ambP(cam,t,n,o){const Wd=W*1.2;for(let i=0;i<n;i++){const h=hash(i+o.s),sp=(o.v||40)*(.6+hash(i+o.s+3)*.8);let x=((h*Wd-cam*(o.par||.6)+(o.vx||0)*t*(.5+hash(i+9)))%Wd+Wd)%Wd,y=hash(i+o.s+5)*H+(o.up?-1:1)*t*sp;y=((y%H)+H)%H;x+=Math.sin(t*(o.wob||1)+i)*(o.amp||10);const a=o.tw?.35+.65*Math.abs(Math.sin(t*3+i*1.7)):1;X.globalAlpha=a*(o.a||1);X.fillStyle=o.c[i%o.c.length];o.d(x,y,i,h);}X.globalAlpha=1}
 const AMB={
+ 0(cam,t,bp){ambP(cam,t,22,{s:40,up:1,v:35,amp:14,a:.55,c:['#bff4ff','#e6fbff'],d:(x,y,i,h)=>{X.strokeStyle=X.fillStyle;X.lineWidth=1.5;circ(x,y,2+h*5+bp);X.stroke()}})},
+ 1(cam,t,bp){ambP(cam,t,30,{s:50,v:45,amp:6,c:['#ff5ca8','#5cd0ff','#ffe35c','#8aff7a','#fff'],d:(x,y,i)=>{X.save();X.translate(x,y);X.rotate(t*2+i);X.fillRect(-4,-1.5,8,3);X.restore()}})},
+ 9(cam,t,bp){ambP(cam,t,26,{s:60,v:15,amp:20,tw:1,c:['#fff','#ffe9a8','#ffc8f0'],d:(x,y)=>{X.save();X.translate(x,y);X.rotate(Math.PI/4);X.fillRect(-1,-5-bp,2,10+2*bp);X.fillRect(-5-bp,-1,10+2*bp,2);X.restore()}})},
+ 10(cam,t){ambP(cam,t,30,{s:70,v:12,vx:-260,par:1.1,amp:3,a:.45,c:['#e8c27a','#f3d9a0'],d:(x,y,i,h)=>{X.fillRect(x,y,10+h*24,1.5)}})},
+ 11(cam,t,bp){ambP(cam,t,26,{s:80,up:1,v:50,amp:12,tw:1,c:['#b05cff','#ff3d6e','#6a2cff'],d:(x,y,i,h)=>{circ(x,y,1.5+h*2.5+bp*.6);X.fill()}})},
+ 12(cam,t,bp){ambP(cam,t,24,{s:90,up:1,v:14,amp:22,wob:.6,tw:1,c:['#d6ff8a','#ffef9a','#9affd6'],d:(x,y,i,h)=>{circ(x,y,2+h*2+bp*.5);X.fill()}})},
+ 13(cam,t){ambP(cam,t,18,{s:100,v:90,vx:-120,amp:4,a:.5,c:['#dff6ff'],d:(x,y)=>{X.fillRect(x,y,1.5,9)}})},
+ 14(cam,t,bp){ambP(cam,t,20,{s:110,v:6,amp:4,tw:1,c:['#bff8ff','#ffc8ff','#d9c8ff'],d:(x,y)=>{X.beginPath();X.moveTo(x,y-5-bp);X.lineTo(x+3,y);X.lineTo(x,y+5+bp);X.lineTo(x-3,y);X.closePath();X.fill()}})},
+ 15(cam,t){ambP(cam,t,26,{s:120,v:38,amp:10,c:['#ff5c5c','#ffd23d','#4dc3ff','#7dff7a','#b07dff'],d:(x,y,i)=>{X.save();X.translate(x,y);X.scale(Math.sin(t*4+i),1);X.fillRect(-4,-3,8,6);X.restore()}})},
+ 16(cam,t){ambP(cam,t,26,{s:130,v:30,vx:-40,amp:26,wob:.8,c:['#ffc4dd','#ffb0cf','#fff0f6'],d:(x,y,i)=>{X.save();X.translate(x,y);X.rotate(t+i);X.beginPath();X.ellipse(0,0,6,3.2,0,0,7);X.fill();X.restore()}})},
+ 17(cam,t,bp){ambP(cam,t,16,{s:140,up:1,v:22,amp:8,a:.7,tw:1,c:['#ffcf6a','#ffa94d'],d:(x,y,i,h)=>{circ(x,y,1.2+h*1.8+bp*.4);X.fill()}})},
+ 18(cam,t,bp){ambP(cam,t,26,{s:150,up:1,v:28,amp:12,a:.5,c:['#7affd8','#4dc3ff'],d:(x,y,i,h)=>{X.strokeStyle=X.fillStyle;X.lineWidth=1.5;circ(x,y,2+h*6+bp);X.stroke()}})},
+ 19(cam,t){ambP(cam,t,10,{s:160,v:8,amp:30,wob:1.3,c:['#ffffff','#ffe35c','#ff9ad5'],d:(x,y,i)=>{const f=Math.abs(Math.sin(t*9+i))*5+1;X.beginPath();X.ellipse(x-3,y,f*.8,4,0,0,7);X.ellipse(x+3,y,f*.8,4,0,0,7);X.fill()}})},
+ 20(cam,t,bp){ambP(cam,t,22,{s:170,up:1,v:40,amp:10,tw:1,c:['#ffb347','#ff6a3d','#ffe08a'],d:(x,y,i,h)=>{circ(x,y,1.2+h*2+bp*.4);X.fill()}})},
+
  2(cam,t,bp){for(let i=0;i<14;i++){const x=((hash(i)*W*1.2-cam*.8-t*40)%(W*1.2)+W*1.2)%(W*1.2),y=(t*(30+hash(i+3)*30)+hash(i+7)*H)%H,r=Math.sin(t*2+i);X.save();X.translate(x,y);X.rotate(r);X.beginPath();X.ellipse(0,0,7,3.5,0,0,7);X.fillStyle=i%3?'#6fcf5a':'#c8e05a';X.fill();X.restore()}
   for(let i=0;i<10;i++){const x=(hash(i+20)*W+Math.sin(t*.7+i)*40),y=GY-60-hash(i+9)*220+Math.cos(t+i)*20;X.fillStyle=`rgba(255,255,140,${.3+.5*Math.abs(Math.sin(t*3+i))})`;circ(x,y,2.5+bp);X.fill()}},
  3(cam,t,bp){X.fillStyle='rgba(255,255,255,.85)';for(let i=0;i<45;i++){const x=((hash(i)*W*1.2-cam*.5+Math.sin(t+i)*20)%(W*1.2)+W*1.2)%(W*1.2),y=(t*(40+hash(i+1)*50)+hash(i+5)*H)%H;circ(x,y,1.5+hash(i+2)*2.5);X.fill()}},

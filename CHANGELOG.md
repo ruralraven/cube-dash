@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v5.3 — Ambient particles in every world
+- 14 more worlds get their own ambient particle layer: sea bubbles, candy sprinkles, rainbow twinkles, desert sand gusts, boss embers, mushroom spores, pirate rain, crystal glints, toy confetti, cherry petals, clockwork sparks, Kraken bubbles, farm butterflies and dino-valley embers. Many of them pulse with the beat. They are skipped in LITE mode on phones, and a frame costs about 2.5 ms to draw.
+
 ## v5.2 — Key-change finales and editor fix
 - The editor tool bar no longer runs under the mute button, so tapping the eraser can't mute the music.
 - 14 songs now rise 1–2 semitones in key on their second full loop, with extra square-wave stabs during that loop's drops. This gives long play sessions a lift in the final stretch. Tempo and beat timing are unchanged, so level sync is unaffected.
