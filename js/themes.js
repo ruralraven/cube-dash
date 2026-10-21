@@ -158,3 +158,18 @@ const FG=[
  (x,i,t,bp)=>{const k=hash(i*3);if(k<.35){X.beginPath();X.ellipse(x,GY+85,34,10,0,0,7);P('#3a2c70',3);X.beginPath();X.ellipse(x,GY+83,24,6,0,0,7);X.fillStyle='#2c2163';X.fill()}else if(k<.5){X.globalAlpha=.6+.4*bp;crystalDeco(x-20,GY+100,i);X.globalAlpha=1}},
  (x,i,t,bp)=>{const k=hash(i*3);if(k<.3){X.save();X.shadowColor='#4df0ff';X.shadowBlur=10+bp*14;rr(x-3,GY+40,6,60,3);P('#2a2058',2);circ(x,GY+40,8);P(bp>.3?'#ffffff':'#4df0ff',2);X.restore()}else if(k<.45){X.save();X.shadowColor='#ff4dd2';X.shadowBlur=12;X.strokeStyle='#ff4dd2';X.lineWidth=3;rr(x-26,GY+60,52,22,6);X.stroke();X.restore()}}];
 TH.forEach((th,i)=>th.fg=FG[i]);
+// ---- secret world: Rainbow Sky ----
+function balloon(x,y,t,c){const s=Math.sin(t*1.3)*4;X.strokeStyle=OL;X.lineWidth=2;X.beginPath();X.moveTo(x-12,y+30+s);X.lineTo(x-8,y+50+s);X.moveTo(x+12,y+30+s);X.lineTo(x+8,y+50+s);X.stroke();X.beginPath();X.arc(x,y+s,28,Math.PI*.85,Math.PI*.15);X.quadraticCurveTo(x,y+40+s,x-24,y+15+s);P(c,3);X.fillStyle='rgba(255,255,255,.4)';X.beginPath();X.ellipse(x,y+s,8,26,0,0,7);X.fill();rr(x-9,y+48+s,18,12,3);P('#c27a35',2.5)}
+function island(x,y,w,t,i){X.beginPath();X.moveTo(x-w/2,y);X.lineTo(x+w/2,y);X.lineTo(x+w*.15,y+w*.55);X.lineTo(x-w*.2,y+w*.4);X.closePath();P('#b8865a',3);rr(x-w/2-4,y-10,w+8,14,7);P('#5fdc6a',3);if(i%2){X.fillStyle='rgba(160,220,255,.8)';X.fillRect(x+w*.3-5,y+4,10,120);for(let k=0;k<4;k++){X.fillStyle='#fff';circ(x+w*.3,y+4+((t*80+k*30)%120),3);X.fill()}}pine(x-w*.2,y-10,.5,false)}
+TH.push({name:'Rainbow Sky',sky:['#9fe6ff','#ffd6f5','#ffb6c8'],ground:'#ffffff',groundDk:'#ffd6f5',pulse:'#ff7ad9',trail:'#ffe14d',glow:'#ff7ad9',
+ bg(cam,t,bp){const rc=['#ff5c5c','#ffa83d','#ffe14d','#7dff7a','#4dc3ff','#b07dff'];X.lineWidth=14;for(let k=0;k<6;k++){X.strokeStyle=rc[k];X.globalAlpha=.55+.2*bp;X.beginPath();X.arc(W*.6-cam*.02%200,GY+40,330-k*14,Math.PI,0);X.stroke()}X.globalAlpha=1;
+  slots(cam,.08,320,(i,x)=>{cotton(x+100,60+hash(i)*80,34+hash(i+2)*20)});
+  slots(cam,.18,380,(i,x)=>island(x+150,150+hash(i)*120,90+hash(i+1)*60,t,i));
+  for(let k=0;k<3;k++){const x=((k*400-cam*.3+t*20)%1300+1300)%1300-150;balloon(x,120+k*60,t+k,['#ff5c8a','#4dc3ff','#ffcf33'][k])}
+  for(let k=0;k<5;k++){const x=((t*(100+k*20)+k*260-cam*.4)%1300+1300)%1300-100,y=80+k*30+Math.sin(t*3+k)*10,f=Math.sin(t*12+k)*6;X.strokeStyle=OL;X.lineWidth=2.5;X.beginPath();X.moveTo(x-10,y-f);X.quadraticCurveTo(x-5,y-4,x,y);X.quadraticCurveTo(x+5,y-4,x+10,y-f);X.stroke()}
+  slots(cam,.5,200,(i,x)=>{if(hash(i+3)<.5)cotton(x+80,GY-14,30+hash(i)*14)});
+  for(let s=0;s<30;s++){const x=(hash(s)*W*1.2-cam*.6%(W*1.2)+W*1.2)%(W*1.2),y=(hash(s+4)*GY+Math.sin(t+s)*10);X.globalAlpha=.4+.4*Math.sin(t*4+s);star5(x,y,3+hash(s)*3,'#fff6a0',1);X.globalAlpha=1}},
+ groundDeco(x,i){const rc=['#ff5c5c','#ffa83d','#ffe14d','#7dff7a','#4dc3ff','#b07dff'];X.fillStyle=rc[((i%6)+6)%6];X.fillRect(x,GY+10,T,8);X.fillStyle='#f0f4ff';if(hash(i)<.4){circ(x+20,GY+50+hash(i)*40,12);X.fill()}},
+ spike:['#ffcf33','#ffffff'],block:['#ffffff','#ffb6c8'],blockFx:(x,y,w,h,c)=>{const rc=['#ff5c5c','#ffa83d','#ffe14d','#7dff7a','#4dc3ff','#b07dff'];for(let k=0;k<6;k++){X.fillStyle=rc[k];X.fillRect(x,y+k*3,w,3)}X.fillStyle=c;for(let i=0;i<w/T;i++)for(let j=0;j<h/T;j++){circ(x+i*T+20,y+j*T+28,5);X.fill()}}});
+FG.push((x,i,t,bp)=>{const k=hash(i*3);if(k<.4)cotton(x,GY+90,26+hash(i)*10);else if(k<.55){X.globalAlpha=.7+.3*bp;star5(x,GY+80,12,'#ffe14d',3);X.globalAlpha=1}});
+TH[9].fg=FG[9];

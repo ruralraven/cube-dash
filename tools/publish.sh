@@ -2,6 +2,7 @@
 # copy game to the GitHub Pages repo, commit, push, and wait until live ($1 = commit msg, $2 = marker string to wait for in js/game.js)
 set -e
 cd /workspace/cube-dash
+for f in js/*.js; do node --check $f; done
 node -e "for(const f of ['engine','levels','music','baked'])require('./js/'+f+'.js')" 
 mkdir -p /tmp/cd/js /tmp/cd/tools
 cp index.html CHANGELOG.md /tmp/cd/ && sed -i "s/?v=[0-9]*/?v=$(date +%s)/g" /tmp/cd/index.html && cp js/*.js /tmp/cd/js/ && cp tools/*.js tools/*.sh /tmp/cd/tools/

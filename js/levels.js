@@ -58,6 +58,11 @@ const LEVELS=[
   ['mini','on'],['wave','zig',{len:44,gap:120,seg:2}],['mini','off'],['spider','flip',{n:8,gap:1,h:5}],
   ['ball','flip',{n:8,gap:1,h:5}],['ufo','gates',{n:9,gap:4,sh:2,dx:6,sp:1}],['cube','grav',{n:6}],['cube','gorbs',{n:4}],
   ['robot','towers',{n:6,hmax:4}],['cube','orbs',{n:6}],['cube','seq',{s:'t.....t.....d...d.......'}]]},
+ {name:'Rainbow Sky',th:9,song:9,spd:2,diff:4,seed:131,secret:9,script:[
+  ['cube','seq',{s:'s...d...t...B.......o...o...s.s.....'}],['ufo','gates',{n:6,gap:4,sh:2,dx:6,sp:1}],['ball','flip',{n:6,gap:1,h:5}],
+  ['cube','gorbs',{n:4}],['ship','movers',{n:8,dx:6,beats:2,gapPad:40}],['robot','towers',{n:5,hmax:4}],
+  ['wave','zig',{len:44,gap:140,seg:3}],['spider','flip',{n:8,gap:1,h:5}],['cube','pistons',{n:5,sp:1}],
+  ['mini','on'],['ship','pillars',{n:8,gap:4,sh:2,dx:6,sp:1}],['mini','off'],['cube','saws',{n:4,hang:1}],['cube','orbs',{n:5}],['cube','seq',{s:'t...t...d.d.....t.......'}]]},
 ];
 const CROWS=9,CTOP=GY-CROWS*T;
 // ---- helpers ----
@@ -130,6 +135,6 @@ function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs
  c.obs.sort((a,b)=>a.x-b.x);const lv={obs:c.obs,bounds:c.bounds,end:c.x+6*T,spd:SPEEDS[L.spd],startX:0,startMode:'cube',info:L,idx:i,segs:c.segs,wv:c.wv};
  let ci=0;if(typeof BAKED!='undefined'&&BAKED[i])for(const[x,y]of BAKED[i].coins)lv.obs.splice(E_.idxFrom(lv,x),0,{t:'coin',x,y,id:ci++});
  return lv}
-function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160][s]}
+function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170][s]}
 return{LEVELS,DIFF,build,CTOP,CROWS}})();
 if(typeof module!='undefined')module.exports=LV;

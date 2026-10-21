@@ -54,6 +54,7 @@ S({name:'Magma Core',sig:'distort',dist:12,bpm:150,root:52,sc:'phryg',prog:[0,1,
 S({name:'Spooky Spire',sig:'organ',bpm:138,root:57,sc:'harm',prog:[0,5,3,4],dr:'trap',bass:'wobble',lead:'square',seed:31,arp:'square',cut:1600});
 S({name:'Gear Grinder',sig:'metal',dist:8,bpm:145,root:48,sc:'minor',prog:[0,0,5,6],dr:'industrial',bass:'rolling',lead:'square',seed:37,arp:'sawtooth',cut:1400});
 S({name:'Neon Nights',sig:'supersaw',bpm:160,root:53,sc:'minor',prog:[0,5,3,4],dr:'dnb',bass:'rolling',lead:'sawtooth',seed:41,arp:'square',cut:2600});
+S({name:'Rainbow Rocket',sig:'chip',bpm:170,root:58,sc:'major',prog:[0,4,5,3],dr:'dnb',bass:'rolling',lead:'square',seed:53,arp:'square',cut:3200});
 const BPM=i=>SONGS[i%SONGS.length].bpm;
 function rnd(s){return()=>(s=(s*16807)%2147483647)/2147483647}
 function build(sd){// precompute melody (2 phrases of 4 bars, 16 steps each)

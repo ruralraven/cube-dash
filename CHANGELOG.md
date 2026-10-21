@@ -66,3 +66,9 @@
 ## v2.9 – Pause (2026-10-21)
 - Pause button (bottom-left, next to Home), P key or Esc: pauses the game and the music; MENU / RESTART / tap to resume. Auto-pauses when you switch tabs or apps.
 - ICONS screen layout cleaned up (no more overlapping labels).
+
+## v3.0 – Secret world: Rainbow Sky (2026-10-21)
+- 10th world, unlocked with 9 coins: Rainbow Sky (Insane) – floating islands with waterfalls, hot-air balloons, birds, giant beat-pulsing rainbow, rainbow cloud blocks. Uses every mode + pistons, moving saws, gravity orbs, mini ship.
+- New song: Rainbow Rocket (170 BPM drum & bass with chiptune arps).
+- Menu shows the secret world button; Level Complete → NEXT respects locks.
+- publish script now syntax-checks every JS file before pushing.
