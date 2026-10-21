@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v6.9 — World Tour trophy
+- New trophy, **World Tour**: beat 20 worlds. It's a midway goal now that there are 33 worlds, bringing the total to 16 trophies.
+
 ## v6.8 — Honey Hive + Cosmic Rift (33 worlds)
 - **Honey Hive** (Normal) has a honeycomb sky, hanging beehives, buzzing bees, flowers and pollen sparkles, set to *Honey Bounce* (120 BPM bouncy house).
 - **Cosmic Rift** (Demon, secret world: collect 55 coins to unlock) has a black hole with spinning accretion rings, tumbling asteroids and streaking light, plus mini-wave and saw-field sections, set to *Event Horizon* (176 BPM drum & bass with a reese bass).
