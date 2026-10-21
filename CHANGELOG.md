@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.4 — Verify mode fix
+- **Bug fix:** `?verify=1` on its own never loaded the baked bot replays (only `?auto=1` did), so every level ran with no input and the cube crashed at 1–3% with 0 coins. Timing was never the problem, because verify steps the game synchronously with no requestAnimationFrame or audio clock. `?verify=1` now loads the replays itself, and all 35 levels win with 3/3 coins.
+- Verify now prints a one-line `VERIFY SUMMARY 35/35 won with 3/3 coins — ALL OK` result, temporarily turns practice mode off while it runs, and leaves your saved stats and ghosts untouched.
+
 ## v7.3 — Practice mode + full icon customization
 **Practice mode**
 - Every level card now has a green **PRACTICE ▶** button that starts the level in practice mode. Once you have practice progress, it reads **PRACTICE 45%**. Practice progress is saved separately and never changes your real best.
