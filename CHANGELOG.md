@@ -1,5 +1,13 @@
 # Cube Dash Changelog
 
+## v3.3 — Swipeable menu & new rhythm sections
+- World menu: page dots and swipe left/right between pages. Cards now open on release, so a swipe doesn't start a level by accident.
+- Added 17 hand-written, beat-synced sections across worlds 1–10:
+  - cube "stair melody" rows (block columns that rise and fall with the music)
+  - ship gravity-wall melodies (gseq)
+  - ball floor/ceiling call-and-response (bseq)
+- Every level was rechecked with the bot (fine and coarse input timing), coins were re-placed, and all 12 levels win in the browser with 3/3 coins.
+
 ## v3.2 — Phone polish & performance
 - Multi-touch: a hold now lasts until every finger is lifted, and a second finger taps orbs mid-hold.
 - On phones, tapping the menu goes fullscreen and locks to landscape. Holding the phone upright shows a "rotate your phone" screen.
