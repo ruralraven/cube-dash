@@ -1,5 +1,12 @@
 # Cube Dash Changelog
 
+## v4.1 — Daily Run & Random Run (bot-verified in your browser)
+- **★ DAILY RUN**: a new level every day, the same for everyone. It's stitched together from the hand-tuned pattern library (cube rhythm rows, ship melodies, ball call-and-response, UFO gates, spider, robot, plus wave/tunnels at higher tiers), with a random world theme and song. The difficulty tier rotates each day.
+- **🎲 RANDOM**: a fresh generated level on every press. The E/N/H button sets the difficulty.
+- New `js/bot.js`: the verifier bot now also runs **in the browser**. Each generated level is solved by the bot before you play it (if one fails, the game tries up to 8 seeds), and the intro banner shows "✓ bot-verified beatable".
+- Offline check: 45/45 generated runs across all three tiers were beatable with coarse input timing (D4).
+- Checked end to end in a headless browser: a Daily Run is generated, verified, and played to a win by replaying the bot's own path.
+
 ## v4.0 — Difficulty-ordered world map
 - The menu now lists worlds from easiest to hardest across both pages: Toy Box → Under the Sea → Candy Land → Jungle Jump → Cherry Blossom → Mushroom Forest → Ice Kingdom → Desert Temple → Pirate Cove → Lava Volcano → Haunted Castle → Clockwork Tower → Robot Factory → Outer Space → Crystal Caves → Neon City → Rainbow Sky → Shadow King.
 - The NEXT button after a win, arrow-key navigation, number keys and swiping all follow this order. Saves aren't affected (they're stored per world, not per position).

@@ -178,6 +178,17 @@ function build(i){const L=LEVELS[i],r=rng(L.seed),spd=SPEEDS[L.spd];const c={obs
  c.obs.sort((a,b)=>a.x-b.x);const lv={obs:c.obs,bounds:c.bounds,end:c.x+6*T,spd:SPEEDS[L.spd],startX:0,startMode:'cube',info:L,idx:i,segs:c.segs,wv:c.wv};
  let ci=0;if(typeof BAKED!='undefined'&&BAKED[i])for(const[x,y]of BAKED[i].coins)lv.obs.splice(E_.idxFrom(lv,x),0,{t:'coin',x,y,id:ci++});
  return lv}
+// ---- generated runs (Daily / Random): stitched from the hand-tuned pattern library, then bot-checked in the game ----
+function gen(seed,tier){const r=rng(seed),pick=a=>a[Math.floor(r()*a.length)];
+ const SEQ=['s...s...d.......','s.......d...s...','1...2...1.......s.......','d...s...b...B.......','s...d...1...2.......','b...B...s...s...','d.......t.......','1.....2.....1.......d...'];
+ const CUBE=[()=>['cube','seq',{s:pick(SEQ)}],()=>['cube','stairs',{n:3+Math.floor(r()*2)}],()=>['cube','plat',{n:4+Math.floor(r()*2)}],()=>['cube','orbs',{n:3+tier}],()=>['cube','pads',{n:2}],()=>['cube','grav',{n:3+tier}],()=>['cube','saws',{n:3+tier}],()=>['cube','gorbs',{n:2}]];
+ const mel=(n,g)=>{let v=4,s='';for(let i=0;i<n;i++){v=Math.max(2,Math.min(7-g+3,v+pick([-1,0,1])));s+=v+'.'}return s};
+ const bs=n=>{let s='';for(let i=0;i<n;i++)s+=pick(['f...','c...','f...c...','F.......','C.......']);return s};
+ const MODE=[()=>['ship','pillars',{n:6+tier,gap:6-tier,sh:1+tier%2,dx:7}],()=>['ship','gseq',{gap:5-tier,s:mel(12,5-tier)}],()=>['ball','bseq',{h:5,s:bs(4)}],()=>['ufo','gates',{n:5+tier,gap:5,sh:1,dx:7}],()=>['spider','flip',{n:4+tier,gap:2,h:5}],()=>['robot','towers',{n:4,hmax:3}],()=>['ball','flip',{n:4+tier,gap:2,h:5}]];
+ if(tier>1)MODE.push(()=>['wave','zig',{len:36,gap:160,seg:4}],()=>['ufo','movers',{n:5,dx:8,beats:2,gapPad:70}],()=>['ship','tunnel',{len:36,gap:200,amp:60}]);
+ const script=[['cube','seq',{s:pick(SEQ)}]];for(let k=0;k<5;k++){script.push(pick(CUBE)());script.push(pick(MODE)())}script.push(['cube','seq',{s:pick(SEQ)}]);
+ const th=pick([0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]);
+ return{name:'',th,song:pick([0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]),spd:tier>1?2:1,diff:[1,2,3][tier]||1,seed,script,gen:1}}
 function Music_BPM(s){return(typeof Music!='undefined')?Music.BPM(s):[120,128,140,124,132,150,138,145,160,170,126,174,118,136,150,112,122,142][s]}
-return{LEVELS,DIFF,build,CTOP,CROWS}})();
+return{LEVELS,DIFF,build,gen,CTOP,CROWS}})();
 if(typeof module!='undefined')module.exports=LV;
