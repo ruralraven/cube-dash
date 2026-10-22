@@ -10,16 +10,16 @@ function edSetList(L){localStorage.cdLevels=JSON.stringify(L)}
 function edKeyOf(){const L=edList();if(ED.slot>=L.length)ED.slot=0;return L[ED.slot].key}
 function edDecode(q){return JSON.parse(decodeURIComponent(escape(atob(q.trim().replace(/^.*lvdata=/,'').replace(/-/g,'+').replace(/_/g,'/')))))}
 function edLoad(){if(ED.data)return;try{const q=QS.get('lvdata');ED.data=q?edDecode(q):JSON.parse(localStorage[edKeyOf()]||'null')}catch(e){}
- if(!ED.data||!ED.data.o)ED.data={th:0,song:0,spd:1,o:[['s',16,0],['s',22,0],['b',28,0],['b',29,1],['s',30,0],['P:ship',36,0],['b',44,6],['b',44,7],['b',44,8],['b',52,0],['b',52,1],['b',52,2],['P:cube',60,0],['o',66,2],['s',66,0],['s',67,0]]}}
-function edSave(){try{localStorage[edKeyOf()]=JSON.stringify(ED.data)}catch(e){}}
+ if(!ED.data||!Array.isArray(ED.data.o))ED.data={th:0,song:0,spd:1,o:[]}}
+function edSave(){if(ED.tmp)return;try{localStorage[edKeyOf()]=JSON.stringify(ED.data)}catch(e){}}
 function edPush(){ED.undo.push(JSON.stringify(ED.data.o));ED.redo=[];if(ED.undo.length>80)ED.undo.shift()}
 function edUndo(){if(ED.undo.length){ED.redo.push(JSON.stringify(ED.data.o));ED.data.o=JSON.parse(ED.undo.pop());edSave();ED.msg='Undo';ED.msgT=40}else{ED.msg='Nothing to undo';ED.msgT=40}}
 function edRedo(){if(ED.redo.length){ED.undo.push(JSON.stringify(ED.data.o));ED.data.o=JSON.parse(ED.redo.pop());edSave();ED.msg='Redo';ED.msgT=40}else{ED.msg='Nothing to redo';ED.msgT=40}}
-function edPick(k){edSave();ED.slot=k;localStorage.cdEdSlot=k;ED.data=null;ED.undo=[];ED.redo=[];ED.cx=0;ED.fail=null;if(QS.get('lvdata'))history.replaceState(null,'',location.pathname);edLoad();ED.list=false;ED.msg='Editing: '+edList()[k].name;ED.msgT=90}
+function edPick(k){ED.tmp=0;edSave();ED.slot=k;localStorage.cdEdSlot=k;ED.data=null;ED.undo=[];ED.redo=[];ED.cx=0;ED.fail=null;if(QS.get('lvdata'))history.replaceState(null,'',location.pathname);edLoad();ED.list=false;ED.msg='Editing: '+edList()[k].name;ED.msgT=90}
 function edNew(data,name){const L=edList();const key='cdLv'+Date.now();L.push({name:name||('My Level '+(L.length+1)),key});edSetList(L);localStorage[key]=JSON.stringify(data||{th:0,song:0,spd:1,o:[]});edPick(L.length-1)}
 function edRename(k){const L=edList(),n=prompt('Name your level:',L[k].name);if(n&&n.trim()){L[k].name=n.trim().slice(0,24);edSetList(L)}}
 function edDelete(k){const L=edList();if(L.length<=1){ED.msg='You need at least one level';ED.msgT=90;return}if(!confirm('Delete "'+L[k].name+'"? This cannot be undone.'))return;try{localStorage.removeItem(L[k].key)}catch(e){}L.splice(k,1);edSetList(L);if(ED.slot>=L.length)ED.slot=L.length-1;ED.data=null;edLoad()}
-function edPaste(){const q=prompt('Paste a level code (or link) from a friend:');if(!q)return;try{const d=edDecode(q);if(!d||!Array.isArray(d.o))throw 0;edNew(d,'Shared level');ED.msg='Level imported!';ED.msgT=120}catch(e){ED.msg='That code did not work';ED.msgT=120}}
+function edPaste(){const q=prompt('Paste a level code (or link) from a friend:');if(!q)return;try{const d=edDecode(q);if(!d||!Array.isArray(d.o))throw 0;srAddImported(d,d.name||'Shared level');edNew(d,'Shared level');ED.msg='Level imported!';ED.msgT=120}catch(e){ED.msg='That code did not work';ED.msgT=120}}
 function edSlot(){ED.list=true;ED.lp=0}
 function edBuild(){const d=ED.data,obs=[];let end=40;
  for(const[t,c,r]of d.o){const x=c*T,y=GY-T-r*T;end=Math.max(end,c+12);
@@ -84,8 +84,8 @@ function edPadArc(lv,o){let mode='cube',g=1,mini=false,spd=lv.spd;for(const q of
 function edListDraw(){const L=edList();drawWorld(TH[(ED.data||{th:0}).th]||TH[0],t*30,beat());X.fillStyle='rgba(20,10,40,.72)';X.fillRect(0,0,W,H);txt('MY LEVELS',W/2,56,38);txt('tap a level to edit it',W/2,82,14,'center','#ccc');
  const per=6,p0=ED.lp*per;L.slice(p0,p0+per).forEach((lv,k)=>{const i=p0+k,y=100+k*58;rr(140,y,680,50,12);P(i==ED.slot?'rgba(255,207,51,.3)':'rgba(0,0,0,.4)',2.5);txt((i+1)+'. '+lv.name,160,y+32,20,'left');let n=0;try{n=(JSON.parse(localStorage[lv.key]||'{}').o||[]).length}catch(e){}txt(n+' pieces',640,y+32,13,'right','#ccc');rr(660,y+7,70,36,10);P('rgba(255,255,255,.2)',2);txt('✎ Name',695,y+31,13);rr(740,y+7,70,36,10);P('#ff7a7a',2);txt('🗑',775,y+32,16)});
  const np=Math.ceil(L.length/per);if(np>1){txt('◀',100,280,30);txt('▶',860,280,30);txt('page '+(ED.lp+1)+'/'+np,W/2,460,14)}
- [['+ NEW LEVEL','#7dff7a',140],['📋 PASTE CODE','#7ad0ff',370],['BACK','#ffcf33',600]].forEach(([nm,c,x])=>{rr(x,H-62,220,46,14);P(c,3);txt(nm,x+110,H-31,18)})}
+ [['+ NEW LEVEL','#7dff7a',20],['📋 PASTE CODE','#7ad0ff',230],['🔍 SEARCH','#ff9ad5',440],['BACK','#ffcf33',650]].forEach(([nm,c,x])=>{rr(x,H-62,195,46,14);P(c,3);txt(nm,x+97,H-31,18)})}
 function edListClick(mx,my){const L=edList(),per=6,p0=ED.lp*per,np=Math.ceil(L.length/per);
- if(my>H-62){if(mx>140&&mx<360)edNew();else if(mx>370&&mx<590)edPaste();else if(mx>600&&mx<820)ED.list=false;return}
+ if(my>H-62){if(mx>20&&mx<215)edNew({th:0,song:0,spd:1,o:[]});else if(mx>230&&mx<425)edPaste();else if(mx>440&&mx<635){ED.list=false;srOpen()}else if(mx>650&&mx<845)ED.list=false;return}
  if(np>1&&mx<130){ED.lp=(ED.lp-1+np)%np;return}if(np>1&&mx>830){ED.lp=(ED.lp+1)%np;return}
  for(let k=0;k<per&&p0+k<L.length;k++){const y=100+k*58;if(my>y&&my<y+50){const i=p0+k;if(mx>660&&mx<730)edRename(i);else if(mx>740&&mx<810)edDelete(i);else if(mx>140&&mx<650)edPick(i);return}}}

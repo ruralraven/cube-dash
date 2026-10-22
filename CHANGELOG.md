@@ -1,5 +1,29 @@
 # Cube Dash Changelog
 
+## v7.7 — Fairer jumps, full-window game, level search, blank new levels
+**Jumps (the "I can't jump over three blocks" problem, in every level)**
+- **What was wrong:** the cube's jump went high but was over fast. At slow speed a row of 3 spikes only had a 4-frame timing window (about 1/15 of a second), and a 3-block-tall wall only had 3 frames. These rows appear in almost every level, so they felt nearly impossible.
+- **Cube physics, closer to Geometry Dash:** gravity is a little softer (0.95 → 0.82) and the jump is a little gentler (15.2 → 14.3). The jump is about the same height but stays in the air about 10% longer, so it covers more ground. Mini cube, cube jump pads and cube orbs were matched so their heights stay the same.
+- **Spikes:** the hit area is thinner and the very tip is harmless (GD-style).
+- **Block tops:** if your feet are within 20 px of a block's top near the peak of a jump, you land on it instead of crashing into the side.
+- **Result:** 3 spikes went from a 4 → 10 frame window at the slowest speed, 9 → 14 at normal speed, 13 → 18 at fast and 16 → 20 at very fast. A 3-tall wall went from 3 → 10 frames.
+- The level layouts (orb chains and jump spacing) were adjusted to the new jump. All 35 levels were re-solved by the bot, the demo replays and coin spots were re-baked, and `?verify=1` wins 35/35 with 3/3 coins. No levels or features were removed.
+- The other 7 modes were checked against GD and already work the GD way: ship (hold to rise), ball (tap to flip), UFO (tap to flap), wave (45° while held), robot (hold for a higher jump), spider (tap to teleport-flip) and swing (tap to flip, gentle swing). Their physics are unchanged.
+- tools/padtest.js: the "jump held mid-air" check now starts right after the pad launches.
+
+**Full window + fullscreen**
+- The game is now as big as possible in the browser window and stays centred. It resizes when you rotate or resize, keeps clear of phone notches and has no scrollbars. Because the game screen has a fixed size, very tall or very wide windows still show dark bars on two sides instead of stretching.
+- A new **⛶ fullscreen button** is on the menu (top right) and on the pause screen (next to RESTART). The **F** key toggles it too. Safari's webkit fullscreen is supported as a backup.
+- Home-screen ready: the page has the theme-color, apple-mobile-web-app-capable and viewport-fit=cover tags, so it can be added to a phone's home screen and open fullscreen.
+
+**Level search**
+- A new **🔍 SEARCH** button is on the menu (top right) and in the editor's My Levels list. Type a name (or tap the box on a phone) to search your own levels, levels you imported with PASTE CODE and all the built-in worlds.
+- Each result has **▶ PLAY**. Your own and imported levels also have **✏ EDIT** (editing an imported level makes a copy in My Levels). Locked worlds show 🔒.
+- Pasted codes are now also saved to a local **Imported** list. Everything stays on this device, because there is no online level server.
+
+**Editor**
+- **+ NEW LEVEL** now always starts with a completely blank map (just the floor and the finish). The very first editor level is blank too. The SAMPLE button still loads the example levels.
+
 ## v7.6 — Quick restart key
 - Press **R** during a level, after a crash, or on the win screen to restart that level from the very beginning right away. It also works while paused. All other keys and buttons work the same.
 

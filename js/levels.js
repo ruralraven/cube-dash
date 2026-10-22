@@ -187,15 +187,15 @@ function fAt(c,x){return c.f0+(x-c.xs)/c.spd}
 function snap(x){return Math.round(x/10)*10}
 // round a distance up to a whole number of half beats (keeps obstacles on the rhythm)
 function hb(c,d,min=0){const u=B(c)/2;return Math.max(min,Math.ceil(d/u))*u}
-function JL(c){return(c.mini?28:32)*c.spd}
+function JL(c){return(c.mini?28:35)*c.spd}
 // ---- patterns ----
 const PAT={
  cube:{
   spk(c,q){let x=c.x+B(c);for(let i=0;i<q.n;i++){const k=1+Math.floor(c.r()*q.k);for(let j=0;j<k;j++)spike(c,snap(x)+j*T);x+=hb(c,JL(c)+k*T*.5,q.gap*2)}c.x=x+B(c)},
   stairs(c,q){let x=c.x+B(c);for(let i=0;i<q.n;i++){const h=1+i%3;block(c,snap(x),GY-h*T,2*T,h*T);if(i<q.n-1)spike(c,snap(x)+2*T+Math.round((B(c)-2*T-T)/2/10)*10);x+=B(c)}c.x=x+B(c)},
   plat(c,q){let x=c.x+B(c);const x0=snap(x),st=hb(c,JL(c)*.85),ps=[];for(let i=0;i<q.n;i++){const h=1+(i%3==1?1:0);block(c,snap(x),GY-h*T,3*T,h*T);ps.push(snap(x));x+=st}const x1=snap(x-st)+3*T;for(let sx=x0+3*T;sx<x1-T;sx+=T){if(!ps.some(bx=>sx>=bx-T&&sx<bx+3*T))spike(c,sx)}c.x=x1+B(c)},
-  pads(c,q){let x=c.x+B(c);const air=2*19.5/.95,land=-36+air*c.spd,nS=Math.max(1,Math.min(4,Math.floor((land-1.6*T-2*T)/T)+1));for(let i=0;i<q.n;i++){add(c,{t:'p',x:snap(x),y:GY-T});for(let j=2;j<2+nS;j++)spike(c,snap(x)+j*T);x+=Math.max(B(c)*3,land+5*T)}c.x=x},
-  orbs(c,q){let x=c.x+B(c);const x0=snap(x);block(c,x0,GY-T,2*T,T);x+=T+29*c.spd;const st=29*c.spd;for(let i=0;i<q.n;i++){add(c,{t:'o',x:snap(x),y:GY-4*T});x+=st}x+=JL(c)*.85-st;block(c,snap(x),GY-T,6*T,T);for(let sx=x0+2*T;sx<snap(x);sx+=T)spike(c,sx);c.x=snap(x)+6*T+B(c)},
+  pads(c,q){let x=c.x+B(c);const air=2*18.1/.82,land=-36+air*c.spd,nS=Math.max(1,Math.min(4,Math.floor((land-1.6*T-2*T)/T)+1));for(let i=0;i<q.n;i++){add(c,{t:'p',x:snap(x),y:GY-T});for(let j=2;j<2+nS;j++)spike(c,snap(x)+j*T);x+=Math.max(B(c)*3,land+5*T)}c.x=x},
+  orbs(c,q){let x=c.x+B(c);const x0=snap(x);block(c,x0,GY-T,2*T,T);x+=T+32*c.spd;const st=32*c.spd;for(let i=0;i<q.n;i++){add(c,{t:'o',x:snap(x),y:GY-4*T});x+=st}x+=JL(c)*.85-st;block(c,snap(x),GY-T,6*T,T);for(let sx=x0+2*T;sx<snap(x);sx+=T)spike(c,sx);c.x=snap(x)+6*T+B(c)},
   grav(c,q){// flip gravity in a corridor, ceiling spikes to jump over upside down
    const top=GY-6*T,x0=c.x;c.bounds.push({x0,x1:x0+B(c)*(q.n*2+4),top});add(c,{t:'portal',k:'gup',x:snap(x0+B(c)),y:GY-4*T});let x=x0+B(c)*2.5;for(let i=0;i<q.n;i++){const k=1+Math.floor(c.r()*2);for(let j=0;j<k;j++)spikeD(c,snap(x)+j*T,top);x+=B(c)*2}
    add(c,{t:'portal',k:'gdown',x:snap(x),y:GY-4*T});c.x=x+B(c)*1.5;c.bounds[c.bounds.length-1].x1=c.x},
