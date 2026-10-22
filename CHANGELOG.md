@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.14 — Best-score flag + live NEW BEST!
+- The progress bar now has a small yellow **flag at your best %**, so you can see how close you are while you play.
+- The moment you pass your best in a normal run, **NEW BEST!** pops up with a sparkle and a chime, right away instead of only after you crash. Practice runs, demo replays, Daily Run and your own levels don't show it.
+
 ## v7.13 — Version number always up to date
 - The version shown on the ⚙ Settings screen now comes from one setting (`CD_VERSION` in js/extras.js), and the publish script refuses to publish if it doesn't match the newest CHANGELOG entry. The number on screen can't fall behind any more.
 - Checked: no console errors and nothing broken on the menu, editor, icons, gameplay, pause or search screens.
