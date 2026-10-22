@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.12 — Version number in Settings
+- The ⚙ Settings & Trophies screen now shows the game version ("Cube Dash v7.12") in small text at the bottom left, so it's easy to see whether you have the newest update.
+- Checked: no console errors on any screen, and nothing was found broken.
+
 ## v7.11 — Search typing fix
 - **Bug fix:** typing an **M** in the 🔍 SEARCH box turned the music on or off instead of typing the letter, so names like "Moon Base" or "Mushroom Forest" couldn't be typed. M now types normally in search and still toggles music everywhere else.
 
