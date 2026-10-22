@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.6 — Quick restart key
+- Press **R** during a level, after a crash, or on the win screen to restart that level from the very beginning right away. It also works while paused. All other keys and buttons work the same.
+
 ## v7.5 — Pause and Home buttons moved to the top right
 - During gameplay, the **⏸ PAUSE** and **⌂ HOME** buttons now sit in the top-right corner. They are big 48 px touch targets and don't overlap the progress bar, the % counter or the boss bar.
 - The level name moved under "Attempt" on the top left. The three coin dots moved just below the new buttons.

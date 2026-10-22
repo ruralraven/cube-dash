@@ -37,6 +37,7 @@ addEventListener('keydown',e=>{Music.unlock();if(e.repeat)return;const k=e.key;
  if(k=='m'||k=='M'){Music.toggle();return}
  if(scene=='edit'){edKey(k);return}if(scene=='menu'){const mv=d=>{sel=ORD[Math.max(0,Math.min(NL-1,POS(sel)+d))]};if(k=='ArrowRight')mv(1);else if(k=='ArrowLeft')mv(-1);else if(k=='ArrowDown')mv(3);else if(k=='ArrowUp')mv(-3);else if(k==' '||k=='Enter'){if(unlocked(sel))playSel();else Music.sfx('die')}else if(k=='p'||k=='P'){save.practice=!save.practice;persist()}else if(k=='g'||k=='G')scene='garage';else if(k>='1'&&k<='9'){{const q=Math.min(NL-1,page*9+(+k-1));sel=ORD[q];if(page*9+(+k-1)<NL&&unlocked(sel))playSel()}}page=Math.floor(POS(sel)/9);localStorage.cdSel=sel;return}
  if(scene=='garage'){if(k=='Escape'||k==' '||k=='Enter')scene='menu';return}
+ if((k=='r'||k=='R')&&(scene=='play'||scene=='dead'||scene=='win')){paused=false;held=false;start(lvl);return}
  if(k=='Escape'){if(paused){paused=false;toMenu()}else togglePause();return}if(k=='p'||k=='P'){togglePause();return}if(paused){if(k==' '||k=='Enter')togglePause();return}if(k==' '||k=='ArrowUp'||k=='w'||k=='W'){e.preventDefault();press()}});
 addEventListener('keyup',e=>{if(e.key==' '||e.key=='ArrowUp'||e.key=='w'||e.key=='W')release()});
 const COARSE=matchMedia('(pointer:coarse)').matches;let lastSec=-1,dropT=0,liteMsg=0,LITE=!!save.lite,ema=16,slowN=0;
