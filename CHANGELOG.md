@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.26 — Attempt number on the pause screen
+- The pause screen now shows which attempt you're on, next to your % and best.
+
 ## v7.25 — Full-screen button fix for phones and tablets
 - The ⛶ button now tries every browser's full-screen method (including the older Safari/iPad one).
 - If full screen isn't allowed (like on iPhone), it now says so instead of doing nothing: "tap Share, then Add to Home Screen to play full screen".
