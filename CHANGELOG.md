@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.11 — Search typing fix
+- **Bug fix:** typing an **M** in the 🔍 SEARCH box turned the music on or off instead of typing the letter, so names like "Moon Base" or "Mushroom Forest" couldn't be typed. M now types normally in search and still toggles music everywhere else.
+
 ## v7.10 — Best % next to the progress bar
 - While you play a level, your best score shows in small yellow text under the % counter ("Best 45%"). In practice mode it says "Real best" so you can see the score you're trying to beat. It is hidden until you have a best, and in Daily Run and your own levels.
 - Checked: no console errors, and the menu, editor and icons screens look right in small, normal and very large windows.

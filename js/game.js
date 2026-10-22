@@ -34,7 +34,7 @@ function startGen(daily){const dk=dayKey(),tier=daily?dk%3:(save.rtier||0),base=
 function toMenu(){paused=false;Music.resume();scene=LV.LEVELS[lvl]&&LV.LEVELS[lvl].custom?(ED.tmp?'search':'edit'):'menu';if(ED.tmp){ED.tmp=0;ED.data=null}Music.stop();held=false}
 function playSel(){att=0;start(sel)}
 addEventListener('keydown',e=>{Music.unlock();if(e.repeat)return;const k=e.key;
- if(k=='m'||k=='M'){Music.toggle();return}
+ if((k=='m'||k=='M')&&scene!='search'){Music.toggle();return}
  if(k=='f'||k=='F'){if(scene!='search'){toggleFS();return}}
  if(scene=='search'){srKey(e);return}
  if(scene=='edit'){edKey(k);return}if(scene=='menu'){const mv=d=>{sel=ORD[Math.max(0,Math.min(NL-1,POS(sel)+d))]};if(k=='ArrowRight')mv(1);else if(k=='ArrowLeft')mv(-1);else if(k=='ArrowDown')mv(3);else if(k=='ArrowUp')mv(-3);else if(k==' '||k=='Enter'){if(unlocked(sel))playSel();else Music.sfx('die')}else if(k=='p'||k=='P'){save.practice=!save.practice;persist()}else if(k=='g'||k=='G')scene='garage';else if(k>='1'&&k<='9'){{const q=Math.min(NL-1,page*9+(+k-1));sel=ORD[q];if(page*9+(+k-1)<NL&&unlocked(sel))playSel()}}page=Math.floor(POS(sel)/9);localStorage.cdSel=sel;return}
