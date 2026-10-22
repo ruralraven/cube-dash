@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.27 — Cleaner pause screen
+- If you pause right at the start of a level, the big level-name title no longer shows through behind PAUSED.
+
 ## v7.26 — Attempt number on the pause screen
 - The pause screen now shows which attempt you're on, next to your % and best.
 
