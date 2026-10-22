@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.16 — Progress in search results
+- Built-in worlds in the 🔍 SEARCH results now show your best % and your 3 coin dots (gold for coins you've collected), so you can find unfinished levels quickly.
+
 ## v7.15 — CLEAR / PERFECT stamps on level cards
 - Beaten levels now get a small tilted stamp on their picture in the level menu: a green **✓ CLEAR** once you beat it, or a gold **★ PERFECT** once you've also collected all 3 coins. It's easy to see which worlds are done and which still have coins to find.
 
