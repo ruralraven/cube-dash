@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.18 — Piece counter in the editor
+- The editor's info line now shows how many pieces your level has (for example "Under the Sea  •  ♪ Bubble Pop  •  speed 2  •  42 pieces"). It updates as you place or erase pieces.
+
 ## v7.17 — Level name and best % on the pause screen
 - The pause screen now shows the level's name above PAUSED, and your best % next to your current % (for example "34%  •  best 61%").
 - Checked: no console errors in 9 levels across every difficulty, or in the editor, practice checkpoints (Z / X) and icons.
