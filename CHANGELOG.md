@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.15 — CLEAR / PERFECT stamps on level cards
+- Beaten levels now get a small tilted stamp on their picture in the level menu: a green **✓ CLEAR** once you beat it, or a gold **★ PERFECT** once you've also collected all 3 coins. It's easy to see which worlds are done and which still have coins to find.
+
 ## v7.14 — Best-score flag + live NEW BEST!
 - The progress bar now has a small yellow **flag at your best %**, so you can see how close you are while you play.
 - The moment you pass your best in a normal run, **NEW BEST!** pops up with a sparkle and a chime, right away instead of only after you crash. Practice runs, demo replays, Daily Run and your own levels don't show it.
