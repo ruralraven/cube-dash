@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.10 — Best % next to the progress bar
+- While you play a level, your best score shows in small yellow text under the % counter ("Best 45%"). In practice mode it says "Real best" so you can see the score you're trying to beat. It is hidden until you have a best, and in Daily Run and your own levels.
+- Checked: no console errors, and the menu, editor and icons screens look right in small, normal and very large windows.
+
 ## v7.9 — Controls help on the pause screen
 - The pause screen now shows a small help box listing every keyboard key (jump, pause, restart, menu, fullscreen, practice checkpoints) and the controller buttons (A jump, B back, Start play/pause, D-pad to pick a world). Controller buttons weren't shown anywhere before.
 
