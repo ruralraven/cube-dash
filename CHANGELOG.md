@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.22 — Crash percent
+- When you crash, the screen now shows how far you got (like 47%), even when it isn't a new best.
+
 ## v7.21 — Piston dust puffs
 - When a piston slams into the ground, small dust puffs now burst out on both sides, so it's easier to see when it's down. This is only a visual effect; the hit box is unchanged.
 
