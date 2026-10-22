@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.19 — Worlds-beaten counter on the menu
+- The line under the CUBE DASH title now also shows how many worlds you've beaten (for example "… 12/105 coins  •  4/35 beaten").
+
 ## v7.18 — Piece counter in the editor
 - The editor's info line now shows how many pieces your level has (for example "Under the Sea  •  ♪ Bubble Pop  •  speed 2  •  42 pieces"). It updates as you place or erase pieces.
 
