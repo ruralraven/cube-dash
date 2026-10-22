@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.23 — Best under crash percent
+- When you crash, your best % now shows in small gold text under how far you got.
+
 ## v7.22 — Crash percent
 - When you crash, the screen now shows how far you got (like 47%), even when it isn't a new best.
 
