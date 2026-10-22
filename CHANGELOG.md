@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.21 — Piston dust puffs
+- When a piston slams into the ground, small dust puffs now burst out on both sides, so it's easier to see when it's down. This is only a visual effect; the hit box is unchanged.
+
 ## v7.20 — Pistons really crush now
 - **The bug:** the up-and-down crushers (pistons) in Clockwork Tower and 13 other levels were timed to always be at the top exactly when you reached them. You could hold still on the ground and slide under every one, so they never hit you, even though they looked dangerous.
 - **The fix:** each piston now slams all the way down to the ground just as you arrive, so a run that stays on the ground gets crushed. Pistons are a bit shorter now (1½ blocks), so you can jump over them, and the jump window is about 10 frames at normal speed. Where a spike sits between two pistons, there is now one extra jump of space, so you can jump the spike and then the next piston.
