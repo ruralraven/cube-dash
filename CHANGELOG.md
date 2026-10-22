@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.8 — Outer Space UFO fix + safer publishing
+- **Outer Space:** the UFO gate section got too tight after the v7.7 jump changes and failed the stricter human-timing bot check. The UFO gates now have a little more room between them (6 → 7 tiles), so you have more time to line up for each gap. It looks the same as before, and its demo replay and coins were re-baked.
+- **tools/publish.sh** now stops with a clear "PUBLISH FAILED" message on any failed step: a missing publish repo, a JS error, a failed commit or push, or the site not updating in time.
+
 ## v7.7 — Fairer jumps, full-window game, level search, blank new levels
 **Jumps (the "I can't jump over three blocks" problem, in every level)**
 - **What was wrong:** the cube's jump went high but was over fast. At slow speed a row of 3 spikes only had a 4-frame timing window (about 1/15 of a second), and a 3-block-tall wall only had 3 frames. These rows appear in almost every level, so they felt nearly impossible.

@@ -48,7 +48,7 @@ const LEVELS=[
   ['ball','flip',{n:8,gap:1,h:5}],['cube','grav',{n:6}],['ufo','gates',{n:8,gap:4,sh:2,dx:6,sp:1}],['cube','seq',{s:'t...t...d.d.....t...s.s.....'}]]},
  {name:'Outer Space',th:7,song:2,spd:2,diff:4,seed:37,script:[
   ['cube','seq',{s:'t...d...t...s.s.....B.......t...'}],['ship','pillars',{n:9,gap:5,sh:2,dx:6,sp:1}],['ball','bseq',{h:5,s:'f...c...f...c...F...C...f.c.....'}],['cube','dash',{n:2,roof:0}],['cube','seq',{s:'d.......2...3.......t.......'}],
-  ['ufo','gates',{n:8,gap:4,sh:2,dx:6,sp:1}],['ship','movers',{n:8,dx:6,beats:2,gapPad:40}],['cube','orbs',{n:5}],['cube','gorbs',{n:4}],
+  ['ufo','gates',{n:8,gap:4,sh:2,dx:7,sp:1}],['ship','movers',{n:8,dx:6,beats:2,gapPad:40}],['cube','orbs',{n:5}],['cube','gorbs',{n:4}],
   ['wave','zig',{len:48,gap:130,seg:3}],['spider','flip',{n:8,gap:1,h:5}],
   ['speed',3],['cube','seq',{s:'d.....d.....t.......'}],['ship','tunnel',{len:48,gap:160,amp:100}],['speed',2],
   ['robot','towers',{n:5,hmax:4}],['ball','flip',{n:8,gap:1,h:5}]]},
