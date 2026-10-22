@@ -72,7 +72,7 @@ function edDraw(){edLoad();if(ED.list)return edListDraw();const d=ED.data,th=TH[
  txt('Tool: '+EDTOOLS[ED.tool][1]+(ED.paint?'  •  🖌 PAINT':''),W-12,H-108,16,'right');
  const w=(W-70)/EBTN.length;EBTN.forEach(([nm],i)=>{rr(i*w+3,H-46,w-6,40,10);P(nm=='▶ TEST'?'#7dff7a':nm=='▶ HERE'?'#b8ffb0':nm=='EXIT'?'#ff7a7a':nm=='LEVELS'?'#ffcf33':(nm=='PAINT'&&ED.paint)?'#ff9ad5':'rgba(255,255,255,.18)',2.5);txt(nm,i*w+w/2,H-20,nm.length>5?11:13)});
  txt('✏ '+((edList()[ED.slot]||{}).name||'My Level'),20,52,22,'left');txt(th.name+'  •  ♪ '+Music.SONGS[d.song].name+'  •  speed '+(d.spd+1)+'  •  '+d.o.length+(d.o.length==1?' piece':' pieces'),20,76,15,'left');txt(ED.paint?'drag to paint  •  scroll with the top bar':'tap to place / tap again to remove  •  drag to scroll',W-20,52,14,'right');if(ED.showCode>0){ED.showCode--;rr(40,150,W-80,64,12);P('rgba(0,0,0,.75)',2);txt('Share code (copied):',60,174,14,'left','#ffcf33');txt((ED.code||'').slice(0,90)+((ED.code||'').length>90?'…':''),60,198,11,'left')}
- if(ED.msgT>0){ED.msgT--;X.globalAlpha=Math.min(1,ED.msgT/30);rr(W/2-260,96,520,44,12);P('rgba(0,0,0,.6)',2);txt(ED.msg,W/2,125,18);X.globalAlpha=1}}
+ if(ED.msgT>0&&ED.msg){ED.msgT--;X.globalAlpha=Math.min(1,ED.msgT/30);rr(W/2-260,96,520,44,12);P('rgba(0,0,0,.6)',2);txt(ED.msg,W/2,125,18);X.globalAlpha=1}}
 if(QS.get('scene')=='edit'||QS.get('lvdata'))edOpen();
 
 // pad-arc preview: simulate a no-input launch from this pad with the real engine

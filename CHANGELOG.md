@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.24 — "So close!"
+- When you crash within 5% of your best (and at least 20% in), the crash screen cheers "So close!" in green.
+- The editor no longer draws an empty message box when there's no message.
+
 ## v7.23 — Best under crash percent
 - When you crash, your best % now shows in small gold text under how far you got.
 
