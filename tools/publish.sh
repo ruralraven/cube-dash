@@ -5,6 +5,8 @@ trap 'echo "PUBLISH FAILED at line $LINENO: $BASH_COMMAND" >&2' ERR
 [ -d /tmp/cd/.git ] || { echo 'PUBLISH FAILED: /tmp/cd is not a git repo (re-clone: gh repo clone ruralraven/cube-dash /tmp/cd)' >&2; exit 1; }
 cd /workspace/cube-dash
 for f in js/*.js; do node --check $f; done
+V=$(grep -o "CD_VERSION='v[0-9.]*'" js/extras.js | grep -o 'v[0-9.]*'); C=$(grep -m1 -o '^## v[0-9.]*' CHANGELOG.md | grep -o 'v[0-9.]*')
+[ "$V" = "$C" ] || { echo "PUBLISH FAILED: version mismatch (js/extras.js $V vs CHANGELOG $C)" >&2; exit 1; }
 node -e "for(const f of ['engine','levels','music','baked'])require('./js/'+f+'.js')" 
 mkdir -p /tmp/cd/js /tmp/cd/tools
 cp index.html CHANGELOG.md /tmp/cd/ && sed -i "s/?v=[0-9]*/?v=$(date +%s)/g" /tmp/cd/index.html && cp js/*.js /tmp/cd/js/ && cp tools/*.js tools/*.sh /tmp/cd/tools/

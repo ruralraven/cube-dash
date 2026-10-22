@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.13 — Version number always up to date
+- The version shown on the ⚙ Settings screen now comes from one setting (`CD_VERSION` in js/extras.js), and the publish script refuses to publish if it doesn't match the newest CHANGELOG entry. The number on screen can't fall behind any more.
+- Checked: no console errors and nothing broken on the menu, editor, icons, gameplay, pause or search screens.
+
 ## v7.12 — Version number in Settings
 - The ⚙ Settings & Trophies screen now shows the game version ("Cube Dash v7.12") in small text at the bottom left, so it's easy to see whether you have the newest update.
 - Checked: no console errors on any screen, and nothing was found broken.
