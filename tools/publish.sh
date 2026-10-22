@@ -10,6 +10,7 @@ V=$(grep -o "CD_VERSION='v[0-9.]*'" js/extras.js | grep -o 'v[0-9.]*'); C=$(grep
 node -e "for(const f of ['engine','levels','music','baked'])require('./js/'+f+'.js')" 
 mkdir -p /tmp/cd/js /tmp/cd/tools
 cp index.html CHANGELOG.md /tmp/cd/ && sed -i "s/?v=[0-9]*/?v=$(date +%s)/g" /tmp/cd/index.html && cp js/*.js /tmp/cd/js/ && cp tools/*.js tools/*.sh /tmp/cd/tools/
+cp manifest.webmanifest /tmp/cd/ && mkdir -p /tmp/cd/icons && cp icons/*.png /tmp/cd/icons/
 cd /tmp/cd
 git add -A
 git commit -qm "$1"

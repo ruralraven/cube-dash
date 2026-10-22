@@ -1,5 +1,10 @@
 # Cube Dash Changelog
 
+## v7.25 — Full-screen button fix for phones and tablets
+- The ⛶ button now tries every browser's full-screen method (including the older Safari/iPad one).
+- If full screen isn't allowed (like on iPhone), it now says so instead of doing nothing: "tap Share, then Add to Home Screen to play full screen".
+- Added an app manifest and home-screen icon, so Cube Dash opens full screen when started from the home screen.
+
 ## v7.24 — "So close!"
 - When you crash within 5% of your best (and at least 20% in), the crash screen cheers "So close!" in green.
 - The editor no longer draws an empty message box when there's no message.
