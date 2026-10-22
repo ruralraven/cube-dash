@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.28 — Checkpoint counter in practice
+- In practice mode, a small green counter above the PLACE / REMOVE buttons shows how many checkpoints you've placed.
+
 ## v7.27 — Cleaner pause screen
 - If you pause right at the start of a level, the big level-name title no longer shows through behind PAUSED.
 
