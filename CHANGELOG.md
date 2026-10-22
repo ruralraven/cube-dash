@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.9 — Controls help on the pause screen
+- The pause screen now shows a small help box listing every keyboard key (jump, pause, restart, menu, fullscreen, practice checkpoints) and the controller buttons (A jump, B back, Start play/pause, D-pad to pick a world). Controller buttons weren't shown anywhere before.
+
 ## v7.8 — Outer Space UFO fix + safer publishing
 - **Outer Space:** the UFO gate section got too tight after the v7.7 jump changes and failed the stricter human-timing bot check. The UFO gates now have a little more room between them (6 → 7 tiles), so you have more time to line up for each gap. It looks the same as before, and its demo replay and coins were re-baked.
 - **tools/publish.sh** now stops with a clear "PUBLISH FAILED" message on any failed step: a missing publish repo, a JS error, a failed commit or push, or the site not updating in time.
