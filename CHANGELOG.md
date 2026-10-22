@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.17 — Level name and best % on the pause screen
+- The pause screen now shows the level's name above PAUSED, and your best % next to your current % (for example "34%  •  best 61%").
+- Checked: no console errors in 9 levels across every difficulty, or in the editor, practice checkpoints (Z / X) and icons.
+
 ## v7.16 — Progress in search results
 - Built-in worlds in the 🔍 SEARCH results now show your best % and your 3 coin dots (gold for coins you've collected), so you can find unfinished levels quickly.
 
