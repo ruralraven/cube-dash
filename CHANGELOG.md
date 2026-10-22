@@ -1,5 +1,12 @@
 # Cube Dash Changelog
 
+## v7.20 — Pistons really crush now
+- **The bug:** the up-and-down crushers (pistons) in Clockwork Tower and 14 other levels were timed to always be at the top exactly when you reached them. You could hold still on the ground and slide under every one, so they never hit you, even though they looked dangerous.
+- **The fix:** each piston now slams all the way down to the ground just as you arrive, so a run that stays on the ground gets crushed. Pistons are a bit shorter now (1½ blocks), so you can jump over them, and the jump window is about 10 frames at normal speed. Where a spike sits between two pistons, there is now one extra jump of space, so you can jump the spike and then the next piston.
+- The hit box always follows the piston where it is drawn. Levels with pistons: Ice Kingdom, Haunted Castle, Robot Factory, Rainbow Sky, Pirate Cove, Clockwork Tower, Cyber Arcade, Haunted Carnival, Frozen Fortress, Cosmic Rift, Spooky Swamp, Shadow King and others. All of them were re-solved, and their demo replays and coins were re-baked.
+- **Clockwork Tower scenery:** the spinning gold gears and swinging pendulums in the background were the same gold as the real saw blades, and some sat right on the ground, so they looked like hazards even though they are only decoration. They are now darker and faded, and the pendulums hang higher, so real hazards are easy to tell apart.
+- **New test, tools/movetest.js:** for every piston group in every level, a run that stops pressing jump just before the piston must die at that piston, and every piston must reach the ground. The old pistons failed all 15 checks, and the new ones pass all 15.
+
 ## v7.19 — Worlds-beaten counter on the menu
 - The line under the CUBE DASH title now also shows how many worlds you've beaten (for example "… 12/105 coins  •  4/35 beaten").
 

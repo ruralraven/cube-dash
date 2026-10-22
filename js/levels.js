@@ -213,8 +213,8 @@ const PAT={
    c.bounds.push({x0,x1:x+B(c),top});c.x=x+B(c)},
   dash(c,q){// green dash orbs: hold to fly straight over a spike pit, release to drop
    let x=c.x+B(c);for(let i=0;i<q.n;i++){const X0=snap(x),n=q.len||Math.ceil(JL(c)/T)+3;add(c,{t:'od',x:X0,y:GY-3*T,n:Math.round((n+1.5)*T/c.spd)});for(let k=1;k<=n;k++)spike(c,X0+k*T);if(q.roof)for(let k=2;k<n;k++)spikeD(c,X0+k*T,GY-6*T);x=X0+(n+1)*T+hb(c,B(c)*2)}c.x=x+B(c)},
-  pistons(c,q){// crushers that pump to the beat: pass under them when they are up
-   const fpb=3600/c.bpm,w=2*Math.PI/(fpb*2);let x=c.x+B(c)*2;for(let i=0;i<q.n;i++){const X0=snap(x);const st=hb(c,B(c)*2);add(c,{t:'b',x:X0,y:GY-4.5*T,w:2*T,h:3*T,mv:{a:1.5*T,w,ph:-Math.PI/2-w*fAt(c,X0+T)},pis:1});if(q.sp&&i%2)spike(c,snap(X0+2*T+(st-2*T)/2-T/2));x+=st}c.x=x+B(c)}},
+  pistons(c,q){// crushers that pump to the beat: they slam to the ground as you arrive, so jump over them (a ground run gets crushed)
+   const fpb=3600/c.bpm,w=2*Math.PI/(fpb*2);let x=c.x+B(c)*2;for(let i=0;i<q.n;i++){const X0=snap(x);const st=hb(c,B(c)*2);add(c,{t:'b',x:X0,y:GY-1.5*T-1.25*T,w:2*T,h:1.5*T,mv:{a:1.25*T,w,ph:Math.PI/2-w*fAt(c,X0+T)},pis:1});const ex=q.sp&&i%2?JL(c):0;if(ex)spike(c,snap(X0+2*T+(st+ex-2*T)/2-T/2));x+=st+ex}c.x=x+B(c)}},
  robot:{towers(c,q){let x=c.x+B(c);for(let i=0;i<q.n;i++){const h=2+Math.floor(c.r()*(q.hmax-1));block(c,snap(x),GY-h*T,T,h*T);spike(c,snap(x)+T*2);x+=B(c)*2}c.x=x}},
  ship:{
   pillars(c,q){let x=c.x+2*T,g=Math.floor((CROWS-q.gap)/2),pz=0;for(let i=0;i<q.n;i++){if(i>0){let ng=g+Math.round((c.r()*2-1)*q.sh);if(q.sh>1&&i%2)ng=g+(pz>0?-q.sh:q.sh);ng=Math.max(0,Math.min(CROWS-q.gap,ng));pz=ng-g;g=ng}
