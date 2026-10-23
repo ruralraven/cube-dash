@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.33 — All-coins cheer on the win screen
+- Beat a level with all 3 coins in one run and the win screen now cheers "🪙 ALL 3 COINS! 🪙".
+
 ## v7.32 — Coin dot bounce + changelog order
 - When you grab a coin, its dot in the top-right corner does a quick bounce.
 - The changelog is now fully newest-first (the oldest v1.1–v3.0 notes were listed oldest-first at the bottom). No entries were removed.
