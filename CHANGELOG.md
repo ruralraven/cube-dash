@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.35 — Perfect counter on the menu
+- Once you've beaten a world with all 3 coins, the menu line also shows how many worlds are PERFECT (like "4 perfect ★").
+
 ## v7.34 — "Almost there!" at 90%+
 - If you crash at 90% or further, the crash percent turns gold and says "Almost there!".
 
