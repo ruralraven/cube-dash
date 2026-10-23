@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.29 — Level name on the win screen
+- When you beat a level, its name now shows in gold above LEVEL COMPLETE!
+
 ## v7.28 — Checkpoint counter in practice
 - In practice mode, a small green counter above the PLACE / REMOVE buttons shows how many checkpoints you've placed.
 
