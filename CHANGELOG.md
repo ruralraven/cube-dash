@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.37 — Checkpoint note when you crash in practice
+- In practice mode, crashing after placing a checkpoint now shows "◆ back to your checkpoint" so you know where you'll restart.
+
 ## v7.36 — Coins on the pause screen
 - If you've grabbed any coins this run, the pause screen shows how many (like "🪙 2/3") next to the level name.
 
