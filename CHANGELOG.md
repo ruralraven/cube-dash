@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.47 — What you need to unlock a design
+- On the Icons screen, tapping a locked design (the faded ones) now shows gold text at the top that says how many more coins or trophies you need (like "🏆 Need 3 more trophies to unlock this design!").
+
 ## v7.46 — How many coins to unlock an icon
 - On the Icons screen, tapping a locked (grey) color now shows gold text at the top that says how many more coins you need (like "🔒 Need 5 more coins to unlock this color!").
 

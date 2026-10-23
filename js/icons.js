@@ -72,7 +72,7 @@ function icDraw(m,p,th){const S=icS();if(S.glow&&!LITE){X.shadowColor=iconCol();
 {const _die=die;die=function(){const n=parts.length;_die();const S=icS(),np=parts.slice(n),cx=pl.x+pl.sz/2,cy=pl.y+pl.sz/2;
  np.forEach((q,k)=>{const a=k/np.length*Math.PI*2;if(S.death==1){q.c=COLORS[k%COLORS.length][0];q.s=5;q.vy=-Math.random()*14;q.vx=(Math.random()-.5)*16}else if(S.death==2){q.s=8;q.c=k%2?iconCol():ic2();q.vx=Math.round(q.vx/2)*2;q.vy=Math.round(q.vy/2)*2}else if(S.death==3){q.vx=Math.cos(a)*12;q.vy=Math.sin(a)*12;q.g=0;q.c=iconCol();q.s=5;q.x=cx;q.y=cy}else if(S.death==4){if(k>8){q.l=0}else{q.vx=(Math.random()-.5)*2;q.vy=-2-Math.random()*2;q.g=0;q.c='rgba(255,255,255,.8)';q.s=14;q.x=cx+(Math.random()-.5)*20;q.y=cy}}})}}
 // ---- ICONS screen ----
-let icTab=0,icLockMsg='',icLockT=0;// v7.46: tapping a locked color says how many more coins you need
+let icTab=0,icLockMsg='',icLockT=0;// v7.46: tapping a locked color says how many more coins you need; v7.47: locked designs too
 garage=function(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba(20,10,40,.62)';X.fillRect(0,0,W,H);txt('ICONS',W/2,44,36);if(icLockT>0&&t-icLockT<2)txt(icLockMsg,W/2,68,15,'center','#ffcf33');else txt('Coins '+totalCoins()+'  •  Trophies '+icTro()+'  •  more designs unlock as you play',W/2,68,14,'center','#ccc');
  const S=icS(),m=IC_MODES[icTab];
  IC_MODES.forEach((md,i)=>{const x=24+i*114;rr(x,80,106,34,10);P(i==icTab?'#ffcf33':'rgba(0,0,0,.4)',2.5);txt(md.toUpperCase(),x+53,103,14,'center',i==icTab?'#2a1a3a':'#fff')});
@@ -94,7 +94,7 @@ garage=function(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba
 garageClick=function(mx,my){const S=icS(),m=IC_MODES[icTab],tc=totalCoins();
  if(my>H-50&&mx>W/2-90&&mx<W/2+90){scene='menu';icLockT=0;persist();return}
  if(my>80&&my<114){const i=Math.floor((mx-24)/114);if(i>=0&&i<8)icTab=i;return}
- for(let k=0;k<6;k++){const x=24+(k%3)*130,y=126+Math.floor(k/3)*112;if(mx>x&&mx<x+122&&my>y&&my<y+104){if(icLocked(k)){Music.sfx('die');return}S.d[m]=k;persist();return}}
+ for(let k=0;k<6;k++){const x=24+(k%3)*130,y=126+Math.floor(k/3)*112;if(mx>x&&mx<x+122&&my>y&&my<y+104){if(icLocked(k)){Music.sfx('die');const[nc,na]=IC_NEED[k],c=nc-totalCoins(),a=na-icTro();icLockMsg=a>0?'🏆 Need '+a+' more troph'+(a==1?'y':'ies')+' to unlock this design!':'🔒 Need '+c+' more coin'+(c==1?'':'s')+' to unlock this design!';icLockT=t;return}S.d[m]=k;persist();return}}
  for(let i=0;i<COLORS.length;i++)for(const row of[0,1]){const x=110+i*29,y=356+row*40;if(mx>x&&mx<x+25&&my>y&&my<y+25){if(tc<COLORS[i][1]){Music.sfx('die');const n=COLORS[i][1]-tc;icLockMsg='🔒 Need '+n+' more coin'+(n==1?'':'s')+' to unlock this color!';icLockT=t;return}if(row)S.c2=i;else save.col=i;persist();return}}
  const wx=110+COLORS.length*29+4;if(mx>wx&&mx<wx+70&&my>356&&my<381){save.col=-1;persist();return}
  if(my>442&&my<482){if(mx>24&&mx<224)S.glow=!S.glow;else if(mx>234&&mx<434){let n=save.trail||0;do n=(n+1)%TRAILS.length;while(tc<TRAILS[n][1]&&n!=0);save.trail=n}else if(mx>444&&mx<644){let n=S.death;do n=(n+1)%IC_DEATH.length;while(tc<IC_DEATH[n][1]&&n!=0);S.death=n}else if(mx>654&&mx<854){let n=save.face||0;do n=(n+1)%FACES.length;while(tc<FACES[n][1]&&n!=0);save.face=n}persist()}};
