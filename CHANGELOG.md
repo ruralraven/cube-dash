@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.42 — Esc goes back from Settings
+- Pressing Esc (or B on a controller) on the Settings & Trophies screen now takes you back to the menu. Before, it did nothing, so with a controller you could get stuck there.
+- Pressing Esc (or B) on the Jukebox takes you back to the Settings screen, just like the BACK button.
+
 ## v7.41 — Keyboard keys on the win screen
 - On a computer, small grey text at the bottom of the win screen now shows the keys: Space for next, R to play again, Esc for the menu.
 - Pressing Esc (or B on a controller) on the win screen now takes you to the menu. Before, it did nothing.
