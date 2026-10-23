@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.46 — How many coins to unlock an icon
+- On the Icons screen, tapping a locked (grey) color now shows gold text at the top that says how many more coins you need (like "🔒 Need 5 more coins to unlock this color!").
+
 ## v7.45 — Home and End keys on the menu
 - On a computer, pressing Home on the menu jumps to the first world, and pressing End jumps to the farthest world you've unlocked.
 
