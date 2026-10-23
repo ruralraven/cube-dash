@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.39 — How much better your new best is
+- When you get a NEW BEST, green text under it now shows how much farther you got than your old best (like "+12% better than before").
+
 ## v7.38 — Attempt number when you crash
 - When you crash, small grey text under your percent now shows which attempt you're on (like "attempt 12").
 
