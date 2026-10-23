@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.36 — Coins on the pause screen
+- If you've grabbed any coins this run, the pause screen shows how many (like "🪙 2/3") next to the level name.
+
 ## v7.35 — Perfect counter on the menu
 - Once you've beaten a world with all 3 coins, the menu line also shows how many worlds are PERFECT (like "4 perfect ★").
 
