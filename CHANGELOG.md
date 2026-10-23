@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.44 — Slash key opens Search
+- On a computer, pressing the / key on the menu now opens Search, so you can find a level fast without the mouse. Esc still takes you back.
+
 ## v7.43 — Clean pause screen after a crash
 - If you pause right after you crash, the crash words (like "NEW BEST!" or your percent) no longer pile up on top of the PAUSED screen. They come back when you un-pause.
 
