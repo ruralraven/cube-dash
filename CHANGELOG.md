@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.34 — "Almost there!" at 90%+
+- If you crash at 90% or further, the crash percent turns gold and says "Almost there!".
+
 ## v7.33 — All-coins cheer on the win screen
 - Beat a level with all 3 coins in one run and the win screen now cheers "🪙 ALL 3 COINS! 🪙".
 
