@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.32 — Coin dot bounce + changelog order
+- When you grab a coin, its dot in the top-right corner does a quick bounce.
+- The changelog is now fully newest-first (the oldest v1.1–v3.0 notes were listed oldest-first at the bottom). No entries were removed.
+
 ## v7.31 — Coin counter pop-up
 - Grabbing a secret coin now pops up "🪙 COIN 2/3" for a moment so you know how many you have this run.
 
@@ -379,15 +383,58 @@
 - New finale **Shadow King** (Demon boss, 174 BPM, unlocks at 12 coins): giant crowned boss cube that pulses to the beat, laser tethers to saws, lightning, boss health bar that drains as you progress, explosion + "SHADOW KING DEFEATED!" on win.
 - Bot-verified: all 12 levels win in-browser with 3/3 coins.
 
-## v1.1 – Ship mode (2026-10-21)
-- Ship portals (pink) and cube portals (blue), with GD-style hold-to-fly physics, capped speed, tilt.
-- Themed ships: submarine (Sea), candy rocket (Candy Land), UFO (Space).
-- 2 ship corridor sections per level; easy wide first section in Under the Sea. Bot-verified passable.
+## v3.0 – Secret world: Rainbow Sky (2026-10-21)
+- 10th world, unlocked with 9 coins: Rainbow Sky (Insane) – floating islands with waterfalls, hot-air balloons, birds, giant beat-pulsing rainbow, rainbow cloud blocks. Uses every mode + pistons, moving saws, gravity orbs, mini ship.
+- New song: Rainbow Rocket (170 BPM drum & bass with chiptune arps).
+- Menu shows the secret world button; Level Complete → NEXT respects locks.
+- publish script now syntax-checks every JS file before pushing.
 
-## v1.2 – Music (2026-10-21)
-- Synthesized EDM soundtrack (Web Audio): kick/snare/clap/hats, bass, pads, arps, lead melody with intro/build/drop/break arrangement.
-- Distinct song per level: Bubble Pop (120 BPM), Sugar Rush (128), Stardust Overdrive (140, wobble bass).
-- Background and floor pulse to the beat. Mute button (bottom-right) and M key; setting is remembered.
+## v2.9 – Pause (2026-10-21)
+- Pause button (bottom-left, next to Home), P key or Esc: pauses the game and the music; MENU / RESTART / tap to resume. Auto-pauses when you switch tabs or apps.
+- ICONS screen layout cleaned up (no more overlapping labels).
+
+## v2.8 – Real coin challenges (2026-10-21)
+- Coins are now placed off the easy path (above or below it by up to 2.5 tiles) so you have to go out of your way to grab them. The bot proves each level can be finished while collecting all 3 coins, and the demo replay grabs them all.
+- Browser check (?verify=1): the baked replay wins all 9 levels with 3/3 coins inside the real game.
+- Watching the demo replay no longer counts toward your own best % or coins.
+
+## v2.7 – Moving obstacles (2026-10-21)
+- Beat-synced crushers (pistons) that pump up and down with the music – timed so they rise just as you arrive (Lava, Factory, Neon).
+- Moving saw blades that sweep up and down ship/UFO corridors on a 1–2 beat cycle (Haunted, Space, Neon).
+- Engine supports time-based obstacles deterministically, so the bot verifier and practice checkpoints stay exact.
+
+## v2.6 – More detail (2026-10-21)
+- New foreground layer in every world (shells & starfish, gumdrops, mushrooms & ferns, snow drifts & ice crystals, bubbling lava pools, jack-o'-lanterns & candles, pipes & beat-blinking warning lights, craters & glowing crystals, neon street lamps) scrolling faster than the action for depth; many elements pulse to the beat.
+- Ceilings in ball/spider/gravity corridors get scalloped edges and textures.
+- Squash & stretch when landing; death now breaks the icon into tumbling shards with a flash.
+- Menu cards show a live-rendered thumbnail of each world.
+
+## v2.5 – Richer music (2026-10-21)
+- Every song now has its own signature instrument layer: water-drop blips (Sea), chiptune arps (Candy), marimba (Jungle), FM glass bells (Ice), distorted saw stabs (Lava), vibrato organ + bells (Haunted), metallic distorted stabs (Factory), shimmering space arps (Space), supersaw chords (Neon).
+- Melodies alternate between two phrases on each loop so songs repeat less.
+- Fixed a DC-offset bug in the distortion curve (verified with offline audio rendering: levels stay steady, no clipping).
+
+## v2.4 – New hazards & objects (2026-10-21)
+- Spinning saw blades: half-buried ground saws, hanging saws, and saw fields in ship corridors (Jungle, Lava, Haunted, Factory, Neon).
+- Blue gravity orbs: tap in mid-air to flip onto the ceiling over spike floors and back again (Candy, Ice, Haunted, Space, Neon).
+- Factory saws are red/yellow so they stand out from the background gears.
+
+## v2.3 – Flow (2026-10-21)
+- Level intro banner with world name, difficulty and song title.
+- Level Complete screen with MENU and NEXT ▶ buttons.
+- Background beat pulse now follows the real audio clock, so it stays locked to the music even if the frame rate dips.
+- Glowing hazard colors per world (lava glow, ghostly glow, neon glow) for better readability.
+
+## v2.2 – Hand-written rhythm sections (2026-10-21)
+- New rhythm-line pattern: cube sections are written note-by-note on the song's half-beat grid (spikes, double/triple spikes, blocks, pads, orbs) – every level now has hand-written intro and finale lines.
+- Mode hints above portals on Easy–Harder levels (HOLD TO FLY, TAP TO FLIP, TAP = TELEPORT…).
+- Jungle thorns recolored for readability.
+- Bot check: all 9 levels beaten with 3- and 4-frame input resolution; Easy–Hard levels also with 6-frame (very forgiving) inputs.
+
+## v2.1 – Polish (2026-10-21)
+- Wave corridors are now drawn as smooth diagonal walls with glowing edges; wave leaves a solid GD-style trail line.
+- Speed/size portals no longer overlap the next mode portal.
+- Music: bigger drops (louder lead + octave layer, off-beat hats), noise riser before each drop. Offline audio analysis confirms every song is audible with no clipping.
 
 ## v2.0 – Big update: 9 worlds, 7 game modes (2026-10-21)
 - New engine (js/engine.js) with 7 modes: Cube, Ship, Ball (tap flips gravity), UFO (tap to flap), Wave (hold up / release down, diagonal), Robot (hold for higher jump), Spider (tap = instant teleport to the other side).
@@ -399,55 +446,12 @@
 - Practice mode with automatic checkpoints at every section.
 - Verifier bot (tools/bot.js) proves every level is beatable; tools/bake.js bakes coins onto a proven path and stores a demo replay (?lvl=N&auto=1).
 
-## v2.1 – Polish (2026-10-21)
-- Wave corridors are now drawn as smooth diagonal walls with glowing edges; wave leaves a solid GD-style trail line.
-- Speed/size portals no longer overlap the next mode portal.
-- Music: bigger drops (louder lead + octave layer, off-beat hats), noise riser before each drop. Offline audio analysis confirms every song is audible with no clipping.
+## v1.2 – Music (2026-10-21)
+- Synthesized EDM soundtrack (Web Audio): kick/snare/clap/hats, bass, pads, arps, lead melody with intro/build/drop/break arrangement.
+- Distinct song per level: Bubble Pop (120 BPM), Sugar Rush (128), Stardust Overdrive (140, wobble bass).
+- Background and floor pulse to the beat. Mute button (bottom-right) and M key; setting is remembered.
 
-## v2.2 – Hand-written rhythm sections (2026-10-21)
-- New rhythm-line pattern: cube sections are written note-by-note on the song's half-beat grid (spikes, double/triple spikes, blocks, pads, orbs) – every level now has hand-written intro and finale lines.
-- Mode hints above portals on Easy–Harder levels (HOLD TO FLY, TAP TO FLIP, TAP = TELEPORT…).
-- Jungle thorns recolored for readability.
-- Bot check: all 9 levels beaten with 3- and 4-frame input resolution; Easy–Hard levels also with 6-frame (very forgiving) inputs.
-
-## v2.3 – Flow (2026-10-21)
-- Level intro banner with world name, difficulty and song title.
-- Level Complete screen with MENU and NEXT ▶ buttons.
-- Background beat pulse now follows the real audio clock, so it stays locked to the music even if the frame rate dips.
-- Glowing hazard colors per world (lava glow, ghostly glow, neon glow) for better readability.
-
-## v2.4 – New hazards & objects (2026-10-21)
-- Spinning saw blades: half-buried ground saws, hanging saws, and saw fields in ship corridors (Jungle, Lava, Haunted, Factory, Neon).
-- Blue gravity orbs: tap in mid-air to flip onto the ceiling over spike floors and back again (Candy, Ice, Haunted, Space, Neon).
-- Factory saws are red/yellow so they stand out from the background gears.
-
-## v2.5 – Richer music (2026-10-21)
-- Every song now has its own signature instrument layer: water-drop blips (Sea), chiptune arps (Candy), marimba (Jungle), FM glass bells (Ice), distorted saw stabs (Lava), vibrato organ + bells (Haunted), metallic distorted stabs (Factory), shimmering space arps (Space), supersaw chords (Neon).
-- Melodies alternate between two phrases on each loop so songs repeat less.
-- Fixed a DC-offset bug in the distortion curve (verified with offline audio rendering: levels stay steady, no clipping).
-
-## v2.6 – More detail (2026-10-21)
-- New foreground layer in every world (shells & starfish, gumdrops, mushrooms & ferns, snow drifts & ice crystals, bubbling lava pools, jack-o'-lanterns & candles, pipes & beat-blinking warning lights, craters & glowing crystals, neon street lamps) scrolling faster than the action for depth; many elements pulse to the beat.
-- Ceilings in ball/spider/gravity corridors get scalloped edges and textures.
-- Squash & stretch when landing; death now breaks the icon into tumbling shards with a flash.
-- Menu cards show a live-rendered thumbnail of each world.
-
-## v2.7 – Moving obstacles (2026-10-21)
-- Beat-synced crushers (pistons) that pump up and down with the music – timed so they rise just as you arrive (Lava, Factory, Neon).
-- Moving saw blades that sweep up and down ship/UFO corridors on a 1–2 beat cycle (Haunted, Space, Neon).
-- Engine supports time-based obstacles deterministically, so the bot verifier and practice checkpoints stay exact.
-
-## v2.8 – Real coin challenges (2026-10-21)
-- Coins are now placed off the easy path (above or below it by up to 2.5 tiles) so you have to go out of your way to grab them. The bot proves each level can be finished while collecting all 3 coins, and the demo replay grabs them all.
-- Browser check (?verify=1): the baked replay wins all 9 levels with 3/3 coins inside the real game.
-- Watching the demo replay no longer counts toward your own best % or coins.
-
-## v2.9 – Pause (2026-10-21)
-- Pause button (bottom-left, next to Home), P key or Esc: pauses the game and the music; MENU / RESTART / tap to resume. Auto-pauses when you switch tabs or apps.
-- ICONS screen layout cleaned up (no more overlapping labels).
-
-## v3.0 – Secret world: Rainbow Sky (2026-10-21)
-- 10th world, unlocked with 9 coins: Rainbow Sky (Insane) – floating islands with waterfalls, hot-air balloons, birds, giant beat-pulsing rainbow, rainbow cloud blocks. Uses every mode + pistons, moving saws, gravity orbs, mini ship.
-- New song: Rainbow Rocket (170 BPM drum & bass with chiptune arps).
-- Menu shows the secret world button; Level Complete → NEXT respects locks.
-- publish script now syntax-checks every JS file before pushing.
+## v1.1 – Ship mode (2026-10-21)
+- Ship portals (pink) and cube portals (blue), with GD-style hold-to-fly physics, capped speed, tilt.
+- Themed ships: submarine (Sea), candy rocket (Candy Land), UFO (Space).
+- 2 ship corridor sections per level; easy wide first section in Under the Sea. Bot-verified passable.
