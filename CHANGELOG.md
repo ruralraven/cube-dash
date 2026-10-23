@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.31 — Coin counter pop-up
+- Grabbing a secret coin now pops up "🪙 COIN 2/3" for a moment so you know how many you have this run.
+
 ## v7.30 — Practice tip on tough levels
 - After lots of tries on one level (every 5th crash from attempt 10), the crash screen gives a gentle tip about Practice mode checkpoints.
 
