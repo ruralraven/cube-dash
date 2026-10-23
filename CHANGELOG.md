@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.43 — Clean pause screen after a crash
+- If you pause right after you crash, the crash words (like "NEW BEST!" or your percent) no longer pile up on top of the PAUSED screen. They come back when you un-pause.
+
 ## v7.42 — Esc goes back from Settings
 - Pressing Esc (or B on a controller) on the Settings & Trophies screen now takes you back to the menu. Before, it did nothing, so with a controller you could get stuck there.
 - Pressing Esc (or B) on the Jukebox takes you back to the Settings screen, just like the BACK button.
