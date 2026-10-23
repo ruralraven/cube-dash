@@ -90,7 +90,7 @@ garage=function(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba
  rr(420,126,516,214,16);P('rgba(0,0,0,.35)',2.5);txt('PREVIEW',436,148,13,'left','#ccc');X.save();rr(420,126,516,214,16);X.clip();const px=680,py=250+Math.sin(t*3)*(m=='cube'||m=='robot'?0:22),jump=m=='cube'||m=='robot'?-Math.abs(Math.sin(t*3))*60:0;
  for(let k=1;k<14;k++){X.globalAlpha=.25*(1-k/14);X.fillStyle=save.trail==1?`hsl(${(t*300+k*20)%360},100%,65%)`:iconCol();circ(px-k*16,py+jump+Math.sin(t*3-k*.2)*(m=='wave'?18:6),8-k*.4);X.fill()}X.globalAlpha=1;
  X.save();X.translate(px,py+jump);X.scale(2,2);icDraw(m,{rot:m=='cube'?Math.floor(t*1.5)*Math.PI/2:t*3,vy:Math.cos(t*3)*6,onG:true,g:1},LV.LEVELS[sel].th);X.restore();X.fillStyle='rgba(255,255,255,.25)';X.fillRect(440,300,480,3);X.restore();
- rr(W/2-90,H-50,180,44,14);P('#7dff7a',3);txt('DONE',W/2,H-21,20)};
+ rr(W/2-90,H-50,180,44,14);P('#7dff7a',3);txt('DONE',W/2,H-21,20);if(!COARSE)txt('← → switch tabs   •   Esc done',24,H-22,12,'left','#aaa')};
 garageClick=function(mx,my){const S=icS(),m=IC_MODES[icTab],tc=totalCoins();
  if(my>H-50&&mx>W/2-90&&mx<W/2+90){scene='menu';icLockT=0;persist();return}
  if(my>80&&my<114){const i=Math.floor((mx-24)/114);if(i>=0&&i<8)icTab=i;return}

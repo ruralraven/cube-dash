@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.48 — Arrow keys on the Icons screen
+- On a computer, pressing the left and right arrow keys on the Icons screen now switches between the tabs (CUBE, SHIP, BALL, and the rest), so you don't need the mouse. Small grey text at the bottom shows the keys.
+
 ## v7.47 — What you need to unlock a design
 - On the Icons screen, tapping a locked design (the faded ones) now shows gold text at the top that says how many more coins or trophies you need (like "🏆 Need 3 more trophies to unlock this design!").
 
