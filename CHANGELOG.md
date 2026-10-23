@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.49 — Page Up and Page Down on the menu
+- On a computer, pressing Page Down on the menu jumps forward one page of worlds (9 worlds), and Page Up jumps back one page.
+
 ## v7.48 — Arrow keys on the Icons screen
 - On a computer, pressing the left and right arrow keys on the Icons screen now switches between the tabs (CUBE, SHIP, BALL, and the rest), so you don't need the mouse. Small grey text at the bottom shows the keys.
 
