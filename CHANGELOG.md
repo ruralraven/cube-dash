@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.45 — Home and End keys on the menu
+- On a computer, pressing Home on the menu jumps to the first world, and pressing End jumps to the farthest world you've unlocked.
+
 ## v7.44 — Slash key opens Search
 - On a computer, pressing the / key on the menu now opens Search, so you can find a level fast without the mouse. Esc still takes you back.
 
