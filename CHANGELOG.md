@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.41 — Keyboard keys on the win screen
+- On a computer, small grey text at the bottom of the win screen now shows the keys: Space for next, R to play again, Esc for the menu.
+- Pressing Esc (or B on a controller) on the win screen now takes you to the menu. Before, it did nothing.
+
 ## v7.40 — Worlds beaten on the Settings screen
 - The Stats part of the Settings & Trophies screen now shows how many worlds you've beaten (like "12/35 worlds beaten").
 
