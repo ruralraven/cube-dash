@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.38 — Attempt number when you crash
+- When you crash, small grey text under your percent now shows which attempt you're on (like "attempt 12").
+
 ## v7.37 — Checkpoint note when you crash in practice
 - In practice mode, crashing after placing a checkpoint now shows "◆ back to your checkpoint" so you know where you'll restart.
 
