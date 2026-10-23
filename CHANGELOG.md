@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.40 — Worlds beaten on the Settings screen
+- The Stats part of the Settings & Trophies screen now shows how many worlds you've beaten (like "12/35 worlds beaten").
+
 ## v7.39 — How much better your new best is
 - When you get a NEW BEST, green text under it now shows how much farther you got than your old best (like "+12% better than before").
 
