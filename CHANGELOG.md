@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.30 — Practice tip on tough levels
+- After lots of tries on one level (every 5th crash from attempt 10), the crash screen gives a gentle tip about Practice mode checkpoints.
+
 ## v7.29 — Level name on the win screen
 - When you beat a level, its name now shows in gold above LEVEL COMPLETE!
 
