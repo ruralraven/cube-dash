@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.68 — Enter key on the LEVEL COMPLETE screen
+- On a computer, when you finish a level you can now press Enter (not just Space) to go to the next level. The hint at the bottom says "Space/Enter = next".
+
 ## v7.67 — Mouse wheel scrolls the level editor
 - On a computer, rolling the mouse wheel (or swiping two fingers on a trackpad) in the level editor now slides your level left and right, so you can move around long levels quickly. Dragging and the arrow keys still work too.
 
