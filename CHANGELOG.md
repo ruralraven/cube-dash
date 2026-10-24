@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.52 — Checkpoints on the progress bar
+- In practice mode, every checkpoint you have now shows as a small green diamond on the progress bar at the top, so you can see where you will restart.
+
 ## v7.51 — R and D keys on the menu
 - On a computer, pressing R on the menu starts a Random level (same as the 🎲 RANDOM button), and pressing D starts the Daily Run (same as the ★ DAILY RUN button).
 
