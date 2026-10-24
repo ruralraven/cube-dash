@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.57 — A helpful hint when Search finds nothing
+- When Search finds no levels, a second line now says "Try fewer letters, or tap CLEAR to see every level." so you know what to do next.
+
 ## v7.56 — Every song fits on the Jukebox
 - The Jukebox has 35 songs, but the last row was hidden below the screen and the row above it was covered by the BACK button. Now the song buttons are a little shorter, so all 35 songs show and you can tap every one.
 
