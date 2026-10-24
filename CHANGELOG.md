@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.51 — R and D keys on the menu
+- On a computer, pressing R on the menu starts a Random level (same as the 🎲 RANDOM button), and pressing D starts the Daily Run (same as the ★ DAILY RUN button).
+
 ## v7.50 — S key opens Settings
 - On a computer, pressing S on the menu now opens the Settings & Trophies screen (the gear button). Esc takes you back.
 
