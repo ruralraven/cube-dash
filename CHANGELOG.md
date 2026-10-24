@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.71 — Mouse wheel flips Search pages
+- On a computer, on the Search Levels screen you can now roll the mouse wheel (or swipe two fingers on a trackpad) to go to the next or previous page of levels. The arrows and arrow keys still work too.
+
 ## v7.70 — Up and down arrows in the Jukebox
 - On a computer, in the Jukebox you can now press the up and down arrow keys (or the controller D-pad) to jump a whole row of songs at a time, so you reach songs at the bottom faster. Left and right still go one song at a time.
 
