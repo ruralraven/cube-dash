@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.64 — Easier-to-read PRACTICE badges
+- The little green PRACTICE badges on the world cards had thick dark outlines that made the letters blurry, and "PRACTICE 100%" spilled past the edge of the badge. Now the words are clean dark green and always fit inside the badge.
+
 ## v7.63 — S and J close their screens too
 - On a computer, pressing S again on the Settings & Trophies screen goes back to the menu, and pressing J again on the Jukebox goes back to Settings (Esc still works too).
 
