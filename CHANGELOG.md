@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.60 — Safer keys on the My Levels screen
+- Before, pressing keys like Z or Enter on the My Levels list could secretly undo a change or start a test of the level hidden behind it. Now those keys do nothing there: Esc takes you back to the editor, and the left and right arrows flip pages. It also says "1 piece" instead of "1 pieces".
+
 ## v7.59 — Key hints on the Search screen
 - On a computer, the bottom of the Search screen now shows a small grey line telling you the keys: type to search, Enter plays the top level, Delete clears, and Esc goes back. Phones and tablets don't show it.
 

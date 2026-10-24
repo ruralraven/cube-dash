@@ -49,7 +49,8 @@ function edMove(mx,my){if(!ED.drag)return;if(ED.drag.bar){edScrollBar(mx);return
 function edUp(mx,my){const d=ED.drag;ED.drag=null;if(d&&d.paint){ED.painted=null;return}if(d&&!d.bar&&!d.moved)edPlace(d.x,d.y)}
 function edLen(){return Math.max(60,...ED.data.o.map(q=>q[1]+20))*T}
 function edScrollBar(mx){ED.cx=Math.max(0,(mx-20)/(W-40)*edLen()-W/2/ED.z)}
-function edKey(k){if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu';else if(k=='z'||k=='Z')edUndo();else if(k=='y'||k=='Y')edRedo()}
+function edKey(k){if(ED.list){const np=Math.ceil(edList().length/6);if(k=='Escape')ED.list=false;else if(np>1&&k=='ArrowRight')ED.lp=(ED.lp+1)%np;else if(np>1&&k=='ArrowLeft')ED.lp=(ED.lp-1+np)%np;return}// v7.60: on My Levels, keys no longer change the hidden level; Esc goes back to the editor
+ if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu';else if(k=='z'||k=='Z')edUndo();else if(k=='y'||k=='Y')edRedo()}
 function edIcon(tl,x,y,th){X.save();X.translate(x,y);X.scale(.72,.72);if(tl=='b')drawBlock({x:-20,y:-20,w:T,h:T},th);else if(tl=='s')drawSpike({t:'s',x:-20,y:-20},th);else if(tl=='sd')drawSpike({t:'sd',x:-20,y:-20},th);
  else if(tl=='o'||tl=='og')drawOrb({t:tl,x:-20,y:-20},0);else if(tl=='od')drawDash({t:tl,x:-20,y:-20},0);else if(tl=='p'||tl=='pg')drawPad({t:tl,x:-20,y:-26});else if(tl=='X'){X.strokeStyle='#ff4d4d';X.lineWidth=6;X.beginPath();X.moveTo(-12,-12);X.lineTo(12,12);X.moveTo(12,-12);X.lineTo(-12,12);X.stroke()}
  else{const k=tl.slice(2);X.beginPath();X.ellipse(0,0,9,20,0,0,7);X.lineWidth=6;X.strokeStyle=MODECOL[k]||'#fff';X.stroke()}X.restore()}
@@ -82,7 +83,7 @@ function edPadArc(lv,o){let mode='cube',g=1,mini=false,spd=lv.spd;for(const q of
 
 // ---- My Levels list ----
 function edListDraw(){const L=edList();drawWorld(TH[(ED.data||{th:0}).th]||TH[0],t*30,beat());X.fillStyle='rgba(20,10,40,.72)';X.fillRect(0,0,W,H);txt('MY LEVELS',W/2,56,38);txt('tap a level to edit it',W/2,82,14,'center','#ccc');
- const per=6,p0=ED.lp*per;L.slice(p0,p0+per).forEach((lv,k)=>{const i=p0+k,y=100+k*58;rr(140,y,680,50,12);P(i==ED.slot?'rgba(255,207,51,.3)':'rgba(0,0,0,.4)',2.5);txt((i+1)+'. '+lv.name,160,y+32,20,'left');let n=0;try{n=(JSON.parse(localStorage[lv.key]||'{}').o||[]).length}catch(e){}txt(n+' pieces',640,y+32,13,'right','#ccc');rr(660,y+7,70,36,10);P('rgba(255,255,255,.2)',2);txt('✎ Name',695,y+31,13);rr(740,y+7,70,36,10);P('#ff7a7a',2);txt('🗑',775,y+32,16)});
+ const per=6,p0=ED.lp*per;L.slice(p0,p0+per).forEach((lv,k)=>{const i=p0+k,y=100+k*58;rr(140,y,680,50,12);P(i==ED.slot?'rgba(255,207,51,.3)':'rgba(0,0,0,.4)',2.5);txt((i+1)+'. '+lv.name,160,y+32,20,'left');let n=0;try{n=(JSON.parse(localStorage[lv.key]||'{}').o||[]).length}catch(e){}txt(n+(n==1?' piece':' pieces'),640,y+32,13,'right','#ccc');rr(660,y+7,70,36,10);P('rgba(255,255,255,.2)',2);txt('✎ Name',695,y+31,13);rr(740,y+7,70,36,10);P('#ff7a7a',2);txt('🗑',775,y+32,16)});
  const np=Math.ceil(L.length/per);if(np>1){txt('◀',100,280,30);txt('▶',860,280,30);txt('page '+(ED.lp+1)+'/'+np,W/2,460,14)}
  [['+ NEW LEVEL','#7dff7a',20],['📋 PASTE CODE','#7ad0ff',230],['🔍 SEARCH','#ff9ad5',440],['BACK','#ffcf33',650]].forEach(([nm,c,x])=>{rr(x,H-62,195,46,14);P(c,3);txt(nm,x+97,H-31,18)})}
 function edListClick(mx,my){const L=edList(),per=6,p0=ED.lp*per,np=Math.ceil(L.length/per);
