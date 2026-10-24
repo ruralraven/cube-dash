@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.58 — Delete key clears Search
+- On a computer, pressing the Delete key on the Search screen clears everything you typed in one press (same as the CLEAR button), so you see every level again.
+
 ## v7.57 — A helpful hint when Search finds nothing
 - When Search finds no levels, a second line now says "Try fewer letters, or tap CLEAR to see every level." so you know what to do next.
 

@@ -9,7 +9,7 @@ function srRun(){const q=SR.q.trim().toLowerCase(),r=[];const m=n=>!q||String(n)
  for(let q2=0;q2<NL;q2++){const i=ORD[q2];if(m(LV.LEVELS[i].name))r.push({kind:'built',name:LV.LEVELS[i].name,i})}
  SR.res=r;SR.page=Math.min(SR.page,Math.max(0,Math.ceil(r.length/6)-1))}
 function srAsk(){const v=prompt('Search levels by name:',SR.q);if(v!=null){SR.q=v.slice(0,30);SR.page=0;srRun()}}
-function srKey(e){const k=e.key;if(k=='Escape'){scene='menu';return}if(k=='Backspace'){SR.q=SR.q.slice(0,-1);SR.page=0;srRun();e.preventDefault();return}
+function srKey(e){const k=e.key;if(k=='Escape'){scene='menu';return}if(k=='Delete'){SR.q='';SR.page=0;srRun();e.preventDefault();return}if(k=='Backspace'){SR.q=SR.q.slice(0,-1);SR.page=0;srRun();e.preventDefault();return}
  if(k=='Enter'){if(SR.res[SR.page*6])srPlay(SR.res[SR.page*6]);return}if(k=='ArrowRight'||k=='PageDown'){srPg(1);return}if(k=='ArrowLeft'||k=='PageUp'){srPg(-1);return}
  if(k.length==1&&SR.q.length<30){SR.q+=k;SR.page=0;srRun();e.preventDefault()}}
 function srPg(d){const np=Math.max(1,Math.ceil(SR.res.length/6));SR.page=(SR.page+d+np)%np}
