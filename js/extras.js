@@ -1,4 +1,4 @@
-const CD_VERSION='v7.69';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v7.70';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
@@ -25,15 +25,15 @@ let jukeSong=-1;
 // v7.56: song cards shrink to fit so every song shows above the BACK button
 function jukeRowH(n){return Math.min(72,(H-72-88)/Math.ceil(n/5))}function jukeCH(n){return jukeRowH(n)-6}function jukeXY(k,n){return [24+(k%5)*184,88+Math.floor(k/5)*jukeRowH(n)]}
 function jukeOrder(){const o=[];for(const i of ORD){const L=LV.LEVELS[i];if(!o.includes(L.song))o.push(L.song)}Music.SONGS.forEach((_,i)=>{if(!o.includes(i))o.push(i)});return o}
-function jukeScreen(){const sg=jukeSong>=0?jukeSong:LV.LEVELS[sel].song,li=LV.LEVELS.findIndex(L=>L.song==sg);drawWorld(TH[li>=0?LV.LEVELS[li].th:0],t*60,beat());X.fillStyle='rgba(20,10,40,.7)';X.fillRect(0,0,W,H);txt('♪ JUKEBOX',W/2,52,38);txt(COARSE?'tap a song to play it':'click a song, or press ← → to change song',W/2,78,14,'center','#ccc');
+function jukeScreen(){const sg=jukeSong>=0?jukeSong:LV.LEVELS[sel].song,li=LV.LEVELS.findIndex(L=>L.song==sg);drawWorld(TH[li>=0?LV.LEVELS[li].th:0],t*60,beat());X.fillStyle='rgba(20,10,40,.7)';X.fillRect(0,0,W,H);txt('♪ JUKEBOX',W/2,52,38);txt(COARSE?'tap a song to play it':'click a song, or use the arrow keys to change song',W/2,78,14,'center','#ccc');
  const o=jukeOrder(),bp=beat(),jh=jukeCH(o.length);o.forEach((s,k)=>{const [x,y]=jukeXY(k,o.length),S=Music.SONGS[s],on=s==sg,L=LV.LEVELS.find(L=>L.song==s);rr(x,y,176,jh,12);P(on?'rgba(255,154,213,.35)':'rgba(0,0,0,.4)',on?3.5:2);if(on){X.fillStyle='#ff9ad5';for(let b=0;b<4;b++){const h=6+Math.abs(Math.sin(t*8+b*1.3))*14*(.5+bp);X.fillRect(x+150+b*5,y+jh-12-h*jh/64,3,h*jh/64)}}txt(S.name,x+10,y+jh*.41,15,'left');txt(S.bpm+' BPM  •  '+(L?L.name:''),x+10,y+jh*.75,11,'left','#ccc')});
  rr(W/2-90,H-62,180,46,14);P('#7dff7a',3);txt('BACK',W/2,H-31,20)}
-function jukeStep(d){const o=jukeOrder(),cur=jukeSong>=0?jukeSong:LV.LEVELS[sel].song;let k=o.indexOf(cur);k=k<0?0:(k+d+o.length)%o.length;jukeSong=o[k];menuSong=-3;if(Music.ready&&!QS.get('nomusic'))Music.start(jukeSong,4)}// v7.53: arrow keys / D-pad pick the next or previous song
+function jukeStep(d){const o=jukeOrder(),cur=jukeSong>=0?jukeSong:LV.LEVELS[sel].song;let k=o.indexOf(cur);if(k<0)k=0;else if(Math.abs(d)>1){const n=k+d;if(n<0||n>=o.length){Music.sfx&&Music.sfx('die');return}k=n}else k=(k+d+o.length)%o.length;jukeSong=o[k];menuSong=-3;if(Music.ready&&!QS.get('nomusic'))Music.start(jukeSong,4)}// v7.53: arrow keys / D-pad pick the next or previous song; v7.70: up/down jump a whole row
 function jukeClick(mx,my){if(mx>W/2-90&&mx<W/2+90&&my>H-62){scene='stats';jukeSong=-1;menuSong=-1;return}const o=jukeOrder(),jh=jukeCH(o.length);o.forEach((s,k)=>{const [x,y]=jukeXY(k,o.length);if(mx>x&&mx<x+176&&my>y&&my<y+jh){jukeSong=s;menuSong=-3;if(Music.ready&&!QS.get('nomusic'))Music.start(s,4)}})}
 
 function buzz(ms){try{if(!save.opt.novib&&navigator.vibrate&&!replay)navigator.vibrate(ms)}catch(e){}}
 // ---- Gamepad support: A = jump, Start = play/pause, D-pad = choose world, B = back ----
-(()=>{const map={0:' ',1:'Escape',9:'Enter',14:'ArrowLeft',15:'ArrowRight',12:'ArrowUp'};let prev={};
+(()=>{const map={0:' ',1:'Escape',9:'Enter',14:'ArrowLeft',15:'ArrowRight',12:'ArrowUp',13:'ArrowDown'};let prev={};
  function k(type,key){dispatchEvent(new KeyboardEvent(type,{key,bubbles:true}))}
  function poll(){const gs=navigator.getGamepads?navigator.getGamepads():[];const g=[...gs].find(Boolean);if(g){for(const b in map){const on=!!(g.buttons[b]&&g.buttons[b].pressed);if(on&&!prev[b])k('keydown',map[b]);if(!on&&prev[b])k('keyup',map[b]);prev[b]=on}}requestAnimationFrame(poll)}
  addEventListener('gamepadconnected',()=>{if(typeof toast!='undefined')try{toast('🎮 Controller connected')}catch(e){}});requestAnimationFrame(poll)})();

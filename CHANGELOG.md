@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.70 — Up and down arrows in the Jukebox
+- On a computer, in the Jukebox you can now press the up and down arrow keys (or the controller D-pad) to jump a whole row of songs at a time, so you reach songs at the bottom faster. Left and right still go one song at a time.
+
 ## v7.69 — Cleaner PAUSED screen on phones
 - On phones and tablets, the PAUSED screen no longer shows the long list of computer keys and controller buttons, so it looks cleaner. On a computer the list is still there, and the hint now says "click or Space to keep going".
 
