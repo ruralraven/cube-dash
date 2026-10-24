@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.66 — PLAY AGAIN button when you finish a level
+- When you finish a level, there is now a yellow ↻ PLAY AGAIN button under MENU and NEXT, so on a phone or tablet you can replay the same level right away (before, only the R key on a computer could do that). The "more coins to unlock" hint moved down a little to make room.
+
 ## v7.65 — Cleaner practice buttons on phones
 - On phones and tablets, the green PLACE and red REMOVE checkpoint buttons in practice mode no longer show (Z) and (X), because those are computer keys. The words are a little bigger instead. On a computer the key hints are still there.
 
