@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.61 — E key opens the level editor
+- On a computer, pressing E on the main menu now opens the level editor (same as the pencil button), so you can jump straight into making levels.
+
 ## v7.60 — Safer keys on the My Levels screen
 - Before, pressing keys like Z or Enter on the My Levels list could secretly undo a change or start a test of the level hidden behind it. Now those keys do nothing there: Esc takes you back to the editor, and the left and right arrows flip pages. It also says "1 piece" instead of "1 pieces".
 
