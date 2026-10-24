@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.72 — Clearer RANDOM difficulty button
+- The little button next to 🎲 RANDOM used to show just one letter (E, N, or H). Now it shows the whole word (EASY, NORMAL, or HARD), and when you tap it a short note pops up saying which kind of random levels you will get.
+
 ## v7.71 — Mouse wheel flips Search pages
 - On a computer, on the Search Levels screen you can now roll the mouse wheel (or swipe two fingers on a trackpad) to go to the next or previous page of levels. The arrows and arrow keys still work too.
 
