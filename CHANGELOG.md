@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.59 — Key hints on the Search screen
+- On a computer, the bottom of the Search screen now shows a small grey line telling you the keys: type to search, Enter plays the top level, Delete clears, and Esc goes back. Phones and tablets don't show it.
+
 ## v7.58 — Delete key clears Search
 - On a computer, pressing the Delete key on the Search screen clears everything you typed in one press (same as the CLEAR button), so you see every level again.
 

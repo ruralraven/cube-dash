@@ -27,7 +27,7 @@ function srDraw(){drawWorld(TH[LV.LEVELS[sel].th]||TH[0],t*30,beat());X.fillStyl
   const lock=r.kind=='built'&&!unlocked(r.i);txt((lock?'🔒 ':'')+r.name,250,y+30,19,'left');if(r.kind=='built'&&!lock){const b=save.best[r.i]||0,cc=save.coins[r.i]||[];txt(b+'%',588,y+29,15,'right',b>=100?'#7dff7a':'#fff');for(let k=0;k<3;k++){circ(500+k*16,y+23,6);P(cc[k]?'#ffcf33':'rgba(255,255,255,.22)',1.5)}}rr(600,y+6,100,34,10);P(lock?'#666':'#7dff7a',2);txt('▶ PLAY',650,y+29,15);if(r.kind!='built'){rr(710,y+6,100,34,10);P('#ff9ad5',2);txt('✏ EDIT',760,y+29,15)}});
  if(!SR.res.length){txt('No levels match "'+SR.q+'"',W/2,260,20,'center','#ffb3b3');txt('Try fewer letters, or tap CLEAR to see every level.',W/2,292,15,'center','#ddd')}
  const np=Math.max(1,Math.ceil(SR.res.length/6));if(np>1){txt('◀',100,300,30);txt('▶',860,300,30);txt('page '+(SR.page+1)+'/'+np,W/2,465,14)}
- [['CLEAR','#ffcf33',240],['BACK','#7dff7a',500]].forEach(([nm,c,x])=>{rr(x,H-62,220,46,14);P(c,3);txt(nm,x+110,H-31,18)})}
+ [['CLEAR','#ffcf33',240],['BACK','#7dff7a',500]].forEach(([nm,c,x])=>{rr(x,H-62,220,46,14);P(c,3);txt(nm,x+110,H-31,18)});if(!COARSE)txt('Type to search   •   Enter plays the top level   •   Delete clears   •   Esc back',W/2,H-4,12,'center','#aaa')}// v7.59: key hint for computer players
 function srDown(mx,my){if(my>66&&my<112&&mx>140&&mx<820){srAsk();return}
  if(my>H-62&&my<H-16){if(mx>240&&mx<460){SR.q='';SR.page=0;srRun()}else if(mx>500&&mx<720)scene='menu';return}
  const np=Math.max(1,Math.ceil(SR.res.length/6));if(np>1&&mx<130&&my>140){srPg(-1);return}if(np>1&&mx>830&&my>140&&my<H-70){srPg(1);return}
