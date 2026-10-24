@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.67 — Mouse wheel scrolls the level editor
+- On a computer, rolling the mouse wheel (or swiping two fingers on a trackpad) in the level editor now slides your level left and right, so you can move around long levels quickly. Dragging and the arrow keys still work too.
+
 ## v7.66 — PLAY AGAIN button when you finish a level
 - When you finish a level, there is now a yellow ↻ PLAY AGAIN button under MENU and NEXT, so on a phone or tablet you can replay the same level right away (before, only the R key on a computer could do that). The "more coins to unlock" hint moved down a little to make room.
 
