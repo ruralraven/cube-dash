@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.62 — G key closes Icons too
+- On a computer, G opens the Icons screen from the menu, and now pressing G again closes it and goes back to the menu (Esc still works too). The hint at the bottom says "Esc or G done".
+
 ## v7.61 — E key opens the level editor
 - On a computer, pressing E on the main menu now opens the level editor (same as the pencil button), so you can jump straight into making levels.
 
