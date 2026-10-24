@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.56 — Every song fits on the Jukebox
+- The Jukebox has 35 songs, but the last row was hidden below the screen and the row above it was covered by the BACK button. Now the song buttons are a little shorter, so all 35 songs show and you can tap every one.
+
 ## v7.55 — No more "coins 0/3" on Random and Daily runs
 - Random Run and the Daily Run don't have any coins, but the LEVEL COMPLETE screen still said "coins 0/3". Now it just shows how many attempts you took. Normal levels and your own editor levels still show coins.
 
