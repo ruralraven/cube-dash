@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.63 — S and J close their screens too
+- On a computer, pressing S again on the Settings & Trophies screen goes back to the menu, and pressing J again on the Jukebox goes back to Settings (Esc still works too).
+
 ## v7.62 — G key closes Icons too
 - On a computer, G opens the Icons screen from the menu, and now pressing G again closes it and goes back to the menu (Esc still works too). The hint at the bottom says "Esc or G done".
 
