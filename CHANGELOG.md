@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.53 — Arrow keys on the Jukebox
+- On the Jukebox, pressing the left or right arrow key (or left and right on a controller's D-pad) now plays the previous or next song. On a computer, the text under the title now tells you about the arrow keys.
+
 ## v7.52 — Checkpoints on the progress bar
 - In practice mode, every checkpoint you have now shows as a small green diamond on the progress bar at the top, so you can see where you will restart.
 
