@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.50 — S key opens Settings
+- On a computer, pressing S on the menu now opens the Settings & Trophies screen (the gear button). Esc takes you back.
+
 ## v7.49 — Page Up and Page Down on the menu
 - On a computer, pressing Page Down on the menu jumps forward one page of worlds (9 worlds), and Page Up jumps back one page.
 
