@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.55 — No more "coins 0/3" on Random and Daily runs
+- Random Run and the Daily Run don't have any coins, but the LEVEL COMPLETE screen still said "coins 0/3". Now it just shows how many attempts you took. Normal levels and your own editor levels still show coins.
+
 ## v7.54 — J key opens the Jukebox
 - On a computer, pressing J on the Settings & Trophies screen now opens the Jukebox. The Jukebox button says "(J)" so you know the key. Esc takes you back.
 
