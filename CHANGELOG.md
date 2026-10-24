@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.65 — Cleaner practice buttons on phones
+- On phones and tablets, the green PLACE and red REMOVE checkpoint buttons in practice mode no longer show (Z) and (X), because those are computer keys. The words are a little bigger instead. On a computer the key hints are still there.
+
 ## v7.64 — Easier-to-read PRACTICE badges
 - The little green PRACTICE badges on the world cards had thick dark outlines that made the letters blurry, and "PRACTICE 100%" spilled past the edge of the badge. Now the words are clean dark green and always fit inside the badge.
 
