@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.69 — Cleaner PAUSED screen on phones
+- On phones and tablets, the PAUSED screen no longer shows the long list of computer keys and controller buttons, so it looks cleaner. On a computer the list is still there, and the hint now says "click or Space to keep going".
+
 ## v7.68 — Enter key on the LEVEL COMPLETE screen
 - On a computer, when you finish a level you can now press Enter (not just Space) to go to the next level. The hint at the bottom says "Space/Enter = next".
 
