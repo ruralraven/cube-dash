@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.54 — J key opens the Jukebox
+- On a computer, pressing J on the Settings & Trophies screen now opens the Jukebox. The Jukebox button says "(J)" so you know the key. Esc takes you back.
+
 ## v7.53 — Arrow keys on the Jukebox
 - On the Jukebox, pressing the left or right arrow key (or left and right on a controller's D-pad) now plays the previous or next song. On a computer, the text under the title now tells you about the arrow keys.
 

@@ -1,4 +1,4 @@
-const CD_VERSION='v7.53';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v7.54';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
@@ -16,7 +16,7 @@ function statsScreen(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle=
  txt('Settings',40,104,20,'left');OPTS.forEach(([nm,g],i)=>{const y=112+i*40;rr(40,y,360,34,12);P('rgba(0,0,0,.35)',2.5);txt(nm,56,y+23,16,'left');const on=g();rr(330,y+5,56,24,12);P(on?'#7dff7a':'#555',2.5);circ(on?374:342,y+17,9);P('#fff',2)});
  const s=save.st;txt('Stats',40,404,18,'left');txt(beatenAll()+'/'+NL+' worlds beaten',100,404,13,'left','#ccc');[['Attempts',s.att],['Jumps',s.jumps],['Deaths',s.deaths],['Wins',s.wins],['Coins',totalCoins()+'/'+NL*3],['Play time',fmtT(s.time)]].forEach(([k,v],i)=>{const x=40+(i%3)*124,y=412+Math.floor(i/3)*32;rr(x,y,116,28,8);P('rgba(0,0,0,.3)',2);txt(k,x+8,y+19,12,'left','#ccc');txt(''+v,x+110,y+19,14,'right')});
  const got=Object.keys(save.ach).length;txt('Trophies '+got+'/'+ACH.length,440,104,20,'left');ACH.forEach(([id,nm,ds],i)=>{const x=440+(i%2)*250,y=112+Math.floor(i/2)*45,on=!!save.ach[id];rr(x,y,240,41,12);P(on?'rgba(255,207,51,.25)':'rgba(0,0,0,.35)',2.5);X.globalAlpha=on?1:.35;star5(x+25,y+20,12,on?'#ffcf33':'#888',2);X.globalAlpha=1;txt(nm,x+48,y+18,14,'left',on?'#fff':'#aaa');txt(ds,x+48,y+34,11,'left','#bbb')});
- rr(W/2-90,H-62,180,46,14);P('#7dff7a',3);txt('BACK',W/2,H-31,20);rr(W-290,H-62,190,46,14);P('#ff9ad5',3);txt('♪ JUKEBOX',W-195,H-31,20)}
+ rr(W/2-90,H-62,180,46,14);P('#7dff7a',3);txt('BACK',W/2,H-31,20);rr(W-290,H-62,190,46,14);P('#ff9ad5',3);txt(COARSE?'♪ JUKEBOX':'♪ JUKEBOX (J)',W-195,H-31,COARSE?20:18)}
 function statsClick(mx,my){if(mx>W-290&&mx<W-100&&my>H-62){scene='juke';return}if(mx>W/2-90&&mx<W/2+90&&my>H-62){scene='menu';return}OPTS.forEach(([nm,g,f],i)=>{const y=112+i*40;if(mx>40&&mx<400&&my>y&&my<y+34){f();persist()}})}
 achCheck();
 
