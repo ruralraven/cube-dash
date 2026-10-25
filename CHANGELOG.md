@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.86 — "beaten" check on the PAUSED screen
+- When you pause a level you have already beaten, the PAUSED screen now says "best 100% ✅ beaten", so you can see right away that you already won this level.
+
 ## v7.85 — "Almost there!" on the NEW BEST screen
 - When you crash at 90% or more and get a NEW BEST, the screen now also says "Almost there!" in yellow, just like the normal crash screen.
 
