@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.77 — Time played on the PAUSED screen
+- When you pause a level, the PAUSED screen now shows how long you have played that level so far (counting all your tries), in small grey letters like "⏱ 2:05 played on this level" (2 minutes and 5 seconds). It shows up after you have played at least 5 seconds.
+
 ## v7.76 — How long you played to beat a level
 - When you finish a level after more than one try, the LEVEL COMPLETE screen now also shows how long you played to beat it, like "⏱ you played 1:23 to beat it" (1 minute and 23 seconds, counting all your tries).
 
