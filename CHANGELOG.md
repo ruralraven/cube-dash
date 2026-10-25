@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.78 — Attempt number on NEW BEST
+- When you get a NEW BEST on a level, the screen now also shows which attempt it was, in small grey letters like "on attempt 12", so you can see how many tries it took to get that far.
+
 ## v7.77 — Time played on the PAUSED screen
 - When you pause a level, the PAUSED screen now shows how long you have played that level so far (counting all your tries), in small grey letters like "⏱ 2:05 played on this level" (2 minutes and 5 seconds). It shows up after you have played at least 5 seconds.
 
