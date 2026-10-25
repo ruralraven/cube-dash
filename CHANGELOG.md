@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.92
+- The NEW BEST crash screen now says "🌟 Your first best on this level!" in green the very first time you set a best on a level.
+
 ## v7.91
 - The NEW BEST crash screen now also shows the level name in small yellow letters at the top, just like the normal crash screen.
 
