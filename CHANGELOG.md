@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.84 — Progress bar on the PAUSED screen
+- When you pause, a small green bar under the percent shows how far you are in the level, and a yellow line shows your best.
+
 ## v7.83 — Coins on the NEW BEST screen
 - When you crash and get a NEW BEST, the screen now also shows how many coins you grabbed on that try, like "🪙 2/3 coins this try", just like the normal crash screen.
 
