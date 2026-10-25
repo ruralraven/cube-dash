@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.94
+- Crash screen now says how far you were from your best, like "🎯 12% short of your best" (normal levels, not practice).
+
 ## v7.93
 - The NEW BEST crash screen now says how much is left, like "🏁 only 23% left to the end!".
 - Fixed: the version number on the Settings & Trophies screen was stuck on v7.91.
