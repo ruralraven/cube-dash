@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.90 — level name on the crash screen
+- When you crash, the crash screen now shows the level name in small yellow letters at the top, so you always know which level you are on.
+
 ## v7.89 — "beaten" check on the crash screen
 - When you crash on a level you have already beaten, the crash screen now says "Best 100% ✅ beaten", just like the PAUSED screen.
 
