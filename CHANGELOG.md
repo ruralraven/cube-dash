@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.73 — Trophy progress numbers
+- On the Settings & Trophies screen, trophies you have not won yet now show how close you are in yellow, like "4/10" for Coin Collector or "37/100" for Never Give Up, so you know how much more you need.
+
 ## v7.72 — Clearer RANDOM difficulty button
 - The little button next to 🎲 RANDOM used to show just one letter (E, N, or H). Now it shows the whole word (EASY, NORMAL, or HARD), and when you tap it a short note pops up saying which kind of random levels you will get.
 
