@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.80 — Practice win reminder
+- When you finish a level with PRACTICE turned on, the PRACTICE COMPLETE screen now says in small grey letters that practice wins do not count, and that you can turn PRACTICE: OFF to save the win for real.
+
 ## v7.79 — First time beating a level
 - The very first time you beat a level, the LEVEL COMPLETE screen now says "🎉 First time beating this level! 🎉" in green at the top, so you know it is a brand new win.
 
