@@ -1,4 +1,4 @@
-const CD_VERSION='v7.73';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v7.74';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
@@ -10,6 +10,8 @@ const ACH=[['first','First Steps','Beat any world',()=>beatenAll()>=1],['five','
 // v7.73: how close you are to each counting trophy (shown on locked trophy cards)
 const ACHP={first:()=>[beatenAll(),1],five:()=>[beatenAll(),5],tour:()=>[beatenAll(),20],all:()=>[beatenAll(),NL],c10:()=>[totalCoins(),10],c30:()=>[totalCoins(),30],call:()=>[totalCoins(),NL*3],secret:()=>[LV.LEVELS.slice(0,NL).filter((L,i)=>L.secret&&save.best[i]>=100).length,3],a100:()=>[save.st.att,100],j1k:()=>[save.st.jumps,1000]};
 function achProg(id){const f=ACHP[id];if(!f)return '';try{const[c,g]=f();return Math.min(c|0,g)+'/'+g}catch(e){return ''}}
+// v7.74: the day you won each trophy (shown on won trophy cards)
+function achDate(id){const v=save.ach[id];if(typeof v!='number'||v<1e12)return '';const d=new Date(v);return isNaN(d)?'':['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getDate()}
 let toasts=[];
 function achCheck(){for(const[id,nm,ds,f]of ACH)if(!save.ach[id]&&f()){save.ach[id]=Date.now();toasts.push({nm,t:0});persist();Music.sfx('portal')}}
 function drawToasts(){if(!toasts.length)return;const q=toasts[0];q.t+=1/60;const a=Math.min(1,q.t*4,(3.2-q.t)*3);X.globalAlpha=Math.max(0,a);rr(W/2-200,82,400,58,16);P('rgba(20,10,40,.85)',3);star5(W/2-165,111,16,'#ffcf33',2.5);txt('Achievement unlocked!',W/2+20,104,15,'center','#ffcf33');txt(q.nm,W/2+20,128,21);X.globalAlpha=1;if(q.t>3.2)toasts.shift()}
@@ -18,7 +20,7 @@ function fmtT(s){s=Math.floor(s);return s>=3600?Math.floor(s/3600)+'h '+Math.flo
 function statsScreen(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba(20,10,40,.6)';X.fillRect(0,0,W,H);txt('SETTINGS & TROPHIES',W/2,56,40);txt('Cube Dash '+CD_VERSION,24,H-30,13,'left','#ccc');
  txt('Settings',40,104,20,'left');OPTS.forEach(([nm,g],i)=>{const y=112+i*40;rr(40,y,360,34,12);P('rgba(0,0,0,.35)',2.5);txt(nm,56,y+23,16,'left');const on=g();rr(330,y+5,56,24,12);P(on?'#7dff7a':'#555',2.5);circ(on?374:342,y+17,9);P('#fff',2)});
  const s=save.st;txt('Stats',40,404,18,'left');txt(beatenAll()+'/'+NL+' worlds beaten',100,404,13,'left','#ccc');[['Attempts',s.att],['Jumps',s.jumps],['Deaths',s.deaths],['Wins',s.wins],['Coins',totalCoins()+'/'+NL*3],['Play time',fmtT(s.time)]].forEach(([k,v],i)=>{const x=40+(i%3)*124,y=412+Math.floor(i/3)*32;rr(x,y,116,28,8);P('rgba(0,0,0,.3)',2);txt(k,x+8,y+19,12,'left','#ccc');txt(''+v,x+110,y+19,14,'right')});
- const got=Object.keys(save.ach).length;txt('Trophies '+got+'/'+ACH.length,440,104,20,'left');ACH.forEach(([id,nm,ds],i)=>{const x=440+(i%2)*250,y=112+Math.floor(i/2)*45,on=!!save.ach[id];rr(x,y,240,41,12);P(on?'rgba(255,207,51,.25)':'rgba(0,0,0,.35)',2.5);X.globalAlpha=on?1:.35;star5(x+25,y+20,12,on?'#ffcf33':'#888',2);X.globalAlpha=1;txt(nm,x+48,y+18,14,'left',on?'#fff':'#aaa');if(!on){const pg=achProg(id);if(pg)txt(pg,x+232,y+18,12,'right','#ffcf33')}txt(ds,x+48,y+34,11,'left','#bbb')});
+ const got=Object.keys(save.ach).length;txt('Trophies '+got+'/'+ACH.length,440,104,20,'left');ACH.forEach(([id,nm,ds],i)=>{const x=440+(i%2)*250,y=112+Math.floor(i/2)*45,on=!!save.ach[id];rr(x,y,240,41,12);P(on?'rgba(255,207,51,.25)':'rgba(0,0,0,.35)',2.5);X.globalAlpha=on?1:.35;star5(x+25,y+20,12,on?'#ffcf33':'#888',2);X.globalAlpha=1;txt(nm,x+48,y+18,14,'left',on?'#fff':'#aaa');if(!on){const pg=achProg(id);if(pg)txt(pg,x+232,y+18,12,'right','#ffcf33')}else{const wd=achDate(id);if(wd)txt(wd,x+232,y+18,11,'right','#ffe08a')}txt(ds,x+48,y+34,11,'left','#bbb')});
  rr(W/2-90,H-62,180,46,14);P('#7dff7a',3);txt('BACK',W/2,H-31,20);rr(W-290,H-62,190,46,14);P('#ff9ad5',3);txt(COARSE?'♪ JUKEBOX':'♪ JUKEBOX (J)',W-195,H-31,COARSE?20:18)}
 function statsClick(mx,my){if(mx>W-290&&mx<W-100&&my>H-62){scene='juke';return}if(mx>W/2-90&&mx<W/2+90&&my>H-62){scene='menu';return}OPTS.forEach(([nm,g,f],i)=>{const y=112+i*40;if(mx>40&&mx<400&&my>y&&my<y+34){f();persist()}})}
 achCheck();

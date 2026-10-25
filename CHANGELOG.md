@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.74 — The day you won each trophy
+- On the Settings & Trophies screen, every trophy you have already won now shows the day you won it in small gold letters, like "Oct 21", so you can remember when you got it.
+
 ## v7.73 — Trophy progress numbers
 - On the Settings & Trophies screen, trophies you have not won yet now show how close you are in yellow, like "4/10" for Coin Collector or "37/100" for Never Give Up, so you know how much more you need.
 
