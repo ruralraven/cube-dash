@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.91
+- The NEW BEST crash screen now also shows the level name in small yellow letters at the top, just like the normal crash screen.
+
 ## v7.90 — level name on the crash screen
 - When you crash, the crash screen now shows the level name in small yellow letters at the top, so you always know which level you are on.
 
