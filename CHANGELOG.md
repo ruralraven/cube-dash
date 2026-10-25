@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.79 — First time beating a level
+- The very first time you beat a level, the LEVEL COMPLETE screen now says "🎉 First time beating this level! 🎉" in green at the top, so you know it is a brand new win.
+
 ## v7.78 — Attempt number on NEW BEST
 - When you get a NEW BEST on a level, the screen now also shows which attempt it was, in small grey letters like "on attempt 12", so you can see how many tries it took to get that far.
 
