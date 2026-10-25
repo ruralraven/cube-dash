@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.76 — How long you played to beat a level
+- When you finish a level after more than one try, the LEVEL COMPLETE screen now also shows how long you played to beat it, like "⏱ you played 1:23 to beat it" (1 minute and 23 seconds, counting all your tries).
+
 ## v7.75 — Trophy count when you win a trophy
 - When you win a new trophy, the gold "Achievement unlocked!" pop-up now also shows how many trophies you have, like (6/16), so you know how many are left to collect.
 
