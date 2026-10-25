@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.95
+- When you grab all 3 coins in one try, the crash screen now says "🪙 3/3 coins this try - all of them!".
+
 ## v7.94
 - Crash screen now says how far you were from your best, like "🎯 12% short of your best" (normal levels, not practice).
 
