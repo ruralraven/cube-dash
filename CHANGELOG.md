@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v7.93
+- The NEW BEST crash screen now says how much is left, like "🏁 only 23% left to the end!".
+- Fixed: the version number on the Settings & Trophies screen was stuck on v7.91.
+
 ## v7.92
 - The NEW BEST crash screen now says "🌟 Your first best on this level!" in green the very first time you set a best on a level.
 
