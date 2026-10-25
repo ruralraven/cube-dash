@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.81 — Practice reminder on the PAUSED screen
+- When you pause a level with PRACTICE turned on, the PAUSED screen now says "◆ PRACTICE IS ON" in small green letters above the level name, so you always know if this run counts.
+
 ## v7.80 — Practice win reminder
 - When you finish a level with PRACTICE turned on, the PRACTICE COMPLETE screen now says in small grey letters that practice wins do not count, and that you can turn PRACTICE: OFF to save the win for real.
 
