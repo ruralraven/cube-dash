@@ -1,4 +1,4 @@
-const CD_VERSION='v7.74';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v7.75';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
@@ -12,9 +12,9 @@ const ACHP={first:()=>[beatenAll(),1],five:()=>[beatenAll(),5],tour:()=>[beatenA
 function achProg(id){const f=ACHP[id];if(!f)return '';try{const[c,g]=f();return Math.min(c|0,g)+'/'+g}catch(e){return ''}}
 // v7.74: the day you won each trophy (shown on won trophy cards)
 function achDate(id){const v=save.ach[id];if(typeof v!='number'||v<1e12)return '';const d=new Date(v);return isNaN(d)?'':['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getDate()}
-let toasts=[];
-function achCheck(){for(const[id,nm,ds,f]of ACH)if(!save.ach[id]&&f()){save.ach[id]=Date.now();toasts.push({nm,t:0});persist();Music.sfx('portal')}}
-function drawToasts(){if(!toasts.length)return;const q=toasts[0];q.t+=1/60;const a=Math.min(1,q.t*4,(3.2-q.t)*3);X.globalAlpha=Math.max(0,a);rr(W/2-200,82,400,58,16);P('rgba(20,10,40,.85)',3);star5(W/2-165,111,16,'#ffcf33',2.5);txt('Achievement unlocked!',W/2+20,104,15,'center','#ffcf33');txt(q.nm,W/2+20,128,21);X.globalAlpha=1;if(q.t>3.2)toasts.shift()}
+let toasts=[];// v7.75: toasts also show how many trophies you have now, like (6/16)
+function achCheck(){for(const[id,nm,ds,f]of ACH)if(!save.ach[id]&&f()){save.ach[id]=Date.now();toasts.push({nm,t:0,n:ACH.filter(q=>save.ach[q[0]]).length});persist();Music.sfx('portal')}}
+function drawToasts(){if(!toasts.length)return;const q=toasts[0];q.t+=1/60;const a=Math.min(1,q.t*4,(3.2-q.t)*3);X.globalAlpha=Math.max(0,a);rr(W/2-200,82,400,58,16);P('rgba(20,10,40,.85)',3);star5(W/2-165,111,16,'#ffcf33',2.5);txt('Achievement unlocked!'+(q.n?'  ('+q.n+'/'+ACH.length+')':''),W/2+20,104,15,'center','#ffcf33');txt(q.nm,W/2+20,128,21);X.globalAlpha=1;if(q.t>3.2)toasts.shift()}
 const OPTS=[['Music',()=>!Music.muted,()=>Music.toggle()],['Sound effects',()=>!save.opt.nosfx,()=>{save.opt.nosfx=!save.opt.nosfx}],['Calm mode (no flash/shake)',()=>save.opt.calm,()=>{save.opt.calm=!save.opt.calm}],['LITE graphics',()=>LITE,()=>setLite(!LITE)],['Vibration (phones)',()=>!save.opt.novib,()=>{save.opt.novib=!save.opt.novib;buzz(30)}],['Ghost of best run',()=>!save.opt.noghost,()=>{save.opt.noghost=!save.opt.noghost}],['Practice mode',()=>save.practice,()=>{save.practice=!save.practice}]];
 function fmtT(s){s=Math.floor(s);return s>=3600?Math.floor(s/3600)+'h '+Math.floor(s%3600/60)+'m':Math.floor(s/60)+'m '+s%60+'s'}
 function statsScreen(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba(20,10,40,.6)';X.fillRect(0,0,W,H);txt('SETTINGS & TROPHIES',W/2,56,40);txt('Cube Dash '+CD_VERSION,24,H-30,13,'left','#ccc');

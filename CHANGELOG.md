@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.75 — Trophy count when you win a trophy
+- When you win a new trophy, the gold "Achievement unlocked!" pop-up now also shows how many trophies you have, like (6/16), so you know how many are left to collect.
+
 ## v7.74 — The day you won each trophy
 - On the Settings & Trophies screen, every trophy you have already won now shows the day you won it in small gold letters, like "Oct 21", so you can remember when you got it.
 
