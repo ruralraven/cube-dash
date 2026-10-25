@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.88 — "past your best" on the PAUSED screen
+- When you pause a level after going farther than your best, the PAUSED screen now says "⭐ You are past your best! Keep going!" in small green letters.
+
 ## v7.87 — "% more to reach your best" on the PAUSED screen
 - When you pause a level before reaching your best, the PAUSED screen now says how much farther you need to go, like "🎯 12% more to reach your best", in small yellow letters.
 
