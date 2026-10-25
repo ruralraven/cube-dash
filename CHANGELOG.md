@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.83 — Coins on the NEW BEST screen
+- When you crash and get a NEW BEST, the screen now also shows how many coins you grabbed on that try, like "🪙 2/3 coins this try", just like the normal crash screen.
+
 ## v7.82 — Coins on the crash screen
 - When you crash, the screen now shows how many coins you grabbed on that try in small yellow letters, like "🪙 2/3 coins this try", so you know if you got them before crashing.
 
