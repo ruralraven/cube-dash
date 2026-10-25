@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.85 — "Almost there!" on the NEW BEST screen
+- When you crash at 90% or more and get a NEW BEST, the screen now also says "Almost there!" in yellow, just like the normal crash screen.
+
 ## v7.84 — Progress bar on the PAUSED screen
 - When you pause, a small green bar under the percent shows how far you are in the level, and a yellow line shows your best.
 
