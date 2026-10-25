@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.87 — "% more to reach your best" on the PAUSED screen
+- When you pause a level before reaching your best, the PAUSED screen now says how much farther you need to go, like "🎯 12% more to reach your best", in small yellow letters.
+
 ## v7.86 — "beaten" check on the PAUSED screen
 - When you pause a level you have already beaten, the PAUSED screen now says "best 100% ✅ beaten", so you can see right away that you already won this level.
 
