@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.89 — "beaten" check on the crash screen
+- When you crash on a level you have already beaten, the crash screen now says "Best 100% ✅ beaten", just like the PAUSED screen.
+
 ## v7.88 — "past your best" on the PAUSED screen
 - When you pause a level after going farther than your best, the PAUSED screen now says "⭐ You are past your best! Keep going!" in small green letters.
 
