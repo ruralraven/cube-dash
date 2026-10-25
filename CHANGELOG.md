@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.82 — Coins on the crash screen
+- When you crash, the screen now shows how many coins you grabbed on that try in small yellow letters, like "🪙 2/3 coins this try", so you know if you got them before crashing.
+
 ## v7.81 — Practice reminder on the PAUSED screen
 - When you pause a level with PRACTICE turned on, the PAUSED screen now says "◆ PRACTICE IS ON" in small green letters above the level name, so you always know if this run counts.
 
