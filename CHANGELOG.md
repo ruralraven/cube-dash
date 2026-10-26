@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.00
+- In practice mode, the crash screen now says "🔧 Practice mode - crashes here don't count" in light blue.
+
 ## v7.99
 - The NEW BEST crash screen also celebrates every 50th attempt in yellow ("on attempt 100 🎉 wow, 100 tries!").
 
