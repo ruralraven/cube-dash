@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.07
+- If it took you 15 or more tries to beat a level (and it wasn't your first clear), the win screen cheers "💪 Never give up!".
+
 ## v8.06
 - If you crash at the exact same percent as your best, the crash screen now says "Tied your best!" in gold (instead of "So close!").
 
