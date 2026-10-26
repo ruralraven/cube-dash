@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.04
+- The pause screen now shows which mode you're in right now (CUBE, SHIP, BALL, UFO, WAVE, and so on) in that mode's color, just above PAUSED.
+
 ## v8.03
 - In practice mode, if you crash before placing a checkpoint, the crash screen now tips you: "◆ Tip: PLACE (Z) a checkpoint so you restart there".
 
