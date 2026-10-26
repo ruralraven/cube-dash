@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.18
+- The crash screen now shows mode and speed together (like "SHIP · SPEED 3"), matching the pause screen, so you can see what pace you were on when you crashed.
+
 ## v8.17
 - The pause screen's mode line now also shows your current speed (like "SHIP · SPEED 2"), so you can tell when a speed portal changed the pace.
 
