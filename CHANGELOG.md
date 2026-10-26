@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.98
+- Every 50th attempt, the crash screen celebrates in yellow, like "attempt 100 🎉 wow, 100 tries!".
+
 ## v7.97
 - Normal crash screen now says "Past halfway!" in green when you crash between 50% and 89% (not in practice).
 
