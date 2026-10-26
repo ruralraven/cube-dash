@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.19
+- Beside the NEXT button, the next level's difficulty now appears in its color after the name and best % (like "Clockwork Tower · 40% · Harder").
+
 ## v8.18
 - The crash screen now shows mode and speed together (like "SHIP · SPEED 3"), matching the pause screen, so you can see what pace you were on when you crashed.
 
