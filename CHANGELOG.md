@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.15
+- When music is muted, the speaker button now says MUTED underneath, and the menu's now-playing line says "♪ muted — tap the speaker to unmute" so it's obvious why there's no song.
+
 ## v8.14
 - Beside the NEXT button on the win screen, if you've already tried the next level, it now shows its name and your best % (like "Clockwork Tower · 40%").
 
