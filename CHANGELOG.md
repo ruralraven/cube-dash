@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.11
+- Beat a level on your third try and the win screen cheers "⚡ Third try!" (same rules as Second try — not when the first-clear message already shows).
+
 ## v8.10
 - Beat a level on your second try and the win screen cheers "⚡ Second try!" (when it isn't also your first-ever clear of that level).
 
