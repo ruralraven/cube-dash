@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.16
+- Search results for built-in worlds now show the difficulty (Easy, Normal, Hard, and so on) in that difficulty's color, so you can tell hard levels apart at a glance.
+
 ## v8.15
 - When music is muted, the speaker button now says MUTED underneath, and the menu's now-playing line says "♪ muted — tap the speaker to unmute" so it's obvious why there's no song.
 
