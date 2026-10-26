@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.06
+- If you crash at the exact same percent as your best, the crash screen now says "Tied your best!" in gold (instead of "So close!").
+
 ## v8.05
 - When you beat a level, the win screen now shows its difficulty and song name under the title (like "Hard • ♪ Lava Flow"), same idea as the start banner.
 
