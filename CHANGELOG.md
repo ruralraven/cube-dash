@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.01
+- The crash screen now says "attempt 1 - first try, keep going!" when you crash on your very first try.
+
 ## v8.00
 - In practice mode, the crash screen now says "🔧 Practice mode - crashes here don't count" in light blue.
 
