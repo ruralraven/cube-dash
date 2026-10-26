@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.99
+- The NEW BEST crash screen also celebrates every 50th attempt in yellow ("on attempt 100 🎉 wow, 100 tries!").
+
 ## v7.98
 - Every 50th attempt, the crash screen celebrates in yellow, like "attempt 100 🎉 wow, 100 tries!".
 
