@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.05
+- When you beat a level, the win screen now shows its difficulty and song name under the title (like "Hard • ♪ Lava Flow"), same idea as the start banner.
+
 ## v8.04
 - The pause screen now shows which mode you're in right now (CUBE, SHIP, BALL, UFO, WAVE, and so on) in that mode's color, just above the level name.
 - Added a tiny `.nojekyll` file so GitHub Pages serves the game as plain files (a Pages build had failed while Jekyll was reading the changelog).
