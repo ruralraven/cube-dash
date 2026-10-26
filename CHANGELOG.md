@@ -1,7 +1,7 @@
 # Cube Dash Changelog
 
 ## v8.14
-- Under the NEXT button on the win screen, if you've already tried the next level, it now shows your best % next to its name (like "Clockwork Tower  40%").
+- Beside the NEXT button on the win screen, if you've already tried the next level, it now shows its name and your best % (like "Clockwork Tower · 40%").
 
 ## v8.13
 - When you crash, the screen now shows which mode you were in (SHIP, WAVE, UFO, and so on) in that mode's color, above the level name — handy when a section just switched.
