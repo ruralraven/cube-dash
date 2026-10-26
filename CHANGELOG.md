@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.08
+- If you crash at 0%, the crash screen now says "Right at the start — you got this!" so early crashes feel a little friendlier.
+
 ## v8.07
 - If it took you 15 or more tries to beat a level (and it wasn't your first clear), the win screen cheers "💪 Never give up!".
 
