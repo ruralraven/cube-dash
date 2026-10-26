@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.03
+- In practice mode, if you crash before placing a checkpoint, the crash screen now tips you: "◆ Tip: PLACE (Z) a checkpoint so you restart there".
+
 ## v8.02
 - If you beat a level without all 3 coins, the win screen now hints in gold — "🪙 2 more for ALL 3!" or "🪙 No coins this run — look for the shiny ones!".
 
