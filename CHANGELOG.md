@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.17
+- The pause screen's mode line now also shows your current speed (like "SHIP · SPEED 2"), so you can tell when a speed portal changed the pace.
+
 ## v8.16
 - Search results for built-in worlds now show the difficulty (Easy, Normal, Hard, and so on) in that difficulty's color, so you can tell hard levels apart at a glance.
 
