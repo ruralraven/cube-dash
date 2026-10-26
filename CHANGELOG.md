@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.97
+- Normal crash screen now says "Past halfway!" in green when you crash between 50% and 89% (not in practice).
+
 ## v7.96
 - When you get a NEW BEST of 50% or more (but under 90%), the crash screen now says "Past halfway!" in green.
 
