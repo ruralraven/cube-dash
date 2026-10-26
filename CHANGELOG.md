@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v7.96
+- When you get a NEW BEST of 50% or more (but under 90%), the crash screen now says "Past halfway!" in green.
+
 ## v7.95
 - When you grab all 3 coins in one try, the crash screen now says "🪙 3/3 coins this try - all of them!".
 
