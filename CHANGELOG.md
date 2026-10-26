@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.10
+- Beat a level on your second try and the win screen cheers "⚡ Second try!" (when it isn't also your first-ever clear of that level).
+
 ## v8.09
 - The pause screen now shows the level's difficulty and song under the name (like the win screen and start banner).
 
