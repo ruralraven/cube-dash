@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.12
+- In practice mode, the pause screen now shows how many checkpoints you've placed, like "◆ PRACTICE IS ON · 2 checkpoints".
+
 ## v8.11
 - Beat a level on your third try and the win screen cheers "⚡ Third try!" (same rules as Second try — not when the first-clear message already shows).
 
