@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.02
+- If you beat a level without all 3 coins, the win screen now hints in gold — "🪙 2 more for ALL 3!" or "🪙 No coins this run — look for the shiny ones!".
+
 ## v8.01
 - The crash screen now says "attempt 1 - first try, keep going!" when you crash on your very first try.
 
