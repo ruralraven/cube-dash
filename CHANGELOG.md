@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.09
+- The pause screen now shows the level's difficulty and song under the name (like the win screen and start banner).
+
 ## v8.08
 - If you crash at 0%, the crash screen now says "Right at the start — you got this!" so early crashes feel a little friendlier.
 
