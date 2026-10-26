@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.13
+- When you crash, the screen now shows which mode you were in (SHIP, WAVE, UFO, and so on) in that mode's color, above the level name — handy when a section just switched.
+
 ## v8.12
 - In practice mode, the pause screen now shows how many checkpoints you've placed, like "◆ PRACTICE IS ON · 2 checkpoints".
 
