@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.43
+- Search now breaks down how many results are yours, imported, or built-in worlds (like "12 levels found • 2 mine · 1 imported · 9 worlds"), so you can see where matches came from.
+
 ## v8.42
 - While you play with PRACTICE on, a green ◆ PRACTICE label shows under the level name in the HUD, so you always know crashes won’t save a real best.
 
