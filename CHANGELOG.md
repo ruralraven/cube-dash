@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.33
+- In practice mode, placing or removing a checkpoint now flashes a short tip (like "◆ Checkpoint at 45%" or "◆ All checkpoints removed"), so you get clear feedback right away.
+
 ## v8.32
 - On the level-complete screen, the keyboard tips now sit in a clear dark bar (like on pause), so Space/Enter, R, and Esc are easier to read.
 
