@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.25
+- While you play, the top-left HUD now shows the level's difficulty and song under the name (like "Hard • ♪ Magma Core"), so you can see them after the start banner fades.
+
 ## v8.24
 - Search results now show each level's song (built-in worlds under the difficulty, and your/imported levels beside the name), so you can spot the music before you play.
 
