@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.36
+- In Search, the letters that match what you typed light up gold in each result name, so the match is easy to spot.
+
 ## v8.35
 - On the pause screen, the keyboard and controller tip lines are a bit bigger and gold-colored, so the controls are easier to read at a glance.
 
