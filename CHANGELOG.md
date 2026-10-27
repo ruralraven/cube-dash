@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.32
+- On the level-complete screen, the keyboard tips now sit in a clear dark bar (like on pause), so Space/Enter, R, and Esc are easier to read.
+
 ## v8.31
 - Search results for your own levels and imported codes now show the piece count on the right (like "12 pieces"), so you can tell big levels from drafts before you play or edit.
 
