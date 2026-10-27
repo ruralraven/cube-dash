@@ -49,7 +49,7 @@ const COARSE=matchMedia('(pointer:coarse)').matches;let lastSec=-1,dropT=0,liteM
 function setLite(v){LITE=v;save.lite=v;persist()}
 const downs=new Set();['dblclick','gesturestart','contextmenu'].forEach(n=>addEventListener(n,e=>e.preventDefault(),{passive:false}));
 function isFS(){return !!(document.fullscreenElement||document.webkitFullscreenElement)}
-function modeSpdLabel(){if(!pl||!pl.mode)return'';let si=E.SPEEDS.findIndex(s=>Math.abs(s-pl.spd)<.05);if(si<0)si=E.SPEEDS.reduce((b,s,i)=>Math.abs(s-pl.spd)<Math.abs(E.SPEEDS[b]-pl.spd)?i:b,0);return pl.mode.toUpperCase()+' · SPEED '+(si+1)}
+function modeSpdLabel(){if(!pl||!pl.mode)return'';let si=E.SPEEDS.findIndex(s=>Math.abs(s-pl.spd)<.05);if(si<0)si=E.SPEEDS.reduce((b,s,i)=>Math.abs(s-pl.spd)<Math.abs(E.SPEEDS[b]-pl.spd)?i:b,0);return pl.mode.toUpperCase()+(pl.mini?' MINI':'')+' · SPEED '+(si+1)}/* v8.20 */
 let fsMsg='',fsMsgT=0;function fsSay(m){fsMsg=m;fsMsgT=330}
 function isStandalone(){try{return navigator.standalone===true||matchMedia('(display-mode: standalone)').matches||matchMedia('(display-mode: fullscreen)').matches}catch(e){return false}}
 function isIOS(){const u=navigator.userAgent||'';return /iPhone|iPod/.test(u)||(/iPad/.test(u))||(navigator.platform=='MacIntel'&&navigator.maxTouchPoints>1)}

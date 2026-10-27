@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.20
+- When you're in mini size, the pause and crash mode lines now say MINI too (like "SHIP MINI · SPEED 2"), so you can tell why jumps feel different.
+
 ## v8.19
 - Beside the NEXT button, the next level's difficulty now appears in its color after the name and best % (like "Clockwork Tower · 40% · Harder").
 
