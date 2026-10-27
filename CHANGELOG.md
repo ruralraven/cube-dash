@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.24
+- Search results now show each level's song (built-in worlds under the difficulty, and your/imported levels beside the name), so you can spot the music before you play.
+
 ## v8.23
 - On the My Levels list, each level now shows its song and speed under the name (like "♪ Bubble Pop • speed 2"), so you can tell them apart without opening each one.
 
