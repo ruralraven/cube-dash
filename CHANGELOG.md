@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.30
+- In the level editor, the undo and redo buttons now look dimmed when there's nothing to undo or redo, so you can tell at a glance if they'll do anything.
+
 ## v8.29
 - On the Icons screen, the preview panel now labels which design you're looking at (like "SHIP · Jet" or "CUBE · Classic"), so the big preview matches the selected tile.
 
