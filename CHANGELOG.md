@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.42
+- While you play with PRACTICE on, a green ◆ PRACTICE label shows under the level name in the HUD, so you always know crashes won’t save a real best.
+
 ## v8.41
 - On the Icons screen, the GLOW button gently pulses when glow is ON, so you can tell the effect is active at a glance.
 
