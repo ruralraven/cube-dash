@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.21
+- When gravity is flipped, the pause and crash mode lines now say UPSIDE too (like "CUBE UPSIDE · SPEED 1"), so upside-down sections are obvious.
+
 ## v8.20
 - When you're in mini size, the pause and crash mode lines now say MINI too (like "SHIP MINI · SPEED 2"), so you can tell why jumps feel different.
 
