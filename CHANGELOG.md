@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.39
+- Full-screen tips are clearer and stay up longer: shorter Home Screen steps for iPhone/iPad, an F11 hint on desktop, and a short “Full screen on / Left full screen” note when it works.
+
 ## v8.38
 - After a crash (once you've played at least a few seconds), the wipeout screen now shows how long that try lasted (like "⏱ 0:42 this try"), same idea as the pause screen timer.
 
