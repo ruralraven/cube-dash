@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.35
+- On the pause screen, the keyboard and controller tip lines are a bit bigger and gold-colored, so the controls are easier to read at a glance.
+
 ## v8.34
 - In the level editor on keyboard/desktop, a small tip now shows the handy shortcuts (Z undo, Y redo, Enter test, Esc menu) above the tool bar.
 
