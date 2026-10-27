@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.34
+- In the level editor on keyboard/desktop, a small tip now shows the handy shortcuts (Z undo, Y redo, Enter test, Esc menu) above the tool bar.
+
 ## v8.33
 - In practice mode, placing or removing a checkpoint now flashes a short tip (like "◆ Checkpoint at 45%" or "◆ All checkpoints removed"), so you get clear feedback right away.
 
