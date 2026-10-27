@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.27
+- World cards on the main menu now show the song next to the difficulty (like "Hard · ♪ Frostbite"), so you can see the music before you tap play.
+
 ## v8.26
 - Crash screen fix + polish: the level name now actually appears after a wipeout (it was looking at the wrong place for built-in worlds), and difficulty + song show under it like on pause and the win screen.
 
