@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.23
+- On the My Levels list, each level now shows its song and speed under the name (like "♪ Bubble Pop • speed 2"), so you can tell them apart without opening each one.
+
 ## v8.22
 - The level editor header now always shows the current zoom (like "zoom 70%") next to speed and piece count, so you don't have to tap ZOOM just to check it.
 
