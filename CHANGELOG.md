@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.31
+- Search results for your own levels and imported codes now show the piece count on the right (like "12 pieces"), so you can tell big levels from drafts before you play or edit.
+
 ## v8.30
 - In the level editor, the undo and redo buttons now look dimmed when there's nothing to undo or redo, so you can tell at a glance if they'll do anything.
 
