@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.37
+- On the level-complete screen, the PLAY AGAIN button is bigger — closer to the MENU and NEXT buttons — so it's easier to tap.
+
 ## v8.36
 - In Search, the letters that match what you typed light up gold in each result name, so the match is easy to spot.
 
