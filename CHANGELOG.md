@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.29
+- On the Icons screen, the preview panel now labels which design you're looking at (like "SHIP · Jet" or "CUBE · Classic"), so the big preview matches the selected tile.
+
 ## v8.28
 - In practice mode, the checkpoint counter now also shows where your last checkpoint sits (like "◆ 2 checkpoints · last at 45%"), so you know how far you'll restart.
 
