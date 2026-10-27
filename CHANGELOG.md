@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.28
+- In practice mode, the checkpoint counter now also shows where your last checkpoint sits (like "◆ 2 checkpoints · last at 45%"), so you know how far you'll restart.
+
 ## v8.27
 - World cards on the main menu now show the song next to the difficulty (like "Hard · ♪ Frostbite"), so you can see the music before you tap play.
 
