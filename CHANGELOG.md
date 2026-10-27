@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.38
+- After a crash (once you've played at least a few seconds), the wipeout screen now shows how long that try lasted (like "⏱ 0:42 this try"), same idea as the pause screen timer.
+
 ## v8.37
 - On the level-complete screen, the PLAY AGAIN button is bigger — closer to the MENU and NEXT buttons — so it's easier to tap.
 
