@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.26
+- Crash screen fix + polish: the level name now actually appears after a wipeout (it was looking at the wrong place for built-in worlds), and difficulty + song show under it like on pause and the win screen.
+
 ## v8.25
 - While you play, the top-left HUD now shows the level's difficulty and song under the name (like "Hard • ♪ Magma Core"), so you can see them after the start banner fades.
 
