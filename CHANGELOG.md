@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.41
+- On the Icons screen, the GLOW button gently pulses when glow is ON, so you can tell the effect is active at a glance.
+
 ## v8.40
 - On the main menu, the world card you have selected now gets a clear gold outline, so it's obvious which level is ready to play.
 
