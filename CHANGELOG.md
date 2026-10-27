@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.40
+- On the main menu, the world card you have selected now gets a clear gold outline, so it's obvious which level is ready to play.
+
 ## v8.39
 - Full-screen tips are clearer and stay up longer: shorter Home Screen steps for iPhone/iPad, an F11 hint on desktop, and a short “Full screen on / Left full screen” note when it works.
 
