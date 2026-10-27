@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.22
+- The level editor header now always shows the current zoom (like "zoom 70%") next to speed and piece count, so you don't have to tap ZOOM just to check it.
+
 ## v8.21
 - When gravity is flipped, the pause and crash mode lines now say UPSIDE too (like "CUBE UPSIDE · SPEED 1"), so upside-down sections are obvious.
 
