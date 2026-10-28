@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.58
+- In the level editor, the SPEED button now shows the current speed (like “2×”) in purple, so you can see the pace without reading the header line.
+
 ## v8.57
 - In the level editor, the ZOOM button now shows the current zoom percent (and turns light blue when zoomed out), so you can tell the scale without reading the header line.
 
