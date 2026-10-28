@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.57
+- In the level editor, the ZOOM button now shows the current zoom percent (and turns light blue when zoomed out), so you can tell the scale without reading the header line.
+
 ## v8.56
 - When Search finds no matches, it now suggests a few real world names you can try (in a small tip under the message), so you’re not stuck staring at an empty list.
 
