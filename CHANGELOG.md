@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.54
+- In the level editor, the selected tool name now sits in a small dark chip (gold text) above the palette, so you can see which brush you’re using at a glance.
+
 ## v8.53
 - On the Icons preview, the trail now uses its real colors (fire, stars, bubbles, hearts, rainbow), and a small line under the preview names your Trail and Death effect so they’re easy to confirm.
 
