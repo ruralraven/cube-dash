@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.44
+- On the level-complete screen, if this run didn’t get every coin but you already found more before, it now shows your best coin count too (like "coins 2/3 · best 3/3").
+
 ## v8.43
 - Search now breaks down how many results are yours, imported, or built-in worlds (like "12 levels found • 2 mine · 1 imported · 9 worlds"), so you can see where matches came from.
 
