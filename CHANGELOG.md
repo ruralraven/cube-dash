@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.55
+- On the world menu (desktop/mouse), hovering a level card gently lifts it and brightens it a little, so it’s clearer which world you’re about to click.
+
 ## v8.54
 - In the level editor, the selected tool name now sits in a small dark chip (gold text) above the palette, so you can see which brush you’re using at a glance.
 
