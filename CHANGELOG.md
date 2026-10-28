@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.59
+- When you start a level with PRACTICE on, the big title banner now says “◆ PRACTICE MODE — crashes don’t count,” so you notice practice is active right away.
+
 ## v8.58
 - In the level editor, the SPEED button now shows the current speed (like “2×”) in purple, so you can see the pace without reading the header line.
 
