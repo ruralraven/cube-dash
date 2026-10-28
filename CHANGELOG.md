@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.49
+- In the level editor, the PAINT button softly pulses with a white glow when paint mode is ON, so it’s clearer you’re in drag-to-draw mode.
+
 ## v8.48
 - In Search, the name box gets a gold outline while you have typed a query, so it’s clearer that results are filtered.
 
