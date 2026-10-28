@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.52
+- On the world menu, the level you last played gets a small blue “▶ LAST” badge, so you can find it again even after you move the selection.
+
 ## v8.51
 - In the level editor, choosing the Erase tool now shows a clear red “ERASE MODE” tip (instead of the usual place tip), so it’s obvious you’re deleting pieces.
 
