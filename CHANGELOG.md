@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.51
+- In the level editor, choosing the Erase tool now shows a clear red “ERASE MODE” tip (instead of the usual place tip), so it’s obvious you’re deleting pieces.
+
 ## v8.50
 - The speaker / mute button turns a clear red tint when sound is muted (and the MUTED label is a bit bigger), so it’s easier to notice that audio is off.
 
