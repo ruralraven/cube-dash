@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.46
+- The PRACTICE button on the main menu (and on pause) now softly pulses with a white glow when it’s ON, so it’s clearer that practice mode is active — same idea as the Icons GLOW button.
+
 ## v8.45
 - The crash screen now shows a little progress bar under your percent (with a gold mark at your best), like the pause screen, so you can see how far you got at a glance.
 
