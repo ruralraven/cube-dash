@@ -77,7 +77,7 @@ garage=function(){drawWorld(TH[LV.LEVELS[sel].th],t*60,beat());X.fillStyle='rgba
  const S=icS(),m=IC_MODES[icTab];
  IC_MODES.forEach((md,i)=>{const x=24+i*114;rr(x,80,106,34,10);P(i==icTab?'#ffcf33':'rgba(0,0,0,.4)',2.5);txt(md.toUpperCase(),x+53,103,14,'center',i==icTab?'#2a1a3a':'#fff')});
  // designs 3x2
- const L=MODE_D[m];L.forEach(([nm],k)=>{const x=24+(k%3)*130,y=126+Math.floor(k/3)*112,cur=icDes(m)==k,lock=icLocked(k);rr(x,y,122,104,14);P(cur?'rgba(255,255,255,.4)':'rgba(0,0,0,.35)',cur?5:2.5);
+ const L=MODE_D[m];L.forEach(([nm],k)=>{const x=24+(k%3)*130,y=126+Math.floor(k/3)*112,cur=icDes(m)==k,lock=icLocked(k);rr(x,y,122,104,14);P(cur?'rgba(255,255,255,.4)':'rgba(0,0,0,.35)',cur?5:2.5);if(cur){rr(x,y,122,104,14);X.lineWidth=3.5;X.strokeStyle='#ffcf33';X.stroke()}/* v8.47 */
   X.save();X.translate(x+61,y+46);if(lock)X.globalAlpha=.35;const sv=S.d[m];S.d[m]=k;const fake={rot:t*2,vy:Math.sin(t*2)*5,onG:true,g:1};if(m=='cube')icCube(1,k);else L[k][1](iconCol(),ic2(),fake,LV.LEVELS[sel].th);S.d[m]=sv;X.globalAlpha=1;X.restore();txt(nm,x+61,y+96,13);if(lock)txt(icNeedTxt(k),x+61,y+60,16,'center','#ffcf33')});
  // colors
  const tc=totalCoins();txt('Primary',24,372,14,'left');txt('Secondary',24,412,14,'left');

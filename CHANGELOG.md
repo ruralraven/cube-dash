@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.47
+- On the Icons screen, the design you have selected now gets a gold outline (same idea as the selected world card on the menu), so it’s easier to spot at a glance.
+
 ## v8.46
 - The PRACTICE button on the main menu (and on pause) now softly pulses with a white glow when it’s ON, so it’s clearer that practice mode is active — same idea as the Icons GLOW button.
 
