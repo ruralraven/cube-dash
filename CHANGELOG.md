@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.45
+- The crash screen now shows a little progress bar under your percent (with a gold mark at your best), like the pause screen, so you can see how far you got at a glance.
+
 ## v8.44
 - On the level-complete screen, if this run didn’t get every coin but you already found more before, it now shows your best coin count too (like "coins 2/3 · best 3/3").
 
