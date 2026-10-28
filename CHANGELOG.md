@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.56
+- When Search finds no matches, it now suggests a few real world names you can try (in a small tip under the message), so you’re not stuck staring at an empty list.
+
 ## v8.55
 - On the world menu (desktop/mouse), hovering a level card gently lifts it and brightens it a little, so it’s clearer which world you’re about to click.
 
