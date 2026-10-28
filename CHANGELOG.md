@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.48
+- In Search, the name box gets a gold outline while you have typed a query, so it’s clearer that results are filtered.
+
 ## v8.47
 - On the Icons screen, the design you have selected now gets a gold outline (same idea as the selected world card on the menu), so it’s easier to spot at a glance.
 
