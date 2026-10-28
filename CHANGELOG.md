@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.53
+- On the Icons preview, the trail now uses its real colors (fire, stars, bubbles, hearts, rainbow), and a small line under the preview names your Trail and Death effect so they’re easy to confirm.
+
 ## v8.52
 - On the world menu, the level you last played gets a small blue “▶ LAST” badge, so you can find it again even after you move the selection.
 

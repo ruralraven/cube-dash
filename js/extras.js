@@ -1,4 +1,4 @@
-const CD_VERSION='v8.52';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v8.53';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
