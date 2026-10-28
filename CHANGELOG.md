@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.50
+- The speaker / mute button turns a clear red tint when sound is muted (and the MUTED label is a bit bigger), so it’s easier to notice that audio is off.
+
 ## v8.49
 - In the level editor, the PAINT button softly pulses with a white glow when paint mode is ON, so it’s clearer you’re in drag-to-draw mode.
 
