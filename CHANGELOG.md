@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.63
+- On the Settings screen, each toggle switch now shows a small ON / OFF label inside it, so you can tell each setting’s state without guessing from the color.
+
 ## v8.62
 - On the crash screen, if you grabbed any coins this try, three coin slots light up under the coin line so you can see which ones you got at a glance.
 
