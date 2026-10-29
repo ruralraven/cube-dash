@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.61
+- On the Icons preview, the footer line now also names your Face (with Trail and Death), so you can confirm the whole look at a glance.
+
 ## v8.60
 - On the level-complete screen, the green NEXT ▶ button text gently pulses in size, so it’s easier to spot when the next world is unlocked.
 
