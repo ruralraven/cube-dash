@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.62
+- On the crash screen, if you grabbed any coins this try, three coin slots light up under the coin line so you can see which ones you got at a glance.
+
 ## v8.61
 - On the Icons preview, the footer line now also names your Face (with Trail and Death), so you can confirm the whole look at a glance.
 
