@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.68
+- Fix: the controller’s Start button (and the Enter key) now pauses the game while you’re playing, like the pause screen’s tip says — before, it only un-paused.
+
 ## v8.67
 - Fix: pressing F for full screen while playing, in the editor, on Icons, or on Settings now shows the “Full screen on / Left full screen” message there too (before, it only showed on the menu and pause screen).
 
