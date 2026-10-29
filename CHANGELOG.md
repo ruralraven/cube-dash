@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.69
+- Pressing Esc to leave the level editor now saves your level first, exactly like the EXIT button does.
+
 ## v8.68
 - Fix: the controller’s Start button (and the Enter key) now pauses the game while you’re playing, like the pause screen’s tip says — before, it only un-paused.
 

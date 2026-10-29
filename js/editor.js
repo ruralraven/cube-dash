@@ -50,7 +50,7 @@ function edUp(mx,my){const d=ED.drag;ED.drag=null;if(d&&d.paint){ED.painted=null
 function edLen(){return Math.max(60,...ED.data.o.map(q=>q[1]+20))*T}
 function edScrollBar(mx){ED.cx=Math.max(0,(mx-20)/(W-40)*edLen()-W/2/ED.z)}
 function edKey(k){if(ED.list){const np=Math.ceil(edList().length/6);if(k=='Escape')ED.list=false;else if(np>1&&k=='ArrowRight')ED.lp=(ED.lp+1)%np;else if(np>1&&k=='ArrowLeft')ED.lp=(ED.lp-1+np)%np;return}// v7.60: on My Levels, keys no longer change the hidden level; Esc goes back to the editor
- if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape')scene='menu';else if(k=='z'||k=='Z')edUndo();else if(k=='y'||k=='Y')edRedo()}
+ if(k=='ArrowRight')ED.cx+=4*T;else if(k=='ArrowLeft')ED.cx=Math.max(0,ED.cx-4*T);else if(k>='1'&&k<='9')ED.tool=+k-1;else if(k=='Enter')edTest();else if(k=='Escape'){edSave();scene='menu'}/* v8.69: Esc saves like EXIT */else if(k=='z'||k=='Z')edUndo();else if(k=='y'||k=='Y')edRedo()}
 function edIcon(tl,x,y,th){X.save();X.translate(x,y);X.scale(.72,.72);if(tl=='b')drawBlock({x:-20,y:-20,w:T,h:T},th);else if(tl=='s')drawSpike({t:'s',x:-20,y:-20},th);else if(tl=='sd')drawSpike({t:'sd',x:-20,y:-20},th);
  else if(tl=='o'||tl=='og')drawOrb({t:tl,x:-20,y:-20},0);else if(tl=='od')drawDash({t:tl,x:-20,y:-20},0);else if(tl=='p'||tl=='pg')drawPad({t:tl,x:-20,y:-26});else if(tl=='X'){X.strokeStyle='#ff4d4d';X.lineWidth=6;X.beginPath();X.moveTo(-12,-12);X.lineTo(12,12);X.moveTo(12,-12);X.lineTo(-12,12);X.stroke()}
  else{const k=tl.slice(2);X.beginPath();X.ellipse(0,0,9,20,0,0,7);X.lineWidth=6;X.strokeStyle=MODECOL[k]||'#fff';X.stroke()}X.restore()}
