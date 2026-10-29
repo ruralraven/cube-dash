@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.74
+- Fix: the Icons screen now works with the keyboard and controller — press ↓ to move into the designs, colors and buttons, use the arrows / D-pad to move, and Enter / Space / A / Start to pick. ← → still switch tabs at the top, and mouse/tap still work.
+
 ## v8.73
 - Fix: in Search you can now use ↑ / ↓ (or the controller D-pad) to pick any result and Enter (or Start) to play it — before, Enter could only play the top result.
 
