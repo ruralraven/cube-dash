@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.66
+- Fix: on the MY LEVELS screen, helpful messages (like “You need at least one level” when you try to delete your only level) now actually show up instead of being invisible.
+
 ## v8.65
 - In MY LEVELS, the level you're currently editing now has a small gold “✏ EDITING” tag, so you can tell which one is open.
 
