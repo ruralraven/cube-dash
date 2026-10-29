@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.60
+- On the level-complete screen, the green NEXT ▶ button text gently pulses in size, so it’s easier to spot when the next world is unlocked.
+
 ## v8.59
 - When you start a level with PRACTICE on, the big title banner now says “◆ PRACTICE MODE — crashes don’t count,” so you notice practice is active right away.
 
