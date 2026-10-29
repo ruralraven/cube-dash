@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.65
+- In MY LEVELS, the level you're currently editing now has a small gold “✏ EDITING” tag, so you can tell which one is open.
+
 ## v8.64
 - On the Settings & Trophies screen, a gold progress bar next to the Trophies count fills up as you earn more trophies.
 
