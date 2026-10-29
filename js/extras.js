@@ -1,4 +1,4 @@
-const CD_VERSION='v8.69';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v8.70';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
@@ -38,7 +38,7 @@ function jukeClick(mx,my){if(mx>W/2-90&&mx<W/2+90&&my>H-62){scene='stats';jukeSo
 
 function buzz(ms){try{if(!save.opt.novib&&navigator.vibrate&&!replay)navigator.vibrate(ms)}catch(e){}}
 // ---- Gamepad support: A = jump, Start = play/pause, D-pad = choose world, B = back ----
-(()=>{const map={0:' ',1:'Escape',9:'Enter',14:'ArrowLeft',15:'ArrowRight',12:'ArrowUp',13:'ArrowDown'};let prev={};
+(()=>{const map={0:' ',1:'Escape',2:'z',3:'x',9:'Enter',14:'ArrowLeft',15:'ArrowRight',12:'ArrowUp',13:'ArrowDown'};/* v8.70: X/Y = place/remove practice checkpoint */let prev={};
  function k(type,key){dispatchEvent(new KeyboardEvent(type,{key,bubbles:true}))}
- function poll(){const gs=navigator.getGamepads?navigator.getGamepads():[];const g=[...gs].find(Boolean);if(g){for(const b in map){const on=!!(g.buttons[b]&&g.buttons[b].pressed);if(on&&!prev[b])k('keydown',map[b]);if(!on&&prev[b])k('keyup',map[b]);prev[b]=on}}requestAnimationFrame(poll)}
+ function poll(){const gs=navigator.getGamepads?navigator.getGamepads():[];const g=[...gs].find(Boolean);if(g){for(const b in map){const on=!!(g.buttons[b]&&g.buttons[b].pressed)&&((b!=2&&b!=3)||scene=='play');if(on&&!prev[b])k('keydown',map[b]);if(!on&&prev[b])k('keyup',map[b]);prev[b]=on}}requestAnimationFrame(poll)}
  addEventListener('gamepadconnected',()=>{if(typeof toast!='undefined')try{toast('🎮 Controller connected')}catch(e){}});requestAnimationFrame(poll)})();

@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.70
+- Fix: controller players can now use practice checkpoints — the X button places one and Y removes one (before, only the keyboard Z / X keys could), and the pause screen tip lists them.
+
 ## v8.69
 - Pressing Esc to leave the level editor now saves your level first, exactly like the EXIT button does.
 
