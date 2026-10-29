@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.67
+- Fix: pressing F for full screen while playing, in the editor, on Icons, or on Settings now shows the “Full screen on / Left full screen” message there too (before, it only showed on the menu and pause screen).
+
 ## v8.66
 - Fix: on the MY LEVELS screen, helpful messages (like “You need at least one level” when you try to delete your only level) now actually show up instead of being invisible.
 
