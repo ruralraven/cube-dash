@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.64
+- On the Settings & Trophies screen, a gold progress bar next to the Trophies count fills up as you earn more trophies.
+
 ## v8.63
 - On the Settings screen, each toggle switch now shows a small ON / OFF label inside it, so you can tell each setting’s state without guessing from the color.
 
