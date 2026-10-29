@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.75
+- Fix: in the level editor, ↑ / ↓ (D-pad up/down on a controller) or [ / ] now step through every tool in the toolbar, including the ones past 9 that number keys couldn't reach. The picked tool lights up as usual; mouse/tap, 1–9, undo/redo and zoom are unchanged.
+
 ## v8.74
 - Fix: the Icons screen now works with the keyboard and controller — press ↓ to move into the designs, colors and buttons, use the arrows / D-pad to move, and Enter / Space / A / Start to pick. ← → still switch tabs at the top, and mouse/tap still work.
 
