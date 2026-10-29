@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.72
+- Fix: in MY LEVELS you can now use ↑ / ↓ (or the controller D-pad) to choose a level and Enter / Space (or A / Start) to open it — before, picking a level needed a mouse or tap.
+
 ## v8.71
 - Fix: on the Settings screen you can now use ↑ / ↓ (or the controller D-pad) to pick a setting and Space / Enter (or A / Start) to switch it on or off — before, settings only worked with a mouse or tap.
 
