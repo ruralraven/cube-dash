@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.73
+- Fix: in Search you can now use ↑ / ↓ (or the controller D-pad) to pick any result and Enter (or Start) to play it — before, Enter could only play the top result.
+
 ## v8.72
 - Fix: in MY LEVELS you can now use ↑ / ↓ (or the controller D-pad) to choose a level and Enter / Space (or A / Start) to open it — before, picking a level needed a mouse or tap.
 
