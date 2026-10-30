@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.80
+- Polish: the editor grid cursor's tag now shows the selected tool's icon and name next to "col · row" (e.g. "Spike · col 7 · row 2").
+
 ## v8.79
 - New: editor zoom keys + / − (zoom in/out between 50%, 70% and 100%), and controller LB/RB for undo/redo and LT/RT for zoom out/in (editor only). The Editor Controls panel and key hint list them.
 
