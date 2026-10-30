@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v8.87
+- Polish: the Icons screen's top line now shows how many designs you've unlocked (like "4/6 designs unlocked — more as you play", or "all 6 designs unlocked ✅").
+- Tools: publish.sh no longer waits 7 minutes when its check marker isn't in the file (it falls back to checking the live CD_VERSION), and it always confirms the live version matches.
+
 ## v8.86
 - Polish: the editor's Controls panel (H) now also lists Mute (M / speaker button) and Full screen (F), which already worked in the editor. (M stays off on the Search screen on purpose, so you can type "m" in level names; the speaker button still mutes there.)
 

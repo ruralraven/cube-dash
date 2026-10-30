@@ -15,4 +15,7 @@ cd /tmp/cd
 git add -A
 git commit -qm "$1"
 git push -q
-for i in $(seq 1 40); do curl -sf "https://ruralraven.github.io/cube-dash/${3:-js/game.js}?v=$RANDOM" | grep -F "$2" >/dev/null && { echo "LIVE after $((i*10))s"; exit 0; }; sleep 10; done; echo "NOT LIVE YET"; exit 1
+# v8.87: if the marker is not in the local file it can never show up live (v8.86 waited 7 min for that), so fall back to the version line
+F="${3:-js/game.js}"; M="$2"
+if ! grep -qF -- "$M" "/workspace/cube-dash/$F"; then echo "note: marker '$M' not found in $F; checking js/extras.js for CD_VERSION='$V' instead"; F=js/extras.js; M="CD_VERSION='$V'"; fi
+for i in $(seq 1 40); do curl -sf -m 15 "https://ruralraven.github.io/cube-dash/$F?v=$RANDOM" | grep -F -- "$M" >/dev/null && curl -sf -m 15 "https://ruralraven.github.io/cube-dash/js/extras.js?v=$RANDOM" | grep -F "CD_VERSION='$V'" >/dev/null && { echo "LIVE after $((i*10))s ($V)"; exit 0; }; sleep 10; done; echo "NOT LIVE YET"; exit 1
