@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.97
+- Fix: on the pause screen, the "🎯 N% more to reach your best" and "⭐ You are past your best!" lines were printed across the big PAUSED letters; they now sit just under PAUSED where they're readable.
+
 ## v8.96
 - Fix: crash-screen overlaps. The "Practice mode - crashes here don't count", "Almost there!" and "Past halfway!" lines no longer sit on the small line under the level name, and the "⏱ this try" time no longer covers the coin circles. In boss fights with practice on, the PRACTICE label now sits under the boss bar instead of on top of it.
 
