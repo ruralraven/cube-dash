@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.86
+- Polish: the editor's Controls panel (H) now also lists Mute (M / speaker button) and Full screen (F), which already worked in the editor. (M stays off on the Search screen on purpose, so you can type "m" in level names; the speaker button still mutes there.)
+
 ## v8.85
 - Fix: the pause screen's key list now includes "M mute" — the M key already toggled sound everywhere, but it was never listed.
 
