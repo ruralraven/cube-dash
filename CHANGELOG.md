@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.77
+- Polish: the editor's keyboard/controller grid cursor now shows a small "col · row" tag, so you can see exactly where a piece will go.
+
 ## v8.76
 - New: build levels without a mouse. In the editor, W/A/S/D (or a controller's left stick) move a dashed grid cursor, Space (controller A) places the current tool there, and Backspace/Delete erases. The view scrolls to follow the cursor; mouse/tap, arrows, 1–9, Z/Y, Enter and Esc are unchanged.
 
