@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.90
+- Fix: on a computer, the main menu's blinking "swipe ▶" hint (which only makes sense on touch screens) now says "→ arrow key for more ▶". Phones and tablets still say "swipe ▶".
+
 ## v8.89
 - Polish: on Settings & Trophies, each unfinished trophy you've started now has a thin gold progress bar along its bottom edge (like Bouncy at 400/1000 filling 40%), so you can see at a glance which ones are close.
 
