@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.96
+- Fix: crash-screen overlaps. The "Practice mode - crashes here don't count", "Almost there!" and "Past halfway!" lines no longer sit on the small line under the level name, and the "⏱ this try" time no longer covers the coin circles. In boss fights with practice on, the PRACTICE label now sits under the boss bar instead of on top of it.
+
 ## v8.95
 - Fix: on the LEVEL COMPLETE screen, the level name and the small line under it were sitting on top of the big title's letters; they're now lifted a little so nothing overlaps.
 
