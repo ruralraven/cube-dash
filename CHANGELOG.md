@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.92
+- New: the browser tab title now shows what you're doing — like "▶ Jungle Jump · 45% – Cube Dash" while playing, "⏸ …" when paused, "🏁 Jungle Jump complete!" on the win screen, and "✏ Level editor" while building. It goes back to the normal title on the menu.
+
 ## v8.91
 - New: on a computer, rolling the mouse wheel (or a two-finger trackpad swipe) on the main menu flips to the next / previous page of worlds, just like swiping on a phone. Arrow keys, the MORE WORLDS button and swiping still work.
 
