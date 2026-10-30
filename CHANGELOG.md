@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.91
+- New: on a computer, rolling the mouse wheel (or a two-finger trackpad swipe) on the main menu flips to the next / previous page of worlds, just like swiping on a phone. Arrow keys, the MORE WORLDS button and swiping still work.
+
 ## v8.90
 - Fix: on a computer, the main menu's blinking "swipe ▶" hint (which only makes sense on touch screens) now says "→ arrow key for more ▶". Phones and tablets still say "swipe ▶".
 
