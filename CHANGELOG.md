@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.88
+- Polish: on the Icons screen, the big preview gives a quick little "pop" whenever you change its design, colors, face, trail, glow or death effect, so you can see your pick took effect. (Switching tabs doesn't pop.)
+
 ## v8.87
 - Polish: the Icons screen's top line now shows how many designs you've unlocked (like "4/6 designs unlocked — more as you play", or "all 6 designs unlocked ✅").
 - Tools: publish.sh no longer waits 7 minutes when its check marker isn't in the file (it falls back to checking the live CD_VERSION), and it always confirms the live version matches.
