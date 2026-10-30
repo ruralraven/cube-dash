@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.82
+- Fix: crashing during an editor ▶ HERE or T (test-from-cursor) run now restarts at that same spot instead of jumping back to the level start. Enter's full test and R still restart from the beginning.
+
 ## v8.81
 - New: test from the cursor in the editor. Press T (controller Y) to start a test run at the grid cursor's column, in the mode, gravity, size and speed set by the portals before that spot. Nothing is saved into the level; Enter still tests from the start.
 

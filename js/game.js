@@ -89,7 +89,7 @@ function step(){if(paused)return;t+=1/60;if(scene=='play'&&save.st)save.st.time+
   trail();
   cam+=((pl.x-260)-cam)*.5;
   if(pl.dead)die();else if(pl.won)win()}
- else if(scene=='dead'){deadT++;if(deadT>(save.practice?35:50)){if(save.practice&&cp)start(lvl,true);else start(lvl)}}
+ else if(scene=='dead'){deadT++;if(deadT>(save.practice?35:50)){if(save.practice&&cp)start(lvl,true);else if(LV.LEVELS[lvl]&&LV.LEVELS[lvl].custom&&!ED.tmp&&ED.hereC!=null)edTestHere(ED.hereC);/* v8.82: crash in a HERE/T test restarts at that spot */else start(lvl)}}
  else if(scene=='win')deadT++;
  for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g||0;p.l-=.025}parts=parts.filter(p=>p.l>0);if(parts.length>600)parts.splice(0,parts.length-600)}
 function trail(){const tr=save.trail,s=pl.sz;let c=TH[LV.LEVELS[lvl].th].trail||'#fff';if(tr==1)c=`hsl(${(t*300)%360},100%,65%)`;else if(tr==2)c=['#ffe14d','#ff8a1a','#ff3b1a'][Math.floor(Math.random()*3)];
