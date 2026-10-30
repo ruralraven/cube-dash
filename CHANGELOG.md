@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.78
+- New: an Editor Controls panel listing every keyboard and controller control (cursor, place, erase, tools, scroll, undo/redo, zoom, test, exit). Open it with H or ?, a controller's Back/Select button, or the new "? CONTROLS" button; close with H, Esc or a tap.
+
 ## v8.77
 - Polish: the editor's keyboard/controller grid cursor now shows a small "col · row" tag, so you can see exactly where a piece will go.
 
