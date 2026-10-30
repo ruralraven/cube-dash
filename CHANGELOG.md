@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.81
+- New: test from the cursor in the editor. Press T (controller Y) to start a test run at the grid cursor's column, in the mode, gravity, size and speed set by the portals before that spot. Nothing is saved into the level; Enter still tests from the start.
+
 ## v8.80
 - Polish: the editor grid cursor's tag now shows the selected tool's icon and name next to "col · row" (e.g. "Spike · col 7 · row 2").
 
