@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.93
+- Polish: while playing, each coin you grab this run drops a little gold dot just under the progress bar at the spot where you got it, so you can see at a glance which coins you have and where they were.
+
 ## v8.92
 - New: the browser tab title now shows what you're doing — like "▶ Jungle Jump · 45% – Cube Dash" while playing, "⏸ …" when paused, "🏁 Jungle Jump complete!" on the win screen, and "✏ Level editor" while building. It goes back to the normal title on the menu.
 
