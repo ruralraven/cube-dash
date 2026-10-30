@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.79
+- New: editor zoom keys + / − (zoom in/out between 50%, 70% and 100%), and controller LB/RB for undo/redo and LT/RT for zoom out/in (editor only). The Editor Controls panel and key hint list them.
+
 ## v8.78
 - New: an Editor Controls panel listing every keyboard and controller control (cursor, place, erase, tools, scroll, undo/redo, zoom, test, exit). Open it with H or ?, a controller's Back/Select button, or the new "? CONTROLS" button; close with H, Esc or a tap.
 
