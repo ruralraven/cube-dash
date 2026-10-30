@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.84
+- Polish: during an editor ▶ HERE / T test, a small "▶ TESTING FROM COL N • R restarts here" tag shows at the top, so you know where crashes and R will put you.
+
 ## v8.83
 - Fix: pressing R or the pause menu's RESTART during an editor ▶ HERE / T test now restarts at that same spot (matching v8.82's crash respawn) instead of the level start. Enter's full test is unchanged.
 
