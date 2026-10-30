@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.95
+- Fix: on the LEVEL COMPLETE screen, the level name and the small line under it were sitting on top of the big title's letters; they're now lifted a little so nothing overlaps.
+
 ## v8.94
 - Polish: in the editor, after the first tap on CLEAR the button turns red and reads "SURE?" for the 2 seconds a second tap would erase everything, so it's obvious it's armed. Also fixed CLEAR sometimes needing an extra tap right after opening the editor.
 - Tools: publish.sh now waits up to 15 minutes for GitHub Pages (v8.93 took about 9½).
