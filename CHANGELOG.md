@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v8.94
+- Polish: in the editor, after the first tap on CLEAR the button turns red and reads "SURE?" for the 2 seconds a second tap would erase everything, so it's obvious it's armed. Also fixed CLEAR sometimes needing an extra tap right after opening the editor.
+- Tools: publish.sh now waits up to 15 minutes for GitHub Pages (v8.93 took about 9½).
+
 ## v8.93
 - Polish: while playing, each coin you grab this run drops a little gold dot just under the progress bar at the spot where you got it, so you can see at a glance which coins you have and where they were.
 
