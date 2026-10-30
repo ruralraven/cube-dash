@@ -1,4 +1,4 @@
-const CD_VERSION='v8.75';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
+const CD_VERSION='v8.76';// keep in sync with the top CHANGELOG entry (tools/publish.sh checks this)
 // Cube Dash extras: settings, stats, achievements (+ toasts).
 save.st=Object.assign({att:0,jumps:0,deaths:0,wins:0,time:0,daily:0,edits:0},save.st||{});save.ach=save.ach||{};save.opt=Object.assign({nosfx:false,calm:false},save.opt||{});
 {const _s=Music.sfx.bind(Music);Music.sfx=k=>{if(!save.opt.nosfx)_s(k)}}
@@ -40,5 +40,5 @@ function buzz(ms){try{if(!save.opt.novib&&navigator.vibrate&&!replay)navigator.v
 // ---- Gamepad support: A = jump, Start = play/pause, D-pad = choose world, B = back ----
 (()=>{const map={0:' ',1:'Escape',2:'z',3:'x',9:'Enter',14:'ArrowLeft',15:'ArrowRight',12:'ArrowUp',13:'ArrowDown'};/* v8.70: X/Y = place/remove practice checkpoint */let prev={};
  function k(type,key){dispatchEvent(new KeyboardEvent(type,{key,bubbles:true}))}
- function poll(){const gs=navigator.getGamepads?navigator.getGamepads():[];const g=[...gs].find(Boolean);if(g){for(const b in map){const on=!!(g.buttons[b]&&g.buttons[b].pressed)&&((b!=2&&b!=3)||scene=='play');if(on&&!prev[b])k('keydown',map[b]);if(!on&&prev[b])k('keyup',map[b]);prev[b]=on}}requestAnimationFrame(poll)}
+ function poll(){const gs=navigator.getGamepads?navigator.getGamepads():[];const g=[...gs].find(Boolean);if(g){/* v8.76: left stick moves the editor cursor */if(scene=='edit'&&g.axes&&g.axes.length>1){const ax=[[g.axes[0]<-.5,'a'],[g.axes[0]>.5,'d'],[g.axes[1]<-.5,'w'],[g.axes[1]>.5,'s']];for(const[on,key]of ax){if(on&&!prev['ax'+key])k('keydown',key);if(!on&&prev['ax'+key])k('keyup',key);prev['ax'+key]=on}}for(const b in map){const on=!!(g.buttons[b]&&g.buttons[b].pressed)&&((b!=2&&b!=3)||scene=='play');if(on&&!prev[b])k('keydown',map[b]);if(!on&&prev[b])k('keyup',map[b]);prev[b]=on}}requestAnimationFrame(poll)}
  addEventListener('gamepadconnected',()=>{if(typeof toast!='undefined')try{toast('🎮 Controller connected')}catch(e){}});requestAnimationFrame(poll)})();

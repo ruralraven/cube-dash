@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.76
+- New: build levels without a mouse. In the editor, W/A/S/D (or a controller's left stick) move a dashed grid cursor, Space (controller A) places the current tool there, and Backspace/Delete erases. The view scrolls to follow the cursor; mouse/tap, arrows, 1–9, Z/Y, Enter and Esc are unchanged.
+
 ## v8.75
 - Fix: in the level editor, ↑ / ↓ (D-pad up/down on a controller) or [ / ] now step through every tool in the toolbar, including the ones past 9 that number keys couldn't reach. The picked tool lights up as usual; mouse/tap, 1–9, undo/redo and zoom are unchanged.
 
