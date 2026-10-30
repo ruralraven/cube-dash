@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v8.99
+- Fix: on the main menu, locked worlds' faded name and "0%" no longer show through behind the "🔒 name / collect N coins" text (the lock cover is darker).
+- Fix: in the editor, the grid cursor's tag flips below the cursor sooner near the top, so it no longer touches the level info line.
+
 ## v8.98
 - Fix: pausing a boss fight with practice on no longer shows the "◆ PRACTICE IS ON" line on top of the dimmed boss name and PRACTICE label; those two are hidden while paused (the boss health bar stays) and come back when you resume.
 - Fix: the in-run "NEW BEST!" pop-up no longer shows through behind the PAUSED screen; it waits and finishes when you resume.
