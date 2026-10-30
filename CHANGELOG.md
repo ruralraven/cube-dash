@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.89
+- Polish: on Settings & Trophies, each unfinished trophy you've started now has a thin gold progress bar along its bottom edge (like Bouncy at 400/1000 filling 40%), so you can see at a glance which ones are close.
+
 ## v8.88
 - Polish: on the Icons screen, the big preview gives a quick little "pop" whenever you change its design, colors, face, trail, glow or death effect, so you can see your pick took effect. (Switching tabs doesn't pop.)
 
