@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.83
+- Fix: pressing R or the pause menu's RESTART during an editor ▶ HERE / T test now restarts at that same spot (matching v8.82's crash respawn) instead of the level start. Enter's full test is unchanged.
+
 ## v8.82
 - Fix: crashing during an editor ▶ HERE or T (test-from-cursor) run now restarts at that same spot instead of jumping back to the level start. Enter's full test and R still restart from the beginning.
 
