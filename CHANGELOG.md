@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v8.85
+- Fix: the pause screen's key list now includes "M mute" — the M key already toggled sound everywhere, but it was never listed.
+
 ## v8.84
 - Polish: during an editor ▶ HERE / T test, a small "▶ TESTING FROM COL N • R restarts here" tag shows at the top, so you know where crashes and R will put you.
 
