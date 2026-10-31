@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.14
+- Menu: turning PRACTICE on or off (button or P key) now shows a short message saying what it means — practice wins don't count, and turning it off makes them count again.
+
 ## v9.13
 - Search: the "Try:" level names now look like little buttons. On a computer they light up and show the hand pointer when you hover over them.
 
