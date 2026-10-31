@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.20
+- Level start: the big title that shows when a level begins now also tells you your best on that level ("Your best: 55% — beat it!"), or "Already beaten — go for all 3 coins!" if you've finished it.
+
 ## v9.19
 - Menu: the progress bar on each level card now runs full width just under the level name, so the PRACTICE ▶ button no longer covers it and you can see the whole bar (gold once beaten). The PRACTICE button sits in the bottom-right corner, a touch wider, and its tap area moved with it.
 - Fix: the ▶ LAST tag now sits on the card's top edge instead of covering the end of long level names.
