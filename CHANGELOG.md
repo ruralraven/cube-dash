@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.00
+- 🎉 Version 9! The Settings & Trophies screen shows a festive gold "🎉 Cube Dash v9.00!" badge with a few twinkling sparkles in the corner. Thanks for playing!
+
 ## v8.99
 - Fix: on the main menu, locked worlds' faded name and "0%" no longer show through behind the "🔒 name / collect N coins" text (the lock cover is darker).
 - Fix: in the editor, the grid cursor's tag flips below the cursor sooner near the top, so it no longer touches the level info line.
