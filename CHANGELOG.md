@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.01
+- Polish: on the Settings screen, each ON/OFF switch's white knob now slides smoothly across when you flip it, instead of jumping.
+
 ## v9.00
 - 🎉 Version 9! The Settings & Trophies screen shows a festive gold "🎉 Cube Dash v9.00!" badge with a few twinkling sparkles in the corner. Thanks for playing!
 
