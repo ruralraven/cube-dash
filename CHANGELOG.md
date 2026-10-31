@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v9.19
+- Menu: the progress bar on each level card now runs full width just under the level name, so the PRACTICE ▶ button no longer covers it and you can see the whole bar (gold once beaten). The PRACTICE button sits in the bottom-right corner, a touch wider, and its tap area moved with it.
+- Fix: the ▶ LAST tag now sits on the card's top edge instead of covering the end of long level names.
+
 ## v9.18
 - Menu: on a level card, the little progress bar turns gold once you've beaten that level, so finished worlds stand out from ones still in progress (green).
 

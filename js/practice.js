@@ -5,7 +5,7 @@ function pPlace(){if(scene!='play'||!save.practice||paused||!pl||pl.dead)return;
 function pRemove(){if(!save.practice||!cps.length)return;cps.pop();ckpts.pop();cp=cps[cps.length-1]||null;pToast=cps.length?'◆ Removed — back to '+pPct(cp.x)+'%':'◆ All checkpoints removed';pToastT=90;Music.sfx('portal')}/* v8.33 */
 function pSetPractice(on){save.practice=on;persist()}
 const PB_PLACE=[W-384,H-62,152,46],PB_REM=[W-222,H-62,148,46],inB=(b,x,y)=>x>b[0]&&x<b[0]+b[2]&&y>b[1]&&y<b[1]+b[3];
-function pCard(q){const[x,y]=cardXY(q%9);return[x+190,y+62,94,26]}
+function pCard(q){const[x,y]=cardXY(q%9);return[x+174,y+63,108,24]}/* v9.19: bottom-right, no longer over the progress bar */
 addEventListener('keydown',e=>{if(scene!='play'||!save.practice||paused)return;if(e.key=='z'||e.key=='Z')pPlace();else if(e.key=='x'||e.key=='X')pRemove()});
 addEventListener('pointerdown',e=>{const[mx,my]=cv(e);
  if(scene=='menu'){for(let q=page*9;q<Math.min(NL,page*9+9);q++){const i=ORD[q];if(inB(pCard(q),mx,my)){e.stopImmediatePropagation();Music.unlock();sel=i;localStorage.cdSel=sel;if(unlocked(i)){pSetPractice(true);playSel()}else Music.sfx('die');return}}}
