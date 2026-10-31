@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.09
+- Polish: big numbers in the Settings stats boxes (Attempts, Jumps, Deaths, Wins) now have commas, so 12345 jumps reads as 12,345.
+
 ## v9.08
 - Polish: on the menu, the sound/full-screen message now sits a little higher so it no longer touches the "♪ muted" line below it.
 
