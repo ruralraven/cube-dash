@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.02
+- Polish: the "Attempt N" counter in the top-left gives a quick gold pop each time a new attempt starts, so you notice the fresh try.
+
 ## v9.01
 - Polish: on the Settings screen, each ON/OFF switch's white knob now slides smoothly across when you flip it, instead of jumping.
 
