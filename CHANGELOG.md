@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.06
+- New: once you beat today's Daily Run (without practice), the menu's ★ DAILY RUN button reads "✓ DAILY DONE" for the rest of the day. You can still tap it to play again; a new Daily Run brings the star back tomorrow.
+
 ## v9.05
 - Fix: the editor's "⏱" play-time estimate now counts speed portals (Slow / Fast) placed in your level, so levels that change pace partway show the right time. It also updates when you move a piece, not just add one.
 
