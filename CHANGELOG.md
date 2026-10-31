@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.16
+- Practice: every checkpoint you place now shows as a small green diamond on the progress bar at the top, so you can see where your checkpoints are in the level.
+
 ## v9.15
 - Settings: switching Practice mode there now shows the same Practice ON/OFF message as the menu. On the Settings screen the message appears at the top, in place of the title, so it doesn't cover the settings, stats or trophies.
 
