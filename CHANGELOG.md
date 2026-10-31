@@ -1,5 +1,9 @@
 # Cube Dash Changelog
 
+## v9.17
+- Fun: on a few special days the menu title gets little bobbing holiday friends on each side — 🎃 on Halloween, 🎄 on Christmas Eve and Day, 🎆 on New Year's Day, 💖 on Valentine's Day.
+- Checked: practice checkpoint diamonds clear when you restart, switch levels, or start a level from the menu.
+
 ## v9.16
 - Practice: every checkpoint you place now shows as a small green diamond on the progress bar at the top, so you can see where your checkpoints are in the level.
 
