@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.15
+- Settings: switching Practice mode there now shows the same Practice ON/OFF message as the menu. On the Settings screen the message appears at the top, in place of the title, so it doesn't cover the settings, stats or trophies.
+
 ## v9.14
 - Menu: turning PRACTICE on or off (button or P key) now shows a short message saying what it means — practice wins don't count, and turning it off makes them count again.
 
