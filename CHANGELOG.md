@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.10
+- Polish: trophy progress numbers now have commas too (like 1,000/1,000), matching the Stats boxes.
+
 ## v9.09
 - Polish: big numbers in the Settings stats boxes (Attempts, Jumps, Deaths, Wins) now have commas, so 12345 jumps reads as 12,345.
 
