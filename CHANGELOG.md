@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.03
+- Polish: on a computer, hovering the mouse over the in-game ⏸ pause or ⌂ home button now lights it up, so you can tell it's clickable (like the menu cards).
+
 ## v9.02
 - Polish: the "Attempt N" counter in the top-left gives a quick gold pop each time a new attempt starts, so you notice the fresh try.
 
