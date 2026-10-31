@@ -91,7 +91,7 @@ function step(){if(paused)return;t+=1/60;if(scene=='play'&&save.st)save.st.time+
   cam+=((pl.x-260)-cam)*.5;
   if(pl.dead)die();else if(pl.won)win()}
  else if(scene=='dead'){deadT++;if(deadT>(save.practice?35:50)){if(save.practice&&cp)start(lvl,true);else if(hereOn())edTestHere(ED.hereC);/* v8.82: crash in a HERE/T test restarts at that spot */else start(lvl)}}
- else if(scene=='win')deadT++;
+ else if(scene=='win'){deadT++;if(firstBeat&&!LITE&&!(save.opt&&save.opt.calm)&&deadT<480&&deadT%3==0)parts.push({x:cam+Math.random()*W,y:-10,vx:(Math.random()-.5)*1.5,vy:2.5+Math.random()*1.5,l:2.6,s:12,shard:1,rot:Math.random()*6,c:['#ffd23d','#ff4dd2','#4df0ff','#7dff7a','#fff'][deadT/3%5|0],g:.01})}/* v9.21: confetti keeps falling the first time you beat a level */
  for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g||0;p.l-=.025}parts=parts.filter(p=>p.l>0);if(parts.length>600)parts.splice(0,parts.length-600)}
 function trail(){const tr=save.trail,s=pl.sz;let c=TH[LV.LEVELS[lvl].th].trail||'#fff';if(tr==1)c=`hsl(${(t*300)%360},100%,65%)`;else if(tr==2)c=['#ffe14d','#ff8a1a','#ff3b1a'][Math.floor(Math.random()*3)];
  const m=pl.mode;if(m=='wave'){wtr.push([pl.x+s/2,pl.y+s/2]);if(wtr.length>60)wtr.shift();return}if(wtr.length)wtr.shift();

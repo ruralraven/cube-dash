@@ -1,7 +1,11 @@
 # Cube Dash Changelog
 
+## v9.21
+- Celebration: the first time you beat a level, confetti keeps gently raining down on the LEVEL COMPLETE screen for a few seconds (skipped in Calm mode and LITE graphics).
+- Docs: the v9.20 entry now mentions the "★ Perfect" level-start line too.
+
 ## v9.20
-- Level start: the big title that shows when a level begins now also tells you your best on that level ("Your best: 55% — beat it!"), or "Already beaten — go for all 3 coins!" if you've finished it.
+- Level start: the big title that shows when a level begins now also tells you your best on that level ("Your best: 55% — beat it!"), or "Already beaten — go for all 3 coins!" if you've finished it, or "★ Perfect — beaten with all 3 coins!" if you've finished it with every coin.
 
 ## v9.19
 - Menu: the progress bar on each level card now runs full width just under the level name, so the PRACTICE ▶ button no longer covers it and you can see the whole bar (gold once beaten). The PRACTICE button sits in the bottom-right corner, a touch wider, and its tap area moved with it.
