@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.11
+- Jukebox: the bottom-left corner now shows which song is playing and where it is in the list (like "song 3 of 20").
+
 ## v9.10
 - Polish: trophy progress numbers now have commas too (like 1,000/1,000), matching the Stats boxes.
 
