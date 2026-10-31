@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.08
+- Polish: on the menu, the sound/full-screen message now sits a little higher so it no longer touches the "♪ muted" line below it.
+
 ## v9.07
 - Polish: pressing M to mute or unmute now shows a short message ("🔇 Sound off — press M to turn it back on" / "🔊 Sound on"), so you know the key worked even when no music was playing.
 
