@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.05
+- Fix: the editor's "⏱" play-time estimate now counts speed portals (Slow / Fast) placed in your level, so levels that change pace partway show the right time. It also updates when you move a piece, not just add one.
+
 ## v9.04
 - New: the level editor's info line now shows about how long your level takes to play (like "⏱ 0:42"), based on its length and speed.
 
