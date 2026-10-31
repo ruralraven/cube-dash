@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.13
+- Search: the "Try:" level names now look like little buttons. On a computer they light up and show the hand pointer when you hover over them.
+
 ## v9.12
 - Search: when nothing matches, you can now click or tap one of the "Try:" level names to search for it straight away.
 
