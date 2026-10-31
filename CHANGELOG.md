@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.18
+- Menu: on a level card, the little progress bar turns gold once you've beaten that level, so finished worlds stand out from ones still in progress (green).
+
 ## v9.17
 - Fun: on a few special days the menu title gets little bobbing holiday friends on each side — 🎃 on Halloween, 🎄 on Christmas Eve and Day, 🎆 on New Year's Day, 💖 on Valentine's Day.
 - Checked: practice checkpoint diamonds clear when you restart, switch levels, or start a level from the menu.
