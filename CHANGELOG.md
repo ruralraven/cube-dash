@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.07
+- Polish: pressing M to mute or unmute now shows a short message ("🔇 Sound off — press M to turn it back on" / "🔊 Sound on"), so you know the key worked even when no music was playing.
+
 ## v9.06
 - New: once you beat today's Daily Run (without practice), the menu's ★ DAILY RUN button reads "✓ DAILY DONE" for the rest of the day. You can still tap it to play again; a new Daily Run brings the star back tomorrow.
 
