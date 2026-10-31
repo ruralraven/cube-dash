@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.04
+- New: the level editor's info line now shows about how long your level takes to play (like "⏱ 0:42"), based on its length and speed.
+
 ## v9.03
 - Polish: on a computer, hovering the mouse over the in-game ⏸ pause or ⌂ home button now lights it up, so you can tell it's clickable (like the menu cards).
 
