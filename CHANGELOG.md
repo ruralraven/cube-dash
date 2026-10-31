@@ -1,5 +1,8 @@
 # Cube Dash Changelog
 
+## v9.12
+- Search: when nothing matches, you can now click or tap one of the "Try:" level names to search for it straight away.
+
 ## v9.11
 - Jukebox: the bottom-left corner now shows which song is playing and where it is in the list (like "song 3 of 20").
 
